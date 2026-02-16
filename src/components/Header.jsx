@@ -73,9 +73,10 @@ export default function Header() {
 
       {/* Second Line: Navigation Items - Sticky */}
       <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 font-sans">
-        <div className="flex h-[80px] w-full items-center px-4 sm:px-6 lg:px-8 xl:px-12 max-w-[1920px] mx-auto">
-          {/* Left Column: Logo (Flexible area) */}
-          <div className="flex-1 flex justify-start items-center">
+        {/* Desktop Header: Hidden on mobile */}
+        <div className="hidden lg:flex h-[80px] w-full items-center px-8 xl:px-12 max-w-[1920px] mx-auto relative">
+          {/* Logo Container - Absolute on the left to never push the Nav */}
+          <div className="absolute left-8 xl:left-12 flex items-center">
             <Link 
               href="/" 
               className={`flex items-center gap-2 transition-all duration-300 ${
@@ -88,52 +89,43 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Middle Column: Nav (Centered strictly) */}
-          <div className="flex-shrink-0 flex justify-center items-center mx-12">
-            <nav className="hidden lg:flex items-center gap-5 xl:gap-10">
-              {['Services', 'Conditions', 'Team', 'Appointments & Information', 'News', 'About'].map((item) => (
-                <div key={item} className="relative group">
-                  <Link href="#" className="flex items-center gap-1 text-[14px] xl:text-[15px] font-bold text-[var(--gw-primary)] hover:text-[var(--gw-secondary)] py-4 whitespace-nowrap">
-                    {item}
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5 transition-transform group-hover:rotate-180 flex-shrink-0">
-                      <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-                    </svg>
-                  </Link>
-                  
-                  {item === 'Services' && (
-                    <div className="absolute top-full -left-4 w-56 bg-white shadow-lg rounded-md border border-gray-100 hidden group-hover:block z-50 p-2">
-                       <div className="flex flex-col gap-1">
-                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">All Services</Link>
-                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Consultations</Link>
-                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Treatments</Link>
-                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Programs</Link>
-                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Ongoing Groups</Link>
-                       </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-              <Link href="#" className="text-[14px] xl:text-[15px] font-bold text-[var(--gw-primary)] hover:text-[var(--gw-secondary)] whitespace-nowrap">
-                Contact
-              </Link>
-            </nav>
-          </div>
-
-          {/* Right Column: Spacer (Symmetric to Left Col) */}
-          <div className="flex-1 hidden lg:flex justify-end items-center">
-            {/* Empty space that balances the logo width exactly */}
-          </div>
-
-         {/* Mobile Menu Button - Right aligned in this second bar which is otherwise empty on mobile except for this button? 
-             Actually, on mobile, the first bar has the Logo. The second bar can just be the hamburger button row. 
-          */}
-        <div className="flex lg:hidden w-full items-center justify-between">
-            {/* Mobile Logo */}
-            <Link href="/" className="flex items-center gap-2">
-                <div className="relative h-10 flex items-center justify-center">
-                    <img src="/icons/logo.svg" alt="Logo" className="h-full w-auto object-contain" />
-                </div>
+          {/* Navigation - Centered strictly in the middle of the 1920px container */}
+          <nav className="flex items-center justify-center w-full gap-4 xl:gap-8 2xl:gap-11">
+            {['Services', 'Conditions', 'Team', 'Appointments & Information', 'News', 'About'].map((item) => (
+              <div key={item} className="relative group">
+                <Link href="#" className="flex items-center gap-1 text-[14px] xl:text-[15px] font-bold text-[var(--gw-primary)] hover:text-[var(--gw-secondary)] py-4 whitespace-nowrap">
+                  {item}
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5 transition-transform group-hover:rotate-180 flex-shrink-0">
+                    <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                  </svg>
+                </Link>
+                
+                {item === 'Services' && (
+                  <div className="absolute top-full -left-4 w-56 bg-white shadow-lg rounded-md border border-gray-100 hidden group-hover:block z-50 p-2">
+                     <div className="flex flex-col gap-1">
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">All Services</Link>
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Consultations</Link>
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Treatments</Link>
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Programs</Link>
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Ongoing Groups</Link>
+                     </div>
+                  </div>
+                )}
+              </div>
+            ))}
+            <Link href="#" className="text-[14px] xl:text-[15px] font-bold text-[var(--gw-primary)] hover:text-[var(--gw-secondary)] whitespace-nowrap">
+              Contact
             </Link>
+          </nav>
+        </div>
+
+        {/* Mobile Header Row: Hidden on desktop */}
+        <div className="lg:hidden flex w-full items-center justify-between px-4 sm:px-6 h-[70px]">
+          <Link href="/" className="flex items-center gap-2">
+              <div className="relative h-10 flex items-center justify-center">
+                  <img src="/icons/logo.svg" alt="Logo" className="h-full w-auto object-contain" />
+              </div>
+          </Link>
 
           <button
             type="button"
@@ -159,7 +151,6 @@ export default function Header() {
             </svg>
           </button>
         </div>
-      </div>
       
         {/* Mobile Menu Dropdown */}
       {/* Mobile Menu Dropdown */}
