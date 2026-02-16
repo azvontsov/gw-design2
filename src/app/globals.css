@@ -2,24 +2,39 @@
 
 
 :root {
-  /* GW Color Palette */
-  --gw-primary: #004D49; /* Deep Teal - Main Brand Color */
-  --gw-primary-dark: #003D3A; /* Darker Shade for hovers */
-  --gw-secondary: #068466; /* Vibrant Green */
-  --gw-secondary-light: #ABCC76; /* Lime Green */
-  --gw-mint: #EEF6F4; /* Very Light Mint Background */
-  --gw-ice: #F4F4F4; /* Light Gray/Ice */
-  --gw-cream: #F5F3EF; /* Cream/Off-white */
-  --gw-apricot: #FFEDCE; /* Light Peach */
-  --gw-gold: #FFC776; /* Gold/Orange */
-  --gw-blue: #0578FF; /* Bright Blue */
-  --gw-teal: #045C47; /* Secondary Teal */
+  /* GW Color Palette - Current: Blue-ish */
+  --gw-primary: #1A365D; /* Deep Navy - Main Brand Color */
+  --gw-primary-dark: #102A43; /* Darker Shade for hovers */
+  --gw-secondary: #2B6CB0; /* Professional Blue */
+  --gw-secondary-light: #90CDF4; /* Soft Sky Blue */
+  --gw-mint: #EDF7FF; /* Very Light Blue Wash */
+  --gw-ice: #F1F5F9; /* Cool Gray/Ice */
+  --gw-cream: #F8FAFC; /* Clean Cool White */
+  --gw-apricot: #FFEBC7; /* Light Peach (Warmth contrast) */
+  --gw-gold: #ED8936; /* Muted Gold/Orange */
+  --gw-blue: #3182CE; /* Brand Blue */
+  --gw-teal: #2A4365; /* Deep Slate Blue */
   --gw-white: #ffffff;
   --gw-black: #000000;
 
+  /* Teal/Green Original (Commented)
+  --gw-primary: #004D49;
+  --gw-primary-dark: #003D3A;
+  --gw-secondary: #068466;
+  --gw-secondary-light: #ABCC76;
+  --gw-mint: #EEF6F4;
+  --gw-ice: #F4F4F4;
+  --gw-cream: #F5F3EF;
+  --gw-apricot: #FFEDCE;
+  --gw-gold: #FFC776;
+  --gw-blue: #0578FF;
+  --gw-teal: #045C47;
+  */
+
   --background: var(--gw-white);
   --foreground: var(--gw-primary);
-}
+} 
+
 
 @layer base {
   html, body {
@@ -58,14 +73,22 @@
   }
 }
 
-.animate-blob {
-  animation: blob 7s infinite;
+@keyframes pulse-soft {
+  0% {
+    transform: scale(1);
+    opacity: 0.4;
+  }
+  50% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 0;
+  }
 }
 
-.animation-delay-2000 {
-  animation-delay: 2s;
+.animate-pulse-soft {
+  animation: pulse-soft 3s infinite ease-in-out;
 }
 
-.animation-delay-4000 {
-  animation-delay: 4s;
-}

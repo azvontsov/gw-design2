@@ -16,7 +16,7 @@ export default function Home() {
         <NewsEvents />
         <DynamicHero />
         <OurServices />
-        <MembershipSection />
+        {/* <MembershipSection /> */}
       </main>
       <Footer />
     </div>

@@ -1,19 +1,26 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Hero() {
   const [isVideoOpen, setIsVideoOpen] = useState(false);
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   return (
     <section className="relative bg-[var(--gw-cream)] pt-12 pb-20 lg:pt-20 lg:pb-28 overflow-hidden bg-cover bg-center bg-no-repeat" style={{ backgroundImage: 'url(/images/dc-panorama.png)' }}>
       {/* Dark overlay for background */}
       <div className="absolute inset-0 bg-black/30 z-0"></div>
       <div className="w-full relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-0 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 lg:gap-0 gap-12 items-start">
             {/* Left Content */}
-          <div className="max-w-xl xl:max-w-2xl px-4 sm:px-6 lg:px-8 xl:pl-32 py-12 lg:py-0">
+          <div 
+            className={`max-w-xl xl:max-w-2xl px-4 sm:px-6 lg:px-8 xl:pl-32 pt-20 pb-12 lg:pt-32 lg:pb-32 transition-all duration-1000 delay-300 ${isMounted ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-12'}`}
+          >
             <h1 className="text-5xl font-medium tracking-normal text-[var(--gw-white)] sm:text-[72px] mb-6 leading-[1.1]">
               GW Center for Integrative Medicine
             </h1>
@@ -29,45 +36,55 @@ export default function Hero() {
             </div>
           </div>
           
-          {/* Right - TED Talk Video Showcase */}
-          <div className="relative h-[400px] lg:h-[600px] w-full overflow-hidden">
-            {/* Video Thumbnail Container */}
-            <button 
-              onClick={() => setIsVideoOpen(true)}
-              className="relative w-full h-full group cursor-pointer"
-            >
-              {/* TED Talk thumbnail image */}
-              <img 
-                src="/images/TED.png" 
-                alt="TEDx Talk" 
-                className="absolute inset-0 w-full h-full object-cover"
-              />
-              
-              {/* Dark overlay on hover */}
-              <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors"></div>
-              
-              {/* Play Button Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <div className="w-20 h-20 lg:w-24 lg:h-24 bg-white/90 group-hover:bg-white rounded-full flex items-center justify-center shadow-2xl transform group-hover:scale-110 transition-all duration-300">
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-10 h-10 lg:w-12 lg:h-12 text-[var(--gw-primary)] ml-1">
-                    <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
-                  </svg>
-                </div>
-              </div>
-              
-              {/* TED Badge */}
-              <div className="absolute top-4 left-4 bg-[#FF2B06] text-white px-4 py-2 font-bold text-sm shadow-lg">
-                TEDx
-              </div>
-              
-              {/* Caption */}
-              <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-6">
-                <p className="text-white font-semibold text-lg">Watch Our TEDx Talk</p>
-                <p className="text-white/80 text-sm mt-1">Integrative Medicine Approach</p>
-              </div>
-            </button>
-          </div>
-        </div>
+          {/* Right - TED Talk Showcase: Smaller 'Shield' Design Pinned to Top */}
+          <div 
+            className={`relative w-full lg:w-[320px] lg:h-[480px] aspect-video lg:aspect-auto lg:ml-auto group/video transition-all duration-1000 delay-500 mt-[-48px] lg:-mt-20 ${isMounted ? 'opacity-100 lg:-translate-x-[20%] xl:-translate-x-[120%]' : 'opacity-0 translate-x-12'}`}
+          >
+            <div className="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-none lg:rounded-b-[50px] border-x border-b border-white/20 shadow-[0_15px_40px_rgba(0,0,0,0.3)] overflow-hidden transform transition-transform duration-700 group-hover/video:scale-[1.02]">
+                {/* Video Thumbnail Container */}
+                <button 
+                  onClick={() => setIsVideoOpen(true)}
+                  className="relative w-full h-full cursor-pointer"
+                >
+                  <img 
+                    src="/images/TED.png" 
+                    alt="TEDx Talk" 
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover/video:scale-110"
+                  />
+                  
+                  {/* Gradient Overlays: Darker at bottom for text contrast */}
+                  <div className="absolute inset-0 bg-gradient-to-tr from-[var(--gw-primary)]/40 via-transparent to-black/20"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                  
+                  {/* Internal Content: Compactly aligned for the Smaller Shield shape */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 lg:pb-16 p-6 text-center">
+                    {/* Soft Pulse Play Button - Smaller scale */}
+                    <div className="relative mb-4 lg:mb-6">
+                        <div className="absolute inset-0 animate-pulse-soft rounded-full bg-white/20 scale-150 opacity-0 group-hover/video:opacity-100 transition-opacity"></div>
+                        <div className="w-11 h-11 lg:w-14 lg:h-14 bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl transform hover:scale-110 transition-all duration-300">
+                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 lg:w-6 lg:h-6 text-[#FF2B06] ml-1">
+                            <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
+                          </svg>
+                        </div>
+                    </div>
+
+                    <div className="flex flex-col items-center transform lg:translate-y-4 group-hover/video:translate-y-0 transition-transform duration-500">
+                        {/* TEDx Label */}
+                        <div className="bg-[#FF2B06] text-white px-2 py-0.5 lg:px-3 lg:py-1 font-bold text-[9px] lg:text-[10px] tracking-widest uppercase rounded-sm mb-2 lg:mb-3">
+                          TEDx
+                        </div>
+
+                        {/* Text Content */}
+                        <p className="text-white/80 font-bold text-[8px] lg:text-[9px] uppercase tracking-[0.3em] mb-1 lg:mb-2">Featured Talk</p>
+                        <h3 className="text-white font-serif text-lg lg:text-xl leading-tight drop-shadow-md lg:max-w-[240px]">
+                            Integrative Medicine <br /> 
+                            <span className="italic opacity-80 font-medium text-base lg:text-lg">Beyond symptoms</span>
+                        </h3>
+                    </div>
+                  </div>
+                </button>
+            </div>
+          </div>        </div>
       </div>
 
       {/* Video Modal */}

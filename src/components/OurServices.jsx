@@ -40,7 +40,7 @@ export default function OurServices() {
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 
-            className="text-[72px] leading-[72px] font-medium tracking-normal text-[#004D49] mb-4"
+            className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4"
             
           >
             Our Services

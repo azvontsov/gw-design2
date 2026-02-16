@@ -72,11 +72,15 @@ export default function Header() {
       </div>
 
       {/* Second Line: Navigation Items - Sticky */}
-      <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 font-sans">
+      <header className={`sticky top-0 z-50 w-full font-sans transition-all duration-500 ${
+        isScrolled 
+          ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.08)] py-0' 
+          : 'bg-white border-b border-gray-100 py-0'
+      }`}>
         {/* Desktop Header: Hidden on mobile */}
-        <div className="hidden lg:flex h-[80px] w-full items-center px-8 xl:px-12 max-w-[1920px] mx-auto relative">
-          {/* Logo Container - Absolute on the left to never push the Nav */}
-          <div className="absolute left-8 xl:left-12 flex items-center">
+        <div className="hidden lg:flex h-[80px] w-full items-center px-8 xl:px-12 max-w-[1920px] mx-auto">
+          {/* Logo Column - Fixed width to balance with spacer */}
+          <div className="flex-shrink-0 flex items-center w-[220px] xl:w-[260px]">
             <Link 
               href="/" 
               className={`flex items-center gap-2 transition-all duration-300 ${
@@ -89,8 +93,8 @@ export default function Header() {
             </Link>
           </div>
 
-          {/* Navigation - Centered strictly in the middle of the 1920px container */}
-          <nav className="flex items-center justify-center w-full gap-4 xl:gap-8 2xl:gap-11">
+          {/* Navigation Column - Centered between columns */}
+          <nav className="flex-1 flex items-center justify-center gap-4 xl:gap-5 2xl:gap-11">
             {['Services', 'Conditions', 'Team', 'Appointments & Information', 'News', 'About'].map((item) => (
               <div key={item} className="relative group">
                 <Link href="#" className="flex items-center gap-1 text-[14px] xl:text-[15px] font-bold text-[var(--gw-primary)] hover:text-[var(--gw-secondary)] py-4 whitespace-nowrap">
@@ -117,6 +121,9 @@ export default function Header() {
               Contact
             </Link>
           </nav>
+
+          {/* Spacer Column - Balances the logo to keep navigation centered */}
+          <div className="flex-shrink-0 w-[220px] xl:w-[260px] hidden lg:block"></div>
         </div>
 
         {/* Mobile Header Row: Hidden on desktop */}
