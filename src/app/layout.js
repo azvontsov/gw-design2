@@ -44,8 +44,8 @@ const ginto = localFont({
 });
 
 export const metadata = {
-  title: "One Medical: Primary Care Providers & Doctors",
-  description: "One Medical is a membership-based primary care practice on a mission to make getting high-quality care more affordable, accessible, and enjoyable for all.",
+  title: "GW Center for Integrative Medicine | Holistic Healthcare in DC",
+  description: "The GW Center for Integrative Medicine provides comprehensive, personalized holistic healthcare in Washington DC with over 25 integrative medicine services.",
   icons: {
     icon: '/favicon.ico',
   },

@@ -1,16 +1,26 @@
 "use client";
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [openSubmenu, setOpenSubmenu] = useState(null);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 70);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 font-sans">
-      {/* Top Bar: Logo and Contact Info */}
-      <div className="hidden lg:block">
+    <>
+      {/* Top Bar: Logo and Contact Info - Scrolls away */}
+      <div className={`hidden lg:block bg-white border-b border-gray-100 transition-transform duration-300 ${isScrolled ? '-translate-y-full' : 'translate-y-0'}`}>
         <div className="flex flex-col lg:flex-row h-auto lg:h-[70px] w-full items-center justify-between px-4 sm:px-6 lg:pl-8 lg:pr-0 py-2 lg:py-0 gap-4 lg:gap-0">
             {/* Logo */}
             <Link href="/" className="flex items-center gap-2">
@@ -61,36 +71,58 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Second Line: Navigation Items */}
-      <div className="flex h-[60px] w-full items-center justify-center px-4 sm:px-6 lg:px-8 relative">
-        {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
-          {['Services', 'Conditions', 'Team', 'Appointments and Information', 'News', 'About'].map((item) => (
-            <div key={item} className="relative group">
-      <Link href="#" className="flex items-center gap-1 text-base font-bold text-[var(--gw-primary)] hover:text-[var(--gw-secondary)] py-4">
-                {item}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4 transition-transform group-hover:rotate-180">
-                  <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
-                </svg>
-              </Link>
-              
-              {item === 'Services' && (
-                <div className="absolute top-full -left-4 w-56 bg-white shadow-lg rounded-md border border-gray-100 hidden group-hover:block z-50 p-2">
-                   <div className="flex flex-col gap-1">
-                      <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">All Services</Link>
-                      <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Consultations</Link>
-                      <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Treatments</Link>
-                      <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Programs</Link>
-                      <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Ongoing Groups</Link>
-                   </div>
+      {/* Second Line: Navigation Items - Sticky */}
+      <header className="sticky top-0 z-50 w-full bg-white border-b border-gray-100 font-sans">
+        <div className="flex h-[80px] w-full items-center px-4 sm:px-6 lg:px-8 xl:px-12 max-w-[1920px] mx-auto">
+          {/* Left Column: Logo (Flexible area) */}
+          <div className="flex-1 flex justify-start items-center">
+            <Link 
+              href="/" 
+              className={`flex items-center gap-2 transition-all duration-300 ${
+                isScrolled ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-4 pointer-events-none'
+              }`}
+            >
+              <div className="relative h-9 lg:h-10 flex items-center justify-center">
+                <img src="/icons/logo.svg" alt="Logo" className="h-full w-auto object-contain" />
+              </div>
+            </Link>
+          </div>
+
+          {/* Middle Column: Nav (Centered strictly) */}
+          <div className="flex-shrink-0 flex justify-center items-center mx-12">
+            <nav className="hidden lg:flex items-center gap-5 xl:gap-10">
+              {['Services', 'Conditions', 'Team', 'Appointments & Information', 'News', 'About'].map((item) => (
+                <div key={item} className="relative group">
+                  <Link href="#" className="flex items-center gap-1 text-[14px] xl:text-[15px] font-bold text-[var(--gw-primary)] hover:text-[var(--gw-secondary)] py-4 whitespace-nowrap">
+                    {item}
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" className="w-3.5 h-3.5 transition-transform group-hover:rotate-180 flex-shrink-0">
+                      <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                    </svg>
+                  </Link>
+                  
+                  {item === 'Services' && (
+                    <div className="absolute top-full -left-4 w-56 bg-white shadow-lg rounded-md border border-gray-100 hidden group-hover:block z-50 p-2">
+                       <div className="flex flex-col gap-1">
+                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">All Services</Link>
+                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Consultations</Link>
+                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Treatments</Link>
+                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Programs</Link>
+                          <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Ongoing Groups</Link>
+                       </div>
+                    </div>
+                  )}
                 </div>
-              )}
-            </div>
-          ))}
-          <Link href="#" className="text-base font-bold text-[var(--gw-primary)] hover:text-[var(--gw-secondary)]">
-            Contact
-          </Link>
-        </nav>
+              ))}
+              <Link href="#" className="text-[14px] xl:text-[15px] font-bold text-[var(--gw-primary)] hover:text-[var(--gw-secondary)] whitespace-nowrap">
+                Contact
+              </Link>
+            </nav>
+          </div>
+
+          {/* Right Column: Spacer (Symmetric to Left Col) */}
+          <div className="flex-1 hidden lg:flex justify-end items-center">
+            {/* Empty space that balances the logo width exactly */}
+          </div>
 
          {/* Mobile Menu Button - Right aligned in this second bar which is otherwise empty on mobile except for this button? 
              Actually, on mobile, the first bar has the Logo. The second bar can just be the hamburger button row. 
@@ -173,8 +205,64 @@ export default function Header() {
                 <div className="flex-1 px-6 py-12 flex flex-col gap-12">
                     {/* Main Links */}
                     <div className="flex flex-col items-start gap-0">
-                        <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-4xl md:text-5xl font-serif text-white hover:text-[var(--gw-secondary-light)] transition-colors text-left leading-tight py-1">Services</Link>
-                        <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-4xl md:text-5xl font-serif text-white hover:text-[var(--gw-secondary-light)] transition-colors text-left leading-tight py-1">Conditions</Link>
+                        {/* Services - Expandable */}
+                        <div className="w-full">
+                          <button 
+                            onClick={() => setOpenSubmenu(openSubmenu === 'services' ? null : 'services')}
+                            className="w-full text-left text-4xl md:text-5xl font-serif text-white hover:text-[var(--gw-secondary-light)] transition-colors leading-tight py-1 flex items-center justify-between"
+                          >
+                            Services
+                            <svg 
+                              xmlns="http://www.w3.org/2000/svg" 
+                              viewBox="0 0 20 20" 
+                              fill="currentColor" 
+                              className={`w-8 h-8 transition-transform duration-300 ${openSubmenu === 'services' ? 'rotate-180' : ''}`}
+                            >
+                              <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                            </svg>
+                          </button>
+                          <div 
+                            className={`overflow-hidden transition-all duration-300 ease-in-out ${openSubmenu === 'services' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                          >
+                            <div className="pl-4 pt-4 flex flex-col gap-2">
+                              <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-sans text-[var(--gw-secondary-light)] hover:text-white transition-colors py-2">All Services</Link>
+                              <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-sans text-[var(--gw-secondary-light)] hover:text-white transition-colors py-2">Consultations</Link>
+                              <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-sans text-[var(--gw-secondary-light)] hover:text-white transition-colors py-2">Treatments</Link>
+                              <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-sans text-[var(--gw-secondary-light)] hover:text-white transition-colors py-2">Programs</Link>
+                              <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-sans text-[var(--gw-secondary-light)] hover:text-white transition-colors py-2">Ongoing Groups</Link>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Conditions - Expandable */}
+                        <div className="w-full">
+                          <button 
+                            onClick={() => setOpenSubmenu(openSubmenu === 'conditions' ? null : 'conditions')}
+                            className="w-full text-left text-4xl md:text-5xl font-serif text-white hover:text-[var(--gw-secondary-light)] transition-colors leading-tight py-1 flex items-center justify-between"
+                          >
+                            Conditions
+                            <svg 
+                              xmlns="http://www.w3.org/2000/svg" 
+                              viewBox="0 0 20 20" 
+                              fill="currentColor" 
+                              className={`w-8 h-8 transition-transform duration-300 ${openSubmenu === 'conditions' ? 'rotate-180' : ''}`}
+                            >
+                              <path fillRule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clipRule="evenodd" />
+                            </svg>
+                          </button>
+                          <div 
+                            className={`overflow-hidden transition-all duration-300 ease-in-out ${openSubmenu === 'conditions' ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'}`}
+                          >
+                            <div className="pl-4 pt-4 flex flex-col gap-2">
+                              <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-sans text-[var(--gw-secondary-light)] hover:text-white transition-colors py-2">Chronic Pain</Link>
+                              <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-sans text-[var(--gw-secondary-light)] hover:text-white transition-colors py-2">Digestive Health</Link>
+                              <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-sans text-[var(--gw-secondary-light)] hover:text-white transition-colors py-2">Mental Health</Link>
+                              <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-xl font-sans text-[var(--gw-secondary-light)] hover:text-white transition-colors py-2">Women's Health</Link>
+                            </div>
+                          </div>
+                        </div>
+
+                        {/* Other menu items without submenus */}
                         <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-4xl md:text-5xl font-serif text-white hover:text-[var(--gw-secondary-light)] transition-colors text-left leading-tight py-1">Team</Link>
                         <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-4xl md:text-5xl font-serif text-white hover:text-[var(--gw-secondary-light)] transition-colors text-left leading-tight py-1">Appointments</Link>
                         <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-4xl md:text-5xl font-serif text-white hover:text-[var(--gw-secondary-light)] transition-colors text-left leading-tight py-1">News</Link>
@@ -194,6 +282,7 @@ export default function Header() {
             </div>
         </div>
       )}
-    </header>
+      </header>
+    </>
   );
 }

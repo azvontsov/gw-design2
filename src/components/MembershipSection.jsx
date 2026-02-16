@@ -15,7 +15,6 @@ export default function MembershipSection() {
                          <div className="w-8 h-8 flex items-center justify-center">
                             <img src="/icons/logo.svg" alt="App Logo" className="h-full w-full object-contain" />
                          </div>
-                         <div className="text-xs font-bold text-[var(--gw-primary)]">One Medical</div>
                          <div className="w-6 h-6 bg-gray-200"></div>
                      </div>
                      <div className="space-y-4">

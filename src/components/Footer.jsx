@@ -6,11 +6,10 @@ export default function Footer() {
         <div className="grid grid-cols-2 gap-8 md:grid-cols-4 lg:grid-cols-5">
           <div className="col-span-2 lg:col-span-2">
             <div className="flex items-center gap-2">
-              <img src="/icons/logo.svg" alt="One Medical" className="h-8 w-auto" />
-              <span className="text-2xl font-bold tracking-tight">one medical</span>
+              <img src="/icons/logo.svg" alt="GW Center for Integrative Medicine" className="h-8 w-auto" />
             </div>
             <p className="mt-4 max-w-sm text-sm text-gray-300">
-              One Medical is a membership-based primary care practice on a mission to make getting high-quality care more affordable, accessible, and enjoyable for all.
+              The GW Center for Integrative Medicine provides comprehensive, personalized holistic healthcare in Washington DC.
             </p>
           </div>
           <div>
@@ -58,7 +57,7 @@ export default function Footer() {
         </div>
         <div className="mt-12 border-t border-[var(--gw-secondary)] pt-8">
           <p className="text-sm text-gray-400">
-            &copy; {new Date().getFullYear()} One Medical. All rights reserved.
+            &copy; {new Date().getFullYear()} GW Center for Integrative Medicine. All rights reserved.
           </p>
         </div>
       </div>
