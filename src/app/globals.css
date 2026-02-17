@@ -2,39 +2,18 @@
 
 
 :root {
-  /* GW Color Palette - Current: Blue-ish */
-  --gw-primary: #1A365D; /* Deep Navy - Main Brand Color */
-  --gw-primary-dark: #102A43; /* Darker Shade for hovers */
-  --gw-secondary: #2B6CB0; /* Professional Blue */
-  --gw-secondary-light: #90CDF4; /* Soft Sky Blue */
-  --gw-light-blue: #EDF7FF; /* Very Light Blue Wash */
-  --gw-ice: #F1F5F9; /* Cool Gray/Ice */
-  --gw-cream: #F8FAFC; /* Clean Cool White */
-  --gw-apricot: #FFEBC7; /* Light Peach (Warmth contrast) */
-  --gw-gold: #ED8936; /* Muted Gold/Orange */
-  --gw-green: #ABCC76; /* Muted Green */
-  --gw-blue: #3182CE; /* Brand Blue */
-  --gw-deep-blue: #2A4365; /* Deep Slate Blue */
-  --gw-slate-blue: #535A67; /* Slate Blue */
-  --gw-powder-blue: #9FABBA; /* Powder Blue */
-  --gw-white: #ffffff;
-  --gw-black: #000000;
+  /* ChandraMD Inspired Palette - Nature & Sophistication */
+  --gw-primary: #264D4B; /* Deep Teal - Headings, Footer, Primary Buttons */
+  --gw-primary-dark: #1D3B39; /* Darker Teal */
+  --gw-secondary: #E3DCD2; /* Warm Beige/Taupe - Secondary Backgrounds */
+  --gw-secondary-light: #F3F0EB; /* Light Cream - Main Background */
+  --gw-accent: #C5A065; /* Muted Gold - Accents/Highlights */
+  --gw-text-main: #2D2D2D; /* Dark Charcoal - Body Text */
+  --gw-text-muted: #585858; /* Muted Text */
+  --gw-white: #FFFFFF;
+  --gw-alert: #D9534F; /* Soft Red for errors */
 
-  /* Teal/Green Original (Commented)
-  --gw-primary: #004D49;
-  --gw-primary-dark: #003D3A;
-  --gw-secondary: #068466;
-  --gw-secondary-light: #ABCC76;
-  --gw-mint: #EEF6F4;
-  --gw-ice: #F4F4F4;
-  --gw-cream: #F5F3EF;
-  --gw-apricot: #FFEDCE;
-  --gw-gold: #FFC776;
-  --gw-blue: #0578FF;
-  --gw-teal: #045C47;
-  */
-
-  --background: var(--gw-white);
+  --background: var(--gw-secondary-light);
   --foreground: var(--gw-primary);
 } 
 
@@ -42,7 +21,7 @@
 @layer base {
   html, body {
     font-family: var(--font-ginto), ui-sans-serif, system-ui, sans-serif;
-    color: var(--foreground);
+    color: var(--gw-text-main);
     background: var(--background);
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

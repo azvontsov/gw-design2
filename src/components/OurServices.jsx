@@ -5,147 +5,114 @@ export default function OurServices() {
     {
       id: 1,
       icon: "/images/image1.png",
-      title: "Concierge Integrative Medicine Care",
-      description: "Personalized, comprehensive care with longer appointments and direct access to your care team.",
-      link: "#",
-      linkText: "Learn more"
+      title: "Concierge Integrative Medicine",
+      description: "Personalized, comprehensive care with longer appointments and direct access.",
+      link: "#"
     },
     {
       id: 2,
       icon: "/images/image3.png",
-      title: "Acupuncture | Chinese Medicine",
-      description: "Acupuncture and Chinese Medicine have been used for thousands of years to treat a wide range of conditions.",
-      link: "#",
-      linkText: "Learn more"
+      title: "Acupuncture & Chinese Medicine",
+      description: "Ancient wisdom for modern healing.",
+      link: "#"
     },
     {
       id: 3,
       icon: "/images/image2.png",
-      title: "Integrative Geriatric Consultations",
-      description: "Personalized, comprehensive care for seniors, focusing on quality of life and well-being.",
-      link: "#",
-      linkText: "Learn more"
+      title: "Integrative Geriatrics",
+      description: "Personalized care for quality of life and healthy aging.",
+      link: "#"
     },
     {
       id: 4,
       icon: "/images/image4.png",
-      title: "Courses & Medical and Support Groups",
-      description: "Educational programs and support groups to empower your health journey.",
-      link: "#",
-      linkText: "Learn more"
+      title: "Support Groups & Classes",
+      description: "Empowering your health journey through community.",
+      link: "#"
     },
     {
       id: 5,
       icon: "/images/image5.png",
-      title: "Celiac Disease",
-      description: "Treatment for celiac disease, an autoimmune condition triggered by gluten.",
-      link: "#",
-      linkText: "Learn more"
+      title: "Celiac & Gut Health",
+      description: "Comprehensive functional approach to digestive wellness.",
+      link: "#"
     },
     {
       id: 6,
       icon: "/images/image6.png",
-      title: "Mindfulness Based Stress Reduction Course",
-      description: "A program that teaches you how to manage stress and anxiety through mindfulness and meditation.",
-      link: "#",
-      linkText: "Learn more"
+      title: "Mindfulness & MBSR",
+      description: "Evidence-based stress reduction techniques.",
+      link: "#"
     },
     {
       id: 7,
       icon: "/images/image7.png",
-      title: "Long Covid",
-      description: "Treatment for long-term symptoms of COVID-19.",
-      link: "#",
-      linkText: "Learn more"  
+      title: "Long Covid Recovery",
+      description: "Targeted protocols for complex post-viral conditions.",
+      link: "#"
     },
     {
       id: 8,
       icon: "/images/image8.png",
-      title: "Weight Management",
-      description: "Treatment for weight management, including weight loss and weight maintenance.",
-      link: "#",
-      linkText: "Learn more"
+      title: "Weight Optimization",
+      description: "Sustainable, metabolic approach to healthy weight.",
+      link: "#"
     }
   ];
 
   return (
-    <section className="py-16 lg:py-24 bg-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+    <section className="py-24 bg-[var(--gw-secondary-light)]">
+      <div className="container mx-auto px-6 max-w-7xl">
+        
+        {/* Header */}
         <div className="text-center mb-16">
-          <h2 
-            className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4"
-            
-          >
-            Our Services
-          </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-            We provide holistic medicine in DC via over 25 services:
+          <p className="text-xs font-bold tracking-[0.2em] text-[var(--gw-accent)] uppercase mb-4">WHAT WE OFFER</p>
+          <h2 className="text-4xl lg:text-5xl font-serif text-[var(--gw-primary)] mb-6">Comprehensive Care Paths</h2>
+          <p className="text-lg text-[var(--gw-text-muted)] max-w-2xl mx-auto">
+            Combining the best of conventional and complementary medicine.
           </p>
-
-            {/* CTA Link */}
-        <Link 
-          href="#services"
-          className="inline-flex items-center pt-8 gap-2 text-lg font-bold text-[var(--gw-secondary)] hover:text-[var(--gw-primary)] transition-colors group"
-        >
-          See all our services
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            viewBox="0 0 20 20" 
-            fill="currentColor" 
-            className="w-5 h-5 transition-transform group-hover:translate-x-1"
-          >
-            <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
-          </svg>
-        </Link>
         </div>
 
-        {/* Services Grid */}
+        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {services.map((service) => (
-            <div key={service.id} className="text-center group">
-              {/* Icon */}
-              <div className="flex justify-center">
-                <img 
-                  src={service.icon} 
-                  alt={service.title}
-                  className="w-48 h-48 object-contain transition-transform duration-300 group-hover:scale-105"
-                />
+            <Link 
+                key={service.id} 
+                href={service.link}
+                className="group bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-transparent hover:border-[var(--gw-secondary-light)]"
+            >
+              <div className="mb-6 overflow-hidden rounded-full w-20 h-20 mx-auto bg-[var(--gw-secondary-light)] flex items-center justify-center">
+                 {/* Placeholder for Icon - using simple img for now */}
+                 <img src={service.icon} alt={service.title} className="w-12 h-12 object-contain opacity-80 group-hover:scale-110 transition-transform duration-500" />
               </div>
-
-              {/* Title */}
-              <h3 
-                className="text-md font-bold text-[var(--gw-primary)] mb-3 px-4"
-                style={{ fontFamily: 'Ginto, Helvetica, sans-serif' }}
-              >
+              
+              <h3 className="text-xl font-serif font-medium text-[var(--gw-primary)] mb-3 text-center group-hover:text-[var(--gw-accent)] transition-colors">
                 {service.title}
               </h3>
-
-              {/* Description */}
-              <p className="text-sm text-gray-600 mb-4 px-4 leading-relaxed">
+              
+              <p className="text-sm text-[var(--gw-text-muted)] text-center leading-relaxed opacity-80 mb-6">
                 {service.description}
               </p>
 
-              {/* Link */}
-              <a 
-                href={service.link}
-                className="inline-flex items-center text-[var(--gw-secondary)] font-semibold text-sm hover:text-[var(--gw-primary)] transition-colors duration-300"
-              >
-                {service.linkText}
-                <svg 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  fill="none" 
-                  viewBox="0 0 24 24" 
-                  strokeWidth={2.5} 
-                  stroke="currentColor" 
-                  className="w-4 h-4 ml-1 transition-transform duration-300 ease-out group-hover:translate-x-2"
-                >
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                </svg>
-              </a>
-            </div>
+              <div className="text-center">
+                  <span className="text-xs font-bold uppercase tracking-widest text-[var(--gw-primary)] border-b border-transparent group-hover:border-[var(--gw-accent)] transition-all">
+                    Learn More
+                  </span>
+              </div>
+            </Link>
           ))}
         </div>
+
+        {/* View All */}
+        <div className="text-center mt-16">
+            <Link 
+                href="/services" 
+                className="inline-block border border-[var(--gw-primary)] text-[var(--gw-primary)] px-8 py-3 rounded-full text-sm font-bold tracking-widest hover:bg-[var(--gw-primary)] hover:text-white transition-all uppercase"
+            >
+                View Can all Services
+            </Link>
+        </div>
+
       </div>
     </section>
   );

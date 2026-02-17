@@ -1,37 +1,35 @@
 
-import Link from "next/link";
 import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import NewsEvents from "@/components/NewsEvents";
 import OurServices from "@/components/OurServices";
-import DynamicHero from "@/components/DynamicHero";
 import Providers from "@/components/Providers";
 import FAQ from "@/components/FAQ";
 import Reviews from "@/components/Reviews";
+import AboutSnippet from "@/components/AboutSnippet";
 
 export default function Home() {
   return (
-    <div className="flex min-h-screen flex-col bg-white">
+    <div className="flex min-h-screen flex-col bg-[var(--gw-background)] font-sans antialiased">
       <Header />
-      <main className="flex-1">
+      <main className="flex-1 w-full flex flex-col">
         <Hero />
-        {/* Divider */}
-        <div className="h-[1px] bg-gray-200 mx-4 sm:mx-6 lg:mx-12 2xl:mx-24"></div>
-        <NewsEvents />
-        <DynamicHero />
-        {/* Divider */}
-        <div className="h-[1px] bg-[var(--gw-powder-blue)] mx-4 sm:mx-6 lg:mx-96 2xl:mx-96"></div>
+        <AboutSnippet />
         <OurServices />
-        {/* Divider */}
-        <div className="h-[1px] bg-[var(--gw-powder-blue)] mx-4 sm:mx-6 lg:mx-12 2xl:mx-24"></div>
-        <Providers />
-        {/* Divider */}
-        <div className="h-[1px] bg-[var(--gw-powder-blue)] mx-4 sm:mx-6 lg:mx-12 2xl:mx-24"></div>
+        
+        {/* Providers Section - maybe add a background color here */}
+        <div className="bg-white">
+            <Providers />
+        </div>
+
+        {/* Reviews Section */}
+        <section className="bg-[var(--gw-secondary-light)] py-12">
+            <Reviews />
+        </section>
+
+        <NewsEvents />
         <FAQ />
-        {/* Divider */}
-        <div className="h-[1px] bg-[var(--gw-powder-blue)] mx-4 sm:mx-6 lg:mx-12 2xl:mx-24"></div>
-        <Reviews />
       </main>
       <Footer />
     </div>
