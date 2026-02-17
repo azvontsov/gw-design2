@@ -30,7 +30,7 @@ export default function Hero() {
             
             {/* CTA Button */}
             <div className="mt-10">
-              <button className="bg-[var(--gw-gold)] hover:bg-[var(--gw-secondary)] text-[var(--gw-primary)] hover:text-[var(--gw-white)] px-8 py-4 font-bold text-lg transition-colors shadow-lg">
+              <button className="bg-[var(--gw-green)] hover:bg-[var(--gw-secondary)] text-[var(--gw-primary)] hover:text-[var(--gw-white)] px-8 py-4 font-bold text-lg transition-colors shadow-lg">
                 New Patient Inquiry Form
               </button>
             </div>

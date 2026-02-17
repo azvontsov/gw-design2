@@ -93,3 +93,23 @@
   animation: pulse-soft 3s infinite ease-in-out;
 }
 
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-ticker-smooth {
+  animation: ticker-scroll 40s linear infinite;
+}
+
+.animate-ticker-smooth:hover {
+  animation-play-state: paused;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
