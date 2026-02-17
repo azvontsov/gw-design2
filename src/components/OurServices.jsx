@@ -33,6 +33,38 @@ export default function OurServices() {
       description: "Educational programs and support groups to empower your health journey.",
       link: "#",
       linkText: "Learn more"
+    },
+    {
+      id: 5,
+      icon: "/images/image5.png",
+      title: "Celiac Disease",
+      description: "Treatment for celiac disease, an autoimmune condition triggered by gluten.",
+      link: "#",
+      linkText: "Learn more"
+    },
+    {
+      id: 6,
+      icon: "/images/image6.png",
+      title: "Mindfulness Based Stress Reduction Course",
+      description: "A program that teaches you how to manage stress and anxiety through mindfulness and meditation.",
+      link: "#",
+      linkText: "Learn more"
+    },
+    {
+      id: 7,
+      icon: "/images/image7.png",
+      title: "Long Covid",
+      description: "Treatment for long-term symptoms of COVID-19.",
+      link: "#",
+      linkText: "Learn more"  
+    },
+    {
+      id: 8,
+      icon: "/images/image8.png",
+      title: "Weight Management",
+      description: "Treatment for weight management, including weight loss and weight maintenance.",
+      link: "#",
+      linkText: "Learn more"
     }
   ];
 
@@ -73,7 +105,7 @@ export default function OurServices() {
           {services.map((service) => (
             <div key={service.id} className="text-center group">
               {/* Icon */}
-              <div className="flex justify-center mb-6">
+              <div className="flex justify-center">
                 <img 
                   src={service.icon} 
                   alt={service.title}
