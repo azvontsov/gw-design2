@@ -36,53 +36,51 @@ export default function Hero() {
             </div>
           </div>
           
-          {/* Right - TED Talk Showcase: Smaller 'Shield' Design Pinned to Top */}
-          <div 
-            className={`relative w-full lg:w-[320px] lg:h-[480px] aspect-video lg:aspect-auto lg:ml-auto group/video transition-all duration-1000 delay-500 mt-[-48px] lg:-mt-20 ${isMounted ? 'opacity-100 lg:-translate-x-[20%] xl:-translate-x-[120%]' : 'opacity-0 translate-x-12'}`}
-          >
-            <div className="absolute inset-0 bg-white/5 backdrop-blur-xl rounded-none lg:rounded-b-[50px] border-x border-b border-white/20 shadow-[0_15px_40px_rgba(0,0,0,0.3)] overflow-hidden transform transition-transform duration-700 group-hover/video:scale-[1.02]">
-                {/* Video Thumbnail Container */}
-                <button 
-                  onClick={() => setIsVideoOpen(true)}
-                  className="relative w-full h-full cursor-pointer"
-                >
+          {/* Right - TED Talk Showcase: Mobile (Shield) -> Desktop (Bookmark) */}
+          <div className="relative mt-8 lg:mt-0 lg:absolute lg:-top-20 xl:-top-20 lg:right-[8%] xl:right-[12%] z-20 w-full lg:w-auto">
+            <div 
+              className={`relative group cursor-pointer transition-all duration-1000 delay-500 ${isMounted ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-12'}`}
+              onClick={() => setIsVideoOpen(true)}
+              style={{ filter: 'drop-shadow(0 25px 40px rgba(0,0,0,0.4))' }}
+            >
+              {/* Container Shape: Full width Shield on Mobile, Bookmark on Desktop */}
+              <div 
+                className="w-full aspect-video lg:aspect-auto lg:w-[280px] lg:h-[420px] xl:w-[320px] xl:h-[480px] bg-black relative overflow-hidden transition-transform duration-500 lg:group-hover:-translate-y-2 rounded-none lg:rounded-none lg:[clip-path:polygon(0_0,100%_0,100%_100%,50%_85%,0_100%)]"
+              >
+                  {/* Background Image */}
                   <img 
                     src="/images/TED.png" 
                     alt="TEDx Talk" 
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover/video:scale-110"
+                    className="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-all duration-700"
                   />
                   
-                  {/* Gradient Overlays: Darker at bottom for text contrast */}
-                  <div className="absolute inset-0 bg-gradient-to-tr from-[var(--gw-primary)]/40 via-transparent to-black/20"></div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent"></div>
+                  {/* Gradient Overlay */}
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/90"></div>
                   
-                  {/* Internal Content: Compactly aligned for the Smaller Shield shape */}
-                  <div className="absolute inset-0 flex flex-col items-center justify-end pb-12 lg:pb-16 p-6 text-center">
-                    {/* Soft Pulse Play Button - Smaller scale */}
-                    <div className="relative mb-4 lg:mb-6">
-                        <div className="absolute inset-0 animate-pulse-soft rounded-full bg-white/20 scale-150 opacity-0 group-hover/video:opacity-100 transition-opacity"></div>
-                        <div className="w-11 h-11 lg:w-14 lg:h-14 bg-white/95 backdrop-blur-md rounded-full flex items-center justify-center shadow-2xl transform hover:scale-110 transition-all duration-300">
-                          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-5 h-5 lg:w-6 lg:h-6 text-[#FF2B06] ml-1">
-                            <path fillRule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clipRule="evenodd" />
-                          </svg>
+                  {/* Content */}
+                  <div className="absolute inset-0 flex flex-col items-center justify-center pt-8 pb-12 lg:pb-16 px-6 text-center">
+                      
+                      {/* Play Button */}
+                      <div className="mb-4 lg:mb-6 relative">
+                        <div className="absolute inset-0 bg-white/10 rounded-full scale-125 opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out border border-white/20"></div>
+                        <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center shadow-lg group-hover:bg-[#FF2B06] group-hover:border-[#FF2B06] transition-all duration-300">
+                           <svg className="w-5 h-5 lg:w-6 lg:h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                         </div>
-                    </div>
+                      </div>
 
-                    <div className="flex flex-col items-center transform lg:translate-y-4 group-hover/video:translate-y-0 transition-transform duration-500">
-                        {/* TEDx Label */}
-                        <div className="bg-[#FF2B06] text-white px-2 py-0.5 lg:px-3 lg:py-1 font-bold text-[9px] lg:text-[10px] tracking-widest uppercase rounded-sm mb-2 lg:mb-3">
-                          TEDx
-                        </div>
-
-                        {/* Text Content */}
-                        <p className="text-white/80 font-bold text-[8px] lg:text-[9px] uppercase tracking-[0.3em] mb-1 lg:mb-2">Featured Talk</p>
-                        <h3 className="text-white font-serif text-lg lg:text-xl leading-tight drop-shadow-md lg:max-w-[240px]">
-                            Integrative Medicine <br /> 
-                            <span className="italic opacity-80 font-medium text-base lg:text-lg">Beyond symptoms</span>
-                        </h3>
-                    </div>
+                      {/* TED Branding */}
+                      <div className="flex flex-col items-center gap-1 transform transition-transform duration-500 group-hover:translate-y-0 lg:translate-y-2">
+                          <span className="text-white/80 text-[10px] lg:text-xs font-bold tracking-[0.2em] uppercase">Featured</span>
+                          <h3 className="text-white font-bold text-2xl lg:text-3xl tracking-tighter drop-shadow-md">
+                            <span className="text-[#FF2B06]">TEDx</span>Talk
+                          </h3>
+                          <div className="h-[2px] w-8 lg:w-12 bg-[#FF2B06] mt-2 lg:mt-3 mb-2 lg:mb-3"></div>
+                          <p className="text-white/90 font-serif text-base lg:text-lg italic leading-tight max-w-[200px]">
+                            "Integrative Medicine: <br/>Beyond Symptoms"
+                          </p>
+                      </div>
                   </div>
-                </button>
+              </div>
             </div>
           </div>        </div>
       </div>
