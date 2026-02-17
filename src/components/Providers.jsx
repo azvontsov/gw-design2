@@ -28,23 +28,23 @@ export default function Providers() {
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4">
+          <h2 className="font-serif text-5xl md:text-6xl text-[var(--gw-primary)] mb-6">
             Our Team
           </h2>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-[var(--gw-text-muted)] max-w-2xl mx-auto leading-relaxed">
             We are a dedicated team of 20+ medical professionals, working
             together and combining our expertise to guide you toward optimal
             health.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16 mb-16">
+        <div className="flex flex-wrap justify-center gap-12 lg:gap-24 mb-16">
           {providers.map((provider) => (
             <div
               key={provider.id}
-              className="flex flex-col items-center text-center gap-4 group cursor-pointer"
+              className="flex flex-col items-center text-center group cursor-pointer"
             >
-              <div className="relative w-48 h-48 md:w-56 md:h-56 xl:w-64 xl:h-64 overflow-hidden rounded-full bg-[#E5E1D8] transition-transform duration-500 group-hover:scale-105">
+              <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden mb-6 filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
                 <img
                   src={provider.image}
                   alt={provider.name}
@@ -52,24 +52,19 @@ export default function Providers() {
                 />
               </div>
 
-              <h3
-                className="text-md font-bold text-[var(--gw-primary)] m-3 px-4"
-                style={{ fontFamily: "Ginto, Helvetica, sans-serif" }}
-              >
+              <h3 className="text-lg font-bold text-[var(--gw-primary)] max-w-[240px] leading-tight">
                 {provider.name}
               </h3>
             </div>
           ))}
         </div>
 
-        <div className="flex justify-center">
+        <div className="text-center">
           <Link
             href="#"
-            className="text-[var(--gw-deep-blue)] font-medium hover:text-[var(--gw-secondary)] transition-all flex items-center gap-1 group w-fit text-lg"
+            className="inline-block text-[var(--gw-text-muted)] text-lg hover:text-[var(--gw-primary)] transition-colors border-b border-transparent hover:border-[var(--gw-primary)] pb-1"
           >
-            <span className="border-b border-transparent group-hover:border-current">
-              See all 20+ providers
-            </span>
+            See all 20+ providers
           </Link>
         </div>
       </div>

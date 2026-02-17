@@ -109,7 +109,7 @@ export default function OurServices() {
                 href="/services" 
                 className="inline-block border border-[var(--gw-primary)] text-[var(--gw-primary)] px-8 py-3 rounded-full text-sm font-bold tracking-widest hover:bg-[var(--gw-primary)] hover:text-white transition-all uppercase"
             >
-                View Can all Services
+                See all our services
             </Link>
         </div>
 
