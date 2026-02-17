@@ -21,7 +21,7 @@ export default function Home() {
         <NewsEvents />
         <DynamicHero />
         {/* Divider */}
-        <div className="h-[1px] bg-[var(--gw-powder-blue)] mx-4 sm:mx-6 lg:mx-96 2xl:mx-96 mt-12"></div>
+        <div className="h-[1px] bg-[var(--gw-powder-blue)] mx-4 sm:mx-6 lg:mx-96 2xl:mx-96"></div>
         <OurServices />
         {/* Divider */}
         <div className="h-[1px] bg-[var(--gw-powder-blue)] mx-4 sm:mx-6 lg:mx-12 2xl:mx-24"></div>

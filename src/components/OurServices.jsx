@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 export default function OurServices() {
   const services = [
     {
@@ -48,6 +50,22 @@ export default function OurServices() {
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             We provide holistic medicine in DC via over 25 services:
           </p>
+
+            {/* CTA Link */}
+        <Link 
+          href="#services"
+          className="inline-flex items-center pt-8 gap-2 text-lg font-bold text-[var(--gw-secondary)] hover:text-[var(--gw-primary)] transition-colors group"
+        >
+          See all our services
+          <svg 
+            xmlns="http://www.w3.org/2000/svg" 
+            viewBox="0 0 20 20" 
+            fill="currentColor" 
+            className="w-5 h-5 transition-transform group-hover:translate-x-1"
+          >
+            <path fillRule="evenodd" d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z" clipRule="evenodd" />
+          </svg>
+        </Link>
         </div>
 
         {/* Services Grid */}
