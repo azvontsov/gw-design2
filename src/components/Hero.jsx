@@ -48,13 +48,13 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
                     href="#" 
-                    className="bg-[var(--gw-primary)] text-white px-10 py-4 rounded-full font-bold tracking-widest hover:bg-[var(--gw-white)] hover:text-[var(--gw-primary)] transition-all duration-300 shadow-lg min-w-[200px]"
+                    className="bg-[var(--gw-primary)] text-white px-10 py-4 rounded-full font-bold tracking-widest hover:bg-[var(--gw-white)] hover:text-[var(--gw-primary)] transition-all duration-300 shadow-lg min-w-[200px] uppercase"
                 >
-                    NEW PATIENTS
+                    New Patient In quiry Form
                 </a>
                 <a 
                     href="#" 
-                    className="border-2 border-white text-white px-10 py-4 rounded-full font-bold tracking-widest hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 min-w-[200px]"
+                    className="border-2 border-white text-white px-10 py-4 rounded-full font-bold tracking-widest hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 min-w-[200px] uppercase"
                 >
                     OUR SERVICES
                 </a>
@@ -63,15 +63,16 @@ export default function Hero() {
       </div>
 
       {/* Trust/Affiliations Bar at Bottom */}
-      <div className="absolute bottom-0 w-full border-t border-white/10 bg-black/20 backdrop-blur-sm z-20">
-          <div className="container mx-auto px-6 py-6">
-              <p className="text-center text-xs font-bold tracking-widest text-white/60 mb-4 uppercase">Trusted By / Affiliated With</p>
-              <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-70 grayscale hover:grayscale-0 transition-all duration-500">
+      <div className="absolute bottom-0 w-full border-t border-white/10 bg-black/40 backdrop-blur-md z-20 text-white">
+          <div className="container mx-auto px-6 py-4">
+              <p className="text-center text-xs font-bold tracking-[0.2em] text-white/70 mb-2 uppercase">Trusted By / Affiliated With</p>
+              <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 md:gap-x-12 opacity-50">
                   {/* Replace with actual logos */}
-                  <span className="text-xl font-serif">George Washington University</span>
-                  <span className="text-xl font-serif">Andrew Weil Center</span>
-                  <span className="text-xl font-serif">ABIM</span>
-                  <span className="text-xl font-serif">Mistletoe Therapy</span>
+                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">George Washington University</span>
+                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">Andrew Weil Center</span>
+                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">ABIM</span>
+                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">TAV Remodeling</span>
+                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">Mistletoe Therapy</span>
               </div>
           </div>
       </div>

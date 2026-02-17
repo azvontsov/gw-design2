@@ -72,7 +72,7 @@ export default function Header() {
         <div className="container mx-auto px-4 lg:px-8 h-24 flex items-center justify-between relative">
             
             {/* Left Spacer (Hidden on mobile used for centering) */}
-            <div className="hidden lg:block w-1/3"></div>
+            <div className="hidden lg:block w-1/3"><Link href="#" className="hover:text-[var(--gw-primary)] font-medium text-[var(--gw-text-muted)] text-lg transition-colors">Mon – Fri 9:00am – 5:00pm</Link></div>
 
             {/* Logo Center */}
             <div className="flex-1 flex justify-center">
@@ -84,8 +84,9 @@ export default function Header() {
 
             {/* Right: Contact & Portal (Desktop) */}
             <div className="hidden lg:flex w-1/3 justify-end items-center gap-6 text-[13px] tracking-wide font-medium text-[var(--gw-text-muted)]">
-                <a href="tel:202-833-5055" className="hover:text-[var(--gw-primary)] transition-colors">202-833-5055</a>
-                <Link href="#" className="hover:text-[var(--gw-primary)] transition-colors">PATIENT PORTAL</Link>
+                <a href="tel:202-833-5055" className="hover:text-[var(--gw-primary)] transition-colors text-lg">202-833-5055</a>
+                <a href="mailto:info@gwcim.com" className="hover:text-[var(--gw-primary)] transition-colors text-lg">info@gwcim.com</a>
+                
             </div>
 
             {/* Mobile Menu Toggle */}
@@ -136,9 +137,9 @@ export default function Header() {
                 <div className="flex-shrink-0 ml-8">
                     <Link 
                         href="#" 
-                        className="bg-[var(--gw-primary)] text-white text-[13px] font-bold tracking-widest px-6 py-3 rounded-full hover:bg-[var(--gw-primary-dark)] transition-all shadow-md transform hover:-translate-y-0.5"
+                        className="bg-[var(--gw-primary)] text-white text-[13px] font-bold tracking-widest px-6 py-3 rounded-full hover:bg-[var(--gw-primary-dark)] transition-all shadow-md transform hover:-translate-y-0.5 uppercase"
                     >
-                        NEW PATIENTS
+                        New Patient Inquiry Form
                     </Link>
                 </div>
             </div>
@@ -184,8 +185,8 @@ export default function Header() {
                             )}
                         </div>
                     ))}
-                    <Link href="#" className="bg-[var(--gw-primary)] text-white text-center py-4 rounded-full font-bold tracking-widest mt-4">
-                        NEW PATIENTS
+                    <Link href="#" className="bg-[var(--gw-primary)] text-white text-center py-4 rounded-full font-bold tracking-widest mt-4 uppercase">
+                        New Patient Inquiry Form
                     </Link>
                 </nav>
             </div>
