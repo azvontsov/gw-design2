@@ -6,8 +6,8 @@ export default function Providers() {
   const providers = [
     {
       id: 1,
-      name: "Joshua Ferey, MD",
-      image: "/images/provider1.png", // I'll assume these will be placed in /public/images
+      name: "Angela Gabriel, MSOM, LAc, SEP",
+      image: "/images/provider1.png",
       link: "#"
     },
     {
@@ -25,7 +25,7 @@ export default function Providers() {
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white border-t border-gray-100">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         
         <div className="text-center mb-16">

@@ -7,7 +7,7 @@
   --gw-primary-dark: #102A43; /* Darker Shade for hovers */
   --gw-secondary: #2B6CB0; /* Professional Blue */
   --gw-secondary-light: #90CDF4; /* Soft Sky Blue */
-  --gw-mint: #EDF7FF; /* Very Light Blue Wash */
+  --gw-light-blue: #EDF7FF; /* Very Light Blue Wash */
   --gw-ice: #F1F5F9; /* Cool Gray/Ice */
   --gw-cream: #F8FAFC; /* Clean Cool White */
   --gw-apricot: #FFEBC7; /* Light Peach (Warmth contrast) */
@@ -15,6 +15,8 @@
   --gw-green: #ABCC76; /* Muted Green */
   --gw-blue: #3182CE; /* Brand Blue */
   --gw-deep-blue: #2A4365; /* Deep Slate Blue */
+  --gw-slate-blue: #535A67; /* Slate Blue */
+  --gw-powder-blue: #9FABBA; /* Powder Blue */
   --gw-white: #ffffff;
   --gw-black: #000000;
 

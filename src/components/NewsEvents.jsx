@@ -85,7 +85,7 @@ export default function NewsEvents() {
   }, [isPaused]);
 
   return (
-    <section className="py-16 lg:py-24 bg-[var(--gw-mint)] overflow-hidden">
+    <section className="py-16 lg:py-24 bg-[var(--gw-light-blue)] overflow-hidden">
       {/* Header - Stays constrained to site grid */}
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24">
         <div className="flex items-end justify-between mb-12 lg:mb-16 px-2">

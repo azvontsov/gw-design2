@@ -15,10 +15,28 @@ export default function Home() {
       <Header />
       <main className="flex-1">
         <Hero />
+        
+        {/* Divider */}
+        <div className="h-[1px] bg-gray-200 mx-4 sm:mx-6 lg:mx-12 2xl:mx-24"></div>
+        
         <NewsEvents />
+        
+       
+        
         <DynamicHero />
+        
+       
+        
         <OurServices />
+        
+        {/* Divider */}
+        <div className="h-[1px] bg-[var(--gw-powder-blue)] mx-4 sm:mx-6 lg:mx-12 2xl:mx-24"></div>
+        
         <Providers />
+        
+        {/* Divider */}
+        <div className="h-[1px] bg-[var(--gw-powder-blue)] mx-4 sm:mx-6 lg:mx-12 2xl:mx-24"></div>
+        
         <FAQ />
         {/* <MembershipSection /> */}
       </main>

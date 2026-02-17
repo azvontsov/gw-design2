@@ -41,14 +41,14 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-24 bg-white border-t border-gray-100">
+    <section className="py-24 bg-white">
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24">
         <div className="max-w-3xl">
           <h2 className="text-5xl md:text-6xl font-serif text-[var(--gw-primary)] mb-12 leading-tight">
             Frequently asked <br /> questions
           </h2>
 
-          <div className="divide-y divide-gray-100 border-t border-gray-100">
+          <div className="divide-y divide-[var(--gw-powder-blue)] border-t border-[var(--gw-powder-blue)]">
             {faqs.map((faq, index) => (
               <div key={index} className="group">
                 <button

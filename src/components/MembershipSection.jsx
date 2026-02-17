@@ -18,7 +18,7 @@ export default function MembershipSection() {
                          <div className="w-6 h-6 bg-gray-200"></div>
                      </div>
                      <div className="space-y-4">
-                         <div className="h-32 bg-[var(--gw-mint)] w-full flex items-center justify-center text-[var(--gw-primary)] text-xs font-semibold">
+                         <div className="h-32 bg-[var(--gw-light-blue)] w-full flex items-center justify-center text-[var(--gw-primary)] text-xs font-semibold">
                              Book a Visit
                          </div>
                          <div className="h-20 bg-gray-50 w-full"></div>

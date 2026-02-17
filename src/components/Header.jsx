@@ -45,7 +45,7 @@ export default function Header() {
             {/* Contact Info & Socials - 3 Colored Boxes */}
             <div className="hidden lg:flex items-stretch h-full ml-auto">
                 {/* Box 1: Address */}
-                <div className="bg-[var(--gw-mint)] px-6 py-1 flex items-center justify-center text-xs font-bold text-[var(--gw-primary)] h-auto">
+                <div className="bg-[var(--gw-light-blue)] px-6 py-1 flex items-center justify-center text-xs font-bold text-[var(--gw-primary)] h-auto">
                     <span className="text-center leading-tight">908 New Hampshire Ave NW<br/>Suite 200 Washington DC</span>
                 </div>
                 
@@ -120,11 +120,11 @@ export default function Header() {
                 {item === 'Services' && (
                   <div className="absolute top-full -left-4 w-56 bg-white shadow-lg rounded-md border border-gray-100 hidden group-hover:block z-50 p-2">
                      <div className="flex flex-col gap-1">
-                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">All Services</Link>
-                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Consultations</Link>
-                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Treatments</Link>
-                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Programs</Link>
-                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-mint)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Ongoing Groups</Link>
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-light-blue)] text-[var(--gw-primary)] text-sm font-medium rounded-md">All Services</Link>
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-light-blue)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Consultations</Link>
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-light-blue)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Treatments</Link>
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-light-blue)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Programs</Link>
+                        <Link href="#" className="px-4 py-2 hover:bg-[var(--gw-light-blue)] text-[var(--gw-primary)] text-sm font-medium rounded-md">Ongoing Groups</Link>
                      </div>
                   </div>
                 )}

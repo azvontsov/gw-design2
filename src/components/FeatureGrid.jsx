@@ -49,7 +49,7 @@ export default function FeatureGrid() {
         <div className="grid grid-cols-1 gap-12 sm:grid-cols-2 lg:grid-cols-4">
           {features.map((feature) => (
             <div key={feature.title} className="flex flex-col items-center text-center group">
-              <div className="mb-6 flex h-16 w-16 items-center justify-center bg-[var(--gw-mint)] text-[var(--gw-primary)] transition-transform duration-300 group-hover:scale-110">
+              <div className="mb-6 flex h-16 w-16 items-center justify-center bg-[var(--gw-light-blue)] text-[var(--gw-primary)] transition-transform duration-300 group-hover:scale-110">
                 {feature.icon}
               </div>
               <h3 className="mb-3 text-xl font-semibold text-[var(--gw-primary)]">
