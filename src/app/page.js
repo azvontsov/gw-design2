@@ -22,13 +22,13 @@ export default function Home() {
         <div className="bg-white">
             <Providers />
         </div>
+        <NewsEvents />
 
         {/* Reviews Section */}
-        <section className="bg-[var(--gw-secondary-light)] py-12">
+        <section className="bg-[var(--gw-secondary-light)]">
             <Reviews />
         </section>
 
-        <NewsEvents />
         <FAQ />
       </main>
       <Footer />

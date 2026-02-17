@@ -82,7 +82,6 @@ export default function OurServices() {
                 className="group bg-white p-8 rounded-sm shadow-sm hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 border border-transparent hover:border-[var(--gw-secondary-light)]"
             >
               <div className="mb-6 overflow-hidden rounded-full w-20 h-20 mx-auto bg-[var(--gw-secondary-light)] flex items-center justify-center">
-                 {/* Placeholder for Icon - using simple img for now */}
                  <img src={service.icon} alt={service.title} className="w-12 h-12 object-contain opacity-80 group-hover:scale-110 transition-transform duration-500" />
               </div>
               

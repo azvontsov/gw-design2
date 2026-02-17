@@ -38,21 +38,21 @@ export default function Providers() {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-12 lg:gap-24 mb-16">
+        <div className="flex flex-wrap justify-center gap-8 lg:gap-12 mb-16">
           {providers.map((provider) => (
             <div
               key={provider.id}
-              className="flex flex-col items-center text-center group cursor-pointer"
+              className="flex flex-col items-center text-center group cursor-pointer w-full max-w-[280px]"
             >
-              <div className="relative w-48 h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 rounded-full overflow-hidden mb-6 filter grayscale-[20%] group-hover:grayscale-0 transition-all duration-500">
+              <div className="relative w-full aspect-[3/4] overflow-hidden rounded-sm mb-6 shadow-md group-hover:shadow-xl transition-all duration-500 filter grayscale-[10%] group-hover:grayscale-0">
                 <img
                   src={provider.image}
                   alt={provider.name}
-                  className="w-full h-full object-cover"
+                  className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
                 />
               </div>
 
-              <h3 className="text-lg font-bold text-[var(--gw-primary)] max-w-[240px] leading-tight">
+              <h3 className="text-lg font-bold text-[var(--gw-primary)] leading-tight px-2">
                 {provider.name}
               </h3>
             </div>
