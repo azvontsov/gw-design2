@@ -107,23 +107,25 @@ export default function Header() {
                         <div key={idx} className="relative group">
                             <Link 
                                 href={item.href} 
-                                className="text-[15px] font-medium text-[var(--gw-primary)] hover:text-[var(--gw-accent)] transition-colors py-5 block"
+                                className="text-[13px] font-bold uppercase tracking-[0.15em] text-[var(--gw-primary)] hover:text-[var(--gw-accent)] transition-colors py-6 block"
                             >
                                 {item.title}
                             </Link>
 
                             {/* Dropdown */}
                             {item.submenu && (
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 w-56 bg-white shadow-lg rounded-sm border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-2 transform translate-y-2 group-hover:translate-y-0">
-                                    {item.submenu.map((sub, sIdx) => (
-                                        <Link 
-                                            key={sIdx} 
-                                            href={sub.href} 
-                                            className="block px-4 py-2 text-[14px] text-[var(--gw-text-main)] hover:text-[var(--gw-primary)] hover:bg-[var(--gw-secondary-light)]"
-                                        >
-                                            {sub.title}
-                                        </Link>
-                                    ))}
+                                <div className="absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] bg-[var(--gw-primary)] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
+                                    <div className="flex flex-col">
+                                        {item.submenu.map((sub, sIdx) => (
+                                            <Link 
+                                                key={sIdx} 
+                                                href={sub.href} 
+                                                className="block px-6 py-4 text-[12px] font-bold uppercase tracking-[0.15em] text-white border-b border-white/20 last:border-0 hover:text-[var(--gw-accent)] hover:bg-black/10 transition-colors text-center"
+                                            >
+                                                {sub.title}
+                                            </Link>
+                                        ))}
+                                    </div>
                                 </div>
                             )}
                         </div>
