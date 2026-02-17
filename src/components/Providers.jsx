@@ -50,7 +50,11 @@ export default function Providers() {
                   className="w-full h-full object-cover"
                 />
               </div>
-              <h3 className="text-xl font-bold text-[var(--gw-deep-blue)] group-hover:text-[var(--gw-secondary)] transition-colors leading-tight max-w-[280px]">
+           
+                <h3 
+                className="text-md font-bold text-[var(--gw-primary)] m-3 px-4"
+                style={{ fontFamily: 'Ginto, Helvetica, sans-serif' }}
+              >
                 {provider.name}
               </h3>
             </div>

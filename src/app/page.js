@@ -7,6 +7,7 @@ import NewsEvents from "@/components/NewsEvents";
 import OurServices from "@/components/OurServices";
 import DynamicHero from "@/components/DynamicHero";
 import Providers from "@/components/Providers";
+import FAQ from "@/components/FAQ";
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
         <DynamicHero />
         <OurServices />
         <Providers />
+        <FAQ />
         {/* <MembershipSection /> */}
       </main>
       <Footer />
