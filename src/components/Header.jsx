@@ -17,6 +17,19 @@ export default function Header() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isMenuOpen]);
+
   return (
     <>
       {/* Top Bar: Logo and Contact Info - Scrolls away */}
@@ -71,8 +84,8 @@ export default function Header() {
         </div>
       </div>
 
-      {/* Second Line: Navigation Items - Sticky */}
-      <header className={`sticky top-0 z-50 w-full font-sans transition-all duration-500 ${
+      {/* Second Line: Navigation Items - Sticky on Desktop */}
+      <header className={`lg:sticky top-0 z-50 w-full font-sans transition-all duration-500 ${
         isScrolled 
           ? 'bg-white/95 backdrop-blur-md shadow-[0_4px_30px_rgba(0,0,0,0.08)] py-0' 
           : 'bg-white border-b border-gray-100 py-0'
@@ -126,7 +139,7 @@ export default function Header() {
           <div className="flex-shrink-0 w-[220px] xl:w-[260px] hidden lg:block"></div>
         </div>
 
-        {/* Mobile Header Row: Hidden on desktop */}
+        {/* Mobile Header Row (Non-Sticky): Hidden on desktop */}
         <div className="lg:hidden flex w-full items-center justify-between px-4 sm:px-6 h-[70px]">
           <Link href="/" className="flex items-center gap-2">
               <div className="relative h-10 flex items-center justify-center">
@@ -158,21 +171,16 @@ export default function Header() {
             </svg>
           </button>
         </div>
+      </header>
       
-        {/* Mobile Menu Dropdown */}
       {/* Mobile Menu Dropdown */}
       {isMenuOpen && (
         <div className="fixed inset-0 z-[100] bg-[var(--gw-primary)] overflow-y-auto">
             <div className="flex flex-col min-h-screen">
                 {/* Header inside Mobile Menu */}
-                <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-[60px] border-b border-[rgba(255,255,255,0.1)]">
+                <div className="flex items-center justify-between px-4 sm:px-6 lg:px-8 h-[70px] border-b border-[rgba(255,255,255,0.1)]">
                      <Link href="/" onClick={() => setIsMenuOpen(false)}>
                         <div className="relative h-10 flex items-center justify-center">
-                            {/* Inverted Logo if available, or just text, or use styling to make logo visible on dark bg if it's transparent. 
-                                Assuming existing logo is SVG with colored paths. If dark green logo on dark green bg, it won't show.
-                                For now, I'll assume the logo might need a white version or filter. 
-                                The user image shows white logo. I will use a filter brightness(0) invert(1) to make it white if it's an image.
-                             */}
                             <img src="/icons/logo.svg" alt="Logo" className="h-full w-auto object-contain brightness-0 invert" />
                         </div>
                     </Link>
@@ -268,7 +276,7 @@ export default function Header() {
                         <Link href="#" onClick={() => setIsMenuOpen(false)} className="text-4xl md:text-5xl font-serif text-white hover:text-[var(--gw-secondary-light)] transition-colors text-left leading-tight py-1">Contact</Link>
                     </div>
 
-                    {/* Secondary/Footer Section (optional, adding to match 'FOR YOU' structure sort of, maybe putting contact info here) */}
+                    {/* Secondary/Footer Section */}
                     <div className="mt-auto pt-8 border-t border-[rgba(255,255,255,0.1)]">
                         <p className="text-xs font-bold text-[var(--gw-secondary-light)] tracking-widest uppercase mb-6">CONTACT US</p>
                          <div className="flex flex-col gap-4">
@@ -280,7 +288,6 @@ export default function Header() {
             </div>
         </div>
       )}
-      </header>
     </>
   );
 }
