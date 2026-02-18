@@ -66,9 +66,8 @@ export default function Header() {
 
   return (
     <>
-      <header className="w-full bg-[var(--gw-secondary-light)] border-b border-[rgba(0,0,0,0.05)] relative z-50">
-        
-        {/* Top Row: Logo Centered, Contact Right */}
+      {/* Top Row: Logo Centered, Contact Right */}
+      <div className="w-full bg-[var(--gw-secondary-light)] relative z-50">
         <div className="container mx-auto px-4 lg:px-8 h-24 flex items-center justify-between relative">
             
             {/* Left Spacer (Hidden on mobile used for centering) */}
@@ -97,9 +96,10 @@ export default function Header() {
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>
             </button>
         </div>
+      </div>
 
-        {/* Bottom Row: Navigation (Desktop) */}
-        <div className="hidden lg:flex border-t border-[rgba(0,0,0,0.03)]">
+      {/* Bottom Row: Navigation (Desktop) - Sticky */}
+      <div className="sticky top-0 z-40 w-full bg-[var(--gw-secondary-light)] border-t border-b border-[rgba(0,0,0,0.05)] hidden lg:flex shadow-sm">
             <div className="container mx-auto px-8 h-16 flex items-center justify-between">
                 
                 {/* Nav Links */}
@@ -143,8 +143,7 @@ export default function Header() {
                     </Link>
                 </div>
             </div>
-        </div>
-      </header>
+      </div>
 
       {/* Mobile Menu Overlay */}
       {isMenuOpen && (
