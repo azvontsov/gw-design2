@@ -153,7 +153,7 @@ export default function NewsEvents() {
 
         {/* --- LINE 1: FEATURED POSTS (Stationary, Large) --- */}
         <div className="mb-20">
-           <h3 className="text-2xl font-bold tracking-[0.2em] uppercase text-[var(--gw-text-muted)] mb-8 px-2">Featured Stories</h3>
+           <h3 className="text-2xl font-bold tracking-[0.2em] uppercase text-[var(--gw-secondary)] mb-8 px-2">Featured Stories</h3>
            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
               {featuredItems.map((item) => (
                 <div key={item.id} className="group cursor-pointer flex flex-col">
@@ -191,7 +191,7 @@ export default function NewsEvents() {
        {/* --- LINE 2: BLOG / ALL EVENTS (Carousel, Smaller) --- */}
         <div className="relative border-t border-gray-100 pt-16 w-full">
             <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24 mb-10 flex items-end justify-between">
-                 <h3 className="text-2xl font-bold tracking-[0.2em] uppercase text-[var(--gw-text-muted)]">Latest from the Blog</h3>
+                 <h3 className="text-2xl font-bold tracking-[0.2em] uppercase text-[var(--gw-secondary)]">Latest from the Blog</h3>
                  
                  {/* Navigation Controls for Carousel */}
                  <div className="flex gap-4">
