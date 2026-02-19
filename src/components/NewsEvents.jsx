@@ -117,6 +117,31 @@ export default function NewsEvents() {
     return () => cancelAnimationFrame(animationFrame);
   }, [isPaused]);
 
+  // Touch/Swipe Logic
+  const touchStart = useRef(null);
+  const touchScrollStart = useRef(null);
+
+  const handleTouchStart = (e) => {
+    setIsPaused(true);
+    touchStart.current = e.touches[0].clientX;
+    if (scrollContainerRef.current) {
+        touchScrollStart.current = scrollContainerRef.current.scrollLeft;
+    }
+  };
+
+  const handleTouchMove = (e) => {
+    if (!touchStart.current || !scrollContainerRef.current) return;
+    const touchCurrent = e.touches[0].clientX;
+    const deltaX = touchStart.current - touchCurrent;
+    scrollContainerRef.current.scrollLeft = touchScrollStart.current + deltaX;
+  };
+
+  const handleTouchEnd = () => {
+    setIsPaused(false);
+    touchStart.current = null;
+    touchScrollStart.current = null;
+  };
+
   return (
     <section className="py-16 lg:py-24 bg-white overflow-hidden">
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24">
@@ -219,9 +244,12 @@ export default function NewsEvents() {
             {/* Carousel Container */}
             <div 
                 ref={scrollContainerRef}
-                className="flex overflow-hidden relative w-full"
+                className="flex overflow-hidden relative w-full cursor-grab active:cursor-grabbing"
                 onMouseEnter={() => setIsPaused(true)}
                 onMouseLeave={() => setIsPaused(false)}
+                onTouchStart={handleTouchStart}
+                onTouchMove={handleTouchMove}
+                onTouchEnd={handleTouchEnd}
             >
                 {displayItems.map((item, idx) => (
                 <div 

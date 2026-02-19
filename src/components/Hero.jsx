@@ -11,7 +11,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative h-[90vh] min-h-[600px] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pb-40 pt-32 lg:pt-0 lg:pb-0">
       
       {/* Background Image with Parallax-like fixed attachment if desired, or absolute */}
       <div 
