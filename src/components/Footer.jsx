@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="footer-section bg-[var(--gw-primary)] text-white pt-20 pb-10 font-sans">
+    <footer className="footer-section bg-[#1A365D] text-white pt-20 pb-10 font-sans">
       <div className="max-w-[1920px] mx-auto px-6 lg:px-12 2xl:px-24">
         
         {/* Top Logo */}
