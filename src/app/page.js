@@ -8,6 +8,7 @@ import Providers from "@/components/Providers";
 import FAQ from "@/components/FAQ";
 import Reviews from "@/components/Reviews";
 import AboutSnippet from "@/components/AboutSnippet";
+import ResourcesQuickLinks from "@/components/ResourcesQuickLinks";
 
 export default function Home() {
   return (
@@ -16,14 +17,10 @@ export default function Home() {
       <main className="flex-1 w-full flex flex-col">
         <Hero />
         <AboutSnippet />
+        <ResourcesQuickLinks />
         <OurServices />
-        
-        {/* Providers Section - maybe add a background color here */}
-        <div className="bg-white">
-            <Providers />
-        </div>
         <NewsEvents />
-
+        <Providers />
         {/* Reviews Section */}
         <section className="bg-[var(--gw-secondary-light)]">
             <Reviews />

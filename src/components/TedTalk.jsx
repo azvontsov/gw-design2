@@ -1,0 +1,120 @@
+"use client";
+
+import { useState } from "react";
+
+export default function TedTalk({ isMounted, className }) {
+  const [isVideoOpen, setIsVideoOpen] = useState(false);
+  
+  const defaultClasses = "relative mt-8 lg:mt-0 lg:absolute lg:-top-20 xl:-top-20 lg:right-[8%] xl:right-[12%] z-20 w-full lg:w-auto";
+
+  return (
+    <>
+      <div className={className || defaultClasses}>
+        <div
+          className={`relative group cursor-pointer flex flex-col items-end transition-all duration-1000 delay-500 ${
+            isMounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-12"
+          }`}
+          onClick={() => setIsVideoOpen(true)}
+          style={{ filter: "drop-shadow(0 25px 40px rgba(0,0,0,0.4))" }}
+        >
+          {/* Container Shape: Full width Shield on Mobile, Bookmark on Desktop */}
+          <div className="w-full aspect-video lg:aspect-auto lg:w-[130px] lg:h-[180px] lg:group-hover:w-[280px] lg:group-hover:h-[420px] xl:group-hover:w-[320px] xl:group-hover:h-[480px] bg-black lg:bg-[#E62B1E] lg:group-hover:bg-black relative overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] lg:group-hover:-translate-y-2 lg:origin-top-right rounded-none lg:rounded-none lg:[clip-path:polygon(0_0,100%_0,100%_100%,50%_85%,0_100%)]">
+            {/* Background Image */}
+            <img
+              src="/images/TED.png"
+              alt="TEDx Talk"
+              className="absolute inset-0 w-full h-full object-cover opacity-80 lg:opacity-20 mix-blend-normal lg:mix-blend-multiply lg:group-hover:opacity-80 lg:group-hover:mix-blend-normal transition-all duration-700"
+            />
+
+            {/* Gradient Overlay */}
+            <div className="absolute inset-0 bg-gradient-to-b from-black/0 via-black/20 to-black/90 lg:via-black/10 lg:to-black/40 lg:group-hover:via-black/20 lg:group-hover:to-black/90 transition-all duration-700"></div>
+
+            {/* Collapsed State Content (Visible initially on Desktop ONLY) */}
+            <div className="absolute inset-0 hidden lg:flex flex-col items-center justify-end pb-8 opacity-100 group-hover:opacity-0 transition-all duration-500">
+              <span className="text-white/90 font-bold text-2xl tracking-tighter rotate-0">
+                TEDx
+              </span>
+              <div className="w-1 h-1 bg-white rounded-full mt-2 animate-pulse"></div>
+            </div>
+
+            {/* Expanded State Content (Visible on Hover for Desktop, Always for Mobile) */}
+            <div className="absolute inset-0 flex flex-col items-center justify-center pt-8 pb-12 lg:pb-16 px-6 text-center lg:opacity-0 lg:group-hover:opacity-100 transition-all duration-500 lg:delay-100">
+              {/* Play Button */}
+              <div className="mb-4 lg:mb-6 relative">
+                <div className="absolute inset-0 bg-white/10 rounded-full scale-125 opacity-0 group-hover:opacity-100 transition-all duration-1000 ease-in-out border border-white/20"></div>
+                <div className="w-12 h-12 lg:w-16 lg:h-16 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center shadow-lg group-hover:bg-[#FF2B06] group-hover:border-[#FF2B06] transition-all duration-300">
+                  <svg
+                    className="w-5 h-5 lg:w-6 lg:h-6 text-white ml-1"
+                    fill="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+
+              {/* TED Branding */}
+              <div className="flex flex-col items-center gap-1 transform transition-transform duration-500 group-hover:translate-y-0 lg:translate-y-2">
+                <span className="text-white/80 text-[10px] lg:text-xs font-bold tracking-[0.2em] uppercase">
+                  Featured
+                </span>
+                <h3 className="text-white font-bold text-2xl lg:text-3xl tracking-tighter drop-shadow-md">
+                  <span className="text-[#FF2B06]">TEDx</span>Talk
+                </h3>
+                <div className="h-[2px] w-8 lg:w-12 bg-[#FF2B06] mt-2 lg:mt-3 mb-2 lg:mb-3"></div>
+                <p className="text-white/90 font-serif text-base lg:text-lg italic leading-tight max-w-[200px]">
+                  "Integrative Medicine: <br />
+                  Beyond Symptoms"
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Video Modal */}
+      {isVideoOpen && (
+        <div
+          className="fixed inset-0 z-[200] bg-black/95 flex items-center justify-center p-4"
+          onClick={() => setIsVideoOpen(false)}
+        >
+          <div
+            className="relative w-full max-w-5xl aspect-video"
+            onClick={(e) => e.stopPropagation()}
+          >
+            {/* Close Button */}
+            <button
+              onClick={() => setIsVideoOpen(false)}
+              className="absolute -top-12 right-0 text-white hover:text-[var(--gw-secondary-light)] transition-colors"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth={2}
+                stroke="currentColor"
+                className="w-8 h-8"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18L18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+
+            {/* Video Player */}
+            <iframe
+              className="w-full h-full"
+              src="https://www.youtube.com/embed/Z1OEoUca6S4?autoplay=1"
+              title="TED Talk Video"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            ></iframe>
+          </div>
+        </div>
+      )}
+    </>
+  );
+}

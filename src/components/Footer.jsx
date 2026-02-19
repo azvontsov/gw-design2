@@ -57,6 +57,11 @@ export default function Footer() {
               Washington, DC 20037
             </p>
 
+            <div className="flex flex-col gap-1 text-[15px] opacity-80 mb-6">
+                 <span className="font-semibold block mb-1">Hours:</span>
+                 <span>Mon – Fri: 9:00am – 5:00pm</span>
+            </div>
+
             <div className="flex flex-col gap-3 text-[15px] opacity-80">
                 <a href="tel:2028335055" className="hover:opacity-100 hover:text-white transition-colors flex items-center gap-2">
                     <span className="font-semibold">Phone:</span> 202-833-5055
@@ -66,26 +71,25 @@ export default function Footer() {
                 </a>
             </div>
             
-            <a href="#" className="mt-6 text-[14px] font-bold text-white hover:text-[#C5A065] transition-colors inline-flex items-center gap-2 uppercase tracking-wide">
+            <a href="#" className="mt-6 text-[14px] font-bold text-white hover:text-[var(--gw-accent)] transition-colors inline-flex items-center gap-2 uppercase tracking-wide">
                 Get Directions <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5"><path d="M5 12h14m-7-7l7 7-7 7"/></svg>
             </a>
           </div>
 
           {/* Column 3: Patient Center */}
-          <div className="flex flex-col">
-            <h3 className="text-sm font-bold tracking-[0.15em] uppercase mb-8 text-white/90 font-serif">Patient Center</h3>
-            <p className="text-[15px] mb-4 opacity-90">Ready to take charge of your health?</p>
+          <div className="flex flex-col gap-4">
+            <h3 className="text-sm font-bold tracking-[0.15em] uppercase mb-4 text-white/90 font-serif">Patient Center</h3>
+            
             <Link 
               href="#" 
-              className="bg-white text-[var(--gw-primary)] w-full py-4 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:bg-gray-100 transition-colors mb-10 text-center block shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300"
+              className="bg-white text-[var(--gw-primary)] w-full py-4 rounded-2xl font-bold text-xs tracking-[0.2em] uppercase hover:bg-gray-100 transition-colors text-center block shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 duration-300"
             >
               New Patient Form
             </Link>
-
-            <p className="text-[15px] mb-4 opacity-90">Already a patient?</p>
+            
             <Link 
               href="#" 
-              className="border border-white text-white w-full py-4 rounded-full font-bold text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-colors text-center block"
+              className="border border-white text-white w-full py-4 rounded-2xl font-bold text-xs tracking-[0.2em] uppercase hover:bg-white/10 transition-colors text-center block"
             >
               Patient Portal
             </Link>

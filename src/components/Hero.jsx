@@ -1,7 +1,7 @@
-
 'use client';
 
 import { useEffect, useState } from 'react';
+import TedTalk from "./TedTalk";
 
 export default function Hero() {
   const [isMounted, setIsMounted] = useState(false);
@@ -16,10 +16,13 @@ export default function Hero() {
       {/* Background Image with Parallax-like fixed attachment if desired, or absolute */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/dc-panorama.png)' }}
+        style={{ backgroundImage: 'url(/images/dc-panorama2.png)' }}
       >
         {/* Sophisticated Dark Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/60"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/30 to-black/30"></div>
+        {/* Heaven Glow Effect - Radial Gradient from Top Center */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.35)_0%,_rgba(0,0,0,0)_60%)] pointer-events-none mix-blend-overlay"></div>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,218,185,0.15)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none"></div>
       </div>
 
       {/* Content Container */}
@@ -33,10 +36,10 @@ export default function Hero() {
                 EST. 1998 • Washington DC
             </p>
 
-            {/* Main Headline - Serif */}
-            <h1 className="font-serif text-5xl md:text-7xl lg:text-8xl leading-tight mb-8">
+            {/* Main Headline - Sans Serif (Ginto) */}
+            <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl leading-tight mb-8 drop-shadow-lg">
                 GW Center for <br className="hidden md:block" />
-                <span className="italic text-[var(--gw-secondary-light)]">Integrative</span> Medicine
+                Integrative Medicine
             </h1>
 
             {/* Subheading */}
@@ -48,13 +51,13 @@ export default function Hero() {
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
                     href="#" 
-                    className="bg-[var(--gw-primary)] text-white px-10 py-4 rounded-full font-bold tracking-widest hover:bg-[var(--gw-white)] hover:text-[var(--gw-primary)] transition-all duration-300 shadow-lg min-w-[200px] uppercase"
+                    className="bg-[var(--gw-accent)] text-white px-10 py-4 rounded-2xl font-bold tracking-widest hover:bg-[var(--gw-white)] hover:text-[var(--gw-primary)] transition-all duration-300 shadow-lg min-w-[200px] uppercase"
                 >
-                    New Patient In quiry Form
+                    New Patient Inquiry Form
                 </a>
                 <a 
                     href="#" 
-                    className="border-2 border-white text-white px-10 py-4 rounded-full font-bold tracking-widest hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 min-w-[200px] uppercase"
+                    className="border-2 border-white text-white px-10 py-4 rounded-2xl font-bold tracking-widest hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 min-w-[200px] uppercase"
                 >
                     OUR SERVICES
                 </a>
