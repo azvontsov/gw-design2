@@ -16,10 +16,10 @@ export default function Hero() {
       {/* Background Image with Parallax-like fixed attachment if desired, or absolute */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/dc-panorama5.png)' }}
+        style={{ backgroundImage: 'url(/images/hero8.png)' }}
       >
         {/* Sophisticated Dark Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70"></div>
         {/* Heaven Glow Effect - Radial Gradient from Top Center */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.35)_0%,_rgba(0,0,0,0)_60%)] pointer-events-none mix-blend-overlay"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,218,185,0.15)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none"></div>
@@ -49,15 +49,15 @@ export default function Hero() {
             </h1> */}
 
             {/* Subheading */}
-            <p className="text-lg md:text-2xl font-light max-w-2xl mx-auto mb-12 opacity-90 leading-relaxed">
-                A holistic approach to healing, combining modern science <br className="hidden md:block" /> with wisdom traditions.
+            <p className="text-lg md:text-2xl font-bold max-w-2xl mx-auto mb-12 mt-24 opacity-90 leading-relaxed">
+                A holistic approach to healing, combining modern science with wisdom traditions.
             </p>
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <a 
                     href="#" 
-                    className="bg-[var(--gw-accent)] text-white px-10 py-4 rounded-2xl font-bold tracking-widest hover:bg-[var(--gw-white)] hover:text-[var(--gw-primary)] transition-all duration-300 shadow-lg min-w-[200px] uppercase"
+                    className="bg-[var(--gw-accent)] px-10 py-4 rounded-2xl font-bold tracking-widest hover:bg-[var(--gw-white)] text-[var(--gw-primary)] transition-all duration-300 shadow-lg min-w-[200px] uppercase"
                 >
                     New Patient Inquiry Form
                 </a>
