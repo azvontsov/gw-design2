@@ -16,7 +16,7 @@ export default function Hero() {
       {/* Background Image with Parallax-like fixed attachment if desired, or absolute */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/dc-panorama2.png)' }}
+        style={{ backgroundImage: 'url(/images/dc-panorama3.png)' }}
       >
         {/* Sophisticated Dark Overlay to ensure text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/30 to-black/30"></div>
