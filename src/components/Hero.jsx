@@ -16,10 +16,10 @@ export default function Hero() {
       {/* Background Image with Parallax-like fixed attachment if desired, or absolute */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/dc-panorama3.png)' }}
+        style={{ backgroundImage: 'url(/images/dc-panorama5.png)' }}
       >
         {/* Sophisticated Dark Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/30 via-black/30 to-black/30"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/30 to-black/50"></div>
         {/* Heaven Glow Effect - Radial Gradient from Top Center */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.35)_0%,_rgba(0,0,0,0)_60%)] pointer-events-none mix-blend-overlay"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,218,185,0.15)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none"></div>
