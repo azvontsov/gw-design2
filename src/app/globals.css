@@ -10,6 +10,7 @@
   --sw-searching: #6C7F9A; /* Searching Blue */
   --sw-indigo: #3E5166; /* Indigo Batik */
   --gw-blue: #2b6cb0; /* Professional Blue */
+  --gw-green: #abcc76; /* Muted Green */
  
 
   /* Semantic Mapping */
@@ -18,7 +19,6 @@
   --gw-secondary: var(--gw-blue); /* Sage Green - Secondary Backgrounds */
   --gw-secondary-light: var(--sw-white); /* Main Background */
   --gw-accent: var(--gw-green); /* Muted Green - Accents/Highlights */
-  --gw-green: #abcc76; /* Muted Green */
   --gw-text-main: var(--sw-indigo); /* Dark Navy - Body Text */
   --gw-text-muted: var(--sw-searching); /* Muted Blue Text */
   --gw-white: #FFFFFF;

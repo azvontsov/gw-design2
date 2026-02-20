@@ -38,9 +38,15 @@ export default function Hero() {
 
             {/* Main Headline - Sans Serif (Ginto) */}
             <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl leading-tight mb-8 drop-shadow-lg">
-                GW Center for <br className="hidden md:block" />
+                   GW Center for <br className="hidden md:block" />
                 Integrative Medicine
             </h1>
+        
+            {/* Main Headline - Serif (GT Super) */}
+            {/* <h1 className="font-serif font-bold text-5xl md:text-7xl lg:text-8xl leading-tight mb-8 drop-shadow-lg">
+                GW Center for <br className="hidden md:block" />
+                Integrative Medicine
+            </h1> */}
 
             {/* Subheading */}
             <p className="text-lg md:text-2xl font-light max-w-2xl mx-auto mb-12 opacity-90 leading-relaxed">

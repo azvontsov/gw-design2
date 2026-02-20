@@ -1,7 +1,7 @@
 "use client";
 
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, Fragment } from 'react';
 
 const menuItems = [
   {
@@ -53,6 +53,7 @@ const menuItems = [
 
 export default function Header() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   // Lock body scroll when mobile menu is open
   useEffect(() => {
@@ -63,6 +64,18 @@ export default function Header() {
     }
     return () => { document.body.style.overflow = 'unset'; };
   }, [isMenuOpen]);
+
+  // Detect scroll for sticky logo
+  useEffect(() => {
+    const handleScroll = () => {
+      // Top row is h-24 -> 96px, so we show the logo when scroll passes it
+      setIsScrolled(window.scrollY > 96);
+    };
+    
+    window.addEventListener('scroll', handleScroll);
+    handleScroll(); // Trigger initially
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
     <>
@@ -120,9 +133,21 @@ export default function Header() {
             <div className="container mx-auto px-8 h-16 flex items-center justify-between">
                 
                 {/* Nav Links */}
-                <nav className="flex-1 flex justify-center gap-8">
+                <nav className="flex-1 flex items-center justify-center gap-8">
                     {menuItems.map((item, idx) => (
-                        <div key={idx} className="relative group">
+                        <Fragment key={idx}>
+                            {idx === 3 && (
+                                <div 
+                                    className={`flex justify-center transition-all duration-500 ease-in-out overflow-hidden ${
+                                        isScrolled ? 'max-w-[250px] opacity-100 mx-2' : 'max-w-0 opacity-0 -mx-4'
+                                    }`}
+                                >
+                                    <Link href="/" className="flex items-center hover:opacity-80 shrink-0 list-none">
+                                        <img src="/icons/logo.svg" alt="GW Center" className="h-10 w-auto object-contain" />
+                                    </Link>
+                                </div>
+                            )}
+                            <div className="relative group">
                             <Link 
                                 href={item.href} 
                                 className="text-[13px] font-bold uppercase tracking-[0.15em] text-[var(--gw-primary)] hover:text-[var(--gw-accent)] transition-colors py-6 block"
@@ -145,14 +170,15 @@ export default function Header() {
                                         ))}
                                     </div>
                                 </div>
-                            )}
-                        </div>
+                                )}
+                            </div>
+                        </Fragment>
                     ))}
                 </nav>
 
                 {/* CTA Button */}
-                <div className="flex-shrink-0 ml-8">
-                    <Link 
+                <div className={`flex-shrink-0 ml-8 ${isScrolled ? 'hidden xl:block' : ''}`}>
+                    <Link  
                         href="#" 
                         className="hover:bg-[var(--gw-accent)] text-white text-[13px] font-bold tracking-widest px-6 py-3 rounded-2xl bg-[var(--gw-primary-dark)] transition-all shadow-md transform hover:-translate-y-0.5 uppercase"
                     >
