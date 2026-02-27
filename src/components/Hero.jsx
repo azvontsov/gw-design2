@@ -25,6 +25,9 @@ export default function Hero() {
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,218,185,0.15)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none"></div>
       </div>
 
+      {/* TedTalk component moved here */}
+      <TedTalk isMounted={isMounted} className="absolute hidden lg:block top-0 right-0 lg:right-4 2xl:right-24 z-30" />
+      
       {/* Content Container */}
       <div className="relative z-10 container mx-auto px-6 text-center text-white flex flex-col items-center">
         

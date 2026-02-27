@@ -12,13 +12,13 @@ export default function TedTalk({ isMounted, className }) {
       <div className={className || defaultClasses}>
         <div
           className={`relative group cursor-pointer flex flex-col items-end transition-all duration-1000 delay-500 ${
-            isMounted ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-12"
+            isMounted ? "opacity-100" : "opacity-0"
           }`}
           onClick={() => setIsVideoOpen(true)}
           style={{ filter: "drop-shadow(0 25px 40px rgba(0,0,0,0.4))" }}
         >
           {/* Container Shape: Full width Shield on Mobile, Bookmark on Desktop */}
-          <div className="w-full aspect-video lg:aspect-auto lg:w-[130px] lg:h-[180px] lg:group-hover:w-[280px] lg:group-hover:h-[420px] xl:group-hover:w-[320px] xl:group-hover:h-[480px] bg-black lg:bg-[#E62B1E] lg:group-hover:bg-black relative overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] lg:group-hover:-translate-y-2 lg:origin-top-right rounded-none lg:rounded-none lg:[clip-path:polygon(0_0,100%_0,100%_100%,50%_85%,0_100%)]">
+          <div className="w-full aspect-video lg:aspect-auto lg:w-[130px] lg:h-[180px] lg:group-hover:w-[280px] lg:group-hover:h-[420px] xl:group-hover:w-[320px] xl:group-hover:h-[480px] bg-black lg:bg-[#E62B1E] lg:group-hover:bg-black relative overflow-hidden transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)] lg:origin-top rounded-none lg:rounded-none lg:[clip-path:polygon(0_0,100%_0,100%_100%,50%_85%,0_100%)]">
             {/* Background Image */}
             <img
               src="/images/TED.png"

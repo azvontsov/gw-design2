@@ -1,4 +1,13 @@
+"use client"
+
+import { useState, useEffect } from 'react';
+
 export default function NewsEvents() {
+  const [isMounted, setIsMounted] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
   const originalItems = [
     {
       id: 1,
@@ -46,8 +55,8 @@ export default function NewsEvents() {
   // First 3 items as Featured
   const featuredItems = originalItems.slice(0, 3);
   return (
-    <section className="pt-16 lg:pt-24 pb-8 lg:pb-16 bg-white overflow-hidden">
-      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24">
+    <section className="pt-16 lg:pt-24 pb-8 lg:pb-16 bg-white relative">
+      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24 relative">
         
         {/* SECTION HEADER */}
         <div className="text-center mb-16">
