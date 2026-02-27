@@ -20,7 +20,13 @@ export default function Conditions() {
         {/* Section Header */}
         <div className="text-center mb-12">
           
-          <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4">
+          <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4"   
+          style={{ 
+            fontFamily: 'var(--font-gt-super)', 
+            fontWeight: 700,
+            lineHeight: '1.2'
+          }}
+          >
             Conditions We Treat
           </h2>
         </div>

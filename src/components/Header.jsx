@@ -133,37 +133,40 @@ export default function Header() {
             <div className="container mx-auto px-8 h-16 flex items-center justify-between">
                 
                 {/* Nav Links */}
-                <nav className="flex-1 flex items-center justify-center gap-8">
+                <nav className="flex-1 flex items-center justify-center gap-4 xl:gap-8 h-full">
                     {menuItems.map((item, idx) => (
                         <Fragment key={idx}>
                             {idx === 3 && (
                                 <div 
                                     className={`flex justify-center transition-all duration-500 ease-in-out overflow-hidden ${
-                                        isScrolled ? 'max-w-[250px] opacity-100 mx-2' : 'max-w-0 opacity-0 -mx-4'
+                                        isScrolled ? 'max-w-[350px] opacity-100 mx-2' : 'max-w-0 opacity-0 -mx-4'
                                     }`}
                                 >
                                     <Link href="/" className="flex items-center hover:opacity-80 shrink-0 list-none">
-                                        <img src="/icons/logo.svg" alt="GW Center" className="h-10 w-auto object-contain" />
+                                        <img src="/icons/logo.svg" alt="GW Center" className="h-8 xl:h-10 w-auto object-contain" />
                                     </Link>
                                 </div>
                             )}
-                            <div className="relative group">
+                            <div className="relative group h-full flex items-center">
                             <Link 
                                 href={item.href} 
-                                className="text-[13px] font-bold uppercase tracking-[0.15em] text-[var(--gw-primary)] hover:text-[var(--gw-accent)] transition-colors py-6 block"
+                                className="text-[13px] font-bold uppercase tracking-[0.15em] text-[var(--gw-primary)] hover:text-[var(--gw-accent)] transition-colors h-full flex items-center px-2"
                             >
                                 {item.title}
                             </Link>
 
                             {/* Dropdown */}
                             {item.submenu && (
-                                <div className="absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] bg-[var(--gw-primary)] shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform translate-y-2 group-hover:translate-y-0 z-50">
-                                    <div className="flex flex-col">
+                                <div 
+                                    className="absolute top-[calc(100%+1px)] left-1/2 -translate-x-1/2 min-w-[240px] pointer-events-none group-hover:pointer-events-auto"
+                                    style={{ clipPath: 'inset(0px -50px -50px -50px)', WebkitClipPath: 'inset(0px -50px -50px -50px)' }}
+                                >
+                                    <div className="bg-[var(--sw-navbar)] flex flex-col items-stretch transform -translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 drop-shadow-2xl">
                                         {item.submenu.map((sub, sIdx) => (
                                             <Link 
                                                 key={sIdx} 
                                                 href={sub.href} 
-                                                className="block px-6 py-4 text-[12px] font-bold uppercase tracking-[0.15em] text-white border-b border-white/20 last:border-0 hover:text-[var(--gw-accent)] hover:bg-black/10 transition-colors text-center"
+                                                className="block px-6 py-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white border-b border-[rgba(255,255,255,0.2)] last:border-0 hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors text-center whitespace-nowrap"
                                             >
                                                 {sub.title}
                                             </Link>

@@ -11,6 +11,7 @@ import Reviews from "@/components/Reviews";
 import AboutSnippet from "@/components/AboutSnippet";
 import ResourcesQuickLinks from "@/components/ResourcesQuickLinks";
 import Conditions from "@/components/Conditions";
+import DynamicHero from "@/components/DynamicHero";
 
 export default function Home() {
   return (
@@ -20,6 +21,7 @@ export default function Home() {
         <Hero />
         <AboutSnippet />
         <NewsEvents />
+        <DynamicHero />
         <ResourcesQuickLinks />
         <OurServices />
         <Conditions />

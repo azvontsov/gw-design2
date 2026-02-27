@@ -55,7 +55,7 @@ export default function NewsEvents() {
   // First 3 items as Featured
   const featuredItems = originalItems.slice(0, 3);
   return (
-    <section className="pt-16 lg:pt-24 pb-8 lg:pb-16 bg-white relative">
+    <section className="pt-16 lg:pt-24 lg:pb-16 bg-white relative">
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24 relative">
         
         {/* SECTION HEADER */}

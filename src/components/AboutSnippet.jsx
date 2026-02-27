@@ -32,7 +32,7 @@ export default function AboutSnippet() {
   ];
 
   return (
-    <section className="py-24 bg-white relative overflow-hidden border-b border-[var(--gw-border-light)]">
+    <section className="py-24 bg-white relative overflow-hidden border-b border-slate-300">
       
       {/* Background Accents */}
       <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--sw-white)] pointer-events-none transform skew-x-12 translate-x-32 origin-top-right"></div>
