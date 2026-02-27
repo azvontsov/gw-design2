@@ -25,7 +25,7 @@ export default function Providers() {
   ];
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-[var(--gw-secondary-light)]">
+    <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4">

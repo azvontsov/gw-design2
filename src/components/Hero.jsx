@@ -16,10 +16,10 @@ export default function Hero() {
       {/* Background Image with Parallax-like fixed attachment if desired, or absolute */}
       <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: 'url(/images/hero8.png)' }}
+        style={{ backgroundImage: 'url(/images/hero1.png)' }}
       >
         {/* Sophisticated Dark Overlay to ensure text readability */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/50 via-black/20 to-black/70"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/70"></div>
         {/* Heaven Glow Effect - Radial Gradient from Top Center */}
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.35)_0%,_rgba(0,0,0,0)_60%)] pointer-events-none mix-blend-overlay"></div>
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_rgba(255,218,185,0.15)_0%,_rgba(0,0,0,0)_70%)] pointer-events-none"></div>
@@ -36,8 +36,8 @@ export default function Hero() {
                 EST. 1998 • Washington DC
             </p>
 
-            {/* Main Headline - Sans Serif (Ginto) */}
-            <h1 className="font-sans font-bold text-5xl md:text-7xl lg:text-8xl leading-tight mb-8 drop-shadow-lg">
+            {/* Main Headline - Belleza */}
+            <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg">
                    GW Center for <br className="hidden md:block" />
                 Integrative Medicine
             </h1>

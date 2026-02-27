@@ -6,9 +6,11 @@ import NewsEvents from "@/components/NewsEvents";
 import OurServices from "@/components/OurServices";
 import Providers from "@/components/Providers";
 import FAQ from "@/components/FAQ";
+import LatestBlog from "@/components/LatestBlog";
 import Reviews from "@/components/Reviews";
 import AboutSnippet from "@/components/AboutSnippet";
 import ResourcesQuickLinks from "@/components/ResourcesQuickLinks";
+import Conditions from "@/components/Conditions";
 
 export default function Home() {
   return (
@@ -17,15 +19,17 @@ export default function Home() {
       <main className="flex-1 w-full flex flex-col">
         <Hero />
         <AboutSnippet />
+        <NewsEvents />
         <ResourcesQuickLinks />
         <OurServices />
-        <NewsEvents />
+        <Conditions />
         <Providers />
         {/* Reviews Section */}
         <section className="bg-[var(--gw-secondary-light)]">
             <Reviews />
         </section>
 
+        <LatestBlog />
         <FAQ />
       </main>
       <Footer />

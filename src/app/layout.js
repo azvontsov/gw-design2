@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Belleza } from "next/font/google";
 import "./globals.css";
 
 const gtSuper = localFont({
@@ -43,6 +44,12 @@ const ginto = localFont({
   variable: "--font-ginto",
 });
 
+const belleza = Belleza({
+  weight: "400",
+  subsets: ["latin"],
+  variable: "--font-belleza",
+});
+
 export const metadata = {
   title: "GW Center for Integrative Medicine | Holistic Healthcare in DC",
   description: "The GW Center for Integrative Medicine provides comprehensive, personalized holistic healthcare in Washington DC with over 25 integrative medicine services.",
@@ -61,7 +68,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${gtSuper.variable} ${ginto.variable} antialiased`}
+        className={`${gtSuper.variable} ${ginto.variable} ${belleza.variable} antialiased`}
       >
         {children}
       </body>

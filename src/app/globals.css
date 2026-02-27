@@ -43,6 +43,7 @@
   .font-sans {
     font-family: var(--font-ginto), ui-sans-serif, system-ui, sans-serif;
   }
+
   .font-serif {
     font-family: var(--font-gt-super), ui-serif, system-ui, serif;
   }
