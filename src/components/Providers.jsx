@@ -28,7 +28,13 @@ export default function Providers() {
     <section className="py-16 px-4 sm:px-6 lg:px-8 bg-white">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4">
+          <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4"
+          style={{ 
+            fontFamily: 'var(--font-gt-super)', 
+            fontWeight: 700,
+            lineHeight: '1.2'
+          }}
+          >
             Our Team
           </h2>
           <p className="text-lg text-gray-700 max-w-3xl mx-auto">
