@@ -13,11 +13,24 @@ export default function Hero() {
   return (
     <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pb-40 pt-32 lg:pt-0 lg:pb-0">
       
-      {/* Background Image with Parallax-like fixed attachment if desired, or absolute */}
-      <div 
+       {/* Background Image with Parallax-like fixed attachment if desired, or absolute */}
+      {/* <div 
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{ backgroundImage: 'url(/images/hero1.png)' }}
-      >
+      > */}
+      {/* Background Video */}
+      <div className="absolute inset-0 overflow-hidden bg-[var(--gw-primary)]">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline 
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="/video/video1.mp4" type="video/mp4" />
+          Your browser does not support the video tag.
+        </video>
+        
         {/* Sophisticated Dark Overlay to ensure text readability */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/30 to-black/70"></div>
         {/* Heaven Glow Effect - Radial Gradient from Top Center */}
@@ -40,7 +53,9 @@ export default function Hero() {
             </p>
 
             {/* Main Headline - Belleza */}
-            <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg">
+            {/* <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg"> */}
+            {/* <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg"> */}
+            <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-[0_4px_10px_rgba(0,0,0,0.7)] text-transparent bg-clip-text bg-[linear-gradient(90deg,#FFFFFF_0%,#A7F3D0_35%,#7DD3FC_70%,#E0E7FF_100%)]">
                    GW Center for <br className="hidden md:block" />
                 Integrative Medicine
             </h1>
