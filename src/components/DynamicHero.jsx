@@ -5,14 +5,14 @@ import Link from 'next/link';
 
 export default function DynamicHero() {
   const topics = [
-    "weight issues",
-    "contraception",
-    "sports injuries",
-    "chronic pain",
-    "digestive health",
-    "mental wellness",
-    "women's health",
-    "sleep disorders"
+    "Chronic Illness",
+    "Pain and Fatigue",
+    "Mental Health",
+    "CIRS and Mold Toxicity Illness",
+    "Healthy Aging",
+    "POTS",
+    "Cancer",
+    "EDS and HSD"
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -39,22 +39,23 @@ export default function DynamicHero() {
   const currentItem = topics[currentIndex];
 
   return (
-    <section className="py-4 px-4 sm:px-6 lg:px-8 bg-white">
+    <section className="py-4 px-4 sm:px-6 lg:px-8 bg-[var(--gw-secondary-light)]">
       <div className="max-w-7xl mx-auto text-center">
         <h2 
           className="text-5xl md:text-6xl lg:text-[72px] text-[var(--gw-primary)] relative z-30"
-          // style={{ 
-          //   fontFamily: 'var(--font-gt-super)', 
-          //   fontWeight: 700,
-          //   lineHeight: '1.2'
-          // }}
+          style={{ 
+            fontFamily: 'var(--font-gt-super)', 
+            fontWeight: 700,
+            lineHeight: '1.2'
+          }}
         >
-          Get care today for
+          {/* Get care today for */}
+          Conditions We Treat
         </h2>
         
         {/* Rotating Wheel Container - matched to line height with strict mask */}
         <div 
-          className="relative h-[66px] md:h-[76px] lg:h-[86px] overflow-hidden mb-8 z-20"
+          className="relative h-[66px] md:h-[76px] lg:h-[86px] overflow-hidden mb-2 z-20"
           style={{ isolation: 'isolate', clipPath: 'inset(0)' }}
         >
           <div 

@@ -21,9 +21,9 @@ export default function Home() {
         <Hero />
         <AboutSnippet />
         <NewsEvents />
-        <DynamicHero />
         <ResourcesQuickLinks />
         <OurServices />
+        <DynamicHero />
         <Conditions />
         <Providers />
         {/* Reviews Section */}

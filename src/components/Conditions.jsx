@@ -13,12 +13,12 @@ export default function Conditions() {
   ];
 
   return (
-    <section className="py-12 bg-[var(--gw-secondary-light)] relative overflow-hidden">
+    <section className="py-4 bg-[var(--gw-secondary-light)] relative overflow-hidden">
       {/* Subtle decorative background elements */}
       
       <div className="max-w-4xl mx-auto px-6 relative z-10">  
         {/* Section Header */}
-        <div className="text-center mb-12">
+        {/* <div className="text-center mb-12">
           
           <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4"   
           style={{ 
@@ -29,7 +29,7 @@ export default function Conditions() {
           >
             Conditions We Treat
           </h2>
-        </div>
+        </div> */}
 
         {/* Puzzle-like Button Grid */}
         <div className="flex flex-wrap justify-center gap-3 md:gap-4">
@@ -45,7 +45,7 @@ export default function Conditions() {
         </div>
 
         {/* CTA Link */}
-        <div className="text-center">
+        {/* <div className="text-center">
           <Link
             href="#services"
             className="inline-flex items-center pt-8 gap-2 text-lg font-bold text-[var(--gw-secondary)] hover:text-[var(--gw-primary)] transition-colors group"
@@ -64,7 +64,7 @@ export default function Conditions() {
               />
             </svg>
           </Link>
-           </div>
+           </div> */}
       </div>
     </section>
   );
