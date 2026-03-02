@@ -41,43 +41,50 @@ export default function FAQ() {
   };
 
   return (
-    <section className="py-24 bg-white">
-      <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24">
-        <div className="max-w-3xl">
-          <h2 className="text-5xl md:text-6xl font-serif text-[var(--gw-primary)] mb-12 leading-tight">
-            Frequently asked <br /> questions
+    <section className="py-24 bg-white relative">
+      <div className="max-w-4xl mx-auto px-6">
+        <div className="text-center mb-16">
+          <p className="text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-4 text-[var(--gw-secondary)]">
+            Got Questions?
+          </p>
+          <h2 className="text-5xl md:text-6xl font-serif text-[var(--gw-primary)] leading-tight">
+            Frequently Asked Questions
           </h2>
+        </div>
 
-          <div className="divide-y divide-[var(--gw-powder-blue)] border-t border-[var(--gw-powder-blue)]">
-            {faqs.map((faq, index) => (
-              <div key={index} className="group">
-                <button
-                  onClick={() => toggleFAQ(index)}
-                  className="w-full py-8 flex items-center justify-between text-left hover:text-[var(--gw-secondary)] transition-colors"
-                >
-                  <span className="text-xl md:text-[22px] font-serif text-[var(--gw-primary)] pr-8 group-hover:text-[var(--gw-secondary)] transition-colors leading-tight">
-                    {faq.question}
-                  </span>
-                  <div className="flex-shrink-0 w-6 h-6 relative">
-                    {/* Horizontal line (always visible) */}
-                    <span className={`absolute top-1/2 left-0 w-full h-[2px] bg-current transition-transform duration-300`}></span>
-                    {/* Vertical line (visible only when closed) */}
-                    <span className={`absolute top-0 left-1/2 w-[2px] h-full bg-current transition-all duration-300 ${openIndex === index ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'}`}></span>
-                  </div>
-                </button>
-                
-                <div 
-                  className={`overflow-hidden transition-all duration-500 ease-in-out ${
-                    openIndex === index ? 'max-h-96 pb-8' : 'max-h-0'
-                  }`}
-                >
-                  <p className="text-lg text-gray-600 leading-relaxed font-sans">
-                    {faq.answer}
-                  </p>
+        <div className="divide-y divide-[var(--gw-powder-blue)] border-t border-[var(--gw-powder-blue)]">
+          {faqs.map((faq, index) => (
+            <div key={index} className="group">
+              <button
+                onClick={() => toggleFAQ(index)}
+                className="w-full py-8 flex items-center justify-between text-left hover:text-[var(--gw-secondary)] transition-colors focus:outline-none"
+              >
+                <span className="text-xl md:text-[22px] font-serif text-[var(--gw-primary)] pr-8 group-hover:text-[var(--gw-secondary)] transition-colors leading-tight">
+                  {faq.question}
+                </span>
+                <div className="flex-shrink-0 w-6 h-6 relative flex items-center justify-center text-[var(--gw-primary)] group-hover:text-[var(--gw-secondary)] transition-colors">
+                  {/* Horizontal line (always visible) */}
+                  <span className="absolute w-full h-[2px] bg-current transition-transform duration-300"></span>
+                  {/* Vertical line (visible only when closed) */}
+                  <span 
+                    className={`absolute w-[2px] h-full bg-current transition-all duration-300 ${
+                      openIndex === index ? 'rotate-90 opacity-0' : 'rotate-0 opacity-100'
+                    }`}
+                  ></span>
                 </div>
+              </button>
+              
+              <div 
+                className={`overflow-hidden transition-all duration-500 ease-in-out ${
+                  openIndex === index ? 'max-h-96 pb-8 opacity-100' : 'max-h-0 opacity-0'
+                }`}
+              >
+                <p className="text-lg text-gray-600 leading-relaxed font-sans pr-12">
+                  {faq.answer}
+                </p>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
       </div>
     </section>
