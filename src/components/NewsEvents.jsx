@@ -1,6 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react';
+import TedTalk from './TedTalk';
 
 export default function NewsEvents() {
   const [isMounted, setIsMounted] = useState(false);
@@ -57,6 +58,8 @@ export default function NewsEvents() {
   return (
     <section className="pt-16 lg:pt-24 lg:pb-16 bg-white relative">
       <div className="max-w-[1920px] mx-auto px-4 sm:px-6 lg:px-12 2xl:px-24 relative">
+         {/* TedTalk component moved here */}
+      <TedTalk isMounted={isMounted} className="absolute hidden lg:block -top-24 right-0 lg:right-24 2xl:right-48 z-30" />
         
         {/* SECTION HEADER */}
         <div className="text-center mb-16">
