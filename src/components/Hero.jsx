@@ -50,7 +50,7 @@ export default function Hero() {
             
             {/* Eyebrow / Tagline */}
             <p className="text-sm md:text-base font-bold tracking-[0.2em] uppercase mb-6 text-[var(--gw-secondary-light)] opacity-90">
-                EST. 1998 • Washington DC
+                Root-Cause Care for Complex, Chronic Conditions
             </p>
 
             {/* Main Headline - Belleza */}
@@ -69,7 +69,7 @@ export default function Hero() {
 
             {/* Subheading */}
             <p className="text-lg md:text-2xl font-bold max-w-2xl mx-auto mb-12 mt-24 opacity-90 leading-relaxed">
-                A holistic approach to healing, combining modern science with wisdom traditions.
+                Through comprehensive evaluation and multidisciplinary care, we diagnose and treat the underlying drivers of illness—not just the symptoms.
             </p>
 
             {/* CTA Buttons */}

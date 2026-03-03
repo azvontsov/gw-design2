@@ -6,24 +6,24 @@ export default function AboutSnippet() {
 
   const reasons = [
     {
-      title: "Unmatched Expertise",
-      description: "With over 20 expert Integrative Medicine specialists under one roof, we offer the most comprehensive collaborative care in the DC area."
+      title: "Clinical / Research-Driven",
+      description: "A comprehensive, data-informed approach to diagnosing and treating complex conditions by addressing root causes—not just symptoms."
     },
     {
-      title: "Root-Cause Resolution",
+      title: "Patient-Centered",
       description: "We don't just mask symptoms. Our Functional Medicine team works with you to uncover and resolve the underlying causes of complex health issues."
     },
     {
-      title: "Time Dedicated to You",
-      description: "Experience healthcare as it should be. Our concierge model ensures longer appointments, deeper listening, and direct access to your care team."
+      title: "Differentiation-Focused",
+      description: "Personalized care for complex health challenges—designed around your biology, your goals, and your whole system."
     },
     {
-      title: "Evidence-Based Innovation",
-      description: "We integrate the highest standards of modern science with time-tested wisdom traditions, continually updating our protocols."
+      title: "Outcomes-Focused",
+      description: "Identify what others missed and restore function through methodical, root-cause treatment of complex conditions."
     },
     {
-       title: "True Collaborative Care",
-       description: "Your healing journey is supported by a united team of specialists who actively collaborate on your personalized treatment plan."
+       title: "Trust-Building",
+       description: "Evidence-based integrative care that combines advanced testing, medical treatment, and lifestyle interventions to solve complex health problems."
     },
     {
        title: "Pioneering Legacy",
