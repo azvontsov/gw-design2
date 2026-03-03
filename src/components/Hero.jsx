@@ -55,8 +55,8 @@ export default function Hero() {
 
             {/* Main Headline - Belleza */}
             {/* <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg"> */}
-            {/* <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg"> */}
-            <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-[0_4px_10px_rgba(0,0,0,0.7)] text-transparent bg-clip-text bg-[linear-gradient(90deg,#FFFFFF_0%,#A7F3D0_35%,#7DD3FC_70%,#E0E7FF_100%)]">
+            <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg">
+            {/* <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-[0_4px_10px_rgba(0,0,0,0.7)] text-transparent bg-clip-text bg-[linear-gradient(90deg,#FFFFFF_0%,#A7F3D0_35%,#7DD3FC_70%,#E0E7FF_100%)]"> */}
                    GW Center for <br className="hidden md:block" />
                 Integrative Medicine
             </h1>
