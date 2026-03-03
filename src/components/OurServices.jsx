@@ -4,7 +4,7 @@ export default function OurServices() {
   const services = [
     {
       id: 1,
-      icon: "/images/image1.png",
+      icon: "/images/doodles/01.webp",
       title: "Concierge Integrative Medicine Care",
       description:
         "Personalized, comprehensive care with longer appointments and direct access to your care team.",
@@ -13,7 +13,7 @@ export default function OurServices() {
     },
     {
       id: 2,
-      icon: "/images/image3.png",
+      icon: "/images/doodles/02.webp",
       title: "Acupuncture | Chinese Medicine",
       description:
         "Acupuncture and Chinese Medicine have been used for thousands of years to treat a wide range of conditions.",
@@ -22,7 +22,7 @@ export default function OurServices() {
     },
     {
       id: 3,
-      icon: "/images/image2.png",
+      icon: "/images/doodles/03.webp",
       title: "Integrative Geriatric Consultations",
       description:
         "Personalized, comprehensive care for seniors, focusing on quality of life and well-being.",
@@ -31,7 +31,7 @@ export default function OurServices() {
     },
     {
       id: 4,
-      icon: "/images/image4.png",
+      icon: "/images/doodles/04.webp",
       title: "Courses & Medical and Support Groups",
       description:
         "Educational programs and support groups to empower your health journey.",
@@ -40,7 +40,7 @@ export default function OurServices() {
     },
     {
       id: 5,
-      icon: "/images/image5.png",
+      icon: "/images/doodles/05.webp",  
       title: "Celiac Disease",
       description:
         "Treatment for celiac disease, an autoimmune condition triggered by gluten.",
@@ -49,7 +49,7 @@ export default function OurServices() {
     },
     {
       id: 6,
-      icon: "/images/image6.png",
+      icon: "/images/doodles/06.webp",
       title: "Mindfulness Based Stress Reduction Course",
       description:
         "A program that teaches you how to manage stress and anxiety through mindfulness and meditation.",
@@ -58,7 +58,7 @@ export default function OurServices() {
     },
     {
       id: 7,
-      icon: "/images/image7.png",
+      icon: "/images/doodles/07.webp",
       title: "Long Covid",
       description: "Treatment for long-term symptoms of COVID-19.",
       link: "#",
@@ -66,7 +66,7 @@ export default function OurServices() {
     },
     {
       id: 8,
-      icon: "/images/image8.png",
+      icon: "/images/doodles/08.webp",
       title: "Weight Management",
       description:
         "Treatment for weight management, including weight loss and weight maintenance.",

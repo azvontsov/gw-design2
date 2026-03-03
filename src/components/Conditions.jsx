@@ -1,4 +1,7 @@
+"use client";
+
 import Link from "next/link";
+import { useState, useEffect } from 'react';
 
 export default function Conditions() {
   const conditions = [
@@ -12,24 +15,95 @@ export default function Conditions() {
     { id: 8, title: "EDS and HSD", link: "#" },
   ];
 
+  const topics = [
+    "Chronic Illness",
+    "Pain and Fatigue",
+    "Mental Health",
+    "CIRS",
+    "Healthy Aging",
+    "POTS",
+    "Cancer",
+    "EDS and HSD"
+  ];
+
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAnimating, setIsAnimating] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Trigger animation
+      setIsAnimating(true);
+      
+      // After animation finishes (600ms), update the content and reset position
+      setTimeout(() => {
+        setCurrentIndex((prev) => (prev + 1) % topics.length);
+        setIsAnimating(false);
+      }, 600);
+    }, 3000);
+
+    return () => clearInterval(interval);
+  }, [topics.length]);
+
   return (
     <section className="py-4 bg-[var(--gw-secondary-light)] relative overflow-hidden">
       {/* Subtle decorative background elements */}
       
       <div className="max-w-4xl mx-auto px-6 relative z-10">  
-        {/* Section Header */}
-        {/* <div className="text-center mb-12">
-          
-          <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)]  mb-4"   
-          style={{ 
-            fontFamily: 'var(--font-gt-super)', 
-            fontWeight: 700,
-            lineHeight: '1.2'
-          }}
+        {/* DynamicHero Animated Header inserted here */}
+        <div className="max-w-7xl mx-auto text-center mb-12">
+          <h2 
+            className="text-5xl md:text-6xl lg:text-[72px] text-[var(--gw-primary)] relative z-30"
+            style={{ 
+              fontFamily: 'var(--font-gt-super)', 
+              fontWeight: 700,
+              lineHeight: '1.2'
+            }}
           >
             Conditions We Treat
           </h2>
-        </div> */}
+          
+          {/* Rotating Wheel Container - matched to line height with strict mask */}
+          <div 
+            className="relative h-[66px] md:h-[76px] lg:h-[86px] overflow-hidden mb-2 z-20"
+            style={{ isolation: 'isolate', clipPath: 'inset(0)' }}
+          >
+            <div 
+              className={`absolute inset-0 w-full h-full ${isAnimating ? 'transition-transform duration-600 ease-in-out' : ''}`}
+              style={{ 
+                transform: isAnimating ? 'translateY(100%)' : 'translateY(0)',
+                willChange: 'transform'
+              }}
+            >
+              {/* The NEXT item (positioned above, slides in) */}
+              <div className="absolute top-[-100%] w-full h-full flex items-center justify-center">
+                <h2 
+                  className="text-5xl md:text-6xl lg:text-[72px] text-[var(--gw-secondary)] whitespace-nowrap"
+                  style={{ 
+                    fontFamily: 'var(--font-gt-super)', 
+                    fontWeight: 700,
+                    lineHeight: '1.2'
+                  }}
+                >
+                  {topics[(currentIndex + 1) % topics.length]}
+                </h2>
+              </div>
+
+              {/* The CURRENT item (at 0, slides out to bottom) */}
+              <div className="absolute top-0 w-full h-full flex items-center justify-center">
+                <h2 
+                  className="text-5xl md:text-6xl lg:text-[72px] text-[var(--gw-secondary)] whitespace-nowrap"
+                  style={{ 
+                    fontFamily: 'var(--font-gt-super)', 
+                    fontWeight: 700,
+                    lineHeight: '1.2'
+                  }}
+                >
+                  {topics[currentIndex]}
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
 
         {/* Puzzle-like Button Grid */}
         <div className="flex flex-wrap justify-center gap-3 md:gap-4">

@@ -11,7 +11,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pb-40 pt-32 lg:pt-0 lg:pb-0">
+    <section className="relative min-h-[90vh] flex items-center justify-center overflow-hidden pb-48 pt-32 lg:pt-0 lg:pb-32">
       
        {/* Background Image with Parallax-like fixed attachment if desired, or absolute */}
       {/* <div 
@@ -55,8 +55,8 @@ export default function Hero() {
 
             {/* Main Headline - Belleza */}
             {/* <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg"> */}
-            <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg">
-            {/* <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-[0_4px_10px_rgba(0,0,0,0.7)] text-transparent bg-clip-text bg-[linear-gradient(90deg,#FFFFFF_0%,#A7F3D0_35%,#7DD3FC_70%,#E0E7FF_100%)]"> */}
+            {/* <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-lg"> */}
+            <h1 className="font-[family-name:var(--font-belleza)] text-5xl md:text-7xl lg:text-8xl leading-tight uppercase mb-8 drop-shadow-[0_4px_10px_rgba(0,0,0,0.7)] text-transparent bg-clip-text bg-[linear-gradient(90deg,#FFFFFF_0%,#A7F3D0_35%,#7DD3FC_70%,#E0E7FF_100%)]">
                    GW Center for <br className="hidden md:block" />
                 Integrative Medicine
             </h1>
@@ -68,7 +68,7 @@ export default function Hero() {
             </h1> */}
 
             {/* Subheading */}
-            <p className="text-lg md:text-2xl font-bold max-w-2xl mx-auto mb-12 mt-24 opacity-90 leading-relaxed">
+            <p className="text-lg md:text-2xl font-bold max-w-2xl mx-auto mb-12 mt-12 md:mt-16 opacity-90 leading-relaxed">
                 Through comprehensive evaluation and multidisciplinary care, we diagnose and treat the underlying drivers of illness—not just the symptoms.
             </p>
 

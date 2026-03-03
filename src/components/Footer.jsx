@@ -99,10 +99,16 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 font-medium tracking-widest uppercase gap-4">
             <p>© {new Date().getFullYear()} GW Center for Integrative Medicine.</p>
-            <div className="flex gap-8">
+            <div className="flex gap-8 items-center">
                 <Link href="#" className="hover:text-white transition-colors">Disclaimer</Link>
                 <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link href="#" className="hover:text-white transition-colors">Careers</Link>
+                <Link 
+                    href="/design-system" 
+                    className="border border-white/20 px-3 py-1.5 rounded-full text-[var(--gw-accent)] hover:border-[var(--gw-accent)] hover:bg-[var(--gw-accent)]/10 transition-all font-bold"
+                >
+                    Design System (TEMP)
+                </Link>
             </div>
         </div>
 

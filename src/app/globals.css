@@ -25,7 +25,12 @@
   --gw-text-muted: var(--sw-searching); /* Muted Blue Text */
   --gw-white: #FFFFFF;
   --gw-alert: #D9534F; /* Soft Red for errors */
-
+  
+  /* Supportive Functional Palette */
+  --gw-terracotta: #CD5C5C; /* Warmth, grounding */
+  --gw-gold: #DABF62; /* Vitality, sunlight */
+  --gw-teal: #2A9D8F; /* Deep healing, calm */
+  --gw-sky: #7DD3FC; /* Breath, open space */
   --background: var(--gw-secondary-light);
   --foreground: var(--gw-primary);
 } 
