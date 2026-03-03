@@ -22,7 +22,7 @@ export default function OurServices() {
     },
     {
       id: 3,
-      icon: "/images/doodles/03.webp",
+      icon: "/images/doodles/09.webp",
       title: "Integrative Geriatric Consultations",
       description:
         "Personalized, comprehensive care for seniors, focusing on quality of life and well-being.",
@@ -31,7 +31,7 @@ export default function OurServices() {
     },
     {
       id: 4,
-      icon: "/images/doodles/04.webp",
+      icon: "/images/doodles/10.webp",
       title: "Courses & Medical and Support Groups",
       description:
         "Educational programs and support groups to empower your health journey.",
@@ -58,7 +58,7 @@ export default function OurServices() {
     },
     {
       id: 7,
-      icon: "/images/doodles/07.webp",
+      icon: "/images/doodles/11.webp",
       title: "Long Covid",
       description: "Treatment for long-term symptoms of COVID-19.",
       link: "#",
@@ -66,7 +66,7 @@ export default function OurServices() {
     },
     {
       id: 8,
-      icon: "/images/doodles/08.webp",
+      icon: "/images/doodles/12.webp",
       title: "Weight Management",
       description:
         "Treatment for weight management, including weight loss and weight maintenance.",
@@ -123,7 +123,7 @@ export default function OurServices() {
                 <img
                   src={service.icon}
                   alt={service.title}
-                  className="w-48 h-48 object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="w-36 h-36 object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
 
