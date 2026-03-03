@@ -13,6 +13,16 @@ export default function Conditions() {
     { id: 6, title: "Postural Orthostatic Tachycardia Syndrome (POTS)", link: "#" },
     { id: 7, title: "Cancer", link: "#" },
     { id: 8, title: "EDS and HSD", link: "#" },
+    { id: 9, title: "Autoimmune Diseases", link: "#" },
+    { id: 10, title: "Digestive Disorders", link: "#" },
+    { id: 11, title: "Hormonal Imbalances", link: "#" },
+    { id: 12, title: "Allergies & Asthma", link: "#" },
+    { id: 13, title: "Cardiometabolic Health", link: "#" },
+    { id: 14, title: "Long COVID & Post-Viral Syndromes", link: "#" },
+    { id: 15, title: "Women's Health", link: "#" },
+    { id: 16, title: "Sleep Disorders", link: "#" },
+    { id: 17, title: "Neurological Conditions", link: "#" },
+    { id: 18, title: "Tick-Borne Diseases", link: "#" },
   ];
 
   const topics = [
@@ -45,12 +55,12 @@ export default function Conditions() {
   }, [topics.length]);
 
   return (
-    <section className="py-4 bg-[var(--gw-secondary-light)] relative overflow-hidden">
+    <section className="pt-12 bg-white relative overflow-hidden">
       {/* Subtle decorative background elements */}
       
-      <div className="max-w-4xl mx-auto px-6 relative z-10">  
+      <div className="w-full relative z-10">  
         {/* DynamicHero Animated Header inserted here */}
-        <div className="max-w-7xl mx-auto text-center mb-12">
+        <div className="max-w-7xl mx-auto px-6 text-center mb-12">
           <h2 
             className="text-5xl md:text-6xl lg:text-[72px] text-[var(--gw-primary)] relative z-30"
             style={{ 
@@ -105,40 +115,18 @@ export default function Conditions() {
           </div>
         </div>
 
-        {/* Puzzle-like Button Grid */}
-        <div className="flex flex-wrap justify-center gap-3 md:gap-4">
+        {/* Puzzle-like Button Grid - Edge to Edge */}
+        <div className="flex flex-wrap w-full gap-[2px] bg-[var(--gw-secondary-light)] p-[2px] overflow-hidden max-h-[248px] md:max-h-[330px] lg:max-h-[412px] xl:max-h-none">
           {conditions.map((condition) => (
             <Link
               key={condition.id}
               href={condition.link}
-              className="group flex-grow md:flex-grow-0 flex items-center justify-center hover:bg-[var(--gw-blue)] text-white px-6 py-3 rounded-2xl font-bold text-sm tracking-wide bg-[var(--sw-hazel)] transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5 text-center h-[48px]"
+              className="group flex-grow flex items-center justify-center hover:bg-[var(--gw-blue)] text-white px-6 h-[80px] font-bold text-sm md:text-base tracking-wide bg-[var(--sw-hazel)] transition-colors duration-300 text-center"
             >
               <span>{condition.title}</span>
             </Link>
           ))}
         </div>
-
-        {/* CTA Link */}
-        {/* <div className="text-center">
-          <Link
-            href="#services"
-            className="inline-flex items-center pt-8 gap-2 text-lg font-bold text-[var(--gw-secondary)] hover:text-[var(--gw-primary)] transition-colors group"
-          >
-            See all conditions
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 20 20"
-              fill="currentColor"
-              className="w-5 h-5 transition-transform group-hover:translate-x-1"
-            >
-              <path
-                fillRule="evenodd"
-                d="M7.21 14.77a.75.75 0 01.02-1.06L11.168 10 7.23 6.29a.75.75 0 111.04-1.08l4.5 4.25a.75.75 0 010 1.08l-4.5 4.25a.75.75 0 01-1.06-.02z"
-                clipRule="evenodd"
-              />
-            </svg>
-          </Link>
-           </div> */}
       </div>
     </section>
   );
