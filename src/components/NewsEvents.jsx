@@ -91,7 +91,7 @@ export default function NewsEvents() {
 
         {/* --- LINE 1: FEATURED POSTS (Stationary, Large) --- */}
         <div className="mb-20">
-           <h3 className="text-2xl font-bold tracking-[0.2em] uppercase text-[var(--gw-secondary)] mb-8 px-2">Featured Stories</h3>
+           {/* <h3 className="text-2xl font-bold tracking-[0.2em] uppercase text-[var(--gw-secondary)] mb-8 px-2">Featured Stories</h3> */}
            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
               {featuredItems.map((item) => (
                 <div key={item.id} className="group cursor-pointer flex flex-col">

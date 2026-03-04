@@ -4,7 +4,7 @@ export default function OurServices() {
   const services = [
     {
       id: 1,
-      icon: "/images/doodles/01.webp",
+      icon: "/images/doodles/icon-01.svg",
       title: "Concierge Integrative Medicine Care",
       description:
         "Personalized, comprehensive care with longer appointments and direct access to your care team.",
@@ -13,7 +13,7 @@ export default function OurServices() {
     },
     {
       id: 2,
-      icon: "/images/doodles/02.webp",
+      icon: "/images/doodles/icon-02.svg",
       title: "Acupuncture | Chinese Medicine",
       description:
         "Acupuncture and Chinese Medicine have been used for thousands of years to treat a wide range of conditions.",
@@ -22,7 +22,7 @@ export default function OurServices() {
     },
     {
       id: 3,
-      icon: "/images/doodles/09.webp",
+      icon: "/images/doodles/icon-03.svg",
       title: "Integrative Geriatric Consultations",
       description:
         "Personalized, comprehensive care for seniors, focusing on quality of life and well-being.",
@@ -31,7 +31,7 @@ export default function OurServices() {
     },
     {
       id: 4,
-      icon: "/images/doodles/10.webp",
+      icon: "/images/doodles/icon-04.svg",
       title: "Courses & Medical and Support Groups",
       description:
         "Educational programs and support groups to empower your health journey.",
@@ -40,7 +40,7 @@ export default function OurServices() {
     },
     {
       id: 5,
-      icon: "/images/doodles/05.webp",  
+      icon: "/images/doodles/icon-05.svg",  
       title: "Celiac Disease",
       description:
         "Treatment for celiac disease, an autoimmune condition triggered by gluten.",
@@ -49,7 +49,7 @@ export default function OurServices() {
     },
     {
       id: 6,
-      icon: "/images/doodles/06.webp",
+      icon: "/images/doodles/icon-06.svg",
       title: "Mindfulness Based Stress Reduction Course",
       description:
         "A program that teaches you how to manage stress and anxiety through mindfulness and meditation.",
@@ -58,7 +58,7 @@ export default function OurServices() {
     },
     {
       id: 7,
-      icon: "/images/doodles/11.webp",
+      icon: "/images/doodles/icon-07.svg",
       title: "Long Covid",
       description: "Treatment for long-term symptoms of COVID-19.",
       link: "#",
@@ -66,7 +66,7 @@ export default function OurServices() {
     },
     {
       id: 8,
-      icon: "/images/doodles/12.webp",
+      icon: "/images/doodles/icon-08.svg",
       title: "Weight Management",
       description:
         "Treatment for weight management, including weight loss and weight maintenance.",
@@ -123,7 +123,7 @@ export default function OurServices() {
                 <img
                   src={service.icon}
                   alt={service.title}
-                  className="w-36 h-36 object-contain transition-transform duration-300 group-hover:scale-105"
+                  className="w-24 h-24 object-contain transition-transform duration-300 group-hover:scale-105"
                 />
               </div>
 
