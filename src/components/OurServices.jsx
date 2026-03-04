@@ -5,36 +5,36 @@ export default function OurServices() {
   // Expand the data array with up to 6 items per category so the responsive grid can actually display 4 or 5 cards!
   const servicesData = {
     "Consultations": [
-      { id: 1, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 2, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" },
-      { id: 3, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 4, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" },
-      { id: 5, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 6, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" }
+      { id: 1, icon: "/images/doodles/icon-01.svg", title: "Integrative Geriatrics" },
+      { id: 2, icon: "/images/doodles/icon-02.svg", title: "Naturopathic Medicine" },
+      { id: 3, icon: "/images/doodles/icon-03.svg", title: "Functional Medicine" },
+      { id: 4, icon: "/images/doodles/icon-01.svg", title: "Integrative Mental Health" },
+      { id: 5, icon: "/images/doodles/icon-02.svg", title: "Sarno/Mind-Body Method" },
+      { id: 6, icon: "/images/doodles/icon-03.svg", title: "Pediatric and Adolescent Integrative Medicine" },
+      { id: 7, icon: "/images/doodles/icon-01.svg", title: "Medical Cannabis" },
+      { id: 8, icon: "/images/doodles/icon-02.svg", title: "Nutritional Counseling" }
     ],
     "Treatments": [
-      { id: 11, icon: "/images/doodles/icon-02.svg", title: "Acupuncture | Chinese Medicine", link: "#", linkText: "Learn more" },
-      { id: 12, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" },
-      { id: 13, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 14, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" },
-      { id: 15, icon: "/images/doodles/icon-02.svg", title: "Acupuncture | Chinese Medicine", link: "#", linkText: "Learn more" },
-      { id: 16, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" }
+      { id: 11, icon: "/images/doodles/icon-05.svg", title: "Intravenouse Therapy" },
+      { id: 12, icon: "/images/doodles/icon-06.svg", title: "Mistletoe Injection Therapy for Cancer" },
+      { id: 13, icon: "/images/doodles/icon-02.svg", title: "Acupuncture and Chinese medicine" },
+      { id: 14, icon: "/images/doodles/icon-08.svg", title: "Microneedling and Facial Acupuncture" },
+      { id: 15, icon: "/images/doodles/icon-09.svg", title: "Reiki" },
+      { id: 16, icon: "/images/doodles/icon-10.svg", title: "Somatic Experiencing" },
+      { id: 17, icon: "/images/doodles/icon-03.svg", title: "KAP Assisted Psychotherapy" }
     ],
     "Programs": [
-      { id: 21, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 22, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" },
-      { id: 23, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 24, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" },
-      { id: 25, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 26, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" }
+      { id: 21, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care" },
+      { id: 22, icon: "/images/doodles/icon-03.svg", title: "Reversal of Cognitive Decline ReCODE (TM)" },
+      { id: 23, icon: "/images/doodles/icon-07.svg", title: "Long Covid" },
+      { id: 24, icon: "/images/doodles/icon-01.svg", title: "Shoemaker Protocol for CIRS and Mold Toxicity" },
+      { id: 25, icon: "/images/doodles/icon-02.svg", title: "Mindfulness Based Stress Reduction MBSR" },
+      { id: 26, icon: "/images/doodles/icon-03.svg", title: "Weight/Body Composition" },
+      { id: 27, icon: "/images/doodles/icon-01.svg", title: "Executive Coaching" }
     ],
     "Ongoing Groups": [
-      { id: 31, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 32, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" },
-      { id: 33, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 34, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" },
-      { id: 35, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care", link: "#", linkText: "Learn more" },
-      { id: 36, icon: "/images/doodles/icon-03.svg", title: "Integrative Geriatric Consultations", link: "#", linkText: "Learn more" }
+      { id: 31, icon: "/images/doodles/icon-03.svg", title: "Long COVID Medical online Groups" },
+      { id: 32, icon: "/images/doodles/icon-01.svg", title: "ReCODE Support Group" }
     ]
   };
 
@@ -144,33 +144,11 @@ export default function OurServices() {
 
                       {/* Title */}
                       <h4
-                        className="text-base md:text-lg font-semibold text-[var(--gw-primary)] mb-1 leading-tight"
+                        className="text-base md:text-lg font-semibold text-[var(--gw-primary)] mb-1 leading-tight group-hover:text-[var(--gw-blue)] transition-colors duration-300"
                         style={{ fontFamily: "Ginto, Helvetica, sans-serif" }}
                       >
                         {service.title}
                       </h4>
-
-                      {/* Link */}
-                      <a
-                        href={service.link}
-                        className="inline-flex items-center mt-2 text-[var(--gw-blue)] font-medium text-sm hover:text-[var(--gw-primary)] transition-colors duration-300 group-hover:text-[var(--gw-primary)]"
-                      >
-                        {service.linkText}
-                        <svg
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          strokeWidth={2}
-                          stroke="currentColor"
-                          className="w-4 h-4 ml-1 transition-transform duration-300 ease-out group-hover:translate-x-1"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                          />
-                        </svg>
-                      </a>
                     </div>
                   ))}
                 </div>
