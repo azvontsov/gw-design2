@@ -83,7 +83,7 @@ export default function OurServices() {
           if (category === "Ongoing Groups") rightBgColor = "bg-[#6C7F9A]/20";
 
           return (
-            <div key={category} className="flex flex-col md:flex-row w-full mb-0">
+            <div key={category} className="flex flex-col md:flex-row w-full mb-0 overflow-hidden relative">
               
               {/* Category Left Block */}
               <div className={`w-full md:w-[30%] lg:w-[30%] flex flex-col items-center md:items-end justify-center px-6 py-4 md:py-5 lg:py-6 md:pl-4 md:pr-8 lg:pl-6 lg:pr-10 xl:pr-16 transition-colors duration-300 ${getCategoryColor(category)}`}>
@@ -114,41 +114,33 @@ export default function OurServices() {
               </div>
 
               {/* Services Grid Right Block */}
-              <div className={`w-full md:w-[70%] lg:w-[75%] ${rightBgColor} py-4 md:py-5 lg:py-6 px-6 sm:px-10 lg:px-12 xl:px-16 flex flex-col justify-center`}>
+              <div className={`w-full md:w-[70%] lg:w-[75%] ${rightBgColor} pt-6 md:pt-8 lg:pt-10 pb-0 px-6 sm:px-10 lg:px-12 xl:px-16 flex flex-col justify-end`}>
                 
                 {/* Cards Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-6 lg:gap-y-8 gap-x-6 md:gap-x-10">
-                  {servicesData[category].slice(0, 4).map((service, index) => (
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-y-12 lg:gap-y-10 gap-x-4 sm:gap-x-8 md:gap-x-10">
+                  {servicesData[category].map((service, index) => (
                     <div 
                       key={service.id} 
-                      className={`relative text-left group flex-col items-start bg-transparent ${
-                        index < 3 ? "flex" : "flex md:hidden lg:flex"
-                      }`}
+                      className="relative pt-4 flex-col items-stretch group h-full flex min-w-0"
+                      style={{ clipPath: "inset(-60px -60px 0 -60px)" }}
                     >
-                      {/* Vertical Separator */}
-                      {index < 3 && (
-                        <div className={`absolute top-2 bottom-2 -right-3 md:-right-[20px] w-px bg-[var(--gw-primary)]/15 hidden ${
-                          index === 0 ? 'sm:block' :
-                          index === 1 ? 'md:block' :
-                          index === 2 ? 'sm:block md:hidden lg:block' : ''
-                        }`} />
-                      )}
-                      {/* Icon */}
-                      <div className="mb-2">
-                        <img
-                          src={service.icon}
-                          alt={service.title}
-                          className="w-8 h-8 md:w-10 md:h-10 object-contain transition-transform duration-300 group-hover:scale-105"
-                        />
+                      {/* The Manila Folder */}
+                      <div className="relative w-full flex-1 hover:bg-[#E7DBB2] border-t border-l border-r border-[var(--gw-primary)] rounded-t-[8px] p-4 lg:p-6 pb-4 lg:pb-8 transform translate-y-6 group-hover:translate-y-1 shadow-[0_-2px_10px_rgba(0,0,0,0.02)] group-hover:shadow-[0_-8px_20px_rgba(0,0,0,0.06)] transition-all duration-500 ease-[cubic-bezier(0.25,1,0.5,1)] flex flex-col cursor-pointer z-10 min-w-0 bg-[#fdfdfc]/60 hover:bg-[#E7DBB2]/50 backdrop-blur-sm">
+                        
+                        {/* Folder Tab */}
+                        <div className="absolute -top-[13px] left-4 w-[60px] h-[14px] border-t border-l border-r border-[var(--gw-primary)] rounded-t-[6px] z-20 bg-[#fdfdfc]/60 group-hover:bg-[#E7DBB2]/50 backdrop-blur-sm transition-colors duration-500" />
+
+                        {/* Title */}
+                        <h4
+                          className="text-[14px] md:text-[16px] font-semibold text-[var(--gw-primary)] leading-snug group-hover:text-[var(--gw-blue)] transition-colors duration-300 relative z-30 pb-6 break-words"
+                          style={{ fontFamily: "Ginto, Helvetica, sans-serif" }}
+                        >
+                          {service.title}
+                        </h4>
                       </div>
 
-                      {/* Title */}
-                      <h4
-                        className="text-base md:text-lg font-semibold text-[var(--gw-primary)] mb-1 leading-tight group-hover:text-[var(--gw-blue)] transition-colors duration-300"
-                        style={{ fontFamily: "Ginto, Helvetica, sans-serif" }}
-                      >
-                        {service.title}
-                      </h4>
+                      {/* Slot Opening Line */}
+                      {/* <div className="absolute bottom-0 left-[-2px] right-[-2px] h-[3px] bg-[var(--gw-primary)]/10 rounded-full z-20 shadow-[0_1px_0_rgba(255,255,255,0.4)] pointer-events-none" /> */}
                     </div>
                   ))}
                 </div>
