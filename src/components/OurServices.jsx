@@ -5,36 +5,36 @@ export default function OurServices() {
   // Expand the data array with up to 6 items per category so the responsive grid can actually display 4 or 5 cards!
   const servicesData = {
     "Consultations": [
-      { id: 1, icon: "/images/doodles/icon-01.svg", title: "Integrative Geriatrics" },
-      { id: 2, icon: "/images/doodles/icon-02.svg", title: "Naturopathic Medicine" },
-      { id: 3, icon: "/images/doodles/icon-03.svg", title: "Functional Medicine" },
-      { id: 4, icon: "/images/doodles/icon-01.svg", title: "Integrative Mental Health" },
-      { id: 5, icon: "/images/doodles/icon-02.svg", title: "Sarno/Mind-Body Method" },
-      { id: 6, icon: "/images/doodles/icon-03.svg", title: "Pediatric and Adolescent Integrative Medicine" },
-      { id: 7, icon: "/images/doodles/icon-01.svg", title: "Medical Cannabis" },
-      { id: 8, icon: "/images/doodles/icon-02.svg", title: "Nutritional Counseling" }
+      { id: 1, icon: "/images/doodles/icon-1.png", title: "Integrative Geriatrics" },
+      { id: 2, icon: "/images/doodles/icon-2.png", title: "Naturopathic Medicine" },
+      { id: 3, icon: "/images/doodles/icon-3.png", title: "Functional Medicine" },
+      { id: 4, icon: "/images/doodles/icon-4.png", title: "Integrative Mental Health" },
+      { id: 5, icon: "/images/doodles/icon-5.png", title: "Sarno/Mind-Body Method" },
+      { id: 6, icon: "/images/doodles/icon-6.png", title: "Pediatric and Adolescent Integrative Medicine" },
+      { id: 7, icon: "/images/doodles/icon-7.png", title: "Medical Cannabis" },
+      { id: 8, icon: "/images/doodles/icon-8.png", title: "Nutritional Counseling" }
     ],
     "Treatments": [
-      { id: 11, icon: "/images/doodles/icon-05.svg", title: "Intravenouse Therapy" },
-      { id: 12, icon: "/images/doodles/icon-06.svg", title: "Mistletoe Injection Therapy for Cancer" },
-      { id: 13, icon: "/images/doodles/icon-02.svg", title: "Acupuncture and Chinese medicine" },
-      { id: 14, icon: "/images/doodles/icon-08.svg", title: "Microneedling and Facial Acupuncture" },
-      { id: 15, icon: "/images/doodles/icon-09.svg", title: "Reiki" },
-      { id: 16, icon: "/images/doodles/icon-10.svg", title: "Somatic Experiencing" },
-      { id: 17, icon: "/images/doodles/icon-03.svg", title: "KAP Assisted Psychotherapy" }
+      { id: 11, icon: "/images/doodles/icon-11.png", title: "Intravenouse Therapy" },
+      { id: 12, icon: "/images/doodles/icon-12.png", title: "Mistletoe Injection Therapy for Cancer" },
+      { id: 13, icon: "/images/doodles/icon-13.png", title: "Acupuncture and Chinese medicine" },
+      { id: 14, icon: "/images/doodles/icon-14.png", title: "Microneedling and Facial Acupuncture" },
+      { id: 15, icon: "/images/doodles/icon-15.png", title: "Reiki" },
+      { id: 16, icon: "/images/doodles/icon-16.png", title: "Somatic Experiencing" },
+      { id: 17, icon: "/images/doodles/icon-17.png", title: "KAP Assisted Psychotherapy" }
     ],
     "Programs": [
-      { id: 21, icon: "/images/doodles/icon-01.svg", title: "Concierge Integrative Medicine Care" },
-      { id: 22, icon: "/images/doodles/icon-03.svg", title: "Reversal of Cognitive Decline ReCODE (TM)" },
-      { id: 23, icon: "/images/doodles/icon-07.svg", title: "Long Covid" },
-      { id: 24, icon: "/images/doodles/icon-01.svg", title: "Shoemaker Protocol for CIRS and Mold Toxicity" },
-      { id: 25, icon: "/images/doodles/icon-02.svg", title: "Mindfulness Based Stress Reduction MBSR" },
-      { id: 26, icon: "/images/doodles/icon-03.svg", title: "Weight/Body Composition" },
-      { id: 27, icon: "/images/doodles/icon-01.svg", title: "Executive Coaching" }
+      { id: 21, icon: "/images/doodles/icon-21.png", title: "Concierge Integrative Medicine Care" },
+      { id: 22, icon: "/images/doodles/icon-22.png", title: "Reversal of Cognitive Decline ReCODE (TM)" },
+      { id: 23, icon: "/images/doodles/icon-23.png", title: "Long Covid" },
+      { id: 24, icon: "/images/doodles/icon-24.png", title: "Shoemaker Protocol for CIRS and Mold Toxicity" },
+      { id: 25, icon: "/images/doodles/icon-25.png", title: "Mindfulness Based Stress Reduction MBSR" },
+      { id: 26, icon: "/images/doodles/icon-26.png", title: "Weight/Body Composition" },
+      { id: 27, icon: "/images/doodles/icon-27.png", title: "Executive Coaching" }
     ],
     "Ongoing Groups": [
-      { id: 31, icon: "/images/doodles/icon-03.svg", title: "Long COVID Medical online Groups" },
-      { id: 32, icon: "/images/doodles/icon-01.svg", title: "ReCODE Support Group" }
+      { id: 31, icon: "/images/doodles/icon-31.png", title: "Long COVID Medical online Groups" },
+      { id: 32, icon: "/images/doodles/icon-32.png", title: "ReCODE Support Group" }
     ]
   };
 
@@ -55,7 +55,7 @@ export default function OurServices() {
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)] mb-4"
+          <h2 className="text-[72px] leading-[72px] font-medium tracking-normal text-[var(--gw-primary)] mb-4 uppercase"
           style={{ 
             fontFamily: 'var(--font-gt-super)', 
             fontWeight: 700,

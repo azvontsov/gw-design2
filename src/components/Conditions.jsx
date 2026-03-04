@@ -62,7 +62,7 @@ export default function Conditions() {
         {/* DynamicHero Animated Header inserted here */}
         <div className="max-w-7xl mx-auto px-6 text-center mb-12">
           <h2 
-            className="text-5xl md:text-6xl lg:text-[72px] text-[var(--gw-primary)] relative z-30"
+            className="text-5xl md:text-6xl lg:text-[72px] text-[var(--gw-primary)] relative z-30 uppercase"
             style={{ 
               fontFamily: 'var(--font-gt-super)', 
               fontWeight: 700,

@@ -63,7 +63,7 @@ export default function NewsEvents() {
         
         {/* SECTION HEADER */}
         <div className="text-center mb-16">
-          <h2 className="text-[52px] md:text-[72px] leading-[1.1] md:leading-[72px] font-medium tracking-normal text-[var(--gw-primary)] mb-4">
+          <h2 className="text-[52px] md:text-[72px] leading-[1.1] md:leading-[72px] font-medium tracking-normal text-[var(--gw-primary)] mb-4 uppercase">
             News & Events
           </h2>
           
