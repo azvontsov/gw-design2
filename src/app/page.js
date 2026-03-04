@@ -20,8 +20,8 @@ export default function Home() {
         <Hero />
         <AboutSnippet />
         <NewsEvents />
-        <ResourcesQuickLinks />
         <OurServices />
+        <ResourcesQuickLinks />
         <Conditions />
         <Providers />
         {/* Reviews Section */}
