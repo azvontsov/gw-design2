@@ -95,14 +95,41 @@ export default function Hero() {
       {/* Trust/Affiliations Bar at Bottom */}
       <div className="absolute bottom-0 w-full border-t border-white/10 bg-black/40 backdrop-blur-md z-20 text-white">
           <div className="container mx-auto px-6 py-4">
-              <p className="text-center text-xs font-bold tracking-[0.2em] text-white/70 mb-2 uppercase">Trusted By / Affiliated With</p>
-              <div className="flex flex-wrap justify-center items-center gap-x-8 gap-y-2 md:gap-x-12 opacity-50">
-                  {/* Replace with actual logos */}
-                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">George Washington University</span>
-                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">Andrew Weil Center</span>
-                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">ABIM</span>
-                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">TAV Remodeling</span>
-                  <span className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default">Mistletoe Therapy</span>
+              <p className="text-center text-xs font-bold tracking-[0.2em] text-white/70 mb-2 uppercase">List of Affiliated organizations</p>
+              
+              <style>{`
+                @keyframes marquee {
+                  0% { transform: translateX(0); }
+                  100% { transform: translateX(-50%); }
+                }
+                .animate-marquee {
+                  animation: marquee 60s linear infinite;
+                  display: flex;
+                  width: max-content;
+                }
+                .animate-marquee:hover {
+                  animation-play-state: paused;
+                }
+              `}</style>
+
+              <div 
+                className="relative flex overflow-hidden group w-full" 
+                style={{ 
+                  maskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)', 
+                  WebkitMaskImage: 'linear-gradient(to right, transparent, black 10%, black 90%, transparent)' 
+                }}
+              >
+                  <div className="animate-marquee items-center gap-x-12 opacity-60 transition-opacity duration-500 group-hover:opacity-100 py-1">
+                      {[
+                        "GWU", "Four Direction Wellness", "AIM Health Institute", "OIMH (Office of Integrative Medicine and Health at GWU)", "ACIMH (Academic Consortium for Integrative Medicine & Health)", "Fullscript", "VitaminLab", "ThriveAgain PT", "Andrew Weil", "Smith Center", "1440 Health",
+                        // Duplicate for infinite seamless loop at -50% translation
+                        "GWU", "Four Direction Wellness", "AIM Health Institute", "OIMH (Office of Integrative Medicine and Health at GWU)", "ACIMH (Academic Consortium for Integrative Medicine & Health)", "Fullscript", "VitaminLab", "ThriveAgain PT", "Andrew Weil", "Smith Center", "1440 Health"
+                      ].map((org, i) => (
+                        <span key={i} className="text-lg md:text-xl font-serif tracking-wide hover:text-[var(--gw-accent)] transition-colors cursor-default shrink-0">
+                           {org}
+                        </span>
+                      ))}
+                  </div>
               </div>
           </div>
       </div>
