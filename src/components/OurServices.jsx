@@ -95,8 +95,8 @@ export default function OurServices() {
                 </h3>
                   
                 {/* See More Button Moved Here */}
-                <a
-                  href="#"
+                <Link
+                  href="/services"
                   className="mt-4 lg:mt-6 inline-flex items-center text-[var(--gw-primary)] font-bold text-sm hover:text-[var(--gw-blue)] transition-colors duration-300 group"
                 >
                   See more 
@@ -110,7 +110,7 @@ export default function OurServices() {
                   >
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12h15m0 0l-6.75-6.75M19.5 12l-6.75 6.75" />
                   </svg>
-                </a>
+                </Link>
               </div>
 
               {/* Services Grid Right Block */}
