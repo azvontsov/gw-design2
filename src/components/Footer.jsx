@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 export default function Footer() {
   return (
-    <footer className="bg-[#1A365D] text-white pt-24 pb-12 font-sans relative overflow-hidden">
+    <footer className="bg-[#1A365D] pt-24 pb-12 font-sans relative overflow-hidden">
       {/* Subtle Top Gradient for depth */}
       <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-white/20 to-transparent"></div>
       
@@ -38,7 +38,7 @@ export default function Footer() {
           
           {/* Navigation (Span 2) */}
           <div className="lg:col-span-2">
-            <h4 className="font-serif text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-8">Menu</h4>
+            <h4 className="text-[11px]tracking-[0.2em] uppercase text-white/40 mb-8">Menu</h4>
             <ul className="flex flex-col gap-4">
               {['Home', 'Services', 'Our Team', 'Blog', 'Contact'].map((item) => (
                 <li key={item}>
@@ -53,7 +53,7 @@ export default function Footer() {
 
           {/* Contact (Span 3) */}
           <div className="lg:col-span-3">
-             <h4 className="font-serif text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-8">Contact Us</h4>
+             <h4 className="text-[11px]tracking-[0.2em] uppercase text-white/40 mb-8">Contact Us</h4>
              <div className="flex flex-col gap-6 text-[14px] text-white/80 font-light leading-relaxed">
                  <div>
                     <strong className="block text-white font-medium mb-1">Address</strong>
@@ -73,7 +73,7 @@ export default function Footer() {
 
           {/* Patient Center (Span 3) */}
           <div className="lg:col-span-3 flex flex-col gap-6">
-             <h4 className="font-serif text-[11px] font-bold tracking-[0.2em] uppercase text-white/40 mb-4">Patient Center</h4>
+             <h4 className="text-[11px]tracking-[0.2em] uppercase text-white/40 mb-8">Patient Center</h4>
              
              {/* CTA 1 */}
              <Link href="#" className="group relative block w-full">
@@ -99,6 +99,16 @@ export default function Footer() {
         {/* Footer Bottom */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 font-medium tracking-widest uppercase gap-4">
             <p>© {new Date().getFullYear()} GW Center for Integrative Medicine.</p>
+            
+            <a
+              href="https://www.dcdev.us/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-white transition-colors"
+            >
+              Designed by DCDev
+            </a>
+
             <div className="flex gap-8 items-center">
                 <Link href="#" className="hover:text-white transition-colors">Disclaimer</Link>
                 <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
