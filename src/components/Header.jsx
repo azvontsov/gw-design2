@@ -6,13 +6,57 @@ import { useState, useEffect, Fragment } from 'react';
 const menuItems = [
   {
     title: "Services",
-    href: "#",
+    href: "/services",
     submenu: [
-      { title: "All Services", href: "#" },
-      { title: "Consultations", href: "#" },
-      { title: "Treatments", href: "#" },
-      { title: "Programs", href: "#" },
-      { title: "Ongoing Groups", href: "#" }
+      { title: "All Services", href: "/services" },
+      {
+        title: "Consultations",
+        href: "/services?category=Consultations",
+        subitems: [
+          { title: "Integrative Geriatrics", href: "/services?category=Consultations" },
+          { title: "Naturopathic Medicine", href: "/services?category=Consultations" },
+          { title: "Functional Medicine", href: "/services?category=Consultations" },
+          { title: "Integrative Mental Health", href: "/services?category=Consultations" },
+          { title: "Sarno/Mind-Body Method", href: "/services?category=Consultations" },
+          { title: "Pediatric & Adolescent", href: "/services?category=Consultations" },
+          { title: "Medical Cannabis", href: "/services?category=Consultations" },
+          { title: "Nutritional Counseling", href: "/services?category=Consultations" },
+        ]
+      },
+      {
+        title: "Treatments",
+        href: "/services?category=Treatments",
+        subitems: [
+          { title: "Intravenous Therapy", href: "/services?category=Treatments" },
+          { title: "Mistletoe Injection Therapy", href: "/services?category=Treatments" },
+          { title: "Acupuncture & Chinese Medicine", href: "/services?category=Treatments" },
+          { title: "Microneedling & Facial Acupuncture", href: "/services?category=Treatments" },
+          { title: "Reiki", href: "/services?category=Treatments" },
+          { title: "Somatic Experiencing", href: "/services?category=Treatments" },
+          { title: "KAP Assisted Psychotherapy", href: "/services?category=Treatments" },
+        ]
+      },
+      {
+        title: "Programs",
+        href: "/services?category=Programs",
+        subitems: [
+          { title: "Concierge Integrative Medicine", href: "/services?category=Programs" },
+          { title: "Reversal of Cognitive Decline", href: "/services?category=Programs" },
+          { title: "Long Covid", href: "/services?category=Programs" },
+          { title: "Shoemaker Protocol / CIRS", href: "/services?category=Programs" },
+          { title: "Mindfulness Based Stress Reduction", href: "/services?category=Programs" },
+          { title: "Weight / Body Composition", href: "/services?category=Programs" },
+          { title: "Executive Coaching", href: "/services?category=Programs" },
+        ]
+      },
+      {
+        title: "Ongoing Groups",
+        href: "/services?category=Ongoing+Groups",
+        subitems: [
+          { title: "Long COVID Medical Groups", href: "/services?category=Ongoing+Groups" },
+          { title: "ReCODE Support Group", href: "/services?category=Ongoing+Groups" },
+        ]
+      },
     ]
   },
   {
@@ -165,18 +209,40 @@ export default function Header() {
                             {/* Dropdown */}
                             {item.submenu && (
                                 <div 
-                                    className="absolute top-[calc(100%+1px)] left-1/2 -translate-x-1/2 min-w-[240px] pointer-events-none group-hover:pointer-events-auto"
-                                    style={{ clipPath: 'inset(0px -50px -50px -50px)', WebkitClipPath: 'inset(0px -50px -50px -50px)' }}
+                                    className="absolute top-[calc(100%+1px)] left-1/2 -translate-x-1/2 min-w-[220px] pointer-events-none group-hover:pointer-events-auto"
+                                    style={{ clipPath: 'inset(0px -600px -600px -50px)', WebkitClipPath: 'inset(0px -600px -600px -50px)' }}
                                 >
                                     <div className="bg-[var(--sw-navbar)] flex flex-col items-stretch transform -translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 drop-shadow-2xl">
                                         {item.submenu.map((sub, sIdx) => (
-                                            <Link 
-                                                key={sIdx} 
-                                                href={sub.href} 
-                                                className="block px-6 py-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white border-b border-[rgba(255,255,255,0.2)] last:border-0 hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors text-center whitespace-nowrap"
-                                            >
-                                                {sub.title}
-                                            </Link>
+                                            <div key={sIdx} className="relative group/fly">
+                                                <Link 
+                                                    href={sub.href} 
+                                                    className={`flex items-center justify-between px-6 py-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white border-b border-[rgba(255,255,255,0.2)] last:border-0 hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap`}
+                                                >
+                                                    {sub.title}
+                                                    {sub.subitems && (
+                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3 ml-3 opacity-60 group-hover/fly:opacity-100 group-hover/fly:translate-x-0.5 transition-all">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                                        </svg>
+                                                    )}
+                                                </Link>
+                                                {/* Flyout Panel */}
+                                                {sub.subitems && (
+                                                    <div className="absolute top-0 left-full min-w-[240px] pointer-events-none group-hover/fly:pointer-events-auto opacity-0 group-hover/fly:opacity-100 -translate-x-2 group-hover/fly:translate-x-0 transition-all duration-200 ease-out">
+                                                        <div className="bg-[var(--sw-navbar)] brightness-90 flex flex-col drop-shadow-xl border-l border-[rgba(255,255,255,0.1)]">
+                                                            {sub.subitems.map((child, cIdx) => (
+                                                                <Link
+                                                                    key={cIdx}
+                                                                    href={child.href}
+                                                                    className="block px-5 py-4 text-[11px] font-bold tracking-[0.15em] uppercase text-white border-b border-[rgba(255,255,255,0.2)] last:border-0 hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap"
+                                                                >
+                                                                    {child.title}
+                                                                </Link>
+                                                            ))}
+                                                        </div>
+                                                    </div>
+                                                )}
+                                            </div>
                                         ))}
                                     </div>
                                 </div>

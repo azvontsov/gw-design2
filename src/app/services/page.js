@@ -1,11 +1,13 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import { useSearchParams } from 'next/navigation';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
 
 export default function ServicesPage() {
+  const searchParams = useSearchParams();
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
   const [currentPage, setCurrentPage] = useState(1);
@@ -48,6 +50,23 @@ export default function ServicesPage() {
 
   const categories = ["All", ...Object.keys(servicesData)];
 
+  // Per-category color palette matching the OurServices colored blocks
+  const categoryColors = {
+    "All":           { active: "bg-[var(--gw-primary)] text-white border-[var(--gw-primary)]" },
+    "Consultations": { active: "bg-[#B9C1B3] text-[var(--gw-primary)] border-[#B9C1B3]" },
+    "Treatments":    { active: "bg-[#7A8775] text-white border-[#7A8775]" },
+    "Programs":      { active: "bg-[#99A7B8] text-white border-[#99A7B8]" },
+    "Ongoing Groups":{ active: "bg-[#6C7F9A] text-white border-[#6C7F9A]" },
+  };
+
+  const pageBgColor = {
+    "All":           "var(--gw-secondary-light)",
+    "Consultations": "rgba(185, 193, 179, 0.25)",
+    "Treatments":    "rgba(122, 135, 117, 0.20)",
+    "Programs":      "rgba(153, 167, 184, 0.35)",
+    "Ongoing Groups":"rgba(108, 127, 154, 0.30)",
+  };
+
   // Flatten the array to map easily and attach category string so it's filterable
   const allServices = Object.entries(servicesData).flatMap(([category, services]) =>
     services.map(service => ({ ...service, category }))
@@ -65,6 +84,14 @@ export default function ServicesPage() {
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm, selectedCategory, itemsPerPage]);
+
+  // Read ?category= query param on mount and set the filter
+  useEffect(() => {
+    const cat = searchParams.get('category');
+    if (cat && categories.includes(cat)) {
+      setSelectedCategory(cat);
+    }
+  }, [searchParams]);
 
   useEffect(() => {
     const updateItemsPerPage = () => {
@@ -92,7 +119,10 @@ export default function ServicesPage() {
   }, []);
 
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--gw-secondary-light)]">
+    <div
+      className="flex flex-col min-h-screen"
+      style={{ backgroundColor: pageBgColor[selectedCategory] ?? pageBgColor["All"], transition: 'background-color 0.5s ease' }}
+    >
       <Header />
 
       <main className="flex-1">
@@ -163,7 +193,7 @@ export default function ServicesPage() {
             </div>
 
             {/* Search and Filter Controls */}
-            <div className="flex flex-col lg:flex-row gap-8 mb-16 items-start lg:items-center justify-between border-b border-gray-200 pb-10">
+            <div className="flex flex-col lg:flex-row gap-8 mb-16 items-start lg:items-center justify-between border-b border-gray-400 pb-10">
               
               {/* Category Pills */}
               <div className="flex flex-wrap gap-2 lg:gap-3 w-full lg:w-auto overflow-x-auto pb-2 no-scrollbar">
@@ -173,7 +203,7 @@ export default function ServicesPage() {
                     onClick={() => setSelectedCategory(cat)}
                     className={`px-5 py-2.5 text-sm font-semibold tracking-wide transition-all duration-300 shadow-sm whitespace-nowrap border rounded-2xl ${
                       selectedCategory === cat
-                        ? "bg-[var(--gw-primary)] text-white border-[var(--gw-primary)]"
+                        ? (categoryColors[cat]?.active ?? "bg-[var(--gw-primary)] text-white border-[var(--gw-primary)]")
                         : "bg-white text-[var(--gw-text-main)] border-transparent hover:border-[var(--gw-blue)] hover:text-[var(--gw-blue)] hover:bg-gray-50"
                     }`}
                   >
@@ -214,15 +244,15 @@ export default function ServicesPage() {
             {/* Grid display */}
             {filteredServices.length > 0 ? (
               <div className="flex flex-col">
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0 border-t border-l border-gray-300">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0 border-t border-l border-gray-400">
                   {paginatedServices.map((service) => (
                     <div 
                       key={`${service.category}-${service.id}`}
-                    className="group flex flex-col items-start bg-transparent hover:bg-white border-r border-b border-gray-300 p-8 lg:p-10 transition-all duration-300 cursor-pointer relative hover:z-20 hover:ring-1 hover:ring-[var(--gw-primary)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
+                    className="group flex flex-col items-start bg-transparent hover:bg-white border-r border-b border-gray-400 p-8 lg:p-10 transition-all duration-300 cursor-pointer relative hover:z-20 hover:ring-2 hover:ring-[var(--gw-primary)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:border-transparent"
                   >
                     {/* Category Tag */}
                     <div className="absolute top-6 right-6">
-                       <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--gw-blue)]/60 bg-[var(--gw-blue)]/5 px-2.5 py-1.5">
+                       <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--gw-primary)] bg-white/80 border-[var(--gw-primary)]/40 border px-2.5 py-1.5 rounded-sm shadow-sm">
                          {service.category}
                        </span>
                     </div>
