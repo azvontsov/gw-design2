@@ -15,36 +15,36 @@ function ServicesContent() {
 
   const servicesData = {
     "Consultations": [
-      { id: 1, icon: "/images/doodles/icon-1.png", title: "Integrative Geriatrics", description: "Comprehensive health span care and age management." },
-      { id: 2, icon: "/images/doodles/icon-2.png", title: "Naturopathic Medicine", description: "Whole-person naturopathic therapies and natural remedies." },
-      { id: 3, icon: "/images/doodles/icon-3.png", title: "Functional Medicine", description: "Root-cause approach to chronic illness and optimal health." },
-      { id: 4, icon: "/images/doodles/icon-4.png", title: "Integrative Mental Health", description: "Holistic strategies for mental and emotional wellbeing." },
-      { id: 5, icon: "/images/doodles/icon-5.png", title: "Sarno/Mind-Body Method", description: "Treatment of chronic pain through mind-body connection." },
-      { id: 6, icon: "/images/doodles/icon-6.png", title: "Pediatric and Adolescent Integrative Medicine", description: "Specialized, gentle care for children and teens." },
-      { id: 7, icon: "/images/doodles/icon-7.png", title: "Medical Cannabis", description: "Expert guidance on medical cannabis therapies." },
-      { id: 8, icon: "/images/doodles/icon-8.png", title: "Nutritional Counseling", description: "Personalized diet and nutrition plans for healing." }
+      { id: 1, icon: "/images/doodles/icon-1.png", title: "Integrative Geriatrics", slug: "integrative-geriatrics", description: "Comprehensive health span care and age management." },
+      { id: 2, icon: "/images/doodles/icon-2.png", title: "Naturopathic Medicine", slug: "naturopathic-medicine", description: "Whole-person naturopathic therapies and natural remedies." },
+      { id: 3, icon: "/images/doodles/icon-3.png", title: "Functional Medicine", slug: "functional-medicine", description: "Root-cause approach to chronic illness and optimal health." },
+      { id: 4, icon: "/images/doodles/icon-4.png", title: "Integrative Mental Health", slug: "integrative-mental-health", description: "Holistic strategies for mental and emotional wellbeing." },
+      { id: 5, icon: "/images/doodles/icon-5.png", title: "Sarno/Mind-Body Method", slug: "sarno-mind-body-method", description: "Treatment of chronic pain through mind-body connection." },
+      { id: 6, icon: "/images/doodles/icon-6.png", title: "Pediatric and Adolescent Integrative Medicine", slug: "pediatric-adolescent-integrative-medicine", description: "Specialized, gentle care for children and teens." },
+      { id: 7, icon: "/images/doodles/icon-7.png", title: "Medical Cannabis", slug: "medical-cannabis", description: "Expert guidance on medical cannabis therapies." },
+      { id: 8, icon: "/images/doodles/icon-8.png", title: "Nutritional Counseling", slug: "nutritional-counseling", description: "Personalized diet and nutrition plans for healing." }
     ],
     "Treatments": [
-      { id: 11, icon: "/images/doodles/icon-11.png", title: "Intravenous Therapy", description: "Direct delivery of essential nutrients and hydration." },
-      { id: 12, icon: "/images/doodles/icon-12.png", title: "Mistletoe Injection Therapy for Cancer", description: "Supportive integrative oncology therapies." },
-      { id: 13, icon: "/images/doodles/icon-13.png", title: "Acupuncture and Chinese medicine", description: "Traditional practices to balance the body's energy." },
-      { id: 14, icon: "/images/doodles/icon-14.png", title: "Microneedling and Facial Acupuncture", description: "Natural rejuvenation and facial aesthetics." },
-      { id: 15, icon: "/images/doodles/icon-15.png", title: "Reiki", description: "Energy healing to promote relaxation and stress reduction." },
-      { id: 16, icon: "/images/doodles/icon-16.png", title: "Somatic Experiencing", description: "Body-oriented approach to healing trauma and stress." },
-      { id: 17, icon: "/images/doodles/icon-17.png", title: "KAP Assisted Psychotherapy", description: "Ketamine-assisted therapeutic sessions." }
+      { id: 11, icon: "/images/doodles/icon-11.png", title: "Intravenous Therapy", slug: "intravenous-therapy", description: "Direct delivery of essential nutrients and hydration." },
+      { id: 12, icon: "/images/doodles/icon-12.png", title: "Mistletoe Injection Therapy for Cancer", slug: "mistletoe-injection-therapy", description: "Supportive integrative oncology therapies." },
+      { id: 13, icon: "/images/doodles/icon-13.png", title: "Acupuncture and Chinese Medicine", slug: "acupuncture-chinese-medicine", description: "Traditional practices to balance the body's energy." },
+      { id: 14, icon: "/images/doodles/icon-14.png", title: "Microneedling and Facial Acupuncture", slug: "microneedling-facial-acupuncture", description: "Natural rejuvenation and facial aesthetics." },
+      { id: 15, icon: "/images/doodles/icon-15.png", title: "Reiki", slug: "reiki", description: "Energy healing to promote relaxation and stress reduction." },
+      { id: 16, icon: "/images/doodles/icon-16.png", title: "Somatic Experiencing", slug: "somatic-experiencing", description: "Body-oriented approach to healing trauma and stress." },
+      { id: 17, icon: "/images/doodles/icon-17.png", title: "KAP Assisted Psychotherapy", slug: "kap-assisted-psychotherapy", description: "Ketamine-assisted therapeutic sessions." }
     ],
     "Programs": [
-      { id: 21, icon: "/images/doodles/icon-21.png", title: "Concierge Integrative Medicine Care", description: "Premium, highly personalized access to our practitioners." },
-      { id: 22, icon: "/images/doodles/icon-22.png", title: "Reversal of Cognitive Decline ReCODE (TM)", description: "Protocol for preventing and reversing cognitive decline." },
-      { id: 23, icon: "/images/doodles/icon-23.png", title: "Long Covid", description: "Comprehensive management and recovery from Long Covid." },
-      { id: 24, icon: "/images/doodles/icon-24.png", title: "Shoemaker Protocol for CIRS and Mold Toxicity", description: "Targeted treatment for chronic inflammatory response." },
-      { id: 25, icon: "/images/doodles/icon-25.png", title: "Mindfulness Based Stress Reduction MBSR", description: "Evidence-based program for stress management." },
-      { id: 26, icon: "/images/doodles/icon-26.png", title: "Weight/Body Composition", description: "Holistic strategies for healthy weight management." },
-      { id: 27, icon: "/images/doodles/icon-27.png", title: "Executive Coaching", description: "Performance and wellness coaching for professionals." }
+      { id: 21, icon: "/images/doodles/icon-21.png", title: "Concierge Integrative Medicine Care", slug: "concierge-integrative-medicine", description: "Premium, highly personalized access to our practitioners." },
+      { id: 22, icon: "/images/doodles/icon-22.png", title: "Reversal of Cognitive Decline ReCODE", slug: "reversal-cognitive-decline-recode", description: "Protocol for preventing and reversing cognitive decline." },
+      { id: 23, icon: "/images/doodles/icon-23.png", title: "Long Covid", slug: "long-covid", description: "Comprehensive management and recovery from Long Covid." },
+      { id: 24, icon: "/images/doodles/icon-24.png", title: "Shoemaker Protocol for CIRS and Mold Toxicity", slug: "shoemaker-protocol-cirs-mold", description: "Targeted treatment for chronic inflammatory response." },
+      { id: 25, icon: "/images/doodles/icon-25.png", title: "Mindfulness Based Stress Reduction MBSR", slug: "mindfulness-based-stress-reduction", description: "Evidence-based program for stress management." },
+      { id: 26, icon: "/images/doodles/icon-26.png", title: "Weight/Body Composition", slug: "weight-body-composition", description: "Holistic strategies for healthy weight management." },
+      { id: 27, icon: "/images/doodles/icon-27.png", title: "Executive Coaching", slug: "executive-coaching", description: "Performance and wellness coaching for professionals." }
     ],
     "Ongoing Groups": [
-      { id: 31, icon: "/images/doodles/icon-31.png", title: "Long COVID Medical online Groups", description: "Supportive community and medical guidance for Long Covid." },
-      { id: 32, icon: "/images/doodles/icon-32.png", title: "ReCODE Support Group", description: "Community support for the ReCODE cognitive protocol." }
+      { id: 31, icon: "/images/doodles/icon-31.png", title: "Long COVID Medical Online Groups", slug: "long-covid-online-groups", description: "Supportive community and medical guidance for Long Covid." },
+      { id: 32, icon: "/images/doodles/icon-32.png", title: "ReCODE Support Group", slug: "recode-support-group", description: "Community support for the ReCODE cognitive protocol." }
     ]
   };
 
@@ -246,10 +246,11 @@ function ServicesContent() {
               <div className="flex flex-col">
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0 border-t border-l border-gray-400">
                   {paginatedServices.map((service) => (
-                    <div 
+                    <Link
                       key={`${service.category}-${service.id}`}
-                    className="group flex flex-col items-start bg-transparent hover:bg-white border-r border-b border-gray-400 p-8 lg:p-10 transition-all duration-300 cursor-pointer relative hover:z-20 hover:ring-2 hover:ring-[var(--gw-primary)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:border-transparent"
-                  >
+                      href={`/services/${service.slug}`}
+                      className="group flex flex-col items-start bg-transparent hover:bg-white border-r border-b border-gray-400 p-8 lg:p-10 transition-all duration-300 cursor-pointer relative hover:z-20 hover:ring-2 hover:ring-[var(--gw-primary)] hover:shadow-[0_16px_48px_rgba(0,0,0,0.12)] hover:border-transparent"
+                    >
                     {/* Category Tag */}
                     <div className="absolute top-6 right-6">
                        <span className="text-[10px] uppercase font-bold tracking-widest text-[var(--gw-primary)] bg-white/80 border-[var(--gw-primary)]/40 border px-2.5 py-1.5 rounded-sm shadow-sm">
@@ -276,7 +277,7 @@ function ServicesContent() {
                       {service.description}
                     </p>
 
-                    {/* Faux Read More Link for UX */}
+                    {/* View Details */}
                     <div className="mt-auto pt-8 flex items-center text-[var(--gw-blue)] font-bold text-xs uppercase tracking-widest opacity-0 -translate-x-2 group-hover:translate-x-0 group-hover:opacity-100 transition-all duration-300">
                        View Details
                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-4 h-4 ml-1.5">
@@ -284,7 +285,7 @@ function ServicesContent() {
                        </svg>
                     </div>
 
-                  </div>
+                  </Link>
                   ))}
                 </div>
 
