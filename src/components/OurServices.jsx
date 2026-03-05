@@ -38,6 +38,13 @@ export default function OurServices() {
     ]
   };
 
+  const categoryDescriptions = {
+    "Consultations": "Medical in-person and telemedicine appointments",
+    "Treatments": "Therapeutic body-centered modalities",
+    "Programs": "Coordinated expert care for complex conditions",
+    "Ongoing Groups": "Affordable medical support groups with our expert doctors",
+  };
+
   const categories = Object.keys(servicesData);
 
   const getCategoryColor = (category) => {
@@ -93,6 +100,11 @@ export default function OurServices() {
                 >
                   {category}
                 </h3>
+
+                {/* Category Description */}
+                <p className="mt-2 text-sm text-[var(--gw-primary)] text-center md:text-right max-w-[240px] leading-snug">
+                  {categoryDescriptions[category]}
+                </p>
                   
                 {/* See More Button Moved Here */}
                 <Link

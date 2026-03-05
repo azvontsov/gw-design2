@@ -8,6 +8,8 @@ import Link from "next/link";
 export default function ServicesPage() {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(16);
 
   const servicesData = {
     "Consultations": [
@@ -57,6 +59,22 @@ export default function ServicesPage() {
     return matchesCategory && matchesSearch;
   });
 
+  const totalPages = Math.ceil(filteredServices.length / itemsPerPage);
+  const paginatedServices = filteredServices.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
+
+  useEffect(() => {
+    setCurrentPage(1);
+  }, [searchTerm, selectedCategory, itemsPerPage]);
+
+  useEffect(() => {
+    const updateItemsPerPage = () => {
+      setItemsPerPage(window.innerWidth >= 1024 ? 16 : 8);
+    };
+    updateItemsPerPage();
+    window.addEventListener('resize', updateItemsPerPage);
+    return () => window.removeEventListener('resize', updateItemsPerPage);
+  }, []);
+
   const [bgIcons, setBgIcons] = useState([]);
 
   useEffect(() => {
@@ -84,7 +102,7 @@ export default function ServicesPage() {
           <div className="absolute inset-0 bg-gradient-to-br from-black/20 to-transparent"></div>
           
           {/* Icon Puzzle Background */}
-          <div className="absolute inset-0 z-0 opacity-[0.05] pointer-events-none overflow-hidden">
+          <div className="absolute inset-0 z-0 opacity-[0.2] pointer-events-none overflow-hidden">
              {bgIcons.map((service) => (
                  <img
                    key={`bg-icon-${service.id}`}
@@ -115,12 +133,12 @@ export default function ServicesPage() {
         </section>
 
         {/* Filter and Content Section */}
-        <section className="py-16 px-6 lg:px-12 max-w-[1600px] mx-auto bg-[var(--gw-secondary-light)] -mt-10 relative z-20">
+        <section className="py-16 px-6 lg:px-12 max-w-[1600px] mx-auto relative z-20">
           
           <div className="min-h-[60vh]">
             
             {/* Intro Text Section */}
-            <div className="flex flex-col lg:flex-row gap-12 lg:gap-20 mb-20 pt-8 text-[var(--gw-text-main)] w-full">
+            <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-20 mb-20 pt-8 text-[var(--gw-text-main)] w-full">
               {/* Left Column (Main Intro) */}
               <div className="flex-1 lg:max-w-[65%]">
                 <h2 className="text-[28px] md:text-[32px] font-medium mb-6 text-[var(--gw-primary)]" style={{ fontFamily: 'var(--font-ginto), Helvetica, sans-serif' }}>
@@ -135,9 +153,9 @@ export default function ServicesPage() {
               </div>
 
               {/* Right Column (Secondary Heading) */}
-              <div className="flex-1 lg:max-w-[35%] flex flex-col justify-start pt-2 lg:pt-0">
-                <h2 className="text-[24px] md:text-[28px] lg:text-[32px] font-medium text-[var(--gw-primary)] leading-snug" style={{ fontFamily: 'var(--font-ginto), Helvetica, sans-serif' }}>
-                  We Offer: Consultations, Treatments, Programs, Ongoing Groups
+              <div className="flex-1 lg:max-w-[35%] flex flex-col justify-center">
+                <h2 className="text-[24px] md:text-[28px] lg:text-[32px] font-medium text-[var(--gw-primary)] leading-snug" style={{ fontFamily: 'var(--font-gt-super)' }}>
+                  <span className="text-5xl">We Offer:</span> <br />Consultations, Treatments, Programs, Ongoing Groups
                 </h2>
                 {/* Optional subtle decorative line */}
                 <div className="w-24 h-1 bg-[var(--gw-blue)] mt-6 rounded-square opacity-50"></div>
@@ -195,10 +213,11 @@ export default function ServicesPage() {
 
             {/* Grid display */}
             {filteredServices.length > 0 ? (
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0 border-t border-l border-gray-300">
-                {filteredServices.map((service) => (
-                  <div 
-                    key={`${service.category}-${service.id}`}
+              <div className="flex flex-col">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-0 border-t border-l border-gray-300">
+                  {paginatedServices.map((service) => (
+                    <div 
+                      key={`${service.category}-${service.id}`}
                     className="group flex flex-col items-start bg-transparent hover:bg-white border-r border-b border-gray-300 p-8 lg:p-10 transition-all duration-300 cursor-pointer relative hover:z-20 hover:ring-1 hover:ring-[var(--gw-primary)] hover:shadow-[0_10px_40px_rgba(0,0,0,0.08)]"
                   >
                     {/* Category Tag */}
@@ -223,7 +242,7 @@ export default function ServicesPage() {
                       {service.title}
                     </h4>
 
-                    <p className="mt-4 text-[15px] text-[var(--gw-text-muted)] leading-relaxed line-clamp-3">
+                    <p className="mt-4 text-[15px] text-[var(--gw-text-primary)] leading-relaxed line-clamp-3">
                       {service.description}
                     </p>
 
@@ -236,7 +255,54 @@ export default function ServicesPage() {
                     </div>
 
                   </div>
-                ))}
+                  ))}
+                </div>
+
+                {/* Pagination Controls */}
+                {totalPages > 1 && (
+                  <div className="flex justify-center items-center mt-12 gap-2">
+                    <button
+                      onClick={() => setCurrentPage(prev => Math.max(prev - 1, 1))}
+                      disabled={currentPage === 1}
+                      className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:border-[var(--gw-blue)] hover:text-[var(--gw-blue)] disabled:opacity-50 disabled:hover:border-gray-200 disabled:hover:text-gray-500 transition-colors"
+                      aria-label="Previous page"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+                      </svg>
+                    </button>
+                    
+                    <div className="flex items-center gap-1 mx-4">
+                      {Array.from({ length: totalPages }).map((_, idx) => {
+                        const pageNum = idx + 1;
+                        return (
+                          <button
+                            key={pageNum}
+                            onClick={() => setCurrentPage(pageNum)}
+                            className={`w-10 h-10 flex items-center justify-center rounded-full text-sm font-semibold transition-colors ${
+                              currentPage === pageNum
+                                ? "bg-[var(--gw-primary)] text-white"
+                                : "text-gray-500 hover:bg-gray-100"
+                            }`}
+                          >
+                            {pageNum}
+                          </button>
+                        );
+                      })}
+                    </div>
+
+                    <button
+                      onClick={() => setCurrentPage(prev => Math.min(prev + 1, totalPages))}
+                      disabled={currentPage === totalPages}
+                      className="w-10 h-10 flex items-center justify-center rounded-full border border-gray-200 text-gray-500 hover:border-[var(--gw-blue)] hover:text-[var(--gw-blue)] disabled:opacity-50 disabled:hover:border-gray-200 disabled:hover:text-gray-500 transition-colors"
+                      aria-label="Next page"
+                    >
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                      </svg>
+                    </button>
+                  </div>
+                )}
               </div>
             ) : (
               // Empty State
