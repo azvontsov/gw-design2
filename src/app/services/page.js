@@ -105,16 +105,40 @@ function ServicesContent() {
   const [bgIcons, setBgIcons] = useState([]);
 
   useEffect(() => {
-    // Randomly select and place 16 icons on client mount to avoid hydration errors
+    // Grid-cell placement: divide hero into cols × rows cells, one icon per cell
+    // This guarantees no overlaps while still feeling organic via per-cell jitter
+    const cols = 8;
+    const rows = 2;
+    const cellW = 100 / cols; // % width per cell
+    const cellH = 100 / rows; // % height per cell
+    const jitterX = cellW * 0.3;  // max ±jitter within cell
+    const jitterY = cellH * 0.3;
+
     const shuffled = [...allServices].sort(() => 0.5 - Math.random());
-    const selected = shuffled.slice(0, 16).map((service) => ({
-      ...service,
-      // Keep them somewhat away from the very edges
-      top: `${Math.floor(Math.random() * 80 + 10)}%`,
-      left: `${Math.floor(Math.random() * 80 + 10)}%`,
-      rotation: `${Math.floor(Math.random() * 360)}deg`,
-      scale: 1 + Math.random(), // scale between 1 and 2
-    }));
+    const cells = [];
+    for (let r = 0; r < rows; r++) {
+      for (let c = 0; c < cols; c++) {
+        cells.push({ r, c });
+      }
+    }
+    // Shuffle cells for random icon assignment
+    cells.sort(() => 0.5 - Math.random());
+
+    const selected = cells.slice(0, shuffled.length).map((cell, i) => {
+      const service = shuffled[i % shuffled.length];
+      // Center of this cell + random jitter
+      const basLeft = cell.c * cellW + cellW / 2;
+      const baseTop = cell.r * cellH + cellH / 2;
+      const left = basLeft + (Math.random() * jitterX * 2 - jitterX);
+      const top  = baseTop + (Math.random() * jitterY * 2 - jitterY);
+      return {
+        ...service,
+        top: `${Math.min(Math.max(top, 5), 90)}%`,
+        left: `${Math.min(Math.max(left, 3), 97)}%`,
+        rotation: `${Math.floor(Math.random() * 360)}deg`,
+        scale: 0.9 + Math.random() * 0.6,
+      };
+    });
     setBgIcons(selected);
   }, []);
 

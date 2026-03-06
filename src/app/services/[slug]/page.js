@@ -293,12 +293,6 @@ export default function ServiceDetailPage({ params }) {
         {/* Gradient overlay - lighter at top to show image */}
         <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/25 to-black/10 z-[2]" />
 
-        {/* Decorative icon watermark */}
-        {service.icon && (
-          <div className="absolute top-1/2 right-16 -translate-y-1/2 opacity-10 pointer-events-none hidden lg:block">
-            <img src={service.icon} alt="" className="w-64 h-64 object-contain invert" />
-          </div>
-        )}
 
         {/* Content */}
         <div className="relative z-10 w-full container mx-auto px-6 lg:px-12 pb-16 pt-48">
