@@ -270,14 +270,18 @@ export default function ServiceDetailPage({ params }) {
         {/* Content */}
         <div className="relative z-10 w-full container mx-auto px-6 lg:px-12 pb-16 pt-48">
           {/* Breadcrumb */}
-          <div className="hidden lg:flex items-center gap-2 text-white/60 text-[12px] font-medium tracking-wider uppercase mb-4">
+          <div className="hidden lg:flex items-center gap-2 text-white/80 text-[12px] font-medium tracking-wider uppercase mb-4">
             <Link href="/" className="hover:text-white transition-colors">Home</Link>
             <span>›</span>
             <Link href="/services" className="hover:text-white transition-colors">Services</Link>
+            {service.category && service.category !== 'Services' && (
+              <>
+                <span>›</span>
+                <Link href={`/services?category=${service.categorySlug}`} className="hover:text-white transition-colors">{service.category}</Link>
+              </>
+            )}
             <span>›</span>
-            <Link href={`/services?category=${service.categorySlug}`} className="hover:text-white transition-colors">{service.category}</Link>
-            <span>›</span>
-            <span className="text-white/90">{service.title}</span>
+            <span className="text-white">{service.title}</span>
           </div>
 
           {/* Category badge */}
