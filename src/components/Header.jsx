@@ -70,12 +70,12 @@ const menuItems = [
   },
   {
     title: "Team",
-    href: "#",
+    href: "/people",
     submenu: [
-      { title: "Providers",   href: "/team#providers" },
-      { title: "Leadership",  href: "/team#leadership" },
-      { title: "Staff",       href: "/team#staff" },
-      { title: "Partners",    href: "/team#partners" },
+      { title: "Providers",   href: "/people" },
+      { title: "Leadership",  href: "/people#leadership" },
+      { title: "Staff",       href: "/people#staff" },
+      { title: "Partners",    href: "/people#partners" },
     ]
   },
   {
@@ -126,7 +126,7 @@ export default function Header() {
   return (
     <>
       {/* Top Row: Logo Centered, Contact Right */}
-      <div className="w-full bg-[var(--gw-secondary-light)] relative z-50">
+      <div className="w-full bg-[var(--gw-secondary-light)] relative z-50 shadow-sm lg:shadow-none">
         <div className="container mx-auto px-4 lg:px-8 h-24 flex items-center justify-between relative">
             
             {/* Left: Social Icons & Tagline */}
@@ -211,10 +211,10 @@ export default function Header() {
                             {/* Dropdown */}
                             {item.submenu && (
                                 <div 
-                                    className="absolute top-[calc(100%+1px)] left-1/2 -translate-x-1/2 min-w-[220px] pointer-events-none group-hover:pointer-events-auto"
+                                    className="absolute top-full left-1/2 -translate-x-1/2 min-w-[220px] pointer-events-none group-hover:pointer-events-auto"
                                     style={{ clipPath: 'inset(0px -600px -600px -50px)', WebkitClipPath: 'inset(0px -600px -600px -50px)' }}
                                 >
-                                    <div className="bg-[var(--sw-navbar)] flex flex-col items-stretch transform -translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 drop-shadow-2xl">
+                                    <div className="bg-[var(--sw-navbar)] flex flex-col items-stretch transform -translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 border-t border-white/10">
                                         {item.submenu.map((sub, sIdx) => (
                                             <div key={sIdx} className="relative group/fly border-b border-[rgba(255,255,255,0.2)] last:border-b-0">
                                                 <Link 

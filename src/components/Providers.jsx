@@ -6,21 +6,21 @@ export default function Providers() {
   const providers = [
     {
       id: 1,
-      name: "Angela Gabriel, MSOM, LAc, SEP",
-      image: "/images/provider1.png",
-      link: "#",
+      name: "Ashley Drapeau, PA-C, L.Ac., MPAS, MAC",
+      image: "/images/providers/ashley.jpeg",
+      link: "/people/ashley-drapeau-pa-c-l-ac-mpas-mac",
     },
     {
-      id: 2,
-      name: "Nina Paul",
-      image: "/images/provider2.png",
-      link: "#",
+      id: 4,
+      name: "Mikhail Kogan, MD",
+      image: "/images/providers/misha.jpg",
+      link: "/people/mikhail-kogan-md",
     },
     {
-      id: 3,
-      name: "Robert Pendergrast, MD, MPH, FAAP",
-      image: "/images/provider3.png",
-      link: "#",
+      id: 5,
+      name: "Deirdre Orceyre, ND, MSOM, L.Ac.",
+      image: "/images/providers/dierdre.jpg",
+      link: "/people/deirdre-orceyre-nd-lac",
     },
   ];
 
@@ -50,27 +50,45 @@ export default function Providers() {
               key={provider.id}
               className="flex flex-col items-center text-center gap-4 group cursor-pointer"
             >
-              <div className="relative w-48 h-48 md:w-56 md:h-56 xl:w-64 xl:h-64 overflow-hidden rounded-full bg-[#E5E1D8] transition-transform duration-500 group-hover:scale-105">
-                <img
-                  src={provider.image}
-                  alt={provider.name}
-                  className="w-full h-full object-cover"
-                />
-              </div>
+              <Link href={provider.link || "#"} className="relative w-48 h-48 md:w-56 md:h-56 xl:w-64 xl:h-64 overflow-hidden rounded-full bg-[#E5E1D8] transition-transform duration-500 group-hover:scale-105 block flex items-center justify-center border border-gray-200">
+                {provider.image ? (
+                  <img
+                    src={provider.image}
+                    alt={provider.name}
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <div className="flex flex-col items-center gap-[6px] opacity-100 scale-125">
+                      <div className="flex gap-[6px]">
+                          <div className="w-2 h-2 rounded-full bg-white"></div>
+                      </div>
+                      <div className="flex gap-[6px]">
+                          <div className="w-2 h-2 rounded-full bg-white"></div>
+                          <div className="w-2 h-2 rounded-full bg-white"></div>
+                          <div className="w-2 h-2 rounded-full bg-white"></div>
+                      </div>
+                      <div className="flex gap-[6px]">
+                          <div className="w-2 h-2 rounded-full bg-white"></div>
+                      </div>
+                  </div>
+                )}
+              </Link>
 
-              <h3
-                className="text-md font-bold text-[var(--gw-primary)] m-3 px-4"
-                style={{ fontFamily: "Ginto, Helvetica, sans-serif" }}
-              >
-                {provider.name}
-              </h3>
+              <Link href={provider.link || "#"}>
+                <h3
+                  className="text-md font-bold text-[var(--gw-primary)] m-3 px-4 hover:text-[var(--gw-blue)] transition-colors"
+                  style={{ fontFamily: "Ginto, Helvetica, sans-serif" }}
+                >
+                  {provider.name}
+                </h3>
+              </Link>
             </div>
           ))}
         </div>
 
         <div className="flex justify-center">
           <Link
-            href="#"
+            href="/people"
             className="text-[var(--gw-deep-blue)] font-medium hover:text-[var(--gw-secondary)] transition-all flex items-center gap-1 group w-fit text-lg"
           >
             <span className="border-b border-transparent group-hover:border-current">

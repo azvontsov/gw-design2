@@ -11,7 +11,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
           
           {/* Brand Column (Span 4) */}
-          <div className="lg:col-span-4 flex flex-col gap-8">
+          <div className="lg:col-span-4 flex flex-col gap-8 items-center text-center md:items-start md:text-left">
             <Link href="/" className="block w-48 opacity-90 hover:opacity-100 transition-opacity">
                 <img src="/icons/logo.svg" alt="GW Center for Integrative Medicine" className="w-full h-auto brightness-0 invert" />
             </Link>
@@ -20,7 +20,7 @@ export default function Footer() {
             </p>
             
             {/* Social Icons - Refined */}
-            <div className="flex gap-4 mt-2">
+            <div className="flex justify-center md:justify-start gap-4 mt-2">
                <SocialIcon href="#">
                    <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                </SocialIcon>
@@ -37,14 +37,20 @@ export default function Footer() {
           </div>
           
           {/* Navigation (Span 2) */}
-          <div className="lg:col-span-2">
-            <h4 className="text-[11px]tracking-[0.2em] uppercase text-white/40 mb-8">Menu</h4>
-            <ul className="flex flex-col gap-4">
-              {['Home', 'Services', 'Our Team', 'Blog', 'Contact'].map((item) => (
-                <li key={item}>
-                    <Link href="#" className="text-[14px] font-medium text-white/80 hover:text-white transition-colors relative group inline-flex items-center">
+          <div className="lg:col-span-2 text-center md:text-left">
+            <h4 className="text-lg tracking-[0.2em] uppercase text-white/40 mb-8">Menu</h4>
+            <ul className="flex flex-col gap-4 items-center md:items-start">
+              {[
+                { title: 'Home', href: '/' },
+                { title: 'Services', href: '/services' },
+                { title: 'Providers', href: '/people' },
+                { title: 'Resources', href: '#' },
+                { title: 'Contact', href: '#' }
+              ].map((item) => (
+                <li key={item.title}>
+                    <Link href={item.href} className="text-[14px] font-medium text-white/80 hover:text-white transition-colors relative group inline-flex items-center">
                         <span className="w-0 overflow-hidden group-hover:w-2 transition-all duration-300 mr-0 group-hover:mr-2 border-t border-white/50"></span>
-                        {item}
+                        {item.title}
                     </Link>
                 </li>
               ))}
@@ -52,19 +58,19 @@ export default function Footer() {
           </div>
 
           {/* Contact (Span 3) */}
-          <div className="lg:col-span-3">
-             <h4 className="text-[11px]tracking-[0.2em] uppercase text-white/40 mb-8">Contact Us</h4>
-             <div className="flex flex-col gap-6 text-[14px] text-white/80 font-light leading-relaxed">
-                 <div>
+          <div className="lg:col-span-3 text-center md:text-left">
+             <h4 className="text-lg tracking-[0.2em] uppercase text-white/40 mb-8">Contact Us</h4>
+             <div className="flex flex-col gap-6 text-[14px] text-white/80 font-light leading-relaxed items-center md:items-start">
+                 <div className="flex flex-col items-center md:items-start">
                     <strong className="block text-white font-medium mb-1">Address</strong>
                     <p>908 New Hampshire Ave NW #200<br/>Washington, DC 20037</p>
                     <a href="#" className="inline-block mt-2 text-[11px] font-bold uppercase tracking-wider text-white/60 hover:text-white border-b border-white/20 hover:border-white transition-all pb-0.5">Get Directions</a>
                  </div>
-                 <div>
+                 <div className="flex flex-col items-center md:items-start">
                     <strong className="block text-white font-medium mb-1">Hours</strong>
                     <p>Monday – Friday<br/>9:00am – 5:00pm</p>
                  </div>
-                 <div className="flex flex-col gap-1">
+                 <div className="flex flex-col gap-1 items-center md:items-start">
                     <a href="tel:2028335055" className="hover:text-white transition-colors">202-833-5055</a>
                     <a href="mailto:info@gwcim.com" className="hover:text-white transition-colors">info@gwcim.com</a>
                  </div>
@@ -72,13 +78,13 @@ export default function Footer() {
           </div>
 
           {/* Patient Center (Span 3) */}
-          <div className="lg:col-span-3 flex flex-col gap-6">
-             <h4 className="text-[11px]tracking-[0.2em] uppercase text-white/40 mb-8">Patient Center</h4>
+          <div className="lg:col-span-3 flex flex-col gap-6 text-center md:text-left">
+             <h4 className="text-lg tracking-[0.2em] uppercase text-white/40 mb-8">Patient Center</h4>
              
              {/* CTA 1 */}
              <Link href="#" className="group relative block w-full">
                 <div className="absolute inset-0 bg-white/5 border border-white/20 rounded-xl group-hover:bg-white group-hover:border-white transition-all duration-300"></div>
-                <div className="relative px-6 py-5 flex items-center justify-between">
+                <div className="relative px-6 py-5 flex items-center justify-center md:justify-between gap-4">
                     <span className="font-bold text-xs tracking-[0.2em] uppercase text-white group-hover:text-[#1A365D] transition-colors">New Patient Form</span>
                     <svg className="w-4 h-4 text-white group-hover:text-[#1A365D] transition-all transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
@@ -87,7 +93,7 @@ export default function Footer() {
              {/* CTA 2 */}
              <Link href="#" className="group relative block w-full">
                 <div className="absolute inset-0 bg-white border border-transparent rounded-xl group-hover:bg-white/90 transition-all duration-300"></div>
-                <div className="relative px-6 py-5 flex items-center justify-between">
+                <div className="relative px-6 py-5 flex items-center justify-center md:justify-between gap-4">
                     <span className="font-bold text-xs tracking-[0.2em] uppercase text-[#1A365D]">Patient Portal</span>
                      <svg className="w-4 h-4 text-[#1A365D] transition-all transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </div>
@@ -97,7 +103,7 @@ export default function Footer() {
         </div>
 
         {/* Footer Bottom */}
-        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 font-medium tracking-widest uppercase gap-4">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center text-[10px] text-white/40 font-medium tracking-widest uppercase gap-4 text-center">
             <p>© {new Date().getFullYear()} GW Center for Integrative Medicine.</p>
             
             <a
