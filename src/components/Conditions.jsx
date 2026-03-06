@@ -121,7 +121,7 @@ export default function Conditions() {
             <Link
               key={condition.id}
               href={condition.link}
-              className="group flex-grow flex items-center justify-center hover:bg-[var(--gw-blue)] text-white px-6 h-[80px] font-bold text-sm md:text-base tracking-wide bg-[var(--sw-hazel)] transition-colors duration-300 text-center"
+              className="group flex-grow flex items-center justify-center hover:bg-[var(--gw-blue)] hover:text-white text-[var(--gw-primary)] px-6 h-[80px] font-bold text-sm md:text-base tracking-wide bg-[var(--sw-hazel)] transition-colors duration-300 text-center"
             >
               <span>{condition.title}</span>
             </Link>

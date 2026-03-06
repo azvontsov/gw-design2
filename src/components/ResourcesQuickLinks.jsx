@@ -10,7 +10,6 @@ const resources = [
   { title: "Insurance Info", href: "#" },
   { title: "Mistletoe Therapy", href: "#" },
   { title: "FAQs", href: "#" },
-  
 ];
 
 export default function ResourcesQuickLinks() {
@@ -21,7 +20,7 @@ export default function ResourcesQuickLinks() {
           
           {/* Text Content */}
           <div className="max-w-2xl text-center lg:text-left">
-            <h2 className="text-4xl lg:text-5xl font-serif text-[var(--gw-primary)] mb-6">
+            <h2 className="text-5xl lg:text-6xl font-serif text-[var(--gw-primary)] mb-6">
               Resources and quick links
             </h2>
             <p className="text-lg text-[var(--gw-text-muted)] leading-relaxed opacity-90">
@@ -35,7 +34,7 @@ export default function ResourcesQuickLinks() {
               <Link
                 key={idx}
                 href={item.href}
-                className="group flex items-center hover:bg-[var(--gw-blue)] text-white px-6 py-3 rounded-2xl font-bold text-sm tracking-wide bg-[var(--sw-hazel)] transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
+                className="group flex items-center bg-[#586b86ff] text-white px-6 py-3 rounded-2xl font-bold text-sm tracking-wide hover:bg-[var(--gw-terracotta)] transition-all duration-300 shadow-sm hover:shadow-md transform hover:-translate-y-0.5"
               >
                 <span>{item.title}</span>
                 <svg 

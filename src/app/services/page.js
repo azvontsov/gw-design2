@@ -177,10 +177,10 @@ function ServicesContent() {
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-[var(--sw-solitude)] mix-blend-overlay opacity-10 blur-3xl"></div>
           
           <div className="max-w-[1400px] mx-auto relative z-10 text-center">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight mb-6 uppercase" style={{ fontFamily: 'var(--font-gt-super)' }}>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-6 uppercase" style={{ fontFamily: 'var(--font-gt-super)' }}>
               Our Services
             </h1>
-            <p className="text-lg md:text-xl text-white/80 max-w-2xl mx-auto font-light">
+            <p className="text-lg md:text-xl text-[var(--gw-gold)] max-w-2xl mx-auto font-light">
               Explore our comprehensive range of holistic treatments, expert consultations, and dedicated healing programs.
             </p>
           </div>

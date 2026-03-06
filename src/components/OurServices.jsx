@@ -49,10 +49,10 @@ export default function OurServices() {
 
   const getCategoryColor = (category) => {
     switch (category) {
-      case "Consultations": return "bg-[var(--sw-hazel)]/50"; // #B9C1B3
-      case "Treatments": return "bg-[var(--sw-privilege)]/50"; // #7A8775
-      case "Programs": return "bg-[var(--sw-solitude)]/90"; // #99A7B8
-      case "Ongoing Groups": return "bg-[var(--sw-searching)]/80"; // #6C7F9A
+      case "Consultations": return "bg-[var(--sw-hazel)]"; // #B9C1B3
+      case "Treatments": return "bg-[var(--sw-privilege)]"; // #7A8775
+      case "Programs": return "bg-[var(--sw-solitude)]"; // #99A7B8
+      case "Ongoing Groups": return "bg-[var(--sw-searching)]"; // #586b86ff
       default: return "bg-gray-200";
     }
   };
@@ -95,21 +95,21 @@ export default function OurServices() {
               {/* Category Left Block */}
               <div className={`w-full md:w-[30%] lg:w-[30%] flex flex-col items-center md:items-end justify-center px-6 py-4 md:py-5 lg:py-6 md:pl-4 md:pr-8 lg:pl-6 lg:pr-10 xl:pr-16 transition-colors duration-300 ${getCategoryColor(category)} relative z-20`}>
                 <h3 
-                  className="text-4xl md:text-[24px] lg:text-[28px] xl:text-4xl 2xl:text-4xl font-medium text-[var(--gw-primary)] text-center md:text-right tracking-wide"
+                  className="text-4xl md:text-[24px] lg:text-[28px] xl:text-4xl 2xl:text-4xl font-medium text-white text-center md:text-right tracking-wide"
                   style={{ fontFamily: 'var(--font-gt-super)' }}
                 >
                   {category}
                 </h3>
 
                 {/* Category Description */}
-                <p className="mt-2 text-sm text-[var(--gw-primary)] text-center md:text-right max-w-[240px] leading-snug">
+                <p className="mt-2 text-sm text-white text-center md:text-right max-w-[240px] leading-snug">
                   {categoryDescriptions[category]}
                 </p>
                   
                 {/* See More Button Moved Here */}
                 <Link
                   href="/services"
-                  className="mt-4 lg:mt-6 inline-flex items-center text-[var(--gw-primary)] font-bold text-sm hover:text-[var(--gw-blue)] transition-colors duration-300 group"
+                  className="mt-4 lg:mt-6 inline-flex items-center text-white font-bold text-sm hover:text-[var(--gw-blue)] transition-colors duration-300 group"
                 >
                   See more 
                   <svg
