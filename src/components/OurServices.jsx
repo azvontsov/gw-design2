@@ -2,39 +2,38 @@ import Link from "next/link";
 
 export default function OurServices() {
 
-  // Expand the data array with up to 6 items per category so the responsive grid can actually display 4 or 5 cards!
   const servicesData = {
     "Consultations": [
-      { id: 1, icon: "/images/doodles/icon-1.png", title: "Integrative Geriatrics" },
-      { id: 2, icon: "/images/doodles/icon-2.png", title: "Naturopathic Medicine" },
-      { id: 3, icon: "/images/doodles/icon-3.png", title: "Functional Medicine" },
-      { id: 4, icon: "/images/doodles/icon-4.png", title: "Integrative Mental Health" },
-      { id: 5, icon: "/images/doodles/icon-5.png", title: "Sarno/Mind-Body Method" },
-      { id: 6, icon: "/images/doodles/icon-6.png", title: "Pediatric and Adolescent Integrative Medicine" },
-      { id: 7, icon: "/images/doodles/icon-7.png", title: "Medical Cannabis" },
-      { id: 8, icon: "/images/doodles/icon-8.png", title: "Nutritional Counseling" }
+      { id: 1, icon: "/images/doodles/icon-1.png", title: "Integrative Geriatrics", slug: "integrative-geriatrics" },
+      { id: 2, icon: "/images/doodles/icon-2.png", title: "Naturopathic Medicine", slug: "naturopathic-medicine" },
+      { id: 3, icon: "/images/doodles/icon-3.png", title: "Functional Medicine", slug: "functional-medicine" },
+      { id: 4, icon: "/images/doodles/icon-4.png", title: "Integrative Mental Health", slug: "integrative-mental-health" },
+      { id: 5, icon: "/images/doodles/icon-5.png", title: "Sarno/Mind-Body Method", slug: "sarno-mind-body-method" },
+      { id: 6, icon: "/images/doodles/icon-6.png", title: "Pediatric and Adolescent Integrative Medicine", slug: "pediatric-adolescent-integrative-medicine" },
+      { id: 7, icon: "/images/doodles/icon-7.png", title: "Medical Cannabis", slug: "medical-cannabis" },
+      { id: 8, icon: "/images/doodles/icon-8.png", title: "Nutritional Counseling", slug: "nutritional-counseling" }
     ],
     "Treatments": [
-      { id: 11, icon: "/images/doodles/icon-11.png", title: "Intravenouse Therapy" },
-      { id: 12, icon: "/images/doodles/icon-12.png", title: "Mistletoe Injection Therapy for Cancer" },
-      { id: 13, icon: "/images/doodles/icon-13.png", title: "Acupuncture and Chinese medicine" },
-      { id: 14, icon: "/images/doodles/icon-14.png", title: "Microneedling and Facial Acupuncture" },
-      { id: 15, icon: "/images/doodles/icon-15.png", title: "Reiki" },
-      { id: 16, icon: "/images/doodles/icon-16.png", title: "Somatic Experiencing" },
-      { id: 17, icon: "/images/doodles/icon-17.png", title: "KAP Assisted Psychotherapy" }
+      { id: 11, icon: "/images/doodles/icon-11.png", title: "Intravenous Therapy", slug: "intravenous-therapy" },
+      { id: 12, icon: "/images/doodles/icon-12.png", title: "Mistletoe Injection Therapy for Cancer", slug: "mistletoe-injection-therapy" },
+      { id: 13, icon: "/images/doodles/icon-13.png", title: "Acupuncture and Chinese Medicine", slug: "acupuncture-chinese-medicine" },
+      { id: 14, icon: "/images/doodles/icon-14.png", title: "Microneedling and Facial Acupuncture", slug: "microneedling-facial-acupuncture" },
+      { id: 15, icon: "/images/doodles/icon-15.png", title: "Reiki", slug: "reiki" },
+      { id: 16, icon: "/images/doodles/icon-16.png", title: "Somatic Experiencing", slug: "somatic-experiencing" },
+      { id: 17, icon: "/images/doodles/icon-17.png", title: "KAP Assisted Psychotherapy", slug: "kap-assisted-psychotherapy" }
     ],
     "Programs": [
-      { id: 21, icon: "/images/doodles/icon-21.png", title: "Concierge Integrative Medicine Care" },
-      { id: 22, icon: "/images/doodles/icon-22.png", title: "Reversal of Cognitive Decline ReCODE (TM)" },
-      { id: 23, icon: "/images/doodles/icon-23.png", title: "Long Covid" },
-      { id: 24, icon: "/images/doodles/icon-24.png", title: "Shoemaker Protocol for CIRS and Mold Toxicity" },
-      { id: 25, icon: "/images/doodles/icon-25.png", title: "Mindfulness Based Stress Reduction MBSR" },
-      { id: 26, icon: "/images/doodles/icon-26.png", title: "Weight/Body Composition" },
-      { id: 27, icon: "/images/doodles/icon-27.png", title: "Executive Coaching" }
+      { id: 21, icon: "/images/doodles/icon-21.png", title: "Concierge Integrative Medicine Care", slug: "concierge-integrative-medicine" },
+      { id: 22, icon: "/images/doodles/icon-22.png", title: "Reversal of Cognitive Decline ReCODE", slug: "reversal-cognitive-decline-recode" },
+      { id: 23, icon: "/images/doodles/icon-23.png", title: "Long Covid", slug: "long-covid" },
+      { id: 24, icon: "/images/doodles/icon-24.png", title: "Shoemaker Protocol for CIRS and Mold Toxicity", slug: "shoemaker-protocol-cirs-mold" },
+      { id: 25, icon: "/images/doodles/icon-25.png", title: "Mindfulness Based Stress Reduction MBSR", slug: "mindfulness-based-stress-reduction" },
+      { id: 26, icon: "/images/doodles/icon-26.png", title: "Weight/Body Composition", slug: "weight-body-composition" },
+      { id: 27, icon: "/images/doodles/icon-27.png", title: "Executive Coaching", slug: "executive-coaching" }
     ],
     "Ongoing Groups": [
-      { id: 31, icon: "/images/doodles/icon-31.png", title: "Long COVID Medical online Groups" },
-      { id: 32, icon: "/images/doodles/icon-32.png", title: "ReCODE Support Group" }
+      { id: 31, icon: "/images/doodles/icon-31.png", title: "Long COVID Medical Online Groups", slug: "long-covid-online-groups" },
+      { id: 32, icon: "/images/doodles/icon-32.png", title: "ReCODE Support Group", slug: "recode-support-group" }
     ]
   };
 
@@ -108,7 +107,7 @@ export default function OurServices() {
                   
                 {/* See More Button Moved Here */}
                 <Link
-                  href="/services"
+                  href={`/services?category=${encodeURIComponent(category)}`}
                   className="mt-4 lg:mt-6 inline-flex items-center text-white font-bold text-sm hover:text-[var(--gw-blue)] transition-colors duration-300 group"
                 >
                   See more 
@@ -131,9 +130,10 @@ export default function OurServices() {
                 {/* Cards Grid */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-12 lg:gap-y-14 gap-x-6 md:gap-x-10">
                   {servicesData[category].map((service, index) => (
-                    <div 
-                      key={service.id} 
-                      className={`relative text-left group flex-col items-start bg-transparent flex`}
+                    <Link
+                      key={service.id}
+                      href={`/services/${service.slug}`}
+                      className="relative text-left group flex-col items-start bg-transparent flex"
                     >
                       {/* Vertical Separator */}
                       <div className={`absolute top-2 bottom-2 -right-3 md:-right-[20px] w-px bg-[var(--gw-primary)]/15 hidden ${
@@ -143,7 +143,7 @@ export default function OurServices() {
                       } ${
                         index % 4 !== 3 ? 'lg:block' : 'lg:hidden'
                       }`} />
-                      
+
                       {/* Icon */}
                       <div className="mb-2">
                         <img
@@ -160,7 +160,7 @@ export default function OurServices() {
                       >
                         {service.title}
                       </h4>
-                    </div>
+                    </Link>
                   ))}
                 </div>
               </div>

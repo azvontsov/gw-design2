@@ -72,8 +72,10 @@ const menuItems = [
     title: "Team",
     href: "#",
     submenu: [
-      { title: "Providers", href: "#" },
-      { title: "Partners", href: "#" },
+      { title: "Providers",   href: "/team#providers" },
+      { title: "Leadership",  href: "/team#leadership" },
+      { title: "Staff",       href: "/team#staff" },
+      { title: "Partners",    href: "/team#partners" },
     ]
   },
   {
@@ -214,10 +216,10 @@ export default function Header() {
                                 >
                                     <div className="bg-[var(--sw-navbar)] flex flex-col items-stretch transform -translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 drop-shadow-2xl">
                                         {item.submenu.map((sub, sIdx) => (
-                                            <div key={sIdx} className="relative group/fly">
+                                            <div key={sIdx} className="relative group/fly border-b border-[rgba(255,255,255,0.2)] last:border-b-0">
                                                 <Link 
                                                     href={sub.href} 
-                                                    className={`flex items-center justify-between px-6 py-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white border-b border-[rgba(255,255,255,0.2)] last:border-0 hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap`}
+                                                    className={`flex items-center justify-between px-6 py-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap`}
                                                 >
                                                     {sub.title}
                                                     {sub.subitems && (
@@ -256,7 +258,7 @@ export default function Header() {
                 <div className={`flex-shrink-0 ml-8 ${isScrolled ? 'hidden xl:block' : ''}`}>
                     <Link  
                         href="#" 
-                        className="hover:bg-[var(--gw-accent)] text-white text-[13px] font-bold tracking-widest px-6 py-3 rounded-2xl bg-[var(--gw-primary-dark)] transition-all shadow-md transform hover:-translate-y-0.5 uppercase"
+                        className="hover:bg-[var(--gw-accent)] text-white text-[13px] font-bold tracking-widest px-6 py-3 rounded-2xl bg-[var(--gw-alert)] transition-all shadow-md transform hover:-translate-y-0.5 uppercase"
                     >
                         Patient Portal
                     </Link>

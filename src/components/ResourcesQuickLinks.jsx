@@ -16,11 +16,11 @@ export default function ResourcesQuickLinks() {
   return (
     <section className="py-24 bg-white border-b border-gray-200">
       <div className="container mx-auto px-6 max-w-7xl">
-        <div className="flex flex-col lg:flex-row items-center lg:items-start lg:justify-between gap-12">
+        <div className="flex flex-col lg:flex-row items-center lg:justify-between gap-12">
           
           {/* Text Content */}
           <div className="max-w-2xl text-center lg:text-left">
-            <h2 className="text-5xl lg:text-6xl font-serif text-[var(--gw-primary)] mb-6">
+            <h2 className="text-5xl lg:text-6xl font-serif text-[var(--gw-primary)] mb-6 whitespace-nowrap">
               Resources and quick links
             </h2>
             <p className="text-lg text-[var(--gw-text-muted)] leading-relaxed opacity-90">

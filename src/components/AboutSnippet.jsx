@@ -35,7 +35,7 @@ export default function AboutSnippet() {
     <section className="py-24 bg-white relative overflow-hidden border-b border-slate-300">
       
       {/* Background Accents */}
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-[var(--sw-white)] pointer-events-none transform skew-x-12 translate-x-32 origin-top-right"></div>
+      <div className="absolute top-0 right-0 w-5/6 h-full bg-[var(--sw-white)] pointer-events-none transform -skew-x-12 translate-x-48 origin-top-right"></div>
       
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         
@@ -51,14 +51,14 @@ export default function AboutSnippet() {
                 <h2 className="text-4xl lg:text-5xl font-serif text-[var(--gw-primary)] mb-6 leading-tight">
                     Why Choose GWCIM?
                 </h2>
-                <p className="text-lg lg:text-xl text-[var(--gw-text-muted)] leading-relaxed opacity-90 font-light max-w-lg mb-8">
+                <p className="text-lg lg:text-xl text-slate-600 leading-relaxed font-light max-w-lg mb-10">
                     Discover a higher standard of healthcare. We provide unparalleled, personalized integrative medicine that goes beyond conventional treatments to optimize your entire well-being.
                 </p>
                 
                 <div className="flex flex-wrap gap-4 items-center">
                     <Link 
                         href="/about" 
-                        className="inline-flex items-center justify-center bg-[var(--gw-primary)] text-white px-8 py-4 rounded-2xl text-sm font-bold tracking-widest hover:bg-[var(--gw-blue)] transition-all uppercase shadow-lg shadow-[var(--gw-primary)]/20"
+                        className="inline-flex items-center justify-center hover:bg-[var(--gw-primary)] bg-[var(--gw-blue)] text-white px-8 py-4 rounded-2xl text-sm font-bold tracking-widest transition-all uppercase shadow-lg shadow-[var(--gw-primary)]/20"
                     >
                         Learn About Our Approach
                     </Link>
@@ -66,14 +66,14 @@ export default function AboutSnippet() {
             </div>
 
             {/* Right Grid Block */}
-            <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-10">
+            <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-14">
                 {reasons.map((reason, idx) => (
                     <div key={idx} className="relative group">
                         <div className="absolute -left-4 top-0 w-1 h-0 bg-[var(--gw-accent)] group-hover:h-full transition-all duration-300 rounded-full"></div>
-                        <h4 className="text-lg font-bold text-[var(--gw-primary)] mb-2 group-hover:text-[var(--gw-blue)] transition-colors">
+                        <h4 className="text-lg font-bold text-[var(--gw-primary)] mb-3 group-hover:text-[var(--gw-blue)] transition-colors">
                             {reason.title}
                         </h4>
-                        <p className="text-sm text-[var(--gw-text-muted)] leading-relaxed opacity-90">
+                        <p className="text-[15px] text-slate-600 leading-relaxed opacity-90">
                             {reason.description}
                         </p>
                     </div>

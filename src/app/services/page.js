@@ -206,14 +206,48 @@ function ServicesContent() {
                 </p>
               </div>
 
-              {/* Right Column (Secondary Heading) */}
-              <div className="flex-1 lg:max-w-[35%] flex flex-col justify-center">
-                <h2 className="text-[24px] md:text-[28px] lg:text-[32px] font-medium text-[var(--gw-primary)] leading-snug" style={{ fontFamily: 'var(--font-gt-super)' }}>
-                  <span className="text-5xl">We Offer:</span> <br />Consultations, Treatments, Programs, Ongoing Groups
-                </h2>
-                {/* Optional subtle decorative line */}
-                <div className="w-24 h-1 bg-[var(--gw-blue)] mt-6 rounded-square opacity-50"></div>
+              {/* Right Column — Contact CTA */}
+              <div className="flex-1 lg:max-w-[30%] flex flex-col justify-center gap-5">
+                {/* Contact links */}
+                <div className="flex flex-col gap-2 pt-1">
+                  <p className="text-xl font-bold uppercase tracking-[0.2em] text-[var(--gw-text-primary)] mb-1">Contact Us Now!</p>
+                  <a href="tel:2028335055" className="inline-flex items-center gap-2 text-[var(--gw-primary)] font-semibold hover:text-[var(--gw-blue)] transition-colors text-[15px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-[var(--gw-blue)]">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z" />
+                    </svg>
+                    202-833-5055
+                  </a>
+                  <a href="mailto:info@gwcim.com" target="_blank" rel="noopener noreferrer"  className="inline-flex items-center gap-2 text-[var(--gw-primary)] font-semibold hover:text-[var(--gw-blue)] transition-colors text-[15px]">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-[var(--gw-blue)]">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                    </svg>
+                    info@gwcim.com
+                  </a>
+                </div>
+
+                {/* Buttons */}
+                <div className="w-fit flex flex-col gap-3">
+                <a
+                  href="#"
+                  className="w-full inline-flex items-center gap-3 hover:bg-[var(--gw-primary)] text-white text-[12px] font-bold uppercase tracking-widest px-6 py-4 bg-[var(--gw-blue)] transition-all duration-300 shadow-md"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 shrink-0">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-1.123-.08m-5.801 0c-.065.21-.1.433-.1.664 0 .414.336.75.75.75h4.5a.75.75 0 00.75-.75 2.25 2.25 0 00-.1-.664m-5.8 0A2.251 2.251 0 0113.5 2.25H15c1.012 0 1.867.668 2.15 1.586m-5.8 0c-.376.023-.75.05-1.124.08C9.095 4.01 8.25 4.973 8.25 6.108V8.25m0 0H4.875c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125h9.75c.621 0 1.125-.504 1.125-1.125V9.375c0-.621-.504-1.125-1.125-1.125H8.25z" />
+                  </svg>
+                  New Patient Inquiry Form
+                </a>
+                <a
+                  href="#"
+                  className="w-full inline-flex items-center gap-3 border border-[var(--gw-primary)] text-[var(--gw-primary)] text-[12px] font-bold uppercase tracking-widest px-6 py-4 hover:bg-[var(--gw-primary)] hover:text-white transition-all duration-300"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 shrink-0">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                  </svg>
+                  Sign Up For Our Newsletter
+                </a>
+                </div>
               </div>
+
             </div>
 
             {/* Search and Filter Controls */}

@@ -110,6 +110,18 @@ Research continues to validate many traditional naturopathic approaches — from
       { type: 'link', title: 'American Association of Naturopathic Physicians', url: 'https://naturopathic.org' },
       { type: 'link', title: 'Institute for Natural Medicine', url: 'https://naturemed.org' },
     ],
+    youtube: [
+      {
+        videoId: 'Z1OEoUca6S4',
+        title: 'Integrative Medicine: Beyond Symptoms',
+        description: 'Dr. Deirdre Orceyre explores the foundations of naturopathic and integrative medicine.',
+      },
+      {
+        videoId: 'vKcNbELdGlg',
+        title: 'What is Naturopathic Medicine?',
+        description: 'A deep dive into naturopathic principles and how they support whole-person healing.',
+      },
+    ],
   },
 };
 
@@ -264,6 +276,7 @@ export default function ServiceDetailPage({ params }) {
 
   const [activeToc, setActiveToc] = useState('what');
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
+  const [openVideoId, setOpenVideoId]   = useState(null);
 
   const scrollTo = (id) => {
     setActiveToc(id);
@@ -550,9 +563,87 @@ export default function ServiceDetailPage({ params }) {
                   </div>
                 </section>
               )}
+
+              {/* ── YOUTUBE SECTION ──────────────────────────────────────── */}
+              {service.youtube && service.youtube.length > 0 && (
+                <section id="videos" className="py-12 border-b border-gray-200 scroll-mt-24">
+                  <SectionLabel>Watch &amp; Learn</SectionLabel>
+                  <SectionHeading>Videos</SectionHeading>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {service.youtube.map((vid) => (
+                      <button
+                        key={vid.videoId}
+                        onClick={() => setOpenVideoId(vid.videoId)}
+                        className="group text-left relative overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100 hover:border-gray-200"
+                      >
+                        {/* Thumbnail */}
+                        <div className="relative aspect-video bg-gray-900 overflow-hidden">
+                          <img
+                            src={`https://img.youtube.com/vi/${vid.videoId}/maxresdefault.jpg`}
+                            alt={vid.title}
+                            className="w-full h-full object-cover opacity-90 group-hover:opacity-75 group-hover:scale-105 transition-all duration-500"
+                            onError={(e) => { e.target.src = `https://img.youtube.com/vi/${vid.videoId}/hqdefault.jpg`; }}
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-14 h-14 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center group-hover:bg-[#FF0000] group-hover:border-[#FF0000] transition-all duration-300 shadow-xl">
+                              <svg className="w-6 h-6 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                          <div className="absolute bottom-3 right-3 flex items-center gap-1.5 bg-black/70 backdrop-blur-sm px-2 py-1 rounded">
+                            <svg className="w-4 h-4 text-[#FF0000]" fill="currentColor" viewBox="0 0 24 24">
+                              <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814z"/>
+                              <path fill="white" d="M9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+                            </svg>
+                            <span className="text-white text-[10px] font-bold tracking-wide">YouTube</span>
+                          </div>
+                        </div>
+                        {/* Card body */}
+                        <div className="p-4 bg-white">
+                          <h4 className="text-[14px] font-semibold text-[var(--gw-primary)] leading-snug mb-1 group-hover:text-[var(--gw-blue)] transition-colors">{vid.title}</h4>
+                          <p className="text-[12px] text-[var(--gw-text-muted)] leading-relaxed line-clamp-2">{vid.description}</p>
+                        </div>
+                      </button>
+                    ))}
+                  </div>
+                </section>
+              )}
+
             </div>
 
+            {/* ── VIDEO LIGHTBOX ────────────────────────────────────────────── */}
+            {openVideoId && (
+              <div
+                className="fixed inset-0 z-[300] bg-black/95 flex items-center justify-center p-4"
+                onClick={() => setOpenVideoId(null)}
+              >
+                <div
+                  className="relative w-full max-w-5xl aspect-video"
+                  onClick={(e) => e.stopPropagation()}
+                >
+                  <button
+                    onClick={() => setOpenVideoId(null)}
+                    className="absolute -top-12 right-0 text-white hover:text-gray-300 transition-colors"
+                  >
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-8 h-8">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                  <iframe
+                    className="w-full h-full"
+                    src={`https://www.youtube.com/embed/${openVideoId}?autoplay=1`}
+                    title="Video"
+                    frameBorder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowFullScreen
+                  />
+                </div>
+              </div>
+            )}
+
             {/* ── RIGHT SIDEBAR ─────────────────────────────────────────── */}
+
             <aside className="hidden lg:block lg:w-[320px] xl:w-[360px] shrink-0 lg:sticky lg:top-24 space-y-6">
 
               {/* TOC: desktop */}
@@ -603,9 +694,9 @@ export default function ServiceDetailPage({ params }) {
                   {/* Primary CTA */}
                   <Link
                     href="#"
-                    className="flex w-full items-center justify-center gap-2 bg-[var(--gw-accent)] text-[var(--gw-primary)] text-[12px] font-bold uppercase tracking-widest px-5 py-4 hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 shadow-md mb-3"
+                    className="flex w-full items-center justify-center gap-2 bg-[var(--gw-gold)] text-[var(--gw-primary)] text-[12px] font-bold uppercase tracking-widest px-5 py-4 hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 shadow-md mb-3"
                   >
-                    Book a Consultation
+                    Make an Appointment
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3.5 h-3.5">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
                     </svg>
@@ -627,12 +718,12 @@ export default function ServiceDetailPage({ params }) {
                   <div>
                     <div className="flex gap-0.5 mb-0.5">
                       {[...Array(5)].map((_, i) => (
-                        <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-[var(--gw-accent)]">
+                        <svg key={i} xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="w-3.5 h-3.5 text-[var(--gw-gold)]">
                           <path fillRule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005z" clipRule="evenodd" />
                         </svg>
                       ))}
                     </div>
-                    <p className="text-[11px] text-white/50 leading-none">Rated 5.0 · 200+ patients</p>
+                    <p className="text-[11px] text-white/50 leading-none">Rated 5.0 · 1000+ patients</p>
                   </div>
                   <div className="text-right">
                     <p className="text-[10px] text-white/40 uppercase tracking-widest">Hours</p>
@@ -722,12 +813,12 @@ export default function ServiceDetailPage({ params }) {
                 <p className="text-[13px] text-[var(--gw-primary)] leading-relaxed mb-4">
                   Not sure if this service is right for you? Our care coordinators are happy to help guide you.
                 </p>
-                <a href="tel:2028335055" className="flex items-center gap-2 text-[13px] font-semibold text-[var(--gw-primary)] hover:underline">
+                {/* <a href="tel:2028335055" className="flex items-center gap-2 text-[13px] font-semibold text-[var(--gw-primary)] hover:underline">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 6.75z" />
                   </svg>
                   202-833-5055
-                </a>
+                </a> */}
                 <a href="mailto:info@gwcim.com" className="flex items-center gap-2 text-[13px] font-semibold text-[var(--gw-primary)] hover:underline mt-2">
                   <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />

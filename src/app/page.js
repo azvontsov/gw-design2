@@ -29,7 +29,7 @@ export default function Home() {
             <Reviews />
         </section>
 
-        <LatestBlog />
+        {/* <LatestBlog /> */}
         <FAQ />
       </main>
       <Footer />
