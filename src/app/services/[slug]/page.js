@@ -113,13 +113,46 @@ Research continues to validate many traditional naturopathic approaches — from
   },
 };
 
+// ─── Slug → category map (mirrors services/page.js data) ─────────────────────
+const slugCategoryMap = {
+  // Consultations
+  'integrative-geriatrics':               { category: 'Consultations', categorySlug: 'Consultations' },
+  'naturopathic-medicine':                { category: 'Consultations', categorySlug: 'Consultations' },
+  'functional-medicine':                  { category: 'Consultations', categorySlug: 'Consultations' },
+  'integrative-mental-health':            { category: 'Consultations', categorySlug: 'Consultations' },
+  'sarno-mind-body-method':               { category: 'Consultations', categorySlug: 'Consultations' },
+  'pediatric-adolescent-integrative-medicine': { category: 'Consultations', categorySlug: 'Consultations' },
+  'medical-cannabis':                     { category: 'Consultations', categorySlug: 'Consultations' },
+  'nutritional-counseling':               { category: 'Consultations', categorySlug: 'Consultations' },
+  // Treatments
+  'intravenous-therapy':                  { category: 'Treatments', categorySlug: 'Treatments' },
+  'mistletoe-injection-therapy':          { category: 'Treatments', categorySlug: 'Treatments' },
+  'acupuncture-chinese-medicine':         { category: 'Treatments', categorySlug: 'Treatments' },
+  'microneedling-facial-acupuncture':     { category: 'Treatments', categorySlug: 'Treatments' },
+  'reiki':                                { category: 'Treatments', categorySlug: 'Treatments' },
+  'somatic-experiencing':                 { category: 'Treatments', categorySlug: 'Treatments' },
+  'kap-assisted-psychotherapy':           { category: 'Treatments', categorySlug: 'Treatments' },
+  // Programs
+  'concierge-integrative-medicine':       { category: 'Programs', categorySlug: 'Programs' },
+  'reversal-cognitive-decline-recode':    { category: 'Programs', categorySlug: 'Programs' },
+  'long-covid':                           { category: 'Programs', categorySlug: 'Programs' },
+  'shoemaker-protocol-cirs-mold':         { category: 'Programs', categorySlug: 'Programs' },
+  'mindfulness-based-stress-reduction':   { category: 'Programs', categorySlug: 'Programs' },
+  'weight-body-composition':              { category: 'Programs', categorySlug: 'Programs' },
+  'executive-coaching':                   { category: 'Programs', categorySlug: 'Programs' },
+  // Ongoing Groups
+  'long-covid-online-groups':             { category: 'Ongoing Groups', categorySlug: 'Ongoing+Groups' },
+  'recode-support-group':                 { category: 'Ongoing Groups', categorySlug: 'Ongoing+Groups' },
+};
+
 // ─── Fallback for unknown slugs ───────────────────────────────────────────────
 function buildFallback(slug) {
   const title = slug.split('-').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ');
+  const cat = slugCategoryMap[slug] ?? { category: 'Services', categorySlug: 'All' };
   return {
     title,
-    category: 'Services',
-    categorySlug: 'All',
+    category: cat.category,
+    categorySlug: cat.categorySlug,
     heroFallbackColor: 'var(--sw-indigo)',
     tagline: 'Expert integrative care tailored to you.',
     icon: null,
