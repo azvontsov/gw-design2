@@ -81,9 +81,9 @@ const menuItems = [
     title: "Resources",
     href: "#",
     submenu: [
-      { title: "Patient Portal", href: "#" },
-      { title: "Supplements", href: "#" },
-      { title: "News & Events", href: "#" },
+      { title: "Patient Portal", href: "/charm-patient-portal" },
+      { title: "Supplements", href: "/supplements" },
+      { title: "News & Events", href: "/news-and-events" },
     ]
   },
   {
@@ -274,7 +274,7 @@ export default function Header() {
                 {/* CTA Button */}
                 <div className={`flex-shrink-0 ml-8 ${isScrolled ? 'hidden xl:block' : ''}`}>
                     <Link  
-                        href="#" 
+                        href="/charm-patient-portal" 
                         className="hover:bg-[var(--gw-accent)] text-white text-[13px] font-bold tracking-widest px-6 py-3 rounded-2xl bg-[var(--gw-alert)] transition-all shadow-md transform hover:-translate-y-0.5 uppercase"
                     >
                         Patient Portal
@@ -322,7 +322,7 @@ export default function Header() {
                             )}
                         </div>
                     ))}
-                    <Link href="#" className="bg-[var(--gw-accent)] text-white text-center py-4 rounded-2xl font-bold tracking-widest mt-4 uppercase">
+                    <Link href="/charm-patient-portal" className="bg-[var(--gw-accent)] text-white text-center py-4 rounded-2xl font-bold tracking-widest mt-4 uppercase" onClick={() => setIsMenuOpen(false)}>
                         Patient Portal
                     </Link>
                 </nav>

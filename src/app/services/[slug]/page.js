@@ -693,7 +693,7 @@ export default function ServiceDetailPage({ params }) {
 
                   {/* Primary CTA */}
                   <Link
-                    href="#"
+                    href="/schedule-an-appointment"
                     className="flex w-full items-center justify-center gap-2 bg-[var(--gw-gold)] text-[var(--gw-primary)] text-[12px] font-bold uppercase tracking-widest px-5 py-4 hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 shadow-md mb-3"
                   >
                     Make an Appointment

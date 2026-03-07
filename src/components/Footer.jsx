@@ -82,7 +82,7 @@ export default function Footer() {
              <h4 className="text-lg tracking-[0.2em] uppercase text-white/40 mb-8">Patient Center</h4>
              
              {/* CTA 1 */}
-             <Link href="#" className="group relative block w-full">
+             <Link href="/schedule-an-appointment" className="group relative block w-full">
                 <div className="absolute inset-0 bg-white/5 border border-white/20 rounded-xl group-hover:bg-white group-hover:border-white transition-all duration-300"></div>
                 <div className="relative px-6 py-5 flex items-center justify-center md:justify-between gap-4">
                     <span className="font-bold text-xs tracking-[0.2em] uppercase text-white group-hover:text-[#1A365D] transition-colors">New Patient Form</span>
@@ -91,7 +91,7 @@ export default function Footer() {
              </Link>
 
              {/* CTA 2 */}
-             <Link href="#" className="group relative block w-full">
+             <Link href="/charm-patient-portal" className="group relative block w-full">
                 <div className="absolute inset-0 bg-white border border-transparent rounded-xl group-hover:bg-white/90 transition-all duration-300"></div>
                 <div className="relative px-6 py-5 flex items-center justify-center md:justify-between gap-4">
                     <span className="font-bold text-xs tracking-[0.2em] uppercase text-[#1A365D]">Patient Portal</span>
