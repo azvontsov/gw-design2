@@ -5,6 +5,7 @@ import { useSearchParams } from 'next/navigation';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 function ServicesContent() {
   const searchParams = useSearchParams();
@@ -177,6 +178,12 @@ function ServicesContent() {
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-[var(--sw-solitude)] mix-blend-overlay opacity-10 blur-3xl"></div>
           
           <div className="max-w-[1400px] mx-auto relative z-10 text-center">
+            <div className="inline-block mb-4">
+              <Breadcrumbs 
+                 variant="white"
+                 items={[{ label: 'Services' }]} 
+              />
+            </div>
             <h1 className="text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-6 uppercase" style={{ fontFamily: 'var(--font-gt-super)' }}>
               Our Services
             </h1>

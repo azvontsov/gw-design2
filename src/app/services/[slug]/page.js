@@ -4,6 +4,7 @@ import { useState, use } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
+import Breadcrumbs from '@/components/Breadcrumbs';
 
 // ─── Mock service data (replace with CMS/API later) ──────────────────────────
 const servicesDb = {
@@ -310,18 +311,17 @@ export default function ServiceDetailPage({ params }) {
         {/* Content */}
         <div className="relative z-10 w-full container mx-auto px-6 lg:px-12 pb-16 pt-48">
           {/* Breadcrumb */}
-          <div className="hidden lg:flex items-center gap-2 text-white/80 text-[12px] font-medium tracking-wider uppercase mb-4">
-            <Link href="/" className="hover:text-white transition-colors">Home</Link>
-            <span>›</span>
-            <Link href="/services" className="hover:text-white transition-colors">Services</Link>
-            {service.category && service.category !== 'Services' && (
-              <>
-                <span>›</span>
-                <Link href={`/services?category=${service.categorySlug}`} className="hover:text-white transition-colors">{service.category}</Link>
-              </>
-            )}
-            <span>›</span>
-            <span className="text-white">{service.title}</span>
+          <div className="hidden lg:block">
+            <Breadcrumbs 
+              variant="white"
+              items={[
+                { label: 'Services', href: '/services' },
+                ...(service.category && service.category !== 'Services' 
+                  ? [{ label: service.category, href: `/services?category=${service.categorySlug}` }] 
+                  : []),
+                { label: service.title }
+              ]} 
+            />
           </div>
 
           {/* Category badge */}

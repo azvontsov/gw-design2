@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import Breadcrumbs from "@/components/Breadcrumbs";
 
 const mockProviders = [
   {
@@ -12,7 +13,9 @@ const mockProviders = [
     credentials: "PA-C, L.Ac., MPAS, MAC",
     image: "/images/providers/ashley.jpeg",
     slug: "ashley-drapeau-pa-c-l-ac-mpas-mac",
-    ages: ["adults"]
+    ages: ["adults"],
+    conditions: ["Anxiety and Depression", "Chronic Pain", "Stress and trauma-related illness", "Mental Health"],
+    services: ["Acupuncture", "Integrative Mental Health", "Functional Medicine"]
   },
   {
     id: 2,
@@ -20,7 +23,9 @@ const mockProviders = [
     credentials: "ND, MSOM, L.Ac.",
     image: "/images/providers/dierdre.jpg",
     slug: "deirdre-orceyre-nd-lac",
-    ages: ["seniors"]
+    ages: ["adults", "seniors"],
+    conditions: ["Autoimmunity", "Digestive Disorders", "SIBO / Gut Dysbiosis", "Hormonal Imbalances"],
+    services: ["Naturopathic Medicine", "Acupuncture", "Traditional Chinese Medicine"]
   },
   {
     id: 3,
@@ -28,7 +33,9 @@ const mockProviders = [
     credentials: "MD",
     image: "/images/providers/misha.jpg",
     slug: "mikhail-kogan-md",
-    ages: ["adults", "seniors"]
+    ages: ["adults", "seniors"],
+    conditions: ["Alzheimer’s and dementia", "Healthy aging", "Chronic Fatigue Syndrome", "Cancer Support", "POTS", "Long COVID"],
+    services: ["Integrative Geriatrics", "Functional Medicine", "Medical Cannabis"]
   },
   {
     id: 4,
@@ -36,7 +43,9 @@ const mockProviders = [
     credentials: "ND",
     image: "/images/providers/marianna.jpeg",
     slug: "marianna-ledenac-nd",
-    ages: ["adults", "pediatrics", "seniors"]
+    ages: ["adults", "pediatrics", "seniors"],
+    conditions: ["Hormonal Imbalances", "Metabolic Syndrome", "Hypertension", "Digestive Disorders"],
+    services: ["Naturopathic Medicine", "Clinical Nutrition", "Herbal Medicine"]
   },
   {
     id: 5,
@@ -44,7 +53,9 @@ const mockProviders = [
     credentials: "Clinic Manager",
     image: "/images/providers/monica.jpeg",
     slug: "monica-arias",
-    ages: [] // Administration
+    ages: [], // Administration
+    conditions: [],
+    services: ["Administrative Support", "Billing & Insurance"]
   },
   {
     id: 6,
@@ -52,78 +63,172 @@ const mockProviders = [
     credentials: "MSOM, LAc, SEP",
     image: "/images/providers/angela.png",
     slug: "angela-n-gabriel-acupuncture-se",
-    ages: ["adults", "pediatrics", "seniors"]
+    ages: ["adults", "pediatrics", "seniors"],
+    conditions: ["Stress and trauma-related illness", "Chronic Pain", "Dysautonomias", "EDS and HSD"],
+    services: ["Acupuncture", "Somatic Experiencing", "Nervous System Regulation"]
   }
 ];
+
+const officialConditions = [
+    "Chronic Fatigue Syndrome",
+    "Chronic Pain",
+    "Fibromyalgia",
+    "Autoimmunity",
+    "Digestive Disorders",
+    "Anxiety and Depression",
+    "Sleep Disorders",
+    "Hormonal Imbalances",
+    "Metabolic Syndrome",
+    "Hypertension",
+    "Mold Illness / CIRS",
+    "Long COVID",
+    "Post-Viral Syndromes",
+    "SIBO / Gut Dysbiosis",
+    "Dysautonomias",
+    "EDS and HSD",
+    "Mental Health",
+    "Cancer Support",
+    "POTS",
+    "Stress and trauma-related illness",
+    "Healthy aging",
+    "Alzheimer’s and dementia"
+];
+
+// Extract unique services from data, use official list for conditions
+const allConditions = officialConditions;
+const allServices = Array.from(new Set(mockProviders.flatMap(p => p.services || []))).sort();
 
 export default function ProvidersAndStaffPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [ageFilter, setAgeFilter] = useState("");
+  const [conditionFilter, setConditionFilter] = useState("");
+  const [serviceFilter, setServiceFilter] = useState("");
 
   const filteredProviders = mockProviders.filter(p => {
     const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
-    const matchesAge = ageFilter === "" || p.ages.includes(ageFilter);
-    return matchesSearch && matchesAge;
+    const matchesAge = ageFilter === "" || (p.ages && p.ages.includes(ageFilter));
+    const matchesCondition = conditionFilter === "" || (p.conditions && p.conditions.includes(conditionFilter));
+    const matchesService = serviceFilter === "" || (p.services && p.services.includes(serviceFilter));
+    return matchesSearch && matchesAge && matchesCondition && matchesService;
   });
+
+  const resetFilters = () => {
+    setSearchQuery("");
+    setAgeFilter("");
+    setConditionFilter("");
+    setServiceFilter("");
+  };
+
+  const hasActiveFilters = searchQuery !== "" || ageFilter !== "" || conditionFilter !== "" || serviceFilter !== "";
 
   return (
     <div className="flex min-h-screen flex-col bg-[var(--gw-background)] font-sans antialiased">
       <Header />
       <main className="bg-white flex-1 w-full pt-40 pb-24">
+      
+      {/* Breadcrumbs */}
+      <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
+        <Breadcrumbs items={[{ label: 'Our Team' }]} />
+      </div>
+
       {/* Header Section */}
       <section className="max-w-4xl mx-auto px-6 text-center mb-16">
         <p className="text-[13px] font-bold tracking-widest text-[var(--gw-primary)] uppercase mb-4">
-          Providers
+          Provider Selection Tool
         </p>
-        <h1 className="text-5xl md:text-6xl lg:text-[72px] font-serif text-[var(--gw-primary)] mb-8 leading-tight">
-          Meet your providers
+        <h1 className="text-4xl md:text-5xl lg:text-[62px] font-serif text-[var(--gw-primary)] mb-8 leading-[1.1]">
+          Get matched with the doctor(s) that best meet your needs.
         </h1>
-        <p className="text-[17px] text-[var(--gw-text-muted)] leading-relaxed max-w-3xl mx-auto font-light">
-          Being a provider at GW Center for Integrative Medicine means we're passionate about practicing the most up-to-date, high-quality medicine you'll find anywhere. We've trained at some of the world's best institutions and continuously push ourselves to learn more. We think about your health comprehensively and take the time to hear your concerns and treat you as a person — not a diagnosis.
+        <p className="text-[18px] text-[var(--gw-text-muted)] leading-relaxed max-w-4xl mx-auto font-light">
+          Are you a new patient and not sure which provider may be the best fit
+          for you? Try the provider selection tool below by selecting your age,
+          chief complaint, and other service that you may be interested in. The
+          results will update automatically to match you with a provider that
+          best meets your needs.
         </p>
       </section>
 
       {/* Filter / Search Bar */}
-      <section className="max-w-4xl mx-auto px-6 mb-20">
-        <div className="flex flex-col md:flex-row gap-6 justify-center items-center pb-8">
+      <section className="max-w-6xl mx-auto px-6 mb-20">
+        <div className="flex flex-col gap-6">
             
-          {/* Search Input */}
-          <div className="relative w-full">
+          {/* Top Row: Search */}
+          <div className="relative w-full max-w-3xl mx-auto">
             <input 
                 type="text" 
-                placeholder="Search for a provider name" 
+                placeholder="Search for a provider by name..." 
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="w-full bg-[#f4f6f8] text-slate-700 py-3.5 pl-12 pr-12 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gw-primary)] transition-all placeholder:text-slate-400"
+                className="w-full bg-[#f4f6f8] text-slate-700 py-4 pl-12 pr-12 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-[var(--gw-primary)] transition-all placeholder:text-slate-400 shadow-sm"
             />
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-slate-400 absolute left-4 top-1/2 -translate-y-1/2 pointer-events-none">
               <path strokeLinecap="round" strokeLinejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
             </svg>
             
-            {searchQuery && (
+            {(searchQuery || hasActiveFilters) && (
               <button 
-                onClick={() => setSearchQuery("")}
-                className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-[var(--gw-primary)] transition-colors p-1"
+                onClick={resetFilters}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-[11px] font-bold uppercase tracking-wider text-slate-400 hover:text-[var(--gw-primary)] transition-colors p-1"
               >
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-4 h-4">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                </svg>
+                Clear All
               </button>
             )}
           </div>
 
-          {/* Select Dropdowns */}
-          <div className="flex flex-wrap sm:flex-nowrap gap-4 w-full md:w-auto">
-            <select 
-                value={ageFilter}
-                onChange={(e) => setAgeFilter(e.target.value)}
-                className="appearance-none bg-[#f4f6f8] border border-transparent text-[13px] font-bold text-[var(--gw-primary)] px-6 py-3.5 pr-12 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--gw-primary)] transition-all cursor-pointer bg-[url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%232C4A5A%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.2-5.5-12.8z%22%2F%3E%3C%2Fsvg%3E')] bg-[length:10px_10px] bg-no-repeat bg-[right_1.5rem_center] w-full sm:w-auto shadow-sm hover:shadow-md active:scale-95 transition-transform"
-            >
-                <option value="">Ages Seen</option>
-                <option value="adults">Adults</option>
-                <option value="pediatrics">Pediatrics</option>
-                <option value="seniors">Seniors</option>
-            </select>
+          {/* Bottom Row: Tool Selectors */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            
+            {/* Age Filter */}
+            <div className="relative group">
+                <select 
+                    value={ageFilter}
+                    onChange={(e) => setAgeFilter(e.target.value)}
+                    className="appearance-none w-full bg-[#f4f6f8] border border-transparent text-[13px] font-bold text-[var(--gw-primary)] pl-6 pr-12 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--gw-primary)] transition-all cursor-pointer shadow-sm group-hover:shadow-md"
+                >
+                    <option value="">Patient Age</option>
+                    <option value="adults">Adults</option>
+                    <option value="pediatrics">Pediatrics</option>
+                    <option value="seniors">Seniors</option>
+                </select>
+                <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-40">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+
+            {/* Condition Filter */}
+            <div className="relative group">
+                <select 
+                    value={conditionFilter}
+                    onChange={(e) => setConditionFilter(e.target.value)}
+                    className="appearance-none w-full bg-[#f4f6f8] border border-transparent text-[13px] font-bold text-[var(--gw-primary)] pl-6 pr-12 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--gw-primary)] transition-all cursor-pointer shadow-sm group-hover:shadow-md"
+                >
+                    <option value="">Chief Complaint / Condition</option>
+                    {allConditions.map(cond => (
+                        <option key={cond} value={cond}>{cond}</option>
+                    ))}
+                </select>
+                <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-40">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+
+            {/* Service Filter */}
+            <div className="relative group">
+                <select 
+                    value={serviceFilter}
+                    onChange={(e) => setServiceFilter(e.target.value)}
+                    className="appearance-none w-full bg-[#f4f6f8] border border-transparent text-[13px] font-bold text-[var(--gw-primary)] pl-6 pr-12 py-4 rounded-xl focus:outline-none focus:ring-2 focus:ring-[var(--gw-primary)] transition-all cursor-pointer shadow-sm group-hover:shadow-md"
+                >
+                    <option value="">Interested Service</option>
+                    {allServices.map(service => (
+                        <option key={service} value={service}>{service}</option>
+                    ))}
+                </select>
+                <div className="absolute right-5 top-1/2 -translate-y-1/2 pointer-events-none opacity-40">
+                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" /></svg>
+                </div>
+            </div>
+
           </div>
 
         </div>
@@ -135,8 +240,8 @@ export default function ProvidersAndStaffPage() {
             {filteredProviders.map((provider) => (
                 <Link href={`/people/${provider.slug}`} key={provider.id} className="flex flex-col items-center group cursor-pointer text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
                     
-                    {/* Avatar Square-ish */}
-                    <div className="w-[180px] h-[180px] border border-gray-200 rounded-full overflow-hidden mb-5 bg-[#f4f6f8] flex items-center justify-center transition-transform duration-500 group-hover:scale-105 group-hover:shadow-md">
+                    {/* Avatar Circle with Border */}
+                    <div className="w-[180px] h-[180px] border border-gray-100 rounded-full overflow-hidden mb-5 bg-[#f4f6f8] flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-md group-hover:border-[var(--gw-accent)]">
                         {provider.image ? (
                             <img src={provider.image} alt={provider.name} className="w-full h-full object-cover" />
                         ) : (
@@ -154,13 +259,20 @@ export default function ProvidersAndStaffPage() {
                         >
                             {provider.name}, {provider.credentials}
                         </h3>
+                        {/* Tags Preview (Optional, for better matching tool feedback) */}
+                        {hasActiveFilters && (
+                           <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Matched specialist</p>
+                        )}
                     </div>
                 </Link>
             ))}
             
             {filteredProviders.length === 0 && (
-                <div className="col-span-full py-12 text-center text-slate-500 font-light italic">
-                    No providers found matching your search criteria.
+                <div className="col-span-full py-12 text-center">
+                    <p className="text-slate-500 font-light italic text-lg mb-4">No providers found matching your criteria.</p>
+                    <button onClick={resetFilters} className="text-[12px] font-bold uppercase tracking-widest text-[var(--gw-primary)] border-b border-[var(--gw-primary)] pb-1 hover:text-[var(--gw-blue)] hover:border-[var(--gw-blue)] transition-all">
+                        Reset All Filters
+                    </button>
                 </div>
             )}
         </div>
@@ -170,3 +282,4 @@ export default function ProvidersAndStaffPage() {
     </div>
   );
 }
+

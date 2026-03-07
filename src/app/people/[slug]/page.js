@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import YouTubeGallery from "@/components/YouTubeGallery";
+import Breadcrumbs from "@/components/Breadcrumbs";
 export async function generateMetadata({ params }) {
   const { slug } = await params;
   
@@ -68,6 +69,11 @@ export default async function ProviderProfilePage({ params }) {
       <div className="flex min-h-screen flex-col bg-[var(--gw-background)] font-sans antialiased">
         <Header />
         <main className="flex-1 w-full pt-40 pb-24">
+        
+        {/* Breadcrumbs */}
+        <div className="max-w-6xl mx-auto px-6 mb-8 mt-24">
+          <Breadcrumbs items={[{ label: 'Our Team', href: '/people' }, { label: 'Deirdre Orceyre' }]} />
+        </div>
         
         {/* Hero Section */}
         <section className="max-w-6xl mx-auto px-6 mb-16 mt-8">
@@ -284,6 +290,11 @@ export default async function ProviderProfilePage({ params }) {
       <div className="flex min-h-screen flex-col bg-[var(--gw-background)] font-sans antialiased">
         <Header />
         <main className="flex-1 w-full pt-40 pb-24">
+        
+        {/* Breadcrumbs */}
+        <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
+          <Breadcrumbs items={[{ label: 'Our Team', href: '/people' }, { label: 'Mikhail Kogan' }]} />
+        </div>
         
         {/* Hero Section */}
         <section className="max-w-6xl mx-auto px-6 mb-16 mt-8">
@@ -555,6 +566,11 @@ export default async function ProviderProfilePage({ params }) {
         <Header />
         <main className="flex-1 w-full pt-40 pb-24">
         
+        {/* Breadcrumbs */}
+        <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
+          <Breadcrumbs items={[{ label: 'Our Team', href: '/people' }, { label: 'Marianna Ledenac' }]} />
+        </div>
+        
         {/* Hero Section */}
         <section className="max-w-6xl mx-auto px-6 mb-16 mt-8">
           <div className="flex flex-col md:flex-row gap-12 lg:gap-16 items-center md:items-start relative">
@@ -783,6 +799,11 @@ export default async function ProviderProfilePage({ params }) {
         <Header />
         <main className="flex-1 w-full pt-40 pb-24">
         
+        {/* Breadcrumbs */}
+        <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
+          <Breadcrumbs items={[{ label: 'Our Team', href: '/people' }, { label: 'Monica Arias' }]} />
+        </div>
+        
         {/* Hero Section */}
         <section className="max-w-6xl mx-auto px-6 mb-16 mt-8">
           <div className="flex flex-col md:flex-row gap-12 lg:gap-16 items-center md:items-start relative">
@@ -932,6 +953,11 @@ export default async function ProviderProfilePage({ params }) {
       <div className="flex min-h-screen flex-col bg-[var(--gw-background)] font-sans antialiased">
         <Header />
         <main className="flex-1 w-full pt-40 pb-24">
+        
+        {/* Breadcrumbs */}
+        <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
+          <Breadcrumbs items={[{ label: 'Our Team', href: '/people' }, { label: 'Angela Gabriel' }]} />
+        </div>
         
         {/* Hero Section */}
         <section className="max-w-6xl mx-auto px-6 mb-16 mt-8">
@@ -1195,6 +1221,11 @@ export default async function ProviderProfilePage({ params }) {
     <div className="flex min-h-screen flex-col bg-[var(--gw-background)] font-sans antialiased">
       <Header />
       <main className="flex-1 w-full pt-40 pb-24">
+      
+      {/* Breadcrumbs */}
+      <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
+        <Breadcrumbs items={[{ label: 'Our Team', href: '/people' }, { label: 'Ashley Drapeau' }]} />
+      </div>
       
       {/* Hero Section */}
       <section className="max-w-6xl mx-auto px-6 mb-16">
