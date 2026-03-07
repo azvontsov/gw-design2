@@ -56,7 +56,7 @@ export default function AboutSnippet() {
                 <div className="flex flex-wrap gap-4 items-center">
                     <Link 
                         href="/about" 
-                        className="inline-flex items-center justify-center hover:bg-[var(--gw-primary)] bg-[var(--gw-blue)] text-white px-8 py-4 rounded-2xl text-sm font-bold tracking-widest transition-all uppercase shadow-lg shadow-[var(--gw-primary)]/20"
+                        className="inline-flex items-center justify-center hover:bg-[var(--gw-primary)] bg-[var(--gw-blue)] text-white px-8 py-4 rounded-xl text-sm font-bold tracking-widest transition-all uppercase shadow-lg shadow-[var(--gw-primary)]/20"
                     >
                         Learn About Our Approach
                     </Link>
@@ -67,7 +67,7 @@ export default function AboutSnippet() {
             <div className="lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-14">
                 {reasons.map((reason, idx) => (
                     <div key={idx} className="relative group">
-                        <div className="absolute -left-4 top-0 w-1 h-0 bg-[var(--gw-accent)] group-hover:h-full transition-all duration-300 rounded-full"></div>
+                        <div className="absolute -left-4 top-0 w-1 h-0 bg-[var(--gw-accent)] group-hover:h-full transition-all duration-300 rounded-none"></div>
                         <h4 className="text-lg font-bold text-[var(--gw-primary)] mb-3 group-hover:text-[var(--gw-blue)] transition-colors">
                             {reason.title}
                         </h4>

@@ -88,8 +88,26 @@ const menuItems = [
     ]
   },
   {
-      title: "About",
-      href: "#",
+    title: "About",
+    href: "/about",
+    submenu: [
+      { 
+        title: "Mission Statement and Director's Message", 
+        href: "/about/mission-statement" 
+      },
+      { 
+        title: "What is Integrative Medicine?", 
+        href: "/about/what-is-integrative-medicine" 
+      },
+      { 
+        title: "Our Story", 
+        href: "/about/our-story-gw-integrative-medicine-center" 
+      },
+      { 
+        title: "Patient Reviews and Testimonials", 
+        href: "/about/patient-reviews" 
+      },
+    ]
   },
   {
       title: "Contact",
