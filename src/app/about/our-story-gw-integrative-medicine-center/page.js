@@ -52,7 +52,7 @@ export default function OurStoryPage() {
       
       <main className="flex-1 w-full pt-40 pb-24">
         {/* Breadcrumbs */}
-        <div className="max-w-6xl mx-auto px-6 mb-8 mt-24">
+        <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
           <Breadcrumbs items={[{ label: 'About', href: '/about' }, { label: "Our Story" }]} />
         </div>
 

@@ -73,9 +73,8 @@ const menuItems = [
     href: "/people",
     submenu: [
       { title: "Providers",   href: "/people" },
-      { title: "Leadership",  href: "/people#leadership" },
-      { title: "Staff",       href: "/people#staff" },
-      { title: "Partners",    href: "/people#partners" },
+      { title: "Providers Affiliated with GWCIM",  href: "/our-affiliations" },
+      { title: "Our Partners",       href: "/our-partners" },
     ]
   },
   {
