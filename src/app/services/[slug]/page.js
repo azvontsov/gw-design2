@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, use } from 'react';
+import { useState, use, useEffect } from 'react';
 import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -264,20 +264,45 @@ export default function ServiceDetailPage({ params }) {
   const service = servicesDb[slug] ?? buildFallback(slug);
   const colors = categoryColor[service.category] ?? categoryColor['Services'];
 
-  const tocItems = [
-    { id: 'what', label: `What is ${service.title}?` },
-    { id: 'conditions', label: 'What conditions does it treat?' },
-    { id: 'why', label: `Why ${service.title} at GWCIM?` },
-    { id: 'how', label: `How do we do it at GWCIM?` },
-    { id: 'providers', label: 'GWCIM Providers' },
-    { id: 'more', label: `More About ${service.title}` },
-    { id: 'faqs', label: 'FAQs' },
-    { id: 'related', label: 'Related Pages' },
-  ];
-
-  const [activeToc, setActiveToc] = useState('what');
   const [openFaqIndex, setOpenFaqIndex] = useState(null);
   const [openVideoId, setOpenVideoId]   = useState(null);
+  const [activeToc, setActiveToc] = useState('what');
+
+  const tocItems = [
+    { id: 'what', label: `Overview`, show: !!service.what },
+    { id: 'conditions', label: 'Indications', show: service.conditions?.length > 0 },
+    { id: 'why', label: `Our Advantage`, show: !!service.whyGwcim },
+    { id: 'how', label: `Our Method`, show: !!service.howWeDoIt },
+    { id: 'providers', label: 'Specialists', show: service.providers?.length > 0 },
+    { id: 'more', label: `Background`, show: !!service.moreAbout },
+    { id: 'faqs', label: 'Common Questions', show: service.faqs?.length > 0 },
+    { id: 'related', label: 'Related Links', show: service.related?.length > 0 },
+  ].filter(item => item.show);
+
+  useEffect(() => {
+    const observerOptions = {
+      root: null,
+      rootMargin: '-20% 0px -70% 0px',
+      threshold: 0
+    };
+
+    const observerCallback = (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          setActiveToc(entry.target.id);
+        }
+      });
+    };
+
+    const observer = new IntersectionObserver(observerCallback, observerOptions);
+
+    tocItems.forEach((item) => {
+      const element = document.getElementById(item.id);
+      if (element) observer.observe(element);
+    });
+
+    return () => observer.disconnect();
+  }, [tocItems]);
 
   const scrollTo = (id) => {
     setActiveToc(id);
@@ -647,16 +672,16 @@ export default function ServiceDetailPage({ params }) {
             <aside className="hidden lg:block lg:w-[320px] xl:w-[360px] shrink-0 lg:sticky lg:top-24 space-y-6">
 
               {/* TOC: desktop */}
-              <div className="hidden lg:block bg-white border border-gray-100 shadow-sm p-6">
-                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-4">On this page</p>
-                <ul className="space-y-1">
+              <div className="hidden lg:block bg-white border border-gray-100 p-8 shadow-sm">
+                <p className="text-[11px] font-bold uppercase tracking-[0.4em] text-slate-400 mb-6 font-sans">On this page</p>
+                <ul className="space-y-2">
                   {tocItems.map(item => (
                     <li key={item.id}>
                       <button
                         onClick={() => scrollTo(item.id)}
-                        className={`text-[13px] text-left w-full py-1.5 px-3 transition-all ${activeToc === item.id
-                          ? 'font-semibold text-[var(--gw-primary)] bg-gray-50'
-                          : 'text-[var(--gw-text-muted)] hover:text-[var(--gw-primary)] hover:bg-gray-50'}`}
+                        className={`text-[12px] text-left w-full py-2 px-4 transition-all uppercase tracking-widest font-bold ${activeToc === item.id
+                          ? 'text-[var(--gw-primary)] bg-slate-50 border-l-4 border-[var(--gw-accent)]'
+                          : 'text-slate-400 hover:text-[var(--gw-primary)] border-l-4 border-transparent'}`}
                       >
                         {item.label}
                       </button>

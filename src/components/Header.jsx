@@ -229,10 +229,12 @@ export default function Header() {
                             {/* Dropdown */}
                             {item.submenu && (
                                 <div 
-                                    className="absolute top-full left-1/2 -translate-x-1/2 min-w-[220px] pointer-events-none group-hover:pointer-events-auto"
-                                    style={{ clipPath: 'inset(0px -600px -600px -50px)', WebkitClipPath: 'inset(0px -600px -600px -50px)' }}
+                                    className="absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] pointer-events-none group-hover:pointer-events-auto"
+                                    style={{ clipPath: 'inset(0px -1000px -1000px -1000px)', WebkitClipPath: 'inset(0px -1000px -1000px -1000px)' }}
                                 >
-                                    <div className="bg-[var(--sw-navbar)] flex flex-col items-stretch transform -translate-y-full group-hover:translate-y-0 transition-all duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] opacity-0 group-hover:opacity-100 border-t border-white/10">
+                                    <div className="bg-[var(--sw-navbar)] flex flex-col items-stretch transform -translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 border-t border-white/10 shadow-2xl relative">
+                                        {/* Bridge to prevent closing on gap hover */}
+                                        <div className="absolute -top-6 left-0 w-full h-6" />
                                         {item.submenu.map((sub, sIdx) => (
                                             <div key={sIdx} className="relative group/fly border-b border-[rgba(255,255,255,0.2)] last:border-b-0">
                                                 <Link 
