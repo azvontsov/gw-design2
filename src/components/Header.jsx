@@ -61,11 +61,12 @@ const menuItems = [
   },
   {
     title: "Conditions",
-    href: "#",
+    href: "/conditions",
     submenu: [
-      { title: "Chronic Illness", href: "#" },
-      { title: "Mental Health", href: "#" },
-      { title: "Healthy Aging", href: "#" },
+      { title: "Chronic Illness", href: "/conditions/chronic-illness" },
+      { title: "Mental Health", href: "/conditions/mental-health" },
+      { title: "Healthy Aging", href: "/conditions/healthy-aging" },
+      { title: "See All Conditions", href: "/conditions" },
     ]
   },
   {
@@ -110,7 +111,7 @@ const menuItems = [
   },
   {
       title: "Contact",
-      href: "#"
+      href: "/contact"
   }
 ];
 

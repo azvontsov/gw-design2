@@ -44,8 +44,8 @@ export default function Footer() {
                 { title: 'Home', href: '/' },
                 { title: 'Services', href: '/services' },
                 { title: 'Providers', href: '/people' },
-                { title: 'Resources', href: '#' },
-                { title: 'Contact', href: '#' }
+                { title: 'Resources', href: '/news-and-events' },
+                { title: 'Contact', href: '/contact' }
               ].map((item) => (
                 <li key={item.title}>
                     <Link href={item.href} className="text-[14px] font-medium text-white/80 hover:text-white transition-colors relative group inline-flex items-center">

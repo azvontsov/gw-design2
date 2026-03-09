@@ -18,7 +18,7 @@ export default function NewsAndEventsPage() {
       title: "Ashley Drapeau Appointed as New Medical Director",
       date: "March 1, 2025",
       excerpt: "GWCIM is proud to announce the transition of leadership as Ashley Drapeau, PA-C, L.Ac., takes the helm to lead our clinical programs into the future.",
-      image: "/images/providers/about/foye.jpg", // Fallback to foyer image for now
+      image: "/images/news/01.png",
       link: "/about/our-story-gw-integrative-medicine-center"
     },
     {
@@ -27,7 +27,7 @@ export default function NewsAndEventsPage() {
       title: "Mindfulness-Based Stress Reduction (MBSR) Spring Session",
       date: "April 15, 2025",
       excerpt: "Join our intensive 8-week program designed to help you develop tools for managing stress, pain, and illness through mindfulness meditation.",
-      image: "/images/providers/about/foye.jpg",
+      image: "/images/news/02.jpg",
       link: "/services/mindfulness-based-stress-reduction"
     },
     {
@@ -36,7 +36,7 @@ export default function NewsAndEventsPage() {
       title: "Integrative Medicine and the Future of Geriatrics",
       date: "February 12, 2025",
       excerpt: "Dr. Mikhail Kogan discusses the role of integrative approaches in promoting healthy aging and cognitive longevity in recent academic panel.",
-      image: "/images/providers/about/foye.jpg",
+      image: "/images/news/03.png",
       link: "/people/mikhail-kogan-md"
     },
     {
@@ -45,7 +45,7 @@ export default function NewsAndEventsPage() {
       title: "Podcast: The Healing Power of Genomic Nutrition",
       date: "January 30, 2025",
       excerpt: "Listen to our latest episode where we explore how personalized nutrition based on your genetic profile can transform your recovery and longevity.",
-      image: "/images/providers/about/foye.jpg",
+      image: "/images/news/healing-podcast.webp",
       link: "/services/nutritional-counseling"
     }
   ];
@@ -76,7 +76,7 @@ export default function NewsAndEventsPage() {
 
         {/* Filter Navigation */}
         <section className="max-w-6xl mx-auto px-6 mb-12">
-            <div className="flex flex-wrap gap-4 border-b border-slate-100 pb-6">
+            <div className="flex flex-wrap gap-4 pb-6">
                 {categories.map(cat => (
                     <button 
                         key={cat}
@@ -99,7 +99,7 @@ export default function NewsAndEventsPage() {
             {filteredItems.map((item, idx) => (
               <div 
                 key={item.id} 
-                className="group flex flex-col bg-white border border-slate-50 shadow-sm hover:shadow-xl transition-all duration-500 animate-in fade-in slide-in-from-bottom-8"
+                className="group flex flex-col bg-white shadow-sm hover:shadow-xl transition-all duration-500 animate-in fade-in slide-in-from-bottom-8"
                 style={{ animationDelay: `${idx * 150}ms` }}
               >
                 <div className="aspect-[16/9] overflow-hidden relative">
@@ -146,7 +146,7 @@ export default function NewsAndEventsPage() {
                         <input 
                             type="email" 
                             placeholder="Email address" 
-                            className="flex-grow bg-white/10 border border-white/20 px-6 py-4 text-white placeholder:text-white/30 outline-none focus:border-white transition-all text-sm"
+                            className="flex-grow bg-white/10 px-6 py-4 text-white placeholder:text-white/30 outline-none focus:border-white transition-all text-sm"
                         />
                         <button className="bg-[var(--gw-accent)] text-[var(--gw-primary)] px-8 py-4 font-bold tracking-widest uppercase hover:bg-white transition-all text-sm whitespace-nowrap">
                             Subscribe
