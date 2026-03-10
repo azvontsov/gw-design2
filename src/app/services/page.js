@@ -243,15 +243,30 @@ function ServicesContent() {
                   </svg>
                   New Patient Inquiry Form
                 </Link>
-                <a
-                  href="#"
-                  className="w-full inline-flex items-center gap-3 border border-[var(--gw-primary)] text-[var(--gw-primary)] text-[12px] font-bold uppercase tracking-widest px-6 py-4 hover:bg-[var(--gw-primary)] hover:text-white transition-all duration-300"
-                >
-                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 shrink-0">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
-                  </svg>
-                  Sign Up For Our Newsletter
-                </a>
+                {/* Newsletter Signup Form */}
+                <div className="w-full lg:w-[400px]">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--gw-text-primary)] mb-3">Subscribe to our newsletter</p>
+                  <form 
+                    action="YOUR_BREVO_FORM_ACTION_URL"
+                    method="POST" 
+                    target="_blank" 
+                    className="flex flex-col sm:flex-row gap-0 border border-[var(--gw-primary)]"
+                  >
+                    <input 
+                      type="email" 
+                      name="EMAIL"
+                      placeholder="Email Address" 
+                      required 
+                      className="flex-1 px-4 py-4 text-sm bg-[#F9FAF8] focus:outline-none text-[var(--gw-primary)] placeholder:text-gray-400"
+                    />
+                    <button 
+                      type="submit" 
+                      className="px-6 py-4 bg-[var(--gw-primary)] text-white text-[11px] font-bold uppercase tracking-widest hover:bg-[var(--gw-blue)] transition-all whitespace-nowrap"
+                    >
+                      Subscribe
+                    </button>
+                  </form>
+                </div>
                 </div>
               </div>
 

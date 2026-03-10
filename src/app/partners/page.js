@@ -37,13 +37,7 @@ const affiliations = [
     cta: { text: "Donate to AIM", href: "#" },
     accent: "bg-[var(--gw-teal)]"
   },
-  {
-    id: 'shanti',
-    title: "Shanti Integrative Health Care",
-    subtitle: "Dr. Jennifer Rioux, PhD",
-    description: "Dr. Jennifer Rioux, PhD offers a full range of Ayurvedic Medicine consultations, an Ayurvedic personalized evidence-based Weight Loss and Maintenance Program, herbal consultations, yoga therapy, Planetary Health assessments, Medicine-by-Minute, and other services.",
-    accent: "bg-[var(--gw-blue)]"
-  },
+
   {
     id: 'pilates',
     title: "Therapeutic Pilates: Linda Taylor",
@@ -209,6 +203,11 @@ const partners = [
     description: "Fatty15 is a once‑daily oral supplement formulated to support healthy aging by helping maintain cell membrane strength, mitochondrial function, and the natural activity of receptors involved in immunity, metabolism, mood, appetite, and sleep. Pure pentadecanoic acid (C15:0).",
     url: "https://partners.fatty15.com/GWCIM",
     note: "Listen to the GW IM podcast with the founder of Fatty15: Apple Podcasts"
+  },
+  {
+    name: "Shanti Integrative Health Care: Dr. Jennifer Rioux, PhD",
+    description: "Dr. Jennifer Rioux, PhD offers a full range of Ayurvedic Medicine consultations, an Ayurvedic personalized evidence-based Weight Loss and Maintenance Program, herbal consultations, yoga therapy, Planetary Health assessments, Medicine-by-Minute, and other services.",
+    url: "https://shantiintegrativehealthcare.com"
   }
 ];
 
@@ -241,61 +240,62 @@ export default function PartnersAndAffiliationsPage() {
             {affiliations.map((item, idx) => (
               <div 
                 key={item.id} 
-                className="group relative animate-in fade-in slide-in-from-bottom-8 duration-700"
+                className="group relative animate-in fade-in slide-in-from-bottom-8 duration-700 bg-white border border-gray-100 p-8 lg:p-12 hover:shadow-2xl hover:shadow-[var(--gw-primary)]/5 transition-all duration-500 rounded-none h-full flex flex-col"
                 style={{ animationDelay: `${idx * 150}ms` }}
               >
-                {/* Content */}
-                <div className="bg-white p-8 border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 border-l-[6px] rounded-none h-full flex flex-col" style={{ borderLeftColor: `var(--gw-${item.accent.split('-')[2].replace(')]','')})` }}>
-                    <div className="mb-6">
-                        <h3 className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-text-muted)] mb-3 opacity-70">
-                            {item.subtitle}
-                        </h3>
-                        <h2 className="text-2xl font-serif text-[var(--gw-primary)] leading-tight">
-                            {item.title}
-                        </h2>
-                    </div>
+                  {/* Color Accent Bar */}
+                  <div className={`absolute top-0 left-0 w-full h-[6px] ${item.accent}`}></div>
+                  
+                  <div className="mb-6">
+                      <h3 className="text-[11px] font-bold uppercase tracking-[0.25em] text-[var(--gw-accent)] mb-4">
+                          {item.subtitle}
+                      </h3>
+                      <h2 className="text-2xl md:text-3xl font-serif text-[var(--gw-primary)] leading-tight tracking-tight mb-4">
+                          {item.title}
+                      </h2>
+                      <div className="w-12 h-0.5 bg-gray-100 group-hover:w-20 group-hover:bg-[var(--gw-accent)] transition-all duration-700"></div>
+                  </div>
 
-                    <p className="text-base text-slate-600 leading-relaxed mb-8 flex-grow font-light">
-                        {item.description}
-                    </p>
+                  <p className="text-[15px] text-slate-600 leading-relaxed mb-10 flex-grow font-light">
+                      {item.description}
+                  </p>
 
-                    <div className="flex flex-wrap gap-4 mt-auto pt-8 border-t border-slate-50">
-                        {item.website && (
-                            <a 
-                                href={item.website} 
-                                target="_blank" 
-                                rel="noopener noreferrer"
-                                className="inline-flex items-center gap-3 bg-[var(--gw-primary)] text-white text-[12px] font-bold uppercase tracking-widest px-6 py-3 rounded-2xl hover:bg-[var(--gw-blue)] transition-all duration-300 shadow-md group/btn"
-                            >
-                                Visit Website
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 transform group-hover/btn:translate-x-1 transition-transform">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
-                                </svg>
-                            </a>
-                        )}
-                        {item.cta && (
-                            <Link 
-                                href={item.cta.href}
-                                className="inline-flex items-center gap-3 bg-[var(--gw-gold)] text-[var(--gw-primary)] text-[12px] font-bold uppercase tracking-widest px-6 py-3 rounded-2xl hover:bg-[var(--gw-primary)] hover:text-white transition-all duration-300 shadow-md transform hover:-translate-y-1"
-                            >
-                                {item.cta.text}
-                            </Link>
-                        )}
-                        {!item.website && !item.cta && (
-                            <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-[0.15em] text-[var(--gw-text-muted)] opacity-60">
-                                <span className="w-6 h-px bg-slate-300"></span>
-                                Affiliate Partner
-                            </div>
-                        )}
-                    </div>
-                </div>
+                  <div className="flex flex-wrap gap-4 mt-auto">
+                      {item.website && (
+                          <a 
+                              href={item.website} 
+                              target="_blank" 
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-3 bg-[var(--gw-primary)] text-white text-[10px] font-bold uppercase tracking-widest px-8 py-4 hover:bg-[var(--gw-blue)] transition-all duration-300 shadow-sm transform group-hover:shadow-lg rounded-none"
+                          >
+                              Visit Website
+                              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 transform group-hover:translate-x-1 transition-transform">
+                                  <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                              </svg>
+                          </a>
+                      )}
+                      {item.cta && (
+                          <Link 
+                              href={item.cta.href}
+                              className="inline-flex items-center gap-3 bg-[var(--gw-gold)] text-[var(--gw-primary)] text-[10px] font-bold uppercase tracking-widest px-8 py-4 hover:bg-[var(--gw-primary)] hover:text-white transition-all duration-300 shadow-sm transform group-hover:shadow-lg rounded-none"
+                          >
+                              {item.cta.text}
+                          </Link>
+                      )}
+                      {!item.website && !item.cta && (
+                          <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.25em] text-[var(--gw-accent)]">
+                              <span className="w-8 h-px bg-[var(--gw-accent)]/30"></span>
+                              Affiliate Provider
+                          </div>
+                      )}
+                  </div>
               </div>
             ))}
           </div>
         </section>
 
         <section className="max-w-6xl mx-auto px-6 mb-32">
-          <div className="w-full h-px bg-slate-200"></div>
+          <div className="w-full h-px bg-[var(--gw-primary)]"></div>
         </section>
 
         {/* Partners List */}
@@ -305,71 +305,82 @@ export default function PartnersAndAffiliationsPage() {
                 {partners.map((partner, idx) => (
                     <div 
                         key={idx} 
-                        className="group bg-white border border-slate-100 p-8 md:p-12 hover:border-[var(--gw-accent)] transition-all duration-500 animate-in fade-in slide-in-from-bottom-4"
+                        className="group bg-white overflow-hidden hover:shadow-2xl hover:shadow-[var(--gw-primary)]/10 transition-all duration-700 animate-in fade-in slide-in-from-bottom-4 flex flex-col md:flex-row relative lg:min-h-[400px]"
                         style={{ animationDelay: `${idx * 50}ms` }}
                     >
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
-                            <div className="lg:col-span-2">
-                                <h2 className="text-2xl md:text-3xl font-serif text-[var(--gw-primary)] mb-6 group-hover:text-[var(--gw-blue)] transition-colors">
-                                    {partner.name}
-                                </h2>
-                                <p className="text-slate-600 font-light leading-relaxed mb-8">
-                                    {partner.description}
-                                </p>
-                                {partner.note && (
-                                    <div className="bg-slate-50 border-l-4 border-[var(--gw-accent)] p-4 text-sm text-[var(--gw-primary)] font-medium mb-4">
-                                        {partner.note}
-                                    </div>
-                                )}
+                        {/* Information Section (Left) */}
+                        <div className="flex-1 p-8 md:p-12 lg:p-14 flex flex-col justify-center">
+                            <div className="mb-4 flex items-center gap-4">
+                                <span className="h-px w-8 bg-[var(--gw-accent)]"></span>
+                                <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[var(--gw-accent)]">GWCIM Partner</span>
                             </div>
-                            <div className="flex flex-col justify-start lg:border-l lg:border-slate-100 lg:pl-12 pt-2">
+                            <h2 
+                                className="text-3xl md:text-4xl lg:text-5xl font-serif text-[var(--gw-primary)] mb-8 leading-[1.1] tracking-tight"
+                            >
+                                {partner.name}
+                            </h2>
+                            <p className="text-slate-600 font-light leading-relaxed mb-10 text-[17px] max-w-2xl">
+                                {partner.description}
+                            </p>
+                            {partner.note && (
+                                <div className="bg-slate-50 border-l-[3px] border-[var(--gw-gold)] py-5 px-8 text-sm text-[var(--gw-primary)] font-medium italic flex items-start gap-4 rounded-r-lg max-w-xl">
+                                    <svg className="w-5 h-5 shrink-0 text-[var(--gw-gold)] mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span className="opacity-80">{partner.note}</span>
+                                </div>
+                            )}
+                        </div>
+
+                        {/* Contact Sidebar (Right / Deep Navy) */}
+                        <div className="w-full md:w-[350px] lg:w-[420px] bg-[var(--sw-indigo)] p-10 md:p-14 flex flex-col justify-between relative overflow-hidden group/sidebar">
+                            {/* Decorative element */}
+                            <div className="absolute -top-24 -right-24 w-64 h-64 bg-white/5 rounded-full blur-3xl group-hover/sidebar:bg-white/10 transition-all duration-1000"></div>
+                            
+                            <div className="space-y-10 relative z-10">
                                 {partner.url && (
-                                    <div className="mb-6">
-                                        <span className="block text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-2 font-bold">Website</span>
+                                    <div>
+                                        <span className="block text-[10px] uppercase tracking-[0.3em] text-white/40 mb-3 font-bold">Official Site</span>
                                         <a 
                                             href={partner.url} 
                                             target="_blank" 
                                             rel="noopener noreferrer"
-                                            className="text-[var(--gw-primary)] hover:text-[var(--gw-blue)] transition-colors text-sm break-all underline underline-offset-4 decoration-slate-200"
+                                            className="text-white hover:text-[var(--gw-gold)] transition-all text-[15px] font-medium block truncate border-b border-white/10 hover:border-[var(--gw-gold)] w-fit pb-1"
                                         >
                                             {partner.url.replace('https://', '').replace('http://', '').split('/')[0]}
                                         </a>
                                     </div>
                                 )}
+                                
                                 {partner.phone && (
-                                    <div className="mb-6">
-                                        <span className="block text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-2 font-bold">Phone</span>
-                                        <a href={`tel:${partner.phone}`} className="text-[var(--gw-primary)] hover:text-[var(--gw-blue)] transition-colors text-sm">
+                                    <div>
+                                        <span className="block text-[10px] uppercase tracking-[0.3em] text-white/40 mb-3 font-bold">Contact</span>
+                                        <a href={`tel:${partner.phone}`} className="text-white hover:text-[var(--gw-gold)] transition-colors text-lg font-serif">
                                             {partner.phone}
                                         </a>
                                     </div>
                                 )}
-                                {partner.email && (
-                                    <div className="mb-6">
-                                        <span className="block text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-2 font-bold">Email</span>
-                                        <a href={`mailto:${partner.email}`} className="text-[var(--gw-primary)] hover:text-[var(--gw-blue)] transition-colors text-sm">
-                                            {partner.email}
-                                        </a>
-                                    </div>
-                                )}
+
                                 {partner.address && (
-                                    <div className="mb-6">
-                                        <span className="block text-[10px] uppercase tracking-[0.2em] text-slate-400 mb-2 font-bold">Address</span>
-                                        <p className="text-slate-600 text-sm font-light leading-snug">
+                                    <div>
+                                        <span className="block text-[10px] uppercase tracking-[0.3em] text-white/40 mb-3 font-bold">Location</span>
+                                        <p className="text-white/70 text-[14px] font-light leading-relaxed">
                                             {partner.address}
                                         </p>
                                     </div>
                                 )}
-                                <div className="mt-auto pt-4">
-                                    <a 
-                                        href={partner.url || '#'} 
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="inline-flex items-center gap-2 text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--gw-primary)] hover:text-[var(--gw-blue)] transition-colors"
-                                    >
-                                        Visit Partner <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                                    </a>
-                                </div>
+                            </div>
+
+                            <div className="mt-16 relative z-10">
+                                <a 
+                                    href={partner.url || '#'} 
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="w-full inline-flex items-center justify-center gap-4 bg-[var(--gw-gold)] text-[var(--gw-primary)] py-5 text-[11px] font-bold uppercase tracking-[0.25em] hover:bg-white hover:shadow-xl hover:-translate-y-1 transition-all duration-500 whitespace-nowrap"
+                                >
+                                    Visit Partner
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -378,10 +389,10 @@ export default function PartnersAndAffiliationsPage() {
         </section>
 
         {/* Closing CTA */}
-        <section className="bg-slate-50 py-24">
+        <section className=" py-24">
             <div className="max-w-4xl mx-auto px-6 text-center">
                 <h3 className="text-3xl font-serif text-[var(--gw-primary)] mb-6">Interested in Partnering?</h3>
-                <p className="text-lg text-slate-500 font-light leading-relaxed mb-10">
+                <p className="text-lg text-[var(--gw-primary)] font-light leading-relaxed mb-10">
                     GW Center for Integrative Medicine is always looking for mission-aligned organizations and providers.
                 </p>
                 <Link 

@@ -328,7 +328,7 @@ export default function ProvidersAndStaffPage() {
         {filteredStaff.length > 0 && (
           <div className="mb-20">
             <h2 className="text-3xl md:text-4xl font-serif text-[var(--gw-primary)] mb-12 text-center">
-              Our Clinic Support Staff
+              Our Leadership and Clinic Support Staff
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-16 gap-x-8">
               {filteredStaff.map((provider) => (
