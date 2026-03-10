@@ -99,16 +99,40 @@ export default function Footer() {
                 </div>
              </Link>
 
-             {/* CTA 3 */}
-             <Link href="/fees-and-insurance" className="group relative block w-full">
+              {/* CTA 3 */}
+              <Link href="/fees-and-insurance" className="group relative block w-full">
                 <div className="absolute inset-0 bg-white/5 border border-white/20 rounded-xl group-hover:bg-white group-hover:border-white transition-all duration-300"></div>
                 <div className="relative px-6 py-5 flex items-center justify-center md:justify-between gap-4">
                     <span className="font-bold text-xs tracking-[0.2em] uppercase text-white group-hover:text-[#1A365D] transition-colors">Fees & Insurance</span>
-                    <svg className="w-4 h-4 text-white group-hover:text-[#1A365D] transition-all transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                    <svg className="w-4 h-4 text-white group-hover:text-[#1A365D] transition-all transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
-             </Link>
+              </Link>
+             
+             {/* Simple Newsletter Field directly in column */}
+             <div className="pt-4 mt-2 border-t border-white/10">
+                <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-white/40 mb-4 text-center md:text-left">Newsletter</p>
+                <form 
+                  action="YOUR_BREVO_FORM_ACTION_URL"
+                  method="POST" 
+                  target="_blank" 
+                  className="flex flex-col gap-2"
+                >
+                  <input 
+                    type="email" 
+                    name="EMAIL"
+                    placeholder="Email Address" 
+                    required 
+                    className="w-full px-4 py-3 bg-white/5 border border-white/20 text-white placeholder:text-white/30 text-xs focus:outline-none focus:border-[var(--gw-accent)] transition-all"
+                  />
+                  <button 
+                    type="submit" 
+                    className="w-full py-3 bg-[var(--gw-accent)] text-[var(--gw-primary)] font-bold uppercase tracking-widest text-[9px] hover:bg-white transition-all"
+                  >
+                    Subscribe
+                  </button>
+                </form>
+             </div>
           </div>
-
         </div>
 
         {/* Footer Bottom */}

@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import NewsletterSidebarWidget from '@/components/NewsletterSidebarWidget';
 
 // ─── Mock service data (replace with CMS/API later) ──────────────────────────
 const servicesDb = {
@@ -1016,6 +1017,9 @@ export default function ServiceDetailPage({ params }) {
                   info@gwcim.com
                 </a>
               </div>
+
+              {/* Newsletter */}
+              <NewsletterSidebarWidget />
 
             </aside>
           </div>

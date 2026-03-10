@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import NewsletterSidebarWidget from '@/components/NewsletterSidebarWidget';
 
 // ─── Mock conditions data (replace with CMS/API later) ──────────────────────────
 const conditionsDb = {
@@ -423,6 +424,11 @@ export default function ConditionDetailPage({ params }) {
                    </div>
                 </div>
               )}
+
+              {/* Newsletter */}
+              <div className="hidden lg:block">
+                <NewsletterSidebarWidget />
+              </div>
 
             </aside>
           </div>

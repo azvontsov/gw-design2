@@ -5,6 +5,7 @@ import Link from 'next/link';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import Breadcrumbs from '@/components/Breadcrumbs';
+import NewsletterSidebarWidget from '@/components/NewsletterSidebarWidget';
 
 function SectionLabel({ children }) {
   return (
@@ -523,6 +524,8 @@ export default function FeesAndInsurancePage() {
                     </Link>
                 </div>
               </div>
+
+              <NewsletterSidebarWidget />
 
             </aside>
           </div>
