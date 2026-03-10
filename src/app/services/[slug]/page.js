@@ -123,6 +123,96 @@ Research continues to validate many traditional naturopathic approaches — from
       },
     ],
   },
+  'long-covid-online-groups': {
+    title: 'Long COVID Medical Group Meets',
+    category: 'Ongoing Groups',
+    categorySlug: 'Ongoing+Groups',
+    heroImage: '/images/news/02.jpg',
+    heroFallbackColor: '#6C7F9A', // --sw-searching
+    tagline: 'A safe and affordable space where participants with Long COVID can receive evidence-based integrative medicine advice and up-to-date information.',
+    icon: null,
+    what: `GWCIM Long COVID groups are designed to provide a safe and affordable space where participants with Long COVID can receive evidence-based integrative medicine advice and up-to-date information. Importantly, it's a community of supportive peers to walk this journey together.
+
+Long COVID Group meetings form the foundation of the award-winning Long COVID Program at GWCIM. These gatherings provide invaluable medical expertise, support, and resources for individuals navigating the challenges of Long COVID.`,
+    conditions: [
+      'Long COVID',
+      'Neurocognitive Impairments',
+      'Chronic Fatigue',
+      'Autonomic Dysfunction'
+    ],
+    whyGwcim: `We believe that healing happens best in community. Our award-winning Long COVID Program integrates leading-edge medical expertise with the power of shared experience. These gatherings offer both invaluable medical insights from specialized practitioners and the indispensable support of peers who truly understand the journey.`,
+    howWeDoIt: `Our groups are facilitated by leading integrative minds who specialize in Long COVID. We regularly feature guest speakers, including multidisciplinary health practitioners specializing in complex chronic illness care.
+
+Cost:
+$100 /month membership (cancel any time)
+
+Registration:
+Please call 202-833-5055 or email info@gwcim.com to register.`,
+    providers: [
+      { name: 'Ashley Drapeau', credentials: 'PA-C, MAC, LAc', role: 'Facilitator', specialty: 'Acupuncture & Integrative Medicine', slug: 'ashley-drapeau-pa-c-mac-lac', image: '/images/providers/ashley.jpeg' },
+      { name: 'Mikhail Kogan', credentials: 'MD', role: 'Facilitator', specialty: 'Integrative Medicine', slug: 'mikhail-kogan-md', image: '/images/providers/misha.jpg' }
+    ],
+    moreAbout: `Learn more about the GWCIM Long COVID program. We are actively involved in ongoing research and comprehensive care protocols for post-viral syndromes.`,
+    bottomImage: null,
+    faqs: [
+      { q: "Can I cancel my group membership at any time?", a: "Yes, the $100/month membership for the online group can be cancelled at any time." },
+      { q: "Who are the guest speakers?", a: "We invite multidisciplinary health practitioners specializing in Long COVID care, including physical therapists, neurologists, functional medicine experts, and mindfulness instructors." }
+    ],
+    related: [
+      { title: 'New Long COVID Support Group meets on Wednesdays', slug: 'long-covid-support-group-wednesdays', category: 'Hand help' },
+      { title: 'What Can You Do About Long COVID?', slug: 'what-can-you-do-about-long-covid', category: 'Long covid help' },
+      { title: 'Long COVID Study On Neuropsychiatric Impairment', slug: 'long-covid-neuro-study', category: 'Long Covid' },
+    ],
+    resources: [],
+    youtube: [],
+  },
+  'recode-support-group': {
+    title: 'ReCODE: Renewing Mind & Body Support Group',
+    category: 'Ongoing Groups',
+    categorySlug: 'Ongoing+Groups',
+    heroImage: null,
+    heroFallbackColor: '#6C7F9A', // --sw-searching
+    tagline: 'A supportive community offering evidence-based integrative insights and resources for individuals in the early stages of Alzheimer’s and their caregivers.',
+    icon: null,
+    what: `The ReCODE program is based on the Dr. Bredesen protocol™ and the ReCODE Protocol™. Our group is open to anyone in the early stages of Alzheimer’s and their caregivers, regardless of whether you are enrolled in the ReCODE program at GWCIM. 
+    
+ReCODE explores genetic factors, lifestyle elements, toxin exposures, and nutritional and hormone deficiencies to reverse early Alzheimer’s disease and prevent cognitive decline. Our approach is personalized and comprehensive. In the support group, we offer the most up-to-date information, skills, and the support of a caring community.
+
+Should you choose to become our patient, at GWCIM, we provide comprehensive whole-person assessments and work with each individual patient to create a personalized care plan. We look forward to supporting you and working together to achieve your health and wellness goals.`,
+    conditions: [
+      'Early Stage Alzheimer’s',
+      'Cognitive Decline'
+    ],
+    whyGwcim: `A supportive community where you are not alone. You get access to the latest scientific discoveries and treatment insights from experts. We provide practical tools and tips to better cope with Alzheimer’s challenges through experiential activities.
+
+Engaging discussions on treatments and personal experiences. Access to GWCIM providers and services for in-depth individual sessions.`,
+    howWeDoIt: `Weekly online meetings. Group topics include: Integrative Treatment for Alzheimer’s Disease, Mindfulness, Nutrition, Improving Communication, and Community Resources.
+
+Cost:
+Membership Fee: $100 per month (cancel anytime)
+
+Registration:
+Please call 202-833-5055 or email info@gwcim.com to register.`,
+    providers: [
+      { name: 'Dr. Sally Novak', credentials: 'DOM, LAc, LICSW', role: 'Facilitator', specialty: 'Acupuncture & Counseling', slug: 'sally-novak', image: null },
+    ],
+    moreAbout: `Other GWCIM providers as periodic guests:
+- Ajowa Ifateyo, Nutrition and Coaching
+- Dr. Mikhail Kogan, ReCODE Medical Director
+- Dr. Marianna Ledenac, Hormones
+- Dr. Jonah Yakel, Mold Toxicity`,
+    bottomImage: null,
+    faqs: [
+      { q: "Who is this group for?", a: "Individuals in the early stages of Alzheimer’s, whether or not you are enrolled in the ReCODE program at GWCIM, as well as caregivers and family members." }
+    ],
+    related: [
+      { title: 'New Long COVID Support Group meets on Wednesdays', slug: 'long-covid-support-group-wednesdays', category: 'Hand help' },
+      { title: 'ReCODE Open House Free Event November 15 2024', slug: 'recode-open-house-nov-2024', category: 'Open House: ReCODE program updates' },
+      { title: 'Caregiver for cognitive impairment virtual support group', slug: 'caregiver-support-group', category: 'Supporting Those Who Support Others: A Monthly Care…' }
+    ],
+    resources: [],
+    youtube: [],
+  },
 };
 
 // ─── Slug → category map (mirrors services/page.js data) ─────────────────────
@@ -252,6 +342,49 @@ function FAQItem({ q, a, isOpen, onToggle }) {
         }`}
       >
         <p className="text-[17px] text-gray-600 leading-relaxed pr-12">{a}</p>
+      </div>
+    </div>
+  );
+}
+
+function WeekCalendar({ schedule }) {
+  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+
+  return (
+    <div className="bg-white p-6 md:p-8 border border-slate-200 overflow-x-auto shadow-sm my-6">
+      <div className="min-w-[700px]">
+        <div className="grid grid-cols-5 gap-4 mb-2">
+          {days.map(day => (
+            <div key={day} className="text-center font-bold text-xs text-slate-400 uppercase tracking-[0.2em] px-2 py-3 border-b border-slate-100 font-sans">
+              {day}
+            </div>
+          ))}
+        </div>
+        <div className="grid grid-cols-5 gap-4">
+          {days.map(day => (
+            <div key={day} className="min-h-[140px] bg-slate-50 border border-slate-100 p-3 flex flex-col gap-3">
+              {schedule.filter(s => s.day === day).map((item, i) => (
+                <div key={i} className={`p-4 border ${item.color || 'bg-white border-slate-200'} transition-all hover:-translate-y-0.5 shadow-sm`}>
+                  <p className="font-bold text-[13px] mb-1.5 text-black">{item.group}</p>
+                  <p className="text-[11px] font-semibold opacity-90 flex items-center gap-1.5 tracking-wide text-slate-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    {item.time}
+                  </p>
+                </div>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-slate-100 pt-6">
+          <p className="text-sm font-semibold text-slate-500">
+              Cost: <span className="text-[var(--gw-primary)]">$100 /month membership</span> (cancel any time)
+          </p>
+          <a href="mailto:info@gwcim.com" className="bg-[var(--gw-primary)] hover:bg-[var(--gw-blue)] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest transition-colors">
+              Register via Email
+          </a>
       </div>
     </div>
   );
@@ -433,6 +566,27 @@ export default function ServiceDetailPage({ params }) {
                     );
                   })}
                 </div>
+                
+                {/* Specific injection for Ongoing Groups schedules */}
+                {(slug === 'long-covid-online-groups' || slug === 'recode-support-group') && (
+                    <div className="mt-12" id="schedule">
+                        <SectionHeading>Ongoing Groups Schedule</SectionHeading>
+                        <p className="text-[16px] leading-relaxed text-[var(--gw-text-main)] mb-6">
+                            Join our weekly group sessions hosted by our expert facilitators. Check the schedule below to find a time that works best for you.
+                        </p>
+                        <WeekCalendar schedule={
+                            slug === 'long-covid-online-groups' 
+                            ? [
+                                { group: 'Group #2', day: 'Wednesday', time: '5:30pm - 6:30pm', color: 'bg-[#abcc76]/20 text-[#068466] border-[#abcc76]' },
+                                { group: 'Group #3', day: 'Thursday', time: '12:00pm - 1:00pm', color: 'bg-[#99A7B8]/20 text-[#3E5166] border-[#99A7B8]' },
+                                { group: 'Group #1', day: 'Thursday', time: '5:30pm - 6:30pm', color: 'bg-[#B9C1B3]/30 text-[#425c7b] border-[#B9C1B3]' }
+                              ]
+                            : [
+                                { group: 'ReCODE Support', day: 'Tuesday', time: '5:30pm - 6:30pm', color: 'bg-[#DABF62]/20 text-[#AB8B22] border-[#DABF62]' }
+                              ]
+                        } />
+                    </div>
+                )}
               </ContentSection>
 
               {/* Conditions */}
