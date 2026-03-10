@@ -44,7 +44,8 @@ export default function Footer() {
                 { title: 'Home', href: '/' },
                 { title: 'Services', href: '/services' },
                 { title: 'Providers', href: '/people' },
-                { title: 'Resources', href: '/news-and-events' },
+                { title: 'Fees & Insurance', href: '/fees-and-insurance' },
+                { title: 'News & Events', href: '/news-and-events' },
                 { title: 'Contact', href: '/contact' }
               ].map((item) => (
                 <li key={item.title}>
