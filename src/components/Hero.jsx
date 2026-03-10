@@ -87,7 +87,7 @@ export default function Hero() {
                     href="/fees-and-insurance" 
                     className="border-2 border-white text-white px-10 py-4 rounded-2xl font-bold tracking-widest hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 min-w-[200px] uppercase text-center flex items-center justify-center"
                 >
-                    FEES & INSURANCE
+                    FEES & POLICIES
                 </Link>
             </div>
         </div>

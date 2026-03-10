@@ -103,7 +103,7 @@ export default function Footer() {
               <Link href="/fees-and-insurance" className="group relative block w-full">
                 <div className="absolute inset-0 bg-white/5 border border-white/20 rounded-xl group-hover:bg-white group-hover:border-white transition-all duration-300"></div>
                 <div className="relative px-6 py-5 flex items-center justify-center md:justify-between gap-4">
-                    <span className="font-bold text-xs tracking-[0.2em] uppercase text-white group-hover:text-[#1A365D] transition-colors">Fees & Insurance</span>
+                    <span className="font-bold text-xs tracking-[0.2em] uppercase text-white group-hover:text-[#1A365D] transition-colors">Fees & Policies</span>
                     <svg className="w-4 h-4 text-white group-hover:text-[#1A365D] transition-all transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
                 </div>
               </Link>

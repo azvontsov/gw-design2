@@ -82,7 +82,7 @@ const menuItems = [
     href: "#",
     submenu: [
       { title: "Patient Portal", href: "/charm-patient-portal" },
-      { title: "Fees & Insurance", href: "/fees-and-insurance" },
+      { title: "Fees & Policies", href: "/fees-and-insurance" },
       { title: "Supplements", href: "/supplements" },
       { title: "News & Events", href: "/news-and-events" },
     ]

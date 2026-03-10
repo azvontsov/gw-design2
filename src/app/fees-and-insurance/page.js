@@ -37,6 +37,45 @@ function ContentSection({ id, label, heading, children }) {
   );
 }
 
+function ProviderFeeCard({ name, credentials, image, slug, fees, note, subtitle }) {
+  return (
+    <Link 
+      href={`/people/${slug || '#'}`}
+      className="flex flex-col h-full p-6 bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-[var(--gw-accent)] transition-all group rounded-none"
+    >
+      <div className="flex items-center gap-4 w-full border-b border-gray-50 pb-5 mb-5 min-h-[80px]">
+        <div className="w-16 h-16 rounded-full shrink-0 overflow-hidden border border-gray-100 shadow-sm bg-gray-50 flex items-center justify-center">
+          {image ? (
+            <img src={image} alt={name} className="w-full h-full object-cover" />
+          ) : (
+            <div className="w-full h-full bg-[var(--gw-primary)] flex items-center justify-center text-white font-bold text-xl uppercase">
+               {name.split(' ').pop().charAt(0)}
+            </div>
+          )}
+        </div>
+        <div>
+          <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[16px] leading-tight mb-1">
+            {name}{credentials ? `, ${credentials}` : ''}
+          </h4>
+          {subtitle && <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-80">{subtitle}</p>}
+          {note && <p className="text-[11px] text-slate-500 mt-1 italic leading-tight">{note}</p>}
+        </div>
+      </div>
+      
+      <div className="w-full flex-grow">
+        <ul className="space-y-2">
+           {fees.map((f, i) => (
+             <li key={i} className="text-[13px] text-gray-600 font-light flex justify-between items-center px-2 py-1.5 rounded-sm group-hover:bg-slate-50 transition-colors">
+               <span className="tracking-tight">{f.label}</span>
+               <span className="font-bold text-[var(--gw-primary)] shrink-0 ml-3">{f.price}</span>
+             </li>
+           ))}
+        </ul>
+      </div>
+    </Link>
+  );
+}
+
 export default function FeesAndInsurancePage() {
   const tocItems = [
     { id: 'insurance-and-billing', label: 'Insurance & Billing' },
@@ -90,7 +129,7 @@ export default function FeesAndInsurancePage() {
             <Breadcrumbs 
               items={[
                 { label: 'Resources', href: '#' },
-                { label: 'Fees & Insurance' }
+                { label: 'Fees & Policies' }
               ]} 
             />
           </div>
@@ -99,7 +138,7 @@ export default function FeesAndInsurancePage() {
             className="text-[40px] md:text-[56px] lg:text-[68px] font-medium text-[var(--gw-primary)] leading-tight max-w-4xl"
             style={{ fontFamily: 'var(--font-gt-super)' }}
           >
-            Fees & <span className="text-[var(--gw-accent)]">Insurance</span>
+            Fees & <span className="text-[var(--gw-accent)]">Policies</span>
           </h1>
           <p className="mt-4 text-slate-600 text-[18px] max-w-2xl leading-relaxed font-light">
             Detailed information regarding our billing policies, out-of-network insurance reimbursement, and comprehensive fee schedule for 2025.
@@ -171,199 +210,271 @@ export default function FeesAndInsurancePage() {
                  </div>
               </ContentSection>
 
-              <ContentSection id="consultations" label="Services" heading="Consultations">
-                 <div className="space-y-10">
-                   
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Integrative Medicine Consultation (MD)</h3>
-                     
-                     <div className="space-y-6">
-                       <div>
-                         <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Mikhail Kogan, MD</h4>
-                         <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                           <li>90 min initial – $1,500</li>
-                           <li>60 min initial – $1000</li>
-                           <li>30 min initial – $600</li>
-                           <li>60 min follow-up – $600</li>
-                           <li>30 min follow-up – $350</li>
-                           <li>Online Records or Case Review Fee Based on Time</li>
-                           <li>ReCODE ™ Program fees are discussed individually</li>
-                         </ul>
-                       </div>
+               <ContentSection id="consultations" label="Services" heading="Consultations">
+                  <div className="space-y-16">
+                    
+                    {/* MD Section */}
+                    <div>
+                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                        Integrative Medicine (MD)
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ProviderFeeCard 
+                          name="Dr. Mikhail Kogan"
+                          credentials="MD"
+                          image="/images/providers/misha.jpg"
+                          slug="mikhail-kogan-md"
+                          subtitle="Medical Director"
+                          fees={[
+                            { label: "90 min initial", price: "$1,500" },
+                            { label: "60 min initial", price: "$1,000" },
+                            { label: "30 min initial", price: "$600" },
+                            { label: "60 min follow-up", price: "$600" },
+                            { label: "30 min follow-up", price: "$350" }
+                          ]}
+                          note="Online Records or Case Review Fee Based on Time"
+                        />
+                        <ProviderFeeCard 
+                          name="Dr. Sharon DeMocker"
+                          credentials="MD"
+                          image="/images/providers/provider2.png"
+                          slug="#"
+                          subtitle="Integrative Physician"
+                          fees={[
+                            { label: "90 Min Initial", price: "$750" },
+                            { label: "60 Min follow-up", price: "$550" },
+                            { label: "30 Min Follow-up", price: "$300" }
+                          ]}
+                          note="Online Records or Case Review Fee Based on Time"
+                        />
+                        <ProviderFeeCard 
+                          name="Dr. Robert Pendergrast"
+                          credentials="MD"
+                          image="/images/providers/provider3.png"
+                          slug="#"
+                          subtitle="Pediatric Specialist"
+                          fees={[
+                            { label: "60-90 min Initial Visit", price: "$550-825" },
+                            { label: "30 min Follow-up", price: "$300" },
+                            { label: "Hypnotherapy Visit", price: "$400" }
+                          ]}
+                          note="Pediatric and adolescent consultations, virtual only"
+                        />
+                        <ProviderFeeCard 
+                          name="Dr. Andrea Leonard-Segal"
+                          credentials="MD"
+                          image={null}
+                          slug="dr-andrea-leonard-segal-md"
+                          subtitle="Mind-Body Medicine"
+                          fees={[
+                            { label: "90 min Initial (in-person)", price: "$1500" },
+                            { label: "60 min follow-up", price: "$1000" }
+                          ]}
+                          note="Dr. Sarno approach"
+                        />
+                      </div>
+                    </div>
 
-                       <div>
-                         <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Sharon DeMocker, MD</h4>
-                         <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                           <li>90 Min Initial – $750.00</li>
-                           <li>60 Min follow-up – $550.00</li>
-                           <li>30 Min Follow-up – $300.00</li>
-                           <li>Online Records or Case Review Fee Based on Time</li>
-                         </ul>
-                       </div>
+                    {/* Psychiatry & PA */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                      <div>
+                        <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                          <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                          Integrative Psychiatry
+                        </h3>
+                        <ProviderFeeCard 
+                          name="Dr. Misty Embrey"
+                          credentials="MD"
+                          image={null}
+                          slug="#"
+                          subtitle="Psychiatrist"
+                          fees={[
+                            { label: "90 Min Initial Adult", price: "$600" },
+                            { label: "120 Min Initial Child/Adol.", price: "$800" },
+                            { label: "60 Min Follow-Up", price: "$400" },
+                            { label: "30 Min Follow-up", price: "$200" }
+                          ]}
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                          <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                          Integrative Medicine (PA)
+                        </h3>
+                        <ProviderFeeCard 
+                          name="Ashley Drapeau"
+                          credentials="PA-C, LAc"
+                          image="/images/providers/ashley.jpeg"
+                          slug="ashley-drapeau-pa-c-l-ac-mpas-mac"
+                          subtitle="Physician Assistant"
+                          fees={[
+                            { label: "90 minute initial", price: "$450" },
+                            { label: "60 minute follow-up", price: "$250" },
+                            { label: "30 minute follow-up", price: "$200" }
+                          ]}
+                        />
+                      </div>
+                    </div>
 
-                       <div>
-                         <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Robert Pendergrast, MD</h4>
-                         <p className="text-sm text-slate-500 mb-2 italic">pediatric and adolescent consultations, virtual only</p>
-                         <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                           <li>60-90 min Initial Visit – $550-825</li>
-                           <li>30 min Follow-up – $300</li>
-                           <li>Hypnotherapy Visit – $400</li>
-                         </ul>
-                       </div>
+                    {/* Naturopathic Medicine */}
+                    <div>
+                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                        Naturopathic Medicine
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ProviderFeeCard 
+                          name="Naturopathic Team"
+                          credentials="ND"
+                          image="/images/providers/dierdre.jpg"
+                          slug="deirdre-orceyre-nd-lac"
+                          subtitle="Dr. Orceyre, Dr. Ledenac, Dr. Sadrolsadot"
+                          fees={[
+                            { label: "Initial (90-120 min)", price: "$720-960" },
+                            { label: "Initial (75 min)", price: "$600" },
+                            { label: "Follow-up (90 min)", price: "$625" },
+                            { label: "Follow-up (60 min)", price: "$435" },
+                            { label: "Follow-up (45 min)", price: "$345" }
+                          ]}
+                          note="Initial and follow-up visits preferred in person"
+                        />
+                        <div className="p-8 bg-slate-50 border border-slate-100 flex flex-col justify-center">
+                           <p className="text-[14px] text-slate-600 font-light leading-relaxed">
+                             For most patients, initial and follow-up visits will need to be in person. DC residents are eligible for telemedicine visits. <br/><br/>
+                             <strong>Medical records review:</strong> fee is based on provider time.
+                           </p>
+                        </div>
+                      </div>
+                    </div>
 
-                       <div>
-                         <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Andrea Leonard-Segal, MD</h4>
-                         <p className="text-sm text-slate-500 mb-2 italic">Mind-Body Medicine, Dr. Sarno approach</p>
-                         <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                           <li>90 min Initial Visit (in-person) – $1500</li>
-                           <li>60 min follow-up (in-person or virtual) – $1000</li>
-                         </ul>
-                       </div>
-                     </div>
-                   </div>
+                    {/* Psychotherapy & Environmental */}
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
+                      <div>
+                        <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                          <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                          Psychotherapy
+                        </h3>
+                        <ProviderFeeCard 
+                          name="Dr. Sally Novak"
+                          credentials="LICSW"
+                          image={null}
+                          slug="sally-novak"
+                          subtitle="Virtual Only"
+                          fees={[
+                            { label: "90 min Virtual Initial", price: "$325" },
+                            { label: "60 min Virtual follow-up", price: "$250" }
+                          ]}
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                          <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                          Environmental/Mold/CIRS
+                        </h3>
+                        <ProviderFeeCard 
+                          name="Dr. Jonah Yakel"
+                          credentials="DC"
+                          image={null}
+                          slug="#"
+                          subtitle="Virtual Only"
+                          fees={[
+                            { label: "Consultation Info", price: "Visit Website" }
+                          ]}
+                          note="Contact at www.drjonahyakel.com"
+                        />
+                      </div>
+                    </div>
 
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Integrative Psychiatry</h3>
-                     <div>
-                       <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Misty Embrey, MD</h4>
-                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                         <li>90 Minute Initial Adult – $600</li>
-                         <li>120 Minute Initial Child/Adolescent – $800</li>
-                         <li>60 Minute Follow-Up – $400</li>
-                         <li>30 Minute Follow-up – $200</li>
-                         <li>Online Records or Case Review Fee Based on Time</li>
-                       </ul>
-                     </div>
-                   </div>
+                    {/* Cannabis */}
+                    <div>
+                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                        Medical Cannabis Consultations
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                        <ProviderFeeCard 
+                          name="Dr. Mikhail Kogan"
+                          credentials="MD"
+                          image="/images/providers/misha.jpg"
+                          slug="mikhail-kogan-md"
+                          subtitle="Initial/Follow-up"
+                          fees={[
+                            { label: "30 min / 60 min", price: "$350 / $600" }
+                          ]}
+                        />
+                        <ProviderFeeCard 
+                          name="Dr. Abraham Benavides"
+                          credentials="MD"
+                          image={null}
+                          slug="#"
+                          subtitle="Virtual Only"
+                          fees={[
+                            { label: "60 min Visit", price: "$250" },
+                            { label: "30 min Follow-up", price: "$150" },
+                            { label: "Cards New/Renewal", price: "$100 fee" }
+                          ]}
+                        />
+                        <ProviderFeeCard 
+                          name="Joelle Rabion"
+                          credentials="Cannabis Coach"
+                          image={null}
+                          slug="#"
+                          fees={[
+                            { label: "60 min", price: "$100" },
+                            { label: "30 min", price: "$60" }
+                          ]}
+                        />
+                      </div>
+                    </div>
 
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Integrative Medicine (PA)</h3>
-                     <div>
-                       <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Ashley Drapeau, PA-C, LAc</h4>
-                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                         <li>90 minute initial – $450</li>
-                         <li>60 minute follow-up – $250</li>
-                         <li>30 minute follow-up – $200</li>
-                         <li>Online Records or Case Review Fee Based on Time</li>
-                       </ul>
-                     </div>
-                   </div>
+                    {/* Other Coaching & Consultations */}
+                    <div>
+                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                        Other Coaching & Consultations
+                      </h3>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <ProviderFeeCard 
+                          name="Mara Benner"
+                          credentials="Reiki Master"
+                          image={null}
+                          slug="#"
+                          subtitle="Health & Spiritual Coaching"
+                          fees={[
+                            { label: "Consultation Info", price: "Contact Partner" }
+                          ]}
+                          note="Contact Four Direction Wellness Center"
+                        />
+                        <ProviderFeeCard 
+                          name="Yael Flusberg"
+                          credentials="C-IAYT"
+                          image={null}
+                          slug="#"
+                          subtitle="Therapeutic Yoga"
+                          fees={[
+                            { label: "Initial (90 min)", price: "$180" },
+                            { label: "Follow-up (60 min)", price: "$120" },
+                            { label: "Follow-up (30 min)", price: "$60" }
+                          ]}
+                        />
+                      </div>
+                    </div>
 
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Naturopathic Medicine</h3>
-                     <div>
-                       <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Orceyre, Dr. Ledenac, Dr. Sadrolsadot, ND</h4>
-                       <p className="text-sm text-slate-500 mb-3 italic">For most patients, initial and follow-up visits will need to be in person. DC residents are eligible for telemedicine visits.</p>
-                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                         <div>
-                           <p className="font-medium text-gray-800 mb-1">Initial visits:</p>
-                           <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                             <li>120 min – $960</li>
-                             <li>105 min – $840</li>
-                             <li>90 min – $720</li>
-                             <li>75 min – $600</li>
-                           </ul>
-                         </div>
-                         <div>
-                           <p className="font-medium text-gray-800 mb-1">Follow-up visits:</p>
-                           <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                             <li>90 min – $625</li>
-                             <li>75 min – $520</li>
-                             <li>60 min – $435</li>
-                             <li>45 min – $345</li>
-                           </ul>
-                         </div>
-                       </div>
-                       <p className="mt-3 text-gray-600 font-light">Medical records review – fee is based on time</p>
-                     </div>
-                   </div>
+                    {/* Administrative */}
+                    <div className="p-8 bg-slate-50 border border-slate-100">
+                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-6 flex items-center gap-4">
+                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                        Administrative
+                      </h3>
+                      <div className="flex justify-between items-center bg-white p-4 border border-slate-100 shadow-sm">
+                        <span className="font-medium text-slate-700">Sleep Study Referrals Administrative Fee</span>
+                        <span className="font-bold text-[var(--gw-primary)]">$100.00</span>
+                      </div>
+                    </div>
 
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Psychotherapy</h3>
-                     <div>
-                       <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Sally Novak</h4>
-                       <p className="text-sm text-slate-500 mb-2 italic">virtual only</p>
-                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                         <li>90 minute Virtual Initial – $325</li>
-                         <li>60 minute Virtual follow-up – $250</li>
-                         <li className="line-through text-gray-400">90 minute in person initial – $450</li>
-                         <li className="line-through text-gray-400">60 minute in person follow-up – $350</li>
-                       </ul>
-                     </div>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Environmental/Mold/CIRS</h3>
-                     <div>
-                       <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Jonah Yakel, DC</h4>
-                       <p className="text-sm text-slate-500 mb-2 italic">virtual only</p>
-                       <p className="text-gray-600 font-light">
-                         Contact Dr. Yakel at <a href="https://www.drjonahyakel.com" className="text-[var(--gw-blue)] underline" target="_blank" rel="noopener noreferrer">www.drjonahyakel.com</a> for information.
-                       </p>
-                       <div className="mt-3 bg-red-50 p-4 rounded text-sm text-gray-700">
-                         <strong>*** Mold testing (inspection visits in DMV):</strong> Contact Affiliated Provider Dr. Mikhail Sogonov, PhD, at InSitu Testing
-                       </div>
-                     </div>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Medical Cannabis Consultations</h3>
-                     <div className="space-y-4">
-                       <div>
-                         <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Kogan, MD</h4>
-                         <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                           <li>Initial/Follow Up 30/60 minutes – $350 / $600</li>
-                         </ul>
-                       </div>
-                       <div>
-                         <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Dr. Abraham Benavides, MD</h4>
-                         <p className="text-sm text-slate-500 mb-2 italic">virtual only</p>
-                         <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                           <li>60 min Initial and follow-up – $250</li>
-                           <li>30 min follow-up – $150</li>
-                           <li>Medical Cannabis Cards new and renewal – $100 additional fee</li>
-                         </ul>
-                       </div>
-                       <div>
-                         <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Medical Cannabis Coaching dengan Joelle Rabion</h4>
-                         <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                           <li>60 min Initial and Follow-up – $100</li>
-                           <li>30 min follow-up – $60</li>
-                         </ul>
-                       </div>
-                     </div>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Other Coaching & Consultations</h3>
-                     <div className="space-y-4">
-                       <div>
-                         <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Health and Spiritual Coaching with Mara Benner</h4>
-                         <p className="text-gray-600 font-light">Contact Affiliated provider Mara Benner, Four Direction Wellness Center</p>
-                       </div>
-                       <div>
-                         <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Therapeutic Yoga Individual Consultations with Yael Flusberg</h4>
-                         <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                           <li>Initial visit 90 minutes – $180</li>
-                           <li>Follow-up 60 minutes – $120</li>
-                           <li>Follow-up 30 minutes – $60</li>
-                         </ul>
-                       </div>
-                     </div>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Administrative</h3>
-                     <div>
-                       <h4 className="font-semibold text-[var(--gw-blue)] mb-2">Sleep Study Referrals</h4>
-                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                         <li>Administrative fee – $100.00</li>
-                       </ul>
-                     </div>
-                   </div>
-
-                 </div>
-              </ContentSection>
+                  </div>
+               </ContentSection>
 
               <ContentSection id="treatments" label="Services" heading="Treatments">
                  <div className="space-y-10">
