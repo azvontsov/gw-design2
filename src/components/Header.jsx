@@ -74,8 +74,7 @@ const menuItems = [
     href: "/people",
     submenu: [
       { title: "Providers",   href: "/people" },
-      { title: "Providers Affiliated with GWCIM",  href: "/our-affiliations" },
-      { title: "Our Partners",       href: "/our-partners" },
+      { title: "Partners & Affiliations",  href: "/partners" },
     ]
   },
   {
@@ -83,6 +82,7 @@ const menuItems = [
     href: "#",
     submenu: [
       { title: "Patient Portal", href: "/charm-patient-portal" },
+      { title: "Fees & Insurance", href: "/fees-and-insurance" },
       { title: "Supplements", href: "/supplements" },
       { title: "News & Events", href: "/news-and-events" },
     ]
@@ -277,10 +277,10 @@ export default function Header() {
                 {/* CTA Button */}
                 <div className={`flex-shrink-0 ml-8 ${isScrolled ? 'hidden xl:block' : ''}`}>
                     <Link  
-                        href="/charm-patient-portal" 
+                        href="/schedule-an-appointment" 
                         className="hover:bg-[var(--gw-accent)] text-white text-[13px] font-bold tracking-widest px-6 py-3 rounded-2xl bg-[var(--gw-alert)] transition-all shadow-md transform hover:-translate-y-0.5 uppercase"
                     >
-                        Patient Portal
+                        For New Patients
                     </Link>
                 </div>
             </div>
@@ -325,8 +325,8 @@ export default function Header() {
                             )}
                         </div>
                     ))}
-                    <Link href="/charm-patient-portal" className="bg-[var(--gw-accent)] text-white text-center py-4 rounded-2xl font-bold tracking-widest mt-4 uppercase" onClick={() => setIsMenuOpen(false)}>
-                        Patient Portal
+                    <Link href="/schedule-an-appointment" className="bg-[var(--gw-accent)] text-white text-center py-4 rounded-2xl font-bold tracking-widest mt-4 uppercase" onClick={() => setIsMenuOpen(false)}>
+                        For New Patients
                     </Link>
                 </nav>
             </div>

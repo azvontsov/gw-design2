@@ -9,7 +9,7 @@ import { useState } from 'react';
 export default function NewsAndEventsPage() {
   const [filter, setFilter] = useState('All');
 
-  const categories = ['All', 'News', 'Events', 'Podcasts & Audio', 'Media'];
+  const categories = ['All', 'News', 'Events', 'Podcasts & Audio', 'Media', 'Books'];
 
   const newsItems = [
     {
@@ -47,6 +47,24 @@ export default function NewsAndEventsPage() {
       excerpt: "Listen to our latest episode where we explore how personalized nutrition based on your genetic profile can transform your recovery and longevity.",
       image: "/images/news/healing-podcast.webp",
       link: "/services/nutritional-counseling"
+    },
+    {
+      id: 5,
+      category: 'Books',
+      title: "Medical Marijuana: Dr. Mikhail Kogan on Evidence-Based Applications",
+      date: "October 16, 2021",
+      excerpt: "A comprehensive guide to understanding and using medical marijuana written by Dr. Mikhail Kogan.",
+      image: "/images/news/01.png",
+      link: "/people/mikhail-kogan-md"
+    },
+    {
+      id: 6,
+      category: 'Books',
+      title: "Integrative Geriatrics: A Comprehensive Guide",
+      date: "January 5, 2018",
+      excerpt: "This textbook provides a definitive overview of integrative medicine in the care of older adults.",
+      image: "/images/news/02.jpg",
+      link: "/services/integrative-geriatrics"
     }
   ];
 

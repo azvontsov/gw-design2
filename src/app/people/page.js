@@ -59,6 +59,16 @@ const mockProviders = [
   },
   {
     id: 6,
+    name: "Andrea Leonard-Segal",
+    credentials: "MD",
+    image: null,
+    slug: "dr-andrea-leonard-segal-md",
+    ages: ["adults", "seniors"],
+    conditions: ["Chronic Illness", "Digestive Disorders", "Hormonal Imbalances"],
+    services: ["Naturopathic Medicine", "Functional Medicine"]
+  },
+  {
+    id: 7,
     name: "Angela Gabriel",
     credentials: "MSOM, LAc, SEP",
     image: "/images/providers/angela.png",
@@ -103,6 +113,7 @@ export default function ProvidersAndStaffPage() {
   const [ageFilter, setAgeFilter] = useState("");
   const [conditionFilter, setConditionFilter] = useState("");
   const [serviceFilter, setServiceFilter] = useState("");
+  const [isToolExpanded, setIsToolExpanded] = useState(false);
 
   const filteredProviders = mockProviders.filter(p => {
     const matchesSearch = p.name.toLowerCase().includes(searchQuery.toLowerCase());
@@ -111,6 +122,10 @@ export default function ProvidersAndStaffPage() {
     const matchesService = serviceFilter === "" || (p.services && p.services.includes(serviceFilter));
     return matchesSearch && matchesAge && matchesCondition && matchesService;
   });
+
+  const filteredDoctors = filteredProviders.filter(p => p.credentials !== "Clinic Manager");
+  const filteredStaff = filteredProviders.filter(p => p.credentials === "Clinic Manager");
+
 
   const resetFilters = () => {
     setSearchQuery("");
@@ -133,23 +148,47 @@ export default function ProvidersAndStaffPage() {
 
       {/* Header Section */}
       <section className="max-w-4xl mx-auto px-6 text-center mb-16">
-        <p className="text-[13px] font-bold tracking-widest text-[var(--gw-primary)] uppercase mb-4">
-          Provider Selection Tool
-        </p>
         <h1 className="text-4xl md:text-5xl lg:text-[62px] font-serif text-[var(--gw-primary)] mb-8 leading-[1.1]">
-          Get matched with the doctor(s) that best meet your needs.
+          Meet your providers
         </h1>
-        <p className="text-[18px] text-[var(--gw-text-muted)] leading-relaxed max-w-4xl mx-auto font-light">
-          Are you a new patient and not sure which provider may be the best fit
-          for you? Try the provider selection tool below by selecting your age,
-          chief complaint, and other service that you may be interested in. The
-          results will update automatically to match you with a provider that
-          best meets your needs.
-        </p>
+
+        {!isToolExpanded ? (
+          <div className="flex flex-col items-center animate-in fade-in duration-500">
+            <p className="text-[18px] text-[var(--gw-text-muted)] leading-relaxed max-w-2xl mx-auto font-light mb-8">
+              Our multidisciplinary team of integrative physicians, naturopathic doctors, and specialized practitioners work collaboratively to provide you with comprehensive, personalized care.
+            </p>
+            <button 
+              onClick={() => setIsToolExpanded(true)}
+              className="inline-flex items-center gap-3 bg-[var(--gw-primary)] text-white text-[13px] font-bold uppercase tracking-widest px-8 py-5 rounded-2xl hover:bg-[var(--gw-blue)] transition-all duration-300 shadow-md group"
+            >
+              Provider Selection Tool
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 group-hover:translate-y-1 transition-transform">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>
+            </button>
+          </div>
+        ) : (
+          <div className="animate-in fade-in slide-in-from-top-4 duration-500 relative pt-8">
+            <p className="text-[13px] font-bold tracking-widest text-[var(--gw-primary)] uppercase mb-4">
+              Provider Selection Tool
+            </p>
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-[var(--gw-primary)] mb-8 leading-[1.1]">
+              Get matched with the doctor(s) that best meet your needs.
+            </h2>
+            <p className="text-[18px] text-[var(--gw-text-muted)] leading-relaxed max-w-4xl mx-auto font-light">
+              Are you a new patient and not sure which provider may be the best fit
+              for you? Try the provider selection tool below by selecting your age,
+              chief complaint, and other service that you may be interested in. The
+              results will update automatically to match you with a provider that
+              best meets your needs.
+            </p>
+          </div>
+        )}
       </section>
 
       {/* Filter / Search Bar */}
-      <section className="max-w-6xl mx-auto px-6 mb-20">
+      {isToolExpanded && (
+      <section className="max-w-6xl mx-auto px-6 mb-20 animate-in fade-in duration-500">
         <div className="flex flex-col gap-6">
             
           {/* Top Row: Search */}
@@ -231,51 +270,108 @@ export default function ProvidersAndStaffPage() {
 
           </div>
 
+          <div className="flex justify-center mt-4">
+            <button 
+              onClick={() => { setIsToolExpanded(false); resetFilters(); }}
+              className="text-[12px] font-bold uppercase tracking-widest text-slate-400 hover:text-[var(--gw-primary)] transition-colors underline underline-offset-4"
+            >
+              Close Selection Tool
+            </button>
+          </div>
+
         </div>
       </section>
+      )}
 
       {/* Providers Grid */}
-      <section className="max-w-6xl mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-16 gap-x-8">
-            {filteredProviders.map((provider) => (
-                <Link href={`/people/${provider.slug}`} key={provider.id} className="flex flex-col items-center group cursor-pointer text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
-                    
-                    {/* Avatar Circle with Border */}
-                    <div className="w-[180px] h-[180px] border border-gray-100 rounded-full overflow-hidden mb-5 bg-[#f4f6f8] flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-md group-hover:border-[var(--gw-accent)]">
-                        {provider.image ? (
-                            <img src={provider.image} alt={provider.name} className="w-full h-full object-cover" />
-                        ) : (
-                            <div className="flex flex-col items-center gap-[6px] opacity-100">
-                                
-                            </div>
-                        )}
-                    </div>
+      <section className="max-w-6xl mx-auto px-6 mt-[120px]">
+        
+        {filteredDoctors.length > 0 && (
+          <div className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-serif text-[var(--gw-primary)] mb-12 text-center">
+              Integrative & Functional Medicine Doctors, Physicians and Practitioners
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-16 gap-x-8">
+              {filteredDoctors.map((provider) => (
+                  <Link href={`/people/${provider.slug}`} key={provider.id} className="flex flex-col items-center group cursor-pointer text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+                      
+                      {/* Avatar Circle with Border */}
+                      <div className="w-[180px] h-[180px] border border-gray-100 rounded-full overflow-hidden mb-5 bg-[#f4f6f8] flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-md group-hover:border-[var(--gw-accent)]">
+                          {provider.image ? (
+                              <img src={provider.image} alt={provider.name} className="w-full h-full object-cover" />
+                          ) : (
+                              <div className="flex flex-col items-center gap-[6px] opacity-100">
+                                  
+                              </div>
+                          )}
+                      </div>
 
-                    {/* Text Details */}
-                    <div>
-                        <h3 
-                            className="text-[16px] font-bold text-[var(--gw-primary)] mb-1 leading-snug font-sans"
-                            style={{ fontFamily: "var(--font-ginto), Ginto, sans-serif" }}
-                        >
-                            {provider.name}, {provider.credentials}
-                        </h3>
-                        {/* Tags Preview (Optional, for better matching tool feedback) */}
-                        {hasActiveFilters && (
-                           <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Matched specialist</p>
-                        )}
-                    </div>
-                </Link>
-            ))}
+                      {/* Text Details */}
+                      <div>
+                          <h3 
+                              className="text-[16px] font-bold text-[var(--gw-primary)] mb-1 leading-snug font-sans"
+                              style={{ fontFamily: "var(--font-ginto), Ginto, sans-serif" }}
+                          >
+                              {provider.name}, {provider.credentials}
+                          </h3>
+                          {/* Tags Preview (Optional, for better matching tool feedback) */}
+                          {hasActiveFilters && (
+                             <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Matched specialist</p>
+                          )}
+                      </div>
+                  </Link>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {filteredStaff.length > 0 && (
+          <div className="mb-20">
+            <h2 className="text-3xl md:text-4xl font-serif text-[var(--gw-primary)] mb-12 text-center">
+              Our Clinic Support Staff
+            </h2>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-16 gap-x-8">
+              {filteredStaff.map((provider) => (
+                  <Link href={`/people/${provider.slug}`} key={provider.id} className="flex flex-col items-center group cursor-pointer text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+                      
+                      {/* Avatar Circle with Border */}
+                      <div className="w-[180px] h-[180px] border border-gray-100 rounded-full overflow-hidden mb-5 bg-[#f4f6f8] flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-md group-hover:border-[var(--gw-accent)]">
+                          {provider.image ? (
+                              <img src={provider.image} alt={provider.name} className="w-full h-full object-cover" />
+                          ) : (
+                              <div className="flex flex-col items-center gap-[6px] opacity-100">
+                                  
+                              </div>
+                          )}
+                      </div>
+
+                      {/* Text Details */}
+                      <div>
+                          <h3 
+                              className="text-[16px] font-bold text-[var(--gw-primary)] mb-1 leading-snug font-sans"
+                              style={{ fontFamily: "var(--font-ginto), Ginto, sans-serif" }}
+                          >
+                              {provider.name}, {provider.credentials}
+                          </h3>
+                          {/* Tags Preview (Optional, for better matching tool feedback) */}
+                          {hasActiveFilters && (
+                             <p className="text-[10px] text-slate-400 uppercase tracking-widest mt-1">Matched specialist</p>
+                          )}
+                      </div>
+                  </Link>
+              ))}
+            </div>
+          </div>
+        )}
             
-            {filteredProviders.length === 0 && (
-                <div className="col-span-full py-12 text-center">
-                    <p className="text-slate-500 font-light italic text-lg mb-4">No providers found matching your criteria.</p>
-                    <button onClick={resetFilters} className="text-[12px] font-bold uppercase tracking-widest text-[var(--gw-primary)] border-b border-[var(--gw-primary)] pb-1 hover:text-[var(--gw-blue)] hover:border-[var(--gw-blue)] transition-all">
-                        Reset All Filters
-                    </button>
-                </div>
-            )}
-        </div>
+        {filteredProviders.length === 0 && (
+            <div className="col-span-full py-12 text-center">
+                <p className="text-slate-500 font-light italic text-lg mb-4">No providers found matching your criteria.</p>
+                <button onClick={resetFilters} className="text-[12px] font-bold uppercase tracking-widest text-[var(--gw-primary)] border-b border-[var(--gw-primary)] pb-1 hover:text-[var(--gw-blue)] hover:border-[var(--gw-blue)] transition-all">
+                    Reset All Filters
+                </button>
+            </div>
+        )}
       </section>
     </main>
     <Footer />

@@ -272,7 +272,7 @@ export default function ConditionDetailPage({ params }) {
               href="/schedule-an-appointment"
               className="inline-flex items-center gap-2 bg-[var(--gw-accent)] text-[var(--gw-primary)] text-[13px] font-bold uppercase tracking-widest px-8 py-4 rounded-2xl hover:bg-white transition-all shadow-lg"
             >
-              Request a Consult
+              Make an Appointment
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>

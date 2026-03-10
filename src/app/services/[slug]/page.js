@@ -72,9 +72,8 @@ Treatment plans are individualized and may include:
       },
     ],
     providers: [
-      { name: 'Dr. Deirdre Orceyre, ND, MSOM, LAc', role: 'Naturopathic Doctor', specialty: 'Naturopathic & Chinese Medicine', image: null },
-      { name: 'Dr. Marianna Ledenac, ND', role: 'Naturopathic Doctor', specialty: 'Naturopathic Medicine', image: null },
-      { name: 'Dr. Paymon Sadrolsadot, ND', role: 'Naturopathic Doctor', specialty: 'Naturopathic Medicine', image: null },
+      { name: 'Deirdre Orceyre', credentials: 'ND, MSOM, L.Ac.', role: 'Naturopathic Doctor', specialty: 'Naturopathic & Chinese Medicine', image: '/images/providers/dierdre.jpg', slug: 'deirdre-orceyre-nd-lac' },
+      { name: 'Marianna Ledenac', credentials: 'ND', role: 'Naturopathic Doctor', specialty: 'Naturopathic Medicine', image: '/images/providers/marianna.jpeg', slug: 'marianna-ledenac-nd' },
     ],
     moreAbout: `Naturopathic medicine has a rich tradition rooted in European and indigenous healing practices, formalized in North America in the early 1900s. Today, it is a regulated profession with rigorous postgraduate medical training. GWCIM naturopathic doctors hold doctorate-level degrees from accredited naturopathic medical schools and are licensed practitioners.
 
@@ -368,10 +367,10 @@ export default function ServiceDetailPage({ params }) {
           {/* CTA */}
           <div className="mt-8 flex flex-wrap gap-4">
             <Link
-              href="#"
+              href="/schedule-an-appointment"
               className="inline-flex items-center gap-2 bg-[var(--gw-accent)] text-[var(--gw-primary)] text-[13px] font-bold uppercase tracking-widest px-7 py-4 rounded-2xl hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 shadow-lg"
             >
-              Book a Consultation
+              Make an Appointment
               <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
               </svg>
@@ -506,17 +505,29 @@ export default function ServiceDetailPage({ params }) {
                 <ContentSection id="providers" label="Our Team" heading={`GWCIM ${service.title} Providers`}>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     {service.providers.map((provider, i) => (
-                      <div key={i} className="flex items-center gap-4 p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all group cursor-pointer">
-                        <div className="w-14 h-14 rounded-full shrink-0 flex items-center justify-center text-white font-bold text-[18px]"
-                          style={{ backgroundColor: colors.hex }}>
-                          {provider.name.split(' ').slice(1, 2).join('').charAt(0)}
+                      <Link 
+                        key={i} 
+                        href={`/people/${provider.slug || '#'}`}
+                        className="flex items-center gap-4 p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all group cursor-pointer"
+                      >
+                        <div className="w-14 h-14 rounded-full shrink-0 overflow-hidden border border-gray-100">
+                          {provider.image ? (
+                            <img src={provider.image} alt={provider.name} className="w-full h-full object-cover" />
+                          ) : (
+                            <div className="w-full h-full flex items-center justify-center text-white font-bold text-[18px]"
+                              style={{ backgroundColor: colors.hex }}>
+                              {provider.name.charAt(0)}
+                            </div>
+                          )}
                         </div>
                         <div>
-                          <p className="font-semibold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[15px]">{provider.name}</p>
+                          <p className="font-semibold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[15px]">
+                            {provider.name}{provider.credentials ? `, ${provider.credentials}` : ''}
+                          </p>
                           <p className="text-[13px] text-[var(--gw-text-muted)]">{provider.role}</p>
                           <p className="text-[12px] text-[var(--gw-blue)] mt-0.5">{provider.specialty}</p>
                         </div>
-                      </div>
+                      </Link>
                     ))}
                   </div>
                 </ContentSection>

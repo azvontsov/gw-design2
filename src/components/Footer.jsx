@@ -98,6 +98,15 @@ export default function Footer() {
                      <svg className="w-4 h-4 text-[#1A365D] transition-all transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path></svg>
                 </div>
              </Link>
+
+             {/* CTA 3 */}
+             <Link href="/fees-and-insurance" className="group relative block w-full">
+                <div className="absolute inset-0 bg-white/5 border border-white/20 rounded-xl group-hover:bg-white group-hover:border-white transition-all duration-300"></div>
+                <div className="relative px-6 py-5 flex items-center justify-center md:justify-between gap-4">
+                    <span className="font-bold text-xs tracking-[0.2em] uppercase text-white group-hover:text-[#1A365D] transition-colors">Fees & Insurance</span>
+                    <svg className="w-4 h-4 text-white group-hover:text-[#1A365D] transition-all transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+             </Link>
           </div>
 
         </div>

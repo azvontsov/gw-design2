@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import Link from 'next/link';
 import TedTalk from "./TedTalk";
 
 export default function Hero() {
@@ -82,12 +83,12 @@ export default function Hero() {
                 >
                     New Patient Inquiry Form
                 </a>
-                <a 
-                    href="#" 
-                    className="border-2 border-white text-white px-10 py-4 rounded-2xl font-bold tracking-widest hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 min-w-[200px] uppercase"
+                <Link 
+                    href="/fees-and-insurance" 
+                    className="border-2 border-white text-white px-10 py-4 rounded-2xl font-bold tracking-widest hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 min-w-[200px] uppercase text-center flex items-center justify-center"
                 >
-                    OUR SERVICES
-                </a>
+                    FEES & INSURANCE
+                </Link>
             </div>
         </div>
       </div>
