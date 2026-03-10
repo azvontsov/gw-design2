@@ -77,12 +77,12 @@ export default function Hero() {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <a 
-                    href="#" 
-                    className="bg-[var(--gw-accent)] px-10 py-4 rounded-2xl font-bold tracking-widest hover:bg-[var(--gw-white)] text-[var(--gw-primary)] transition-all duration-300 shadow-lg min-w-[200px] uppercase"
+                <Link 
+                    href="/schedule-an-appointment" 
+                    className="bg-[var(--gw-accent)] px-10 py-4 rounded-xl md:rounded-2xl font-bold tracking-widest hover:bg-[var(--gw-white)] text-[var(--gw-primary)] transition-all duration-300 shadow-lg min-w-[200px] uppercase text-sm md:text-base text-center flex items-center justify-center whitespace-nowrap"
                 >
-                    New Patient Inquiry Form
-                </a>
+                    NEW PATIENT INQUIRY FORM
+                </Link>
                 <Link 
                     href="/fees-and-insurance" 
                     className="border-2 border-white text-white px-10 py-4 rounded-2xl font-bold tracking-widest hover:bg-white hover:text-[var(--gw-primary)] transition-all duration-300 min-w-[200px] uppercase text-center flex items-center justify-center"

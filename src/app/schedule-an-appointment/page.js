@@ -14,34 +14,39 @@ export default function ScheduleAppointmentPage() {
     age: '',
     phone: '',
     secondaryPhone: '',
-    concerns: '',
+    providersOrUndecided: '',
     referral: '',
-    mailingList: false,
+    concerns: '',
+    pediatricAttendees: '',
+    diagnoses: '',
     services: [],
-    gwAffiliation: '',
-    consent: false
+    lawsuits: false,
+    medicare: false,
+    newsletter: false
   });
 
   const servicesList = [
-    "Primary Care: Integrative Medicine",
-    "Naturopathic Medicine",
-    "Integrative Mental Health",
-    "Long Covid",
+    "Functional & Naturopathic Medicine",
+    "Integrative Psychiatry",
+    "Integrative Oncology Support",
+    "Long COVID",
     "Acupuncture",
-    "Herbal Medicine",
-    "Ayurvedic Counseling",
-    "KAP-Assisted Psychotherapy",
-    "Shoemaker Protocol (CIRS/Mold)",
-    "Nutrition Counseling",
-    "Intravenous / IM Therapy",
-    "MBSR (Mindfulness)",
-    "Sarno / Mind-Body Method",
-    "Geriatrics / Age Management",
-    "ReCODE / Alzheimer's Protocol",
-    "Integrative Oncology",
-    "Reiki / Energy Healing",
+    "Ayurvedic Medicine",
     "Somatic Experiencing",
-    "KAP"
+    "IV/Infusion Therapy",
+    "MBSR/Mindfulness",
+    "Mind-body method (Sarno method)",
+    "Medical Cannabis",
+    "KAP (Ketamine Assisted Psychotherapy)",
+    "Health & Spiritual Coaching",
+    "Pediatric and Adolescent Psychiatry / Integrative Medicine",
+    "Weight Loss",
+    "Shoemaker Protocol (CIRS/Mold protocol)",
+    "Microneedling and Cosmetic Acupuncture",
+    "Physical Therapy / Pelvic Floor Therapy",
+    "Sleep Disorders and Sleep Study",
+    "Integrative Concierge Care",
+    "Other"
   ];
 
   const handleServiceChange = (service) => {
@@ -56,7 +61,7 @@ export default function ScheduleAppointmentPage() {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form submitted:', formData);
-    alert('Thank you for your inquiry. Our staff will review your information and contact you via ChARM portal or phone within 1-2 business days.');
+    alert('Thank you for your inquiry. Our staff will review your information.');
   };
 
   return (
@@ -71,209 +76,249 @@ export default function ScheduleAppointmentPage() {
 
         {/* Content Section */}
         <section className="max-w-4xl mx-auto px-6 mb-16">
-          <h1 className="text-4xl md:text-5xl font-serif text-[var(--gw-primary)] mb-8 leading-tight">
-            Welcome to the GW Center for Integrative Medicine
+          <h1 className="text-3xl md:text-5xl font-serif text-black mb-6 leading-tight">
+            Welcome to the GW Center for Integrative Medicine! Please read the entire page.
           </h1>
           
-          <div className="bg-amber-50 border-l-4 border-amber-400 p-6 mb-12">
-            <p className="text-amber-800 font-bold mb-2">Emergency Care Notice:</p>
-            <p className="text-amber-700">If you are having a clinical emergency, please call <strong>911</strong> or go to the nearest emergency room.</p>
-          </div>
-
-          <div className="prose prose-slate prose-lg max-w-none text-[var(--gw-text-main)] mb-16">
-            <p className="text-xl font-light mb-8">
-                We are delighted you are considering GWCIM for your health journey. Please read the information below carefully before submitting your inquiry.
+          <div className="text-[var(--gw-text-main)] mb-8 space-y-4">
+            <p>Welcome to the GW Center for Integrative Medicine!</p>
+            
+            <p className="font-bold">Emergency Care Notice: In case of medical emergency please call 911.</p>
+            
+            <p>
+                <strong>Fees and Policies:</strong> GWCIM does not participate in any insurance plans.<br/>
+                To review complete billing policy and fees, learn more at our <Link href="/fees-and-insurance" className="underline text-[#0066cc]">Fees and Policies</Link>.
             </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
-                <div>
-                    <h3 className="text-[var(--gw-primary)] font-serif text-2xl mb-4">Fees and Policies</h3>
-                    <p className="text-base leading-relaxed">
-                        GWCIM does not participate in any insurance plans. We provide patients with necessary documentation to submit for out-of-network reimbursement if applicable. Please review our <Link href="#" className="underline">Fees and Policies</Link> before proceeding.
-                    </p>
-                </div>
-                <div>
-                    <h3 className="text-[var(--gw-primary)] font-serif text-2xl mb-4">Secure Communication</h3>
-                    <p className="text-base leading-relaxed">
-                        Important: After registration, all communications <strong>MUST</strong> be done through the <Link href="/charm-patient-portal" className="underline">ChARM Patient Portal</Link>. Our staff will communicate via secure messaging within the portal.
-                    </p>
-                </div>
-            </div>
+            <p>
+                <strong>Important:</strong> All new or returning patients &ndash; ChARM Patient Portal is all communication. MUST send you through the Patient Portal - It is important to check in your messages in the Portal.
+            </p>
+          </div>
 
-            <div className="bg-white border border-slate-100 p-8 md:p-12 shadow-sm mb-16">
-                <h2 className="text-[var(--gw-primary)] font-serif text-3xl mb-6">Scheduling Appointments</h2>
-                <div className="space-y-6 text-base">
-                    <div>
-                        <p className="font-bold text-[var(--gw-primary)] uppercase tracking-wider text-xs mb-2">Established Patients</p>
-                        <p>Please call us at <a href="tel:2028335055" className="font-bold">202-833-5055</a> or use the ChARM Portal for scheduling.</p>
-                    </div>
-                    <div>
-                        <p className="font-bold text-[var(--gw-primary)] uppercase tracking-wider text-xs mb-2">New Patients: How to start</p>
-                        <ol className="list-decimal pl-5 space-y-3">
-                            <li>Submit the <strong>New Patient Inquiry</strong> form below.</li>
-                            <li>Within 1-2 business days, receive a ChARM Patient Portal invitation & intake forms.</li>
-                            <li>Set up your account and submit the required digital forms.</li>
-                            <li>Once forms are processed, you will be invited to schedule your consultation.</li>
-                        </ol>
-                    </div>
-                </div>
-            </div>
+          <div className="mb-12">
+              <h2 className="text-xl font-bold mb-4 text-black">Scheduling Appointments:</h2>
+              <div className="space-y-4 text-black">
+                  <p>
+                      <strong>Established Patients:</strong> please call <strong className="font-bold">202-833-5055</strong> to schedule, or for your regular follow-ups.
+                  </p>
+                  <div>
+                      <p className="font-bold mb-2">New Patients: How to set up the steps online to help you schedule new patient appointment:</p>
+                      <ul className="list-disc pl-6 space-y-2">
+                          <li>Submit our secure <strong>New Patient Inquiry (NPI)</strong> intake form at the bottom of this page.</li>
+                          <li>In 1-2 days you receive ChARM Patient Portal invitation with (forms) (Informed Consent and New Patient Health Inventory)</li>
+                          <li>Set up your account in ChARM Patient Portal and submit the required forms.</li>
+                          <li>Portal Access: You can log in to the ChARM Patient Portal anytime, <a href="/charm-patient-portal" className="text-[#0066cc] underline">HERE</a>. All future communication will be done <strong>ONLY</strong> through the Patient Portal.</li>
+                          <li>For immediate assistance call <strong className="font-bold">(202)-833-5055</strong> or email <a href="mailto:info@gwcim.com" className="font-bold">info@gwcim.com</a>.</li>
+                          <li>Additional Medical Records (if relevant to your visit):
+                              <ul className="list-disc pl-6 mt-1 space-y-1">
+                                  <li>You can upload any past or recent medical documents. records, labs, referrals, or imaging.</li>
+                                  <li>Reviewing typically is 15 minutes overhead to be used for your complexity of your disease.</li>
+                              </ul>
+                          </li>
+                          <li>We will contact you to set up your first appointment.</li>
+                          <li><strong>During your first appointment, you will:</strong>
+                              <ul className="list-disc pl-6 mt-1 space-y-1">
+                                  <li>Discuss all your concerns with your intake provider</li>
+                                  <li>Discuss some of your past diagnostics with history and records</li>
+                                  <li>Undergo a physical exam which needed</li>
+                                  <li>Discuss non-US lab referrals and therapies during your personalized care plan</li>
+                                  <li>Discuss recommendations for your initial treatment</li>
+                                  <li>Have some individual treatments/therapies applied by your intake provider</li>
+                              </ul>
+                          </li>
+                      </ul>
+                  </div>
+              </div>
+          </div>
 
-            <h2 className="text-[var(--gw-primary)] font-serif text-3xl mb-8 border-b pb-4">New Patient Appointment Inquiry Form</h2>
+          <div className="mb-12">
+            <h2 className="text-xl font-bold mb-4 text-black">Cancellation Policy:</h2>
+            <p className="text-black">
+                There is no charge for cancellations made more than <strong>48 hours</strong> before the appointment. Late cancellations (under <strong>TWO business days</strong>) / no-shows flags are charged <strong>100% of the provider fee</strong>.
+            </p>
+          </div>
+
+          <div className="bg-white rounded-none p-8 md:p-14 shadow-2xl border border-gray-100 mb-16 relative overflow-hidden">
+            <div className="absolute top-0 left-0 w-full h-2 bg-[var(--gw-accent)]"></div>
+            <h2 className="text-[var(--gw-primary)] font-serif text-3xl md:text-4xl mb-10">New Patient Appointment Inquiry Form</h2>
             
-            <form onSubmit={handleSubmit} className="space-y-8 bg-white p-8 md:p-12 shadow-lg border border-slate-50">
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-widest">First Name *</label>
-                        <input 
-                            required 
-                            type="text" 
-                            className="w-full p-4 border border-slate-200 focus:border-[var(--gw-primary)] outline-none transition-colors"
-                            value={formData.firstName}
-                            onChange={e => setFormData({...formData, firstName: e.target.value})}
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-widest">Last Name *</label>
-                        <input 
-                            required 
-                            type="text" 
-                            className="w-full p-4 border border-slate-200 focus:border-[var(--gw-primary)] outline-none transition-colors"
-                            value={formData.lastName}
-                            onChange={e => setFormData({...formData, lastName: e.target.value})}
-                        />
-                    </div>
-                </div>
-
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-widest">Date of Birth *</label>
-                        <input 
-                            required 
-                            type="date" 
-                            className="w-full p-4 border border-slate-200 focus:border-[var(--gw-primary)] outline-none transition-colors"
-                            value={formData.dob}
-                            onChange={e => setFormData({...formData, dob: e.target.value})}
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-widest">Age *</label>
-                        <input 
-                            required 
-                            type="number" 
-                            className="w-full p-4 border border-slate-200 focus:border-[var(--gw-primary)] outline-none transition-colors"
-                            value={formData.age}
-                            onChange={e => setFormData({...formData, age: e.target.value})}
-                        />
+            <form onSubmit={handleSubmit} className="space-y-12">
+                
+                {/* PERSONAL INFO SECTION */}
+                <div>
+                    <h3 className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-6 border-b border-gray-100 pb-3">Personal Information</h3>
+                    <div className="space-y-6">
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase tracking-widest text-gray-600 block ml-1">First Name <span className="text-[var(--gw-accent)]">*</span></label>
+                                <input required type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all placeholder:text-gray-400 text-gray-800" value={formData.firstName} onChange={e => setFormData({...formData, firstName: e.target.value})} />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase tracking-widest text-gray-600 block ml-1">Last Name <span className="text-[var(--gw-accent)]">*</span></label>
+                                <input required type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all placeholder:text-gray-400 text-gray-800" value={formData.lastName} onChange={e => setFormData({...formData, lastName: e.target.value})} />
+                            </div>
+                        </div>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase tracking-widest text-gray-600 block ml-1">Date of Birth <span className="text-[var(--gw-accent)]">*</span></label>
+                                <input required type="date" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all text-gray-800" value={formData.dob} onChange={e => setFormData({...formData, dob: e.target.value})} />
+                            </div>
+                            <div className="space-y-2">
+                                <label className="text-xs font-bold uppercase tracking-widest text-gray-600 block ml-1">Age <span className="text-[var(--gw-accent)]">*</span></label>
+                                <input required type="number" min="0" max="150" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all text-gray-800" value={formData.age} onChange={e => setFormData({...formData, age: e.target.value})} />
+                            </div>
+                        </div>
                     </div>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-widest">Cell Phone *</label>
-                        <input 
-                            required 
-                            type="tel" 
-                            className="w-full p-4 border border-slate-200 focus:border-[var(--gw-primary)] outline-none transition-colors"
-                            value={formData.phone}
-                            onChange={e => setFormData({...formData, phone: e.target.value})}
-                        />
-                    </div>
-                    <div className="space-y-2">
-                        <label className="text-sm font-bold uppercase tracking-widest">Secondary Phone (Optional)</label>
-                        <input 
-                            type="tel" 
-                            className="w-full p-4 border border-slate-200 focus:border-[var(--gw-primary)] outline-none transition-colors"
-                            value={formData.secondaryPhone}
-                            onChange={e => setFormData({...formData, secondaryPhone: e.target.value})}
-                        />
-                    </div>
+                {/* CONTACT SECTION */}
+                <div>
+                   <h3 className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-6 border-b border-gray-100 pb-3">Contact Details</h3>
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                       <div className="space-y-2">
+                           <label className="text-xs font-bold uppercase tracking-widest text-gray-600 block ml-1">Primary Phone / Cell <span className="text-[var(--gw-accent)]">*</span></label>
+                           <input required type="tel" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all text-gray-800" value={formData.phone} onChange={e => setFormData({...formData, phone: e.target.value})} />
+                       </div>
+                       <div className="space-y-2">
+                           <label className="text-xs font-bold uppercase tracking-widest text-gray-600 block ml-1">Secondary Phone / Address</label>
+                           <input type="text" placeholder="Home/Work, Zip code" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all placeholder:text-gray-400 text-gray-800" value={formData.secondaryPhone} onChange={e => setFormData({...formData, secondaryPhone: e.target.value})} />
+                       </div>
+                   </div>
                 </div>
 
-                <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase tracking-widest">Please describe your main health concerns *</label>
-                    <textarea 
-                        required 
-                        rows={4}
-                        className="w-full p-4 border border-slate-200 focus:border-[var(--gw-primary)] outline-none transition-colors"
-                        value={formData.concerns}
-                        onChange={e => setFormData({...formData, concerns: e.target.value})}
-                    ></textarea>
+                {/* CLINICAL INFO SECTION */}
+                <div>
+                   <h3 className="text-xs font-bold tracking-[0.2em] uppercase text-gray-400 mb-6 border-b border-gray-100 pb-3">Clinical Information</h3>
+                   <div className="space-y-8">
+                        <div className="space-y-2">
+                            <label className="text-xs font-bold uppercase tracking-widest text-gray-600 leading-normal block ml-1">
+                                Main Health Concerns <span className="text-[var(--gw-accent)]">*</span>
+                                <span className="block text-[11px] text-gray-500 tracking-normal normal-case mt-1 font-normal">Please describe the main concerns you have brought to GWCIM.</span>
+                            </label>
+                            <textarea required rows={4} className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all text-gray-800 resize-y" value={formData.concerns} onChange={e => setFormData({...formData, concerns: e.target.value})}></textarea>
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-bold uppercase tracking-widest text-gray-600 leading-normal block ml-1">
+                                Prior Diagnoses <span className="text-[var(--gw-accent)]">*</span>
+                                <span className="block text-[11px] text-gray-500 tracking-normal normal-case mt-1 font-normal">To your knowledge, have you ever been diagnosed with? (If you have any undiagnosed concerns list them above).</span>
+                            </label>
+                            <textarea required rows={3} className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all text-gray-800 resize-y" value={formData.diagnoses} onChange={e => setFormData({...formData, diagnoses: e.target.value})}></textarea>
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-bold uppercase tracking-widest text-gray-600 leading-normal block ml-1">
+                                Provider Preferences <span className="text-[var(--gw-accent)]">*</span>
+                                <span className="block text-[11px] text-gray-500 tracking-normal normal-case mt-1 font-normal">Which GWCIM providers/services are you specifically interested in? (Write "UNDECIDED" if unsure).</span>
+                            </label>
+                            <input required type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all text-gray-800" value={formData.providersOrUndecided} onChange={e => setFormData({...formData, providersOrUndecided: e.target.value})} />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-bold uppercase tracking-widest text-gray-600 leading-normal block ml-1">
+                                Pediatric/Adolescent Psychiatry <span className="text-[var(--gw-accent)]">*</span>
+                                <span className="block text-[11px] text-gray-500 tracking-normal normal-case mt-1 font-normal">If scheduling for a minor, who will attend the visits? (Write "N/A" if not applicable).</span>
+                            </label>
+                            <input required type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all text-gray-800" value={formData.pediatricAttendees} onChange={e => setFormData({...formData, pediatricAttendees: e.target.value})} />
+                        </div>
+                        <div className="space-y-2">
+                            <label className="text-xs font-bold uppercase tracking-widest text-gray-600 leading-normal block ml-1">
+                                Referral Source <span className="text-[var(--gw-accent)]">*</span>
+                                <span className="block text-[11px] text-gray-500 tracking-normal normal-case mt-1 font-normal">Please list the doctor(s), specialists, friends, online search, etc.</span>
+                            </label>
+                            <input required type="text" className="w-full p-4 bg-slate-50 border border-slate-200 rounded-none focus:bg-white focus:border-[var(--gw-primary)] focus:ring-1 focus:ring-[var(--gw-primary)] outline-none transition-all text-gray-800" value={formData.referral} onChange={e => setFormData({...formData, referral: e.target.value})} />
+                        </div>
+                   </div>
                 </div>
 
-                <div className="space-y-2">
-                    <label className="text-sm font-bold uppercase tracking-widest">How did you hear about us? *</label>
-                    <textarea 
-                        required 
-                        rows={2}
-                        className="w-full p-4 border border-slate-200 focus:border-[var(--gw-primary)] outline-none transition-colors"
-                        value={formData.referral}
-                        onChange={e => setFormData({...formData, referral: e.target.value})}
-                    ></textarea>
-                </div>
-
-                <div className="space-y-4">
-                    <label className="text-sm font-bold uppercase tracking-widest block mb-4">Which services are you specifically interested in? (Select all that apply)</label>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {/* SERVICES SELECTION SECTION */}
+                <div>
+                    <h3 className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--gw-primary)] mb-6 border-b border-gray-100 pb-3">Services of Interest</h3>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-y-4 gap-x-6 bg-slate-50 p-6 md:p-8 rounded-none border border-slate-200">
                         {servicesList.map(service => (
-                            <label key={service} className="flex items-center gap-3 cursor-pointer group">
-                                <input 
-                                    type="checkbox" 
-                                    className="w-5 h-5 accent-[var(--gw-primary)]"
-                                    checked={formData.services.includes(service)}
-                                    onChange={() => handleServiceChange(service)}
-                                />
-                                <span className="text-sm text-slate-600 group-hover:text-[var(--gw-primary)] transition-colors">{service}</span>
+                            <label key={service} className="flex items-start gap-3 cursor-pointer group">
+                                <div className="pt-0.5 shrink-0">
+                                    <input 
+                                        type="checkbox" 
+                                        className="w-5 h-5 rounded-none border-gray-300 text-[var(--gw-primary)] focus:ring-[var(--gw-primary)] accent-[var(--gw-primary)] transition-all cursor-pointer"
+                                        checked={formData.services.includes(service)}
+                                        onChange={() => handleServiceChange(service)}
+                                    />
+                                </div>
+                                <span className="text-sm text-gray-600 group-hover:text-[var(--gw-primary)] transition-colors leading-snug select-none mt-0.5">{service}</span>
                             </label>
                         ))}
                     </div>
                 </div>
 
-                <div className="space-y-4 pt-4 border-t border-slate-100">
-                    <label className="flex items-center gap-3 cursor-pointer">
-                        <input 
-                            type="checkbox" 
-                            required
-                            className="w-5 h-5 accent-[var(--gw-primary)]"
-                            checked={formData.consent}
-                            onChange={e => setFormData({...formData, consent: e.target.checked})}
-                        />
-                        <span className="text-sm text-slate-600 italic">I consent to secure communication regarding my inquiry via email or portal invitation. *</span>
+                {/* LEGAL & CONSENT SECTION */}
+                <div className="space-y-4 pt-6">
+                    <label className="flex items-start gap-4 p-5 rounded-none border border-gray-200 hover:bg-slate-50 transition-colors cursor-pointer group">
+                        <div className="pt-0.5 shrink-0">
+                            <input 
+                                type="checkbox" 
+                                className="w-5 h-5 rounded-none border-gray-300 text-[var(--gw-primary)] focus:ring-[var(--gw-primary)] accent-[var(--gw-primary)] transition-all cursor-pointer"
+                                checked={formData.lawsuits}
+                                onChange={e => setFormData({...formData, lawsuits: e.target.checked})}
+                            />
+                        </div>
+                        <span className="text-sm md:text-base text-gray-700 leading-relaxed group-hover:text-black transition-colors select-none">Are you involved in any ongoing or prior lawsuits?</span>
                     </label>
-                    
-                    <label className="flex items-center gap-3 cursor-pointer">
-                        <input 
-                            type="checkbox" 
-                            className="w-5 h-5 accent-[var(--gw-primary)]"
-                            checked={formData.mailingList}
-                            onChange={e => setFormData({...formData, mailingList: e.target.checked})}
-                        />
-                        <span className="text-sm text-slate-600">I would like to join the GWCIM mailing list for health updates and news.</span>
+                    <label className="flex items-start gap-4 p-5 rounded-none border border-[var(--gw-accent)] bg-[var(--gw-accent)]/5 hover:bg-[var(--gw-accent)]/10 transition-colors cursor-pointer group">
+                        <div className="pt-0.5 shrink-0">
+                            <input 
+                                type="checkbox" 
+                                required
+                                className="w-5 h-5 rounded-none border-[var(--gw-accent)] text-[var(--gw-accent)] focus:ring-[var(--gw-accent)] accent-[var(--gw-accent)] transition-all cursor-pointer"
+                                checked={formData.medicare}
+                                onChange={e => setFormData({...formData, medicare: e.target.checked})}
+                            />
+                        </div>
+                        <span className="text-sm md:text-base text-gray-900 leading-relaxed font-medium select-none">I understand there will NOT be Medicare claims submitted for any GWCIM service provided. <span className="text-[var(--gw-accent)] font-bold">*</span></span>
+                    </label>
+                    <label className="flex items-start gap-4 p-5 rounded-none border border-gray-200 hover:bg-slate-50 transition-colors cursor-pointer group">
+                        <div className="pt-0.5 shrink-0">
+                            <input 
+                                type="checkbox" 
+                                required
+                                className="w-5 h-5 rounded-none border-gray-300 text-[var(--gw-primary)] focus:ring-[var(--gw-primary)] accent-[var(--gw-primary)] transition-all cursor-pointer"
+                                checked={formData.newsletter}
+                                onChange={e => setFormData({...formData, newsletter: e.target.checked})}
+                            />
+                        </div>
+                        <span className="text-sm md:text-base text-gray-700 leading-relaxed group-hover:text-black transition-colors select-none">Would you like to join our newsletter & email list? <span className="text-[var(--gw-accent)] font-bold">*</span></span>
                     </label>
                 </div>
 
-                <button 
-                    type="submit"
-                    className="w-full bg-[var(--gw-primary)] text-white font-bold tracking-[0.2em] uppercase py-6 hover:bg-[var(--gw-blue)] transition-all shadow-xl text-lg"
-                >
-                    Submit Inquiry Form
-                </button>
+                <div className="pt-10 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-gray-100 mt-10">
+                    {/* Placeholder for CAPTCHA image */}
+                    <div className="flex items-center gap-3 bg-white px-4 py-3 rounded-none border border-gray-200 shadow-sm w-full md:w-auto">
+                      <input type="checkbox" className="w-6 h-6 border-gray-300 rounded-none focus:ring-blue-500 outline-none" />
+                      <span className="text-sm font-medium text-gray-700">I'm not a robot</span>
+                      <div className="flex flex-col items-center ml-4">
+                        <img src="https://www.gstatic.com/recaptcha/api2/logo_48.png" className="w-6 opacity-80" alt="reCAPTCHA" />
+                        <span className="text-[9px] text-gray-500 mt-1">reCAPTCHA</span>
+                      </div>
+                    </div>
 
-                <p className="text-xs text-center text-slate-400">
-                    Your information is protected and will be reviewed by our medical team.
-                </p>
+                    <button 
+                        type="submit"
+                        className="w-full md:w-auto bg-[var(--gw-primary)] text-white px-10 py-5 rounded-none font-bold tracking-[0.2em] uppercase hover:bg-white hover:text-[var(--gw-primary)] border border-transparent hover:border-[var(--gw-primary)] transition-all shadow-xl"
+                    >
+                        Submit Inquiry
+                    </button>
+                </div>
             </form>
           </div>
-        </section>
 
-        {/* Cancellation Policy Section */}
-        <section className="bg-slate-50 py-20 px-6">
-            <div className="max-w-4xl mx-auto">
-                <h2 className="text-[var(--gw-primary)] font-serif text-3xl mb-6">Cancellation Policy</h2>
-                <p className="text-lg text-slate-600 leading-relaxed">
-                    There is no charge for cancellations made more than <strong>three business days</strong> within the appointment. Late cancellation is charged our GWCIM administrative fee or missed visit appointment fee at the clinician's rate.
-                </p>
-            </div>
+          <div className="text-sm text-gray-700 mt-12 space-y-4">
+              <p>*** Above ideally you can complete in ChARM. But "Request an Appointment" sends a link to specific forms listed on our website:</p>
+              <ul className="list-disc pl-6 space-y-1 text-[#0066cc]">
+                  <li><a href="#" className="underline">Adult Patient Intake Inventory Form</a></li>
+                  <li><a href="#" className="underline">or Pediatric Intake Inventory (for patients 18 years old)</a></li>
+                  <li><a href="#" className="underline">Consent Forms</a></li>
+              </ul>
+              <p>and fax them to <strong className="font-bold">202-833-5055</strong>, or email/fax it to us. Ensure your forms cleared.</p>
+              <p>Our address is <strong>GW CIM 908 New Hampshire Ave NW, Suite 200, Washington, D.C. 20037.</strong></p>
+          </div>
+
         </section>
       </main>
 
@@ -281,3 +326,4 @@ export default function ScheduleAppointmentPage() {
     </div>
   );
 }
+
