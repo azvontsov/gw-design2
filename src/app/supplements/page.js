@@ -34,7 +34,7 @@ export default function SupplementsPage() {
       <main className="flex-1 w-full pt-40 pb-24">
         {/* Breadcrumbs */}
         <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
-          <Breadcrumbs items={[{ label: 'Resources', href: '#' }, { label: "Supplements" }]} />
+          <Breadcrumbs items={[{ label: 'Resources', href: '#' }, { label: "Full Script Supplements Store" }]} />
         </div>
 
         {/* Two-Column Layout Container */}

@@ -83,26 +83,17 @@ const menuItems = [
     submenu: [
       { title: "Patient Portal", href: "https://accounts.charmtracker.com/signin?hide_signup-true&hide_secure=true&hide_gsignup-true&servicename-charmhealth&serviceurl=https://phr.charmtracker.com/main.do", target: "_blank" },
       { title: "News & Events", href: "/news-and-events" },
+      { title: "Full Script Supplements Store", href: "/supplements" },
     ]
   },
-  {
-    title: "New Patients",
-    href: "/schedule-an-appointment",
-    submenu: [
-      { title: "Schedule an Appointment", href: "/schedule-an-appointment" },
-      { title: "Fees & Policies", href: "/fees-and-insurance" },
-      { title: "Supplements", href: "/supplements" },
       {
-        title: "Patient Forms",
+        title: "New Patients",
         href: "/schedule-an-appointment",
-        subitems: [
-          { title: "Adult Patient Intake Inventory Form", href: "/forms/6.2024-GWCIM_New_Patient_Adult_PHI_Questionnaire.pdf", target: "_blank" },
-          { title: "Pediatric Intake Inventory (Under 18)", href: "/forms/Pediatric_PHI_Questionnaire.pdf", target: "_blank" },
-          { title: "Consent Forms", href: "/forms/Informed-Consent-Forms-2020.pdf", target: "_blank" },
+        submenu: [
+          { title: "Schedule an Appointment", href: "/schedule-an-appointment" },
+          { title: "Fees & Policies", href: "/fees-and-insurance" },
         ]
       },
-    ]
-  },
   {
     title: "About",
     href: "/about",

@@ -304,6 +304,8 @@ export default function ScheduleAppointmentPage() {
               </ul>
             </div>
           </div>
+          
+
 
           <div className="bg-white rounded-none p-8 md:p-14 shadow-2xl border border-gray-100 mb-16 relative overflow-hidden">
             <div className="absolute top-0 left-0 w-full h-2 bg-[var(--gw-accent)]"></div>
@@ -654,6 +656,51 @@ export default function ScheduleAppointmentPage() {
                 </button>
               </div>
             </form>
+            
+          </div>
+                    {/* Patient Forms Section */}
+          <div className="bg-white border border-gray-200 p-6 md:p-8 mb-10">
+            <h2 className="text-xs font-bold tracking-[0.2em] uppercase text-[var(--gw-text-muted)] mb-6">
+              Patient Forms
+            </h2>
+            <p className="text-sm text-[var(--gw-text-muted)] mb-6 leading-relaxed">
+              If you prefer to fill out your forms manually or wish to review them ahead of time, you can download them below. All forms should be uploaded to your ChARM Patient Portal once completed.
+            </p>
+            <div className="grid md:grid-cols-3 gap-6">
+              {[
+                { 
+                  title: "Adult Intake", 
+                  desc: "New Patient Adult Health Inventory", 
+                  href: "/forms/6.2024-GWCIM_New_Patient_Adult_PHI_Questionnaire.pdf" 
+                },
+                { 
+                  title: "Pediatric Intake", 
+                  desc: "Intake for patients under 18 years old", 
+                  href: "/forms/Pediatric_PHI_Questionnaire.pdf" 
+                },
+                { 
+                  title: "Consent Forms", 
+                  desc: "Informed Consent for care at GWCIM", 
+                  href: "/forms/Informed-Consent-Forms-2020.pdf" 
+                },
+              ].map((form, idx) => (
+                <a 
+                  key={idx}
+                  href={form.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="flex flex-col p-4 bg-slate-50 border border-slate-100 hover:border-[var(--gw-primary)] hover:bg-white transition-all group"
+                >
+                  <div className="flex items-center gap-2 mb-2">
+                    <svg className="w-5 h-5 text-[var(--gw-primary)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                    </svg>
+                    <span className="text-xs font-bold uppercase tracking-widest text-[var(--gw-primary)]">{form.title}</span>
+                  </div>
+                  <p className="text-[11px] text-gray-500 group-hover:text-gray-700 transition-colors uppercase tracking-tight">{form.desc}</p>
+                </a>
+              ))}
+            </div>
           </div>
         </section>
       </main>

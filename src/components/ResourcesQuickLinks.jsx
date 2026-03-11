@@ -6,9 +6,8 @@ const resources = [
   { title: "Patient Portal", href: "#" },
   { title: "Pay a Bill", href: "#" },
   { title: "New Patient Forms", href: "#" },
-  { title: "Supplements Store", href: "#" },
+  { title: "Full Script Supplements Store", href: "#" },
   { title: "Insurance Info", href: "#" },
-  { title: "Mistletoe Therapy", href: "#" },
   { title: "FAQs", href: "#" },
 ];
 
