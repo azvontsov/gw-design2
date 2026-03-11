@@ -81,10 +81,26 @@ const menuItems = [
     title: "Resources",
     href: "#",
     submenu: [
-      { title: "Patient Portal", href: "/charm-patient-portal" },
+      { title: "Patient Portal", href: "https://accounts.charmtracker.com/signin?hide_signup-true&hide_secure=true&hide_gsignup-true&servicename-charmhealth&serviceurl=https://phr.charmtracker.com/main.do", target: "_blank" },
+      { title: "News & Events", href: "/news-and-events" },
+    ]
+  },
+  {
+    title: "New Patients",
+    href: "/schedule-an-appointment",
+    submenu: [
+      { title: "Schedule an Appointment", href: "/schedule-an-appointment" },
       { title: "Fees & Policies", href: "/fees-and-insurance" },
       { title: "Supplements", href: "/supplements" },
-      { title: "News & Events", href: "/news-and-events" },
+      {
+        title: "Patient Forms",
+        href: "/schedule-an-appointment",
+        subitems: [
+          { title: "Adult Patient Intake Inventory Form", href: "/forms/6.2024-GWCIM_New_Patient_Adult_PHI_Questionnaire.pdf", target: "_blank" },
+          { title: "Pediatric Intake Inventory (Under 18)", href: "/forms/Pediatric_PHI_Questionnaire.pdf", target: "_blank" },
+          { title: "Consent Forms", href: "/forms/Informed-Consent-Forms-2020.pdf", target: "_blank" },
+        ]
+      },
     ]
   },
   {
@@ -237,8 +253,10 @@ export default function Header() {
                                         <div className="absolute -top-6 left-0 w-full h-6" />
                                         {item.submenu.map((sub, sIdx) => (
                                             <div key={sIdx} className="relative group/fly border-b border-[rgba(255,255,255,0.2)] last:border-b-0">
-                                                <Link 
-                                                    href={sub.href} 
+                                                <Link
+                                                    href={sub.href}
+                                                    target={sub.target}
+                                                    rel={sub.target === "_blank" ? "noopener noreferrer" : undefined}
                                                     className={`flex items-center justify-between px-6 py-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap`}
                                                 >
                                                     {sub.title}
@@ -256,6 +274,8 @@ export default function Header() {
                                                                 <Link
                                                                     key={cIdx}
                                                                     href={child.href}
+                                                                    target={child.target}
+                                                                    rel={child.target === "_blank" ? "noopener noreferrer" : undefined}
                                                                     className="block px-5 py-4 text-[11px] font-bold tracking-[0.15em] uppercase text-white border-b border-[rgba(255,255,255,0.2)] last:border-0 hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap"
                                                                 >
                                                                     {child.title}
