@@ -216,93 +216,118 @@ export default function Header() {
       </div>
 
       {/* Bottom Row: Navigation (Desktop) - Sticky */}
-      <div className="sticky top-0 z-40 w-full bg-[var(--gw-secondary-light)] border-t border-b border-[rgba(0,0,0,0.05)] hidden lg:flex shadow-sm">
-            <div className="container mx-auto px-8 h-16 flex items-center justify-between">
-                
-                {/* Nav Links */}
-                <nav className="flex-1 flex items-center justify-center gap-4 xl:gap-8 h-full">
-                    {menuItems.map((item, idx) => (
-                        <Fragment key={idx}>
-                            {idx === 3 && (
-                                <div 
-                                    className={`flex justify-center transition-all duration-500 ease-in-out overflow-hidden ${
-                                        isScrolled ? 'max-w-[350px] opacity-100 mx-2' : 'max-w-0 opacity-0 -mx-4'
-                                    }`}
-                                >
-                                    <Link href="/" className="flex items-center hover:opacity-80 shrink-0 list-none">
-                                        <img src="/icons/logo.svg" alt="GW Center" className="h-8 xl:h-10 w-auto object-contain" />
-                                    </Link>
-                                </div>
-                            )}
-                            <div className="relative group h-full flex items-center">
-                            <Link 
-                                href={item.href} 
-                                className="text-[13px] font-bold uppercase tracking-[0.15em] text-[var(--gw-primary)] hover:text-[var(--gw-accent)] transition-colors h-full flex items-center px-2"
-                            >
-                                {item.title}
-                            </Link>
+      <div 
+        className={`sticky top-0 z-40 w-full bg-[var(--gw-secondary-light)] border-t border-b border-[rgba(0,0,0,0.05)] hidden lg:flex flex-col shadow-sm transition-all duration-300 ${
+            isScrolled ? 'border-b-0' : ''
+        }`}
+      >
+            {/* Top Row: Secondary Navigation (Scrolled State) */}
+            <div 
+                className={`w-full bg-[var(--sw-navbar)] text-white transition-all duration-300 overflow-hidden ${
+                    isScrolled ? 'h-14 opacity-100 shadow-inner' : 'h-0 opacity-0'
+                }`}
+            >
+                <div className="container mx-auto px-8 h-full flex items-center justify-center gap-12">
+                     {/* Contact Link (moved from Main Row) */}
+                     <Link 
+                        href={menuItems[6].href} 
+                        className="text-[12px] font-bold uppercase tracking-[0.15em] text-white hover:text-[var(--gw-accent)] transition-colors h-full flex items-center px-2"
+                     >
+                        {menuItems[6].title}
+                     </Link>
 
-                            {/* Dropdown */}
-                            {item.submenu && (
-                                <div 
-                                    className="absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] pointer-events-none group-hover:pointer-events-auto"
-                                    style={{ clipPath: 'inset(0px -1000px -1000px -1000px)', WebkitClipPath: 'inset(0px -1000px -1000px -1000px)' }}
-                                >
-                                    <div className="bg-[var(--sw-navbar)] flex flex-col items-stretch transform -translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 border-t border-white/10 shadow-2xl relative">
-                                        {/* Bridge to prevent closing on gap hover */}
-                                        <div className="absolute -top-6 left-0 w-full h-6" />
-                                        {item.submenu.map((sub, sIdx) => (
-                                            <div key={sIdx} className="relative group/fly border-b border-[rgba(255,255,255,0.2)] last:border-b-0">
-                                                <Link
-                                                    href={sub.href}
-                                                    target={sub.target}
-                                                    rel={sub.target === "_blank" ? "noopener noreferrer" : undefined}
-                                                    className={`flex items-center justify-between px-6 py-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap`}
-                                                >
-                                                    {sub.title}
-                                                    {sub.subitems && (
-                                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3 ml-3 opacity-60 group-hover/fly:opacity-100 group-hover/fly:translate-x-0.5 transition-all">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
-                                                        </svg>
-                                                    )}
-                                                </Link>
-                                                {/* Flyout Panel */}
-                                                {sub.subitems && (
-                                                    <div className="absolute top-0 left-full min-w-[240px] pointer-events-none group-hover/fly:pointer-events-auto opacity-0 group-hover/fly:opacity-100 -translate-x-2 group-hover/fly:translate-x-0 transition-all duration-200 ease-out">
-                                                        <div className="bg-[var(--sw-navbar)] brightness-90 flex flex-col drop-shadow-xl border-l border-[rgba(255,255,255,0.1)]">
-                                                            {sub.subitems.map((child, cIdx) => (
-                                                                <Link
-                                                                    key={cIdx}
-                                                                    href={child.href}
-                                                                    target={child.target}
-                                                                    rel={child.target === "_blank" ? "noopener noreferrer" : undefined}
-                                                                    className="block px-5 py-4 text-[11px] font-bold tracking-[0.15em] uppercase text-white border-b border-[rgba(255,255,255,0.2)] last:border-0 hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap"
-                                                                >
-                                                                    {child.title}
-                                                                </Link>
-                                                            ))}
-                                                        </div>
-                                                    </div>
-                                                )}
-                                            </div>
-                                        ))}
-                                    </div>
-                                </div>
-                                )}
-                            </div>
-                        </Fragment>
-                    ))}
-                </nav>
-
-                {/* CTA Button */}
-                <div className={`flex-shrink-0 ml-8 ${isScrolled ? 'hidden xl:block' : ''}`}>
-                    <Link  
+                     {/* CTA Button (Scrolled State) */}
+                     <Link  
                         href="/schedule-an-appointment" 
-                        className="hover:bg-[var(--gw-accent)] text-white text-[13px] font-bold tracking-widest px-6 py-3 rounded-2xl bg-[var(--gw-alert)] transition-all shadow-md transform hover:-translate-y-0.5 uppercase"
+                        className="hover:bg-[var(--gw-accent)] text-white text-[11px] font-bold tracking-widest px-4 py-2 rounded-xl bg-[var(--gw-alert)] transition-all shadow-md transform hover:-translate-y-0.5 uppercase whitespace-nowrap"
                     >
                         For New Patients
                     </Link>
                 </div>
+            </div>
+
+            {/* Bottom Row: Primary Navigation */}
+            <div className={`container mx-auto px-8 transition-all duration-300 flex items-center justify-center ${isScrolled ? 'h-14' : 'h-16'}`}>
+                <nav className="flex-1 flex items-center justify-center gap-4 xl:gap-8 h-full">
+                    {menuItems.map((item, idx) => {
+                        // When scrolled, we move "Contact" (6) to the top bar, but keep "New Patients" (4) here.
+                        const isMainRowItem = !isScrolled || (idx !== 6);
+                        
+                        return (
+                            <Fragment key={idx}>
+                                {idx === 3 && (
+                                    <div 
+                                        className={`flex justify-center transition-all duration-500 ease-in-out overflow-hidden ${
+                                            isScrolled ? 'max-w-[350px] opacity-100 mx-2' : 'max-w-0 opacity-0 -mx-4'
+                                        }`}
+                                    >
+                                        <Link href="/" className="flex items-center hover:opacity-80 shrink-0 list-none">
+                                            <img src="/icons/logo.svg" alt="GW Center" className="h-8 xl:h-10 w-auto object-contain" />
+                                        </Link>
+                                    </div>
+                                )}
+                                {isMainRowItem && (
+                                    <div className="relative group h-full flex items-center">
+                                        <Link 
+                                            href={item.href} 
+                                            className="text-[13px] font-bold uppercase tracking-[0.15em] text-[var(--gw-primary)] hover:text-[var(--gw-accent)] transition-colors h-full flex items-center justify-center text-center px-4 leading-tight max-w-[140px]"
+                                        >
+                                            {item.title}
+                                        </Link>
+
+                                        {/* Dropdown */}
+                                        {item.submenu && (
+                                            <div 
+                                                className="absolute top-full left-1/2 -translate-x-1/2 min-w-[240px] pointer-events-none group-hover:pointer-events-auto z-50"
+                                                style={{ clipPath: 'inset(0px -1000px -1000px -1000px)', WebkitClipPath: 'inset(0px -1000px -1000px -1000px)' }}
+                                            >
+                                                <div className="bg-[var(--sw-navbar)] flex flex-col items-stretch transform -translate-y-2 group-hover:translate-y-0 transition-all duration-300 ease-out opacity-0 group-hover:opacity-100 border-t border-white/10 shadow-2xl relative">
+                                                    {/* Bridge to prevent closing on gap hover */}
+                                                    <div className="absolute -top-6 left-0 w-full h-6" />
+                                                    {item.submenu.map((sub, sIdx) => (
+                                                        <div key={sIdx} className="relative group/fly border-b border-[rgba(255,255,255,0.2)] last:border-b-0">
+                                                            <Link
+                                                                href={sub.href}
+                                                                target={sub.target}
+                                                                rel={sub.target === "_blank" ? "noopener noreferrer" : undefined}
+                                                                className={`flex items-center justify-between px-6 py-4 text-[11px] font-bold uppercase tracking-[0.15em] text-white hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap`}
+                                                            >
+                                                                {sub.title}
+                                                                {sub.subitems && (
+                                                                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-3 h-3 ml-3 opacity-60 group-hover/fly:opacity-100 group-hover/fly:translate-x-0.5 transition-all">
+                                                                        <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+                                                                    </svg>
+                                                                )}
+                                                            </Link>
+                                                            {/* Flyout Panel */}
+                                                            {sub.subitems && (
+                                                                <div className="absolute top-0 left-full min-w-[240px] pointer-events-none group-hover/fly:pointer-events-auto opacity-0 group-hover/fly:opacity-100 -translate-x-2 group-hover/fly:translate-x-0 transition-all duration-200 ease-out">
+                                                                    <div className="bg-[var(--sw-navbar)] brightness-90 flex flex-col drop-shadow-xl border-l border-[rgba(255,255,255,0.1)]">
+                                                                        {sub.subitems.map((child, cIdx) => (
+                                                                            <Link
+                                                                                key={cIdx}
+                                                                                href={child.href}
+                                                                                target={child.target}
+                                                                                rel={child.target === "_blank" ? "noopener noreferrer" : undefined}
+                                                                                className="block px-5 py-4 text-[11px] font-bold tracking-[0.15em] uppercase text-white border-b border-[rgba(255,255,255,0.2)] last:border-0 hover:text-[var(--gw-accent)] hover:bg-[rgba(0,0,0,0.2)] transition-colors whitespace-nowrap"
+                                                                            >
+                                                                                {child.title}
+                                                                            </Link>
+                                                                        ))}
+                                                                    </div>
+                                                                </div>
+                                                            )}
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            </div>
+                                        )}
+                                    </div>
+                                )}
+                            </Fragment>
+                        );
+                    })}
+                </nav>
             </div>
       </div>
 
