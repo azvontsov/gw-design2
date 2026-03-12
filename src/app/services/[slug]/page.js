@@ -17,39 +17,37 @@ const servicesDb = {
     heroFallbackColor: 'var(--sw-hazel)',
     tagline: 'A comprehensive approach to health and healing that combines modern scientific knowledge with traditional and natural forms of medicine.',
     icon: '/images/doodles/icon-2.png',
-    what: `Naturopathic medicine is a comprehensive approach to health and healing that combines modern scientific knowledge with traditional and natural forms of medicine. Naturopathic Medicine is a distinct primary health care profession, emphasizing prevention, treatment and optimal health through the use of therapeutic methods and substances which encourage the person's inherent self-healing process, the vis medicatrix naturae.
-
-Who are licensed Naturopathic Doctors (ND)?
-
-Naturopathic doctors (NDs) address the mental, emotional and physical aspects of an individual, and aim to treat the root causes as well as the symptoms of illness. NDs are trained as primary care doctors at accredited four-year naturopathic medical schools. The training includes comprehensive study of the conventional medical sciences, as well as detailed study of a wide variety of natural therapies. NDs integrate standard medical diagnostics with a broad range of natural and non-invasive therapies, including clinical nutrition, herbs, homeopathy, lifestyle counseling, physical medicine and counseling. NDs may also prescribe medication if needed. Naturopathic therapies can be used to complement traditional medical treatments. The result is a patient-centered approach providing the most appropriate treatment for an individual.`,
-    conditions: [
-      'Chronic fatigue and low energy',
-      'Digestive disorders (IBS, Crohn\'s, GERD)',
-      'Hormonal imbalances and thyroid disorders',
-      'Autoimmune conditions',
-      'Anxiety, depression, and mood disorders',
-      'Cardiovascular risk reduction',
-      'Skin conditions (eczema, psoriasis, acne)',
-      'Weight management and metabolic syndrome',
-      'Allergies and environmental sensitivities',
+    note: {
+      title: 'Affiliated Program',
+      text: 'Our Naturopathic Doctors are also part of the regional Integrative Cancer Care network.'
+    },
+    what: `Naturopathic medicine is a comprehensive approach to health and healing that combines modern scientific knowledge with traditional and natural forms of medicine. Naturopathic Medicine is a distinct primary health care profession, emphasizing prevention, treatment and optimal health through the use of therapeutic methods and substances which encourage the person's inherent self-healing process, the vis medicatrix naturae.`,
+    who: `Naturopathic doctors (NDs) address the mental, emotional and physical aspects of an individual, and aim to treat the root causes as well as the symptoms of illness. NDs are trained as primary care doctors at accredited four-year naturopathic medical schools. The training includes comprehensive study of the conventional medical sciences, as well as detailed study of a wide variety of natural therapies. NDs integrate standard medical diagnostics with a broad range of natural and non-invasive therapies, including clinical nutrition, herbs, homeopathy, lifestyle counseling, physical medicine and counseling. NDs may also prescribe medication if needed. Naturopathic therapies can be used to complement traditional medical treatments. The result is a patient-centered approach providing the most appropriate treatment for an individual.`,
+    options: [
+      { title: 'Full Consultation', desc: 'Comprehensive 90-120 minute deep dive into your health history and goals.' },
+      { title: 'Standard Visit', desc: '75-minute initial assessment for localized or less complex conditions.' },
+      { title: 'Follow-ups', desc: 'Iterative care sessions (45-90 min) to track progress and adjust protocols.' }
     ],
+    conditions: {
+      clickable: [
+        { label: 'Chronic Fatigue', slug: 'chronic-fatigue' },
+        { label: 'Digestive Disorders', slug: 'digestive-health' },
+        { label: 'Hormonal Imbalance', slug: 'hormonal-balance' },
+        { label: 'Autoimmune Disease', slug: 'autoimmune-disease' }
+      ],
+      seo: [
+        'IBS', 'Crohn\'s', 'GERD', 'Thyroid disorders', 'Anxiety', 'Mood disorders', 'Metabolic syndrome', 'Eczema', 'Psoriasis', 'Acne', 'Allergies'
+      ]
+    },
     whyGwcim: `At GWCIM, our naturopathic doctors work as an integral part of a multidisciplinary team, collaborating closely with integrative physicians, acupuncturists, and mental health providers. This team-based approach ensures that every aspect of your health is considered — physical, emotional, and environmental.
-
-We combine thorough diagnostic evaluation with evidence-based natural therapies, crafting individualized care plans that evolve with your health journey. Our clinic setting allows extended appointment times so your provider can truly listen and understand your full story.`,
-    howWeDoIt: `Your care begins with a comprehensive 90-minute initial consultation covering your full health history, lifestyle factors, diet, stress levels, and environmental exposures. Your naturopathic doctor may order specialized labs — including functional medicine testing — to identify root causes that conventional screenings often miss.
-
-Treatment plans are individualized and may include:
-• Clinical nutrition and therapeutic diet
-• Botanical medicine and herbal formulations
-• Nutritional supplementation
-• Lifestyle counseling
-• Detoxification protocols
-• Homeopathy
-• Physical medicine`,
+    
+    We combine thorough diagnostic evaluation with evidence-based natural therapies, crafting individualized care plans that evolve with your health journey. Our clinic setting allows extended appointment times so your provider can truly listen and understand your full story.`,
+    howWeDoIt: `Your care begins with a comprehensive 90-minute initial consultation covering your full health history, lifestyle factors, diet, stress levels, and environmental exposures. Your naturopathic doctor may order specialized labs — including functional medicine testing — to identify root causes that conventional screenings often miss.`,
+    expectations: `Treatment plans are individualized and may include clinical nutrition, therapeutic diet, botanical medicine, nutritional supplementation, lifestyle counseling, and more. All recommendations are available after the visit through our portal.`,
     principles: [
       {
         name: 'The Healing Power of Nature',
-        description: 'Recognizes an inherent self-healing process in the person, which is ordered and intelligent. Naturopathic physicians act to identify and remove obstacles to healing and recovery, and to facilitate and augment this inherent self-healing process.',
+        description: 'Recognizes an inherent self-healing process in the person, which is ordered and intelligent.',
       },
       {
         name: 'Identify and Treat the Causes',
@@ -57,57 +55,30 @@ Treatment plans are individualized and may include:
       },
       {
         name: 'First Do No Harm',
-        description: 'Utilizes methods and medicinal substances, which minimize the risk of harmful side effects by using the least force necessary to diagnose and treat.',
-      },
-      {
-        name: 'Doctor as Teacher',
-        description: 'Educates patients and encourages self-responsibility for health.',
-      },
-      {
-        name: 'Treat the Whole Person',
-        description: 'Accounts for individual physical, mental, emotional, genetic, environmental, social and other factors. Also encourages individuals to pursue their personal spiritual development.',
-      },
-      {
-        name: 'Prevention',
-        description: 'Works in partnership with patients to assess risk factors, heredity and susceptibility to disease to preserve health and prevent illness.',
-      },
+        description: 'Utilizes methods and medicinal substances, which minimize the risk of harmful side effects.',
+      }
     ],
     providers: [
-      { name: 'Deirdre Orceyre', credentials: 'ND, MSOM, L.Ac.', role: 'Naturopathic Doctor', specialty: 'Naturopathic & Chinese Medicine', image: '/images/providers/dierdre.jpg', slug: 'deirdre-orceyre-nd-lac' },
-      { name: 'Marianna Ledenac', credentials: 'ND', role: 'Naturopathic Doctor', specialty: 'Naturopathic Medicine', image: '/images/providers/marianna.jpeg', slug: 'marianna-ledenac-nd' },
+      { name: 'Deirdre Orceyre', credentials: 'ND, MSOM, L.Ac.', role: 'Doctor', image: '/images/providers/dierdre.jpg', slug: 'deirdre-orceyre-nd-lac' },
+      { name: 'Marianna Ledenac', credentials: 'ND', role: 'Doctor', image: '/images/providers/marianna.jpeg', slug: 'marianna-ledenac-nd' },
+      { name: 'Leila Sadrolsadot', credentials: 'ND', role: 'Doctor', image: null, slug: '#' },
     ],
-    moreAbout: `Naturopathic medicine has a rich tradition rooted in European and indigenous healing practices, formalized in North America in the early 1900s. Today, it is a regulated profession with rigorous postgraduate medical training. GWCIM naturopathic doctors hold doctorate-level degrees from accredited naturopathic medical schools and are licensed practitioners.
-
-Research continues to validate many traditional naturopathic approaches — from herbal adaptogens for stress resilience to dietary interventions for chronic disease reversal.`,
-    bottomImage: null,
+    moreAbout: `Naturopathic medicine has a rich tradition rooted in European and indigenous healing practices, formalized in North America in the early 1900s. Today, it is a regulated profession with rigorous postgraduate medical training.`,
     faqs: [
       {
         q: 'Is naturopathic medicine covered by insurance?',
-        a: 'At GWCIM we accept select insurance plans and offer superbills for out-of-network reimbursement. Coverage varies by state and plan — our billing team can help you verify benefits before your first visit.',
-      },
-      {
-        q: 'Can naturopathic medicine be combined with conventional treatments?',
-        a: 'Absolutely. Integrative care is at the core of our approach. Our naturopathic doctors collaborate directly with your other healthcare providers to ensure all treatments are safe and complementary.',
+        a: 'At GWCIM we accept select insurance plans and offer superbills for out-of-network reimbursement.',
       },
       {
         q: 'How many sessions will I need?',
-        a: 'Most patients start with an initial 90-minute consultation, followed by shorter follow-up visits every 4–6 weeks. The total number of visits depends on the complexity of your health goals.',
-      },
-      {
-        q: 'Do you see children and adolescents?',
-        a: 'Yes — we provide naturopathic care tailored to pediatric and adolescent patients, with particular expertise in childhood allergies, ADHD, digestive issues, and developmental support.',
-      },
+        a: 'Most patients start with an initial consultation, followed by shorter follow-up visits every 4–6 weeks.',
+      }
     ],
     related: [
       { title: 'Functional Medicine', slug: 'functional-medicine', category: 'Consultations' },
-      { title: 'Integrative Mental Health', slug: 'integrative-mental-health', category: 'Consultations' },
-      { title: 'Nutritional Counseling', slug: 'nutritional-counseling', category: 'Consultations' },
-      { title: 'Intravenous Therapy', slug: 'intravenous-therapy', category: 'Treatments' },
+      { title: 'Integrative Mental Health', slug: 'integrative-mental-health', category: 'Consultations' }
     ],
     resources: [
-      { type: 'link', title: 'What is Naturopathic Medicine?', url: '#' },
-      { type: 'book', title: 'The Nature Doctor', author: 'H.C.A. Vogel', url: '#' },
-      { type: 'book', title: 'Textbook of Natural Medicine', author: 'Pizzorno & Murray', url: '#' },
       { type: 'link', title: 'American Association of Naturopathic Physicians', url: 'https://naturopathic.org' },
       { type: 'link', title: 'Institute for Natural Medicine', url: 'https://naturemed.org' },
     ],
@@ -116,13 +87,9 @@ Research continues to validate many traditional naturopathic approaches — from
         videoId: 'Z1OEoUca6S4',
         title: 'Integrative Medicine: Beyond Symptoms',
         description: 'Dr. Deirdre Orceyre explores the foundations of naturopathic and integrative medicine.',
-      },
-      {
-        videoId: 'vKcNbELdGlg',
-        title: 'What is Naturopathic Medicine?',
-        description: 'A deep dive into naturopathic principles and how they support whole-person healing.',
-      },
+      }
     ],
+    feesLink: '/fees-and-insurance#consultations'
   },
   'long-covid-online-groups': {
     title: 'Long COVID Medical Group Meets',
@@ -303,9 +270,51 @@ function SectionHeading({ children }) {
   );
 }
 
-function ContentSection({ id, label, heading, children, accent }) {
+function ServiceNote({ title, text }) {
   return (
-    <section id={id} className="py-12 border-b border-gray-200 scroll-mt-24">
+    <div className="bg-slate-50 border-l-4 border-[var(--gw-gold)] p-6 mb-12 shadow-sm">
+      <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--gw-accent)] mb-2">{title}</p>
+      <p className="text-[15px] text-slate-700 font-light leading-relaxed italic">{text}</p>
+    </div>
+  );
+}
+
+function OptionsGrid({ options }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-12">
+      {options.map((opt, i) => (
+        <div key={i} className="p-6 bg-white border border-slate-100 shadow-sm hover:shadow-md transition-shadow">
+          <h4 className="font-bold text-[var(--gw-primary)] text-[16px] mb-2">{opt.title}</h4>
+          <p className="text-[13px] text-slate-500 leading-relaxed font-light">{opt.desc}</p>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+function FeesCTA({ href }) {
+  return (
+    <div className="mt-16 pt-12 border-t border-slate-200">
+      <div className="bg-white border border-slate-200 p-8 md:p-12 text-center max-w-2xl mx-auto">
+        <h3 className="text-2xl font-serif text-[var(--gw-primary)] mb-4">Transparent Pricing</h3>
+        <p className="text-slate-600 font-light mb-8">View our complete fee schedule for consultations, treatments, and ongoing groups.</p>
+        <Link 
+          href={href || '/fees-and-insurance'} 
+          className="inline-flex items-center gap-2 bg-[var(--gw-primary)] text-white text-[12px] font-bold uppercase tracking-widest px-8 py-4 hover:bg-[var(--gw-blue)] transition-colors"
+        >
+          View Our Fees
+          <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
+            <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+          </svg>
+        </Link>
+      </div>
+    </div>
+  );
+}
+
+function ContentSection({ id, label, heading, children, className = "" }) {
+  return (
+    <section id={id} className={`py-12 border-b border-gray-200 scroll-mt-24 ${className}`}>
       <SectionLabel>{label}</SectionLabel>
       <SectionHeading>{heading}</SectionHeading>
       {children}
@@ -409,13 +418,16 @@ export default function ServiceDetailPage({ params }) {
 
   const tocItems = [
     { id: 'what', label: `Overview`, show: !!service.what },
-    { id: 'conditions', label: 'Indications', show: service.conditions?.length > 0 },
-    { id: 'why', label: `Our Advantage`, show: !!service.whyGwcim },
-    { id: 'how', label: `Our Method`, show: !!service.howWeDoIt },
+    { id: 'who', label: `Qualifications`, show: !!service.who },
+    { id: 'options', label: 'Options', show: !!service.options },
+    { id: 'principles', label: 'Approach', show: service.principles?.length > 0 },
+    { id: 'conditions', label: 'Indications', show: !!service.conditions },
+    { id: 'why', label: `Advantage`, show: !!service.whyGwcim },
+    { id: 'schedule', label: 'Schedule', show: (slug === 'long-covid-online-groups' || slug === 'recode-support-group') },
     { id: 'providers', label: 'Specialists', show: service.providers?.length > 0 },
-    { id: 'more', label: `Background`, show: !!service.moreAbout },
-    { id: 'faqs', label: 'Common Questions', show: service.faqs?.length > 0 },
-    { id: 'related', label: 'Related Links', show: service.related?.length > 0 },
+    { id: 'how', label: `Expectations`, show: !!service.howWeDoIt },
+    { id: 'videos', label: 'Education', show: service.youtube?.length > 0 },
+    { id: 'faqs', label: 'FAQ', show: service.faqs?.length > 0 },
   ].filter(item => item.show);
 
   useEffect(() => {
@@ -550,143 +562,127 @@ export default function ServiceDetailPage({ params }) {
                 </ul>
               </nav>
 
-              {/* What is */}
+              {/* 1) Note */}
+              {service.note && <ServiceNote title={service.note.title} text={service.note.text} />}
+
+              {/* 2) What is */}
               <ContentSection id="what" label="Overview" heading={`What is ${service.title}?`}>
                 <div className="space-y-5 text-[var(--gw-text-main)]">
-                  {service.what.split('\n\n').map((para, i) => {
-                    // Detect standalone sub-headings (short, ends in ?)
-                    const isSubheading = para.trim().length < 80 && para.trim().endsWith('?');
-                    if (isSubheading) {
-                      return (
-                        <h3 key={i}
-                          className="text-[20px] font-semibold text-[var(--gw-primary)] pt-4 pb-1 border-t border-gray-200"
-                          style={{ fontFamily: 'var(--font-gt-super)' }}
-                        >
-                          {para.trim()}
-                        </h3>
-                      );
-                    }
-                    return (
-                      <p key={i} className="text-[16px] leading-relaxed text-[var(--gw-text-main)]">
-                        {para}
-                      </p>
-                    );
-                  })}
-                </div>
-                
-                {/* Specific injection for Ongoing Groups schedules */}
-                {(slug === 'long-covid-online-groups' || slug === 'recode-support-group') && (
-                    <div className="mt-12" id="schedule">
-                        <SectionHeading>Ongoing Groups Schedule</SectionHeading>
-                        <p className="text-[16px] leading-relaxed text-[var(--gw-text-main)] mb-6">
-                            Join our weekly group sessions hosted by our expert facilitators. Check the schedule below to find a time that works best for you.
-                        </p>
-                        <WeekCalendar schedule={
-                            slug === 'long-covid-online-groups' 
-                            ? [
-                                { group: 'Group #2', day: 'Wednesday', time: '5:30pm - 6:30pm', color: 'bg-[#abcc76]/20 text-[#068466] border-[#abcc76]' },
-                                { group: 'Group #3', day: 'Thursday', time: '12:00pm - 1:00pm', color: 'bg-[#99A7B8]/20 text-[#3E5166] border-[#99A7B8]' },
-                                { group: 'Group #1', day: 'Thursday', time: '5:30pm - 6:30pm', color: 'bg-[#B9C1B3]/30 text-[#425c7b] border-[#B9C1B3]' }
-                              ]
-                            : [
-                                { group: 'ReCODE Support', day: 'Tuesday', time: '5:30pm - 6:30pm', color: 'bg-[#DABF62]/20 text-[#AB8B22] border-[#DABF62]' }
-                              ]
-                        } />
-                    </div>
-                )}
-              </ContentSection>
-
-              {/* Conditions */}
-              <ContentSection id="conditions" label="Indications" heading="What conditions does it treat?">
-                <div className="flex flex-wrap w-full gap-[2px] bg-[var(--gw-secondary-light)]">
-                  {service.conditions.map((cond, i) => (
-                    <div
-                      key={i}
-                      className="group flex-grow flex items-center justify-center hover:bg-[var(--gw-blue)] px-6 h-[72px] font-semibold text-[14px] tracking-wide bg-[var(--sw-hazel)] transition-colors duration-300 text-center cursor-default"
-                    >
-                      <span className="text-[var(--gw-primary)] group-hover:text-white transition-colors duration-300">{cond}</span>
-                    </div>
+                  {service.what.split('\n\n').map((para, i) => (
+                    <p key={i} className="text-[17px] leading-relaxed font-light text-slate-700">
+                      {para}
+                    </p>
                   ))}
                 </div>
               </ContentSection>
 
-              {/* Why GWCIM */}
-              <ContentSection id="why" label="Our Approach" heading={`Why ${service.title} at GWCIM?`}>
+              {/* 3) Who are licensed Naturopathic Doctors (ND)? */}
+              <ContentSection id="who" label="Qualifications" heading={`Who are licensed Naturopathic Doctors (ND)?`}>
+                <div className="space-y-5 text-[var(--gw-text-main)]">
+                  {service.who.split('\n\n').map((para, i) => (
+                    <p key={i} className="text-[17px] leading-relaxed font-light text-slate-700">
+                      {para}
+                    </p>
+                  ))}
+                </div>
+              </ContentSection>
+
+              {/* 4) Options */}
+              {service.options && (
+                <ContentSection id="options" label="Options" heading="Care Models">
+                  <OptionsGrid options={service.options} />
+                </ContentSection>
+              )}
+
+              {/* 5) Core Principles */}
+              {service.principles?.length > 0 && (
+                <ContentSection id="principles" label="Approach" heading="Core Principles">
+                  <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                    {service.principles.map((p, i) => (
+                      <div key={i} className="p-6 bg-white border border-slate-100 shadow-sm hover:shadow-md transition-all border-t-4" style={{ borderTopColor: colors.hex }}>
+                        <p className="text-[14px] font-bold text-[var(--gw-primary)] mb-2 uppercase tracking-wide">{p.name}</p>
+                        <p className="text-[13px] text-[var(--gw-text-muted)] leading-relaxed font-light">{p.description}</p>
+                      </div>
+                    ))}
+                  </div>
+                </ContentSection>
+              )}
+
+              {/* 6) Conditions */}
+              {service.conditions && (
+                <ContentSection id="conditions" label="Indications" heading="Conditions Treated">
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {(service.conditions.clickable || []).map((cond, i) => (
+                      <Link
+                        key={i}
+                        href={`/conditions/${cond.slug || '#'}`}
+                        className="px-6 py-4 bg-[var(--sw-hazel)] text-[var(--gw-primary)] font-bold text-[13px] uppercase tracking-widest hover:bg-[var(--gw-blue)] hover:text-white transition-all shadow-sm"
+                      >
+                        {cond.label}
+                      </Link>
+                    ))}
+                  </div>
+                  <div className="flex flex-wrap gap-x-6 gap-y-3">
+                    {(service.conditions.seo || []).map((cond, i) => (
+                      <span key={i} className="text-[12px] font-medium text-slate-400 uppercase tracking-widest border-b border-slate-100 pb-1">
+                        {cond}
+                      </span>
+                    ))}
+                  </div>
+                </ContentSection>
+              )}
+
+              {/* 7) OUR Approach */}
+              <ContentSection id="why" label="Expertise" heading="Our Team-Based Approach">
                 <div className="space-y-4">
                   {service.whyGwcim.split('\n\n').map((para, i) => (
-                    <p key={i} className="text-[16px] leading-relaxed text-[var(--gw-text-main)]">{para}</p>
+                    <p key={i} className="text-[16px] leading-relaxed text-slate-700 font-light">{para}</p>
                   ))}
                 </div>
-
-                {/* Pull quote */}
-                <blockquote className="mt-8 pl-6 border-l-4 bg-white py-5 pr-6" style={{ borderLeftColor: colors.hex }}>
-                  <p className="text-[17px] font-medium text-[var(--gw-primary)] leading-snug italic"
-                    style={{ fontFamily: 'var(--font-gt-super)' }}
-                  >
-                    &ldquo;GWCIM integrates the best of conventional and complementary medicine to offer care that is truly personalized, evidence-informed, and compassionate.&rdquo;
-                  </p>
-                </blockquote>
               </ContentSection>
 
-              {/* How we do it */}
-              <ContentSection id="how" label="Our Method" heading={`How do we do ${service.title} at GWCIM?`}>
-                <div className="space-y-1 mb-8">
-                  {service.howWeDoIt.split('\n').map((line, i) => {
-                    if (line.startsWith('•')) {
-                      return (
-                        <div key={i} className="flex items-center gap-3 py-2.5 px-4 bg-white border-l-2" style={{ borderLeftColor: colors.hex }}>
-                          <span className="text-[15px] text-[var(--gw-text-main)]">{line.slice(1).trim()}</span>
-                        </div>
-                      );
-                    }
-                    return line.trim() ? (
-                      <p key={i} className="text-[16px] leading-relaxed text-[var(--gw-text-main)] mb-4">{line}</p>
-                    ) : null;
-                  })}
-                </div>
+              {/* 8) Schedule & Groups */}
+              {(slug === 'long-covid-online-groups' || slug === 'recode-support-group') && (
+                <ContentSection id="schedule" label="Community" heading="Ongoing Groups Schedule">
+                    <WeekCalendar schedule={
+                        slug === 'long-covid-online-groups' 
+                        ? [
+                            { group: 'Group #2', day: 'Wednesday', time: '5:30pm - 6:30pm', color: 'bg-[#abcc76]/20 text-[#068466] border-[#abcc76]' },
+                            { group: 'Group #3', day: 'Thursday', time: '12:00pm - 1:00pm', color: 'bg-[#99A7B8]/20 text-[#3E5166] border-[#99A7B8]' },
+                            { group: 'Group #1', day: 'Thursday', time: '5:30pm - 6:30pm', color: 'bg-[#B9C1B3]/30 text-[#425c7b] border-[#B9C1B3]' }
+                          ]
+                        : [
+                            { group: 'ReCODE Support', day: 'Tuesday', time: '5:30pm - 6:30pm', color: 'bg-[#DABF62]/20 text-[#AB8B22] border-[#DABF62]' }
+                          ]
+                    } />
+                </ContentSection>
+              )}
 
-                {/* Principles */}
-                {service.principles?.length > 0 && (
-                  <>
-                    <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-4 mt-10">Principles of Naturopathic Medicine</p>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                      {service.principles.map((p, i) => (
-                        <div key={i} className="p-5 bg-white rounded-xl border border-gray-100 shadow-sm hover:shadow-md transition-all border-l-4" style={{ borderLeftColor: colors.hex }}>
-                          <p className="text-[13px] font-bold text-[var(--gw-primary)] mb-1.5">{p.name}</p>
-                          <p className="text-[13px] text-[var(--gw-text-muted)] leading-relaxed">{p.description}</p>
-                        </div>
-                      ))}
-                    </div>
-                  </>
-                )}
-              </ContentSection>
-
-              {/* Providers */}
+              {/* 9) Meet our team */}
               {service.providers.length > 0 && (
-                <ContentSection id="providers" label="Our Team" heading={`GWCIM ${service.title} Providers`}>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                <ContentSection id="providers" label="Our Team" heading="Meet the Specialists">
+                  <div className="flex flex-wrap gap-4">
                     {service.providers.map((provider, i) => (
                       <Link 
                         key={i} 
                         href={`/people/${provider.slug || '#'}`}
-                        className="flex items-center gap-4 p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md transition-all group cursor-pointer"
+                        className="flex items-center gap-3 p-3 bg-white border border-slate-50 shadow-sm hover:shadow-md transition-all group lg:min-w-[280px]"
                       >
-                        <div className="w-14 h-14 rounded-full shrink-0 overflow-hidden border border-gray-100">
+                        <div className="w-12 h-12 rounded-full shrink-0 overflow-hidden border border-gray-100 shadow-sm">
                           {provider.image ? (
                             <img src={provider.image} alt={provider.name} className="w-full h-full object-cover" />
                           ) : (
-                            <div className="w-full h-full flex items-center justify-center text-white font-bold text-[18px]"
+                            <div className="w-full h-full flex items-center justify-center text-white font-bold text-[14px]"
                               style={{ backgroundColor: colors.hex }}>
                               {provider.name.charAt(0)}
                             </div>
                           )}
                         </div>
                         <div>
-                          <p className="font-semibold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[15px]">
+                          <p className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[14px] leading-tight mb-0.5">
                             {provider.name}{provider.credentials ? `, ${provider.credentials}` : ''}
                           </p>
-                          <p className="text-[13px] text-[var(--gw-text-muted)]">{provider.role}</p>
-                          <p className="text-[12px] text-[var(--gw-blue)] mt-0.5">{provider.specialty}</p>
+                          <p className="text-[11px] font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-80">{provider.role}</p>
                         </div>
                       </Link>
                     ))}
@@ -694,27 +690,66 @@ export default function ServiceDetailPage({ params }) {
                 </ContentSection>
               )}
 
-              {/* More about */}
-              {service.moreAbout && (
-                <ContentSection id="more" label="Background" heading={`More About ${service.title}`}>
-                  {/* Bottom image */}
-                  {service.bottomImage && (
-                    <div className="mb-8 rounded-2xl overflow-hidden h-[280px] bg-gray-100">
-                      <img src={service.bottomImage} alt={service.title} className="w-full h-full object-cover" onError={(e) => { e.target.parentElement.style.display = 'none'; }} />
+              {/* 10) What to expect */}
+              <ContentSection id="how" label="Expectations" heading="During Your Visit">
+                <div className="space-y-6">
+                  <p className="text-[17px] text-slate-700 leading-relaxed font-light">{service.howWeDoIt}</p>
+                  {service.expectations && (
+                    <div className="bg-[var(--sw-solitude)]/10 border-l-4 border-[var(--sw-solitude)] p-6 italic text-[15px] text-slate-600 font-light">
+                      {service.expectations}
                     </div>
                   )}
-                  <div className="space-y-4">
-                    {service.moreAbout.split('\n\n').map((para, i) => (
-                      <p key={i} className="text-[16px] leading-relaxed text-[var(--gw-text-main)]">{para}</p>
+                </div>
+              </ContentSection>
+
+              {/* 11) Educational Videos */}
+              {service.youtube && service.youtube.length > 0 && (
+                <ContentSection id="videos" label="Edu" heading="Educational Videos">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    {service.youtube.map((vid) => (
+                      <button
+                        key={vid.videoId}
+                        onClick={() => setOpenVideoId(vid.videoId)}
+                        className="group text-left relative overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 border border-gray-100"
+                      >
+                        <div className="relative aspect-video bg-gray-900 overflow-hidden">
+                          <img
+                            src={`https://img.youtube.com/vi/${vid.videoId}/maxresdefault.jpg`}
+                            alt={vid.title}
+                            className="w-full h-full object-cover opacity-90 group-hover:opacity-75 group-hover:scale-105 transition-all duration-500"
+                            onError={(e) => { e.target.src = `https://img.youtube.com/vi/${vid.videoId}/hqdefault.jpg`; }}
+                          />
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <div className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center group-hover:bg-[#FF0000] transition-all">
+                              <svg className="w-5 h-5 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
+                                <path d="M8 5v14l11-7z" />
+                              </svg>
+                            </div>
+                          </div>
+                        </div>
+                        <div className="p-4 bg-white">
+                          <h4 className="text-[14px] font-bold text-[var(--gw-primary)] mb-1">{vid.title}</h4>
+                          <p className="text-[12px] text-slate-500 font-light line-clamp-2">{vid.description}</p>
+                        </div>
+                      </button>
                     ))}
                   </div>
                 </ContentSection>
               )}
 
-              {/* FAQs */}
+              {/* 12) Educational Illustration (Placeholder logic) */}
+              {service.illustration && (
+                <ContentSection id="illustration" label="Visuals" heading="How it Works">
+                  <div className="bg-white border border-slate-100 p-4 shadow-sm">
+                    <img src={service.illustration} alt="Educational Illustration" className="w-full h-auto" />
+                  </div>
+                </ContentSection>
+              )}
+
+              {/* 13) FAQs */}
               {service.faqs.length > 0 && (
-                <ContentSection id="faqs" label="Common Questions" heading="Frequently Asked Questions">
-                  <div className="divide-y divide-gray-200 border-t border-gray-200">
+                <ContentSection id="faqs" label="FAQ" heading="Frequently Asked Questions">
+                  <div className="divide-y divide-gray-100">
                     {service.faqs.map((faq, i) => (
                       <FAQItem
                         key={i}
@@ -727,6 +762,9 @@ export default function ServiceDetailPage({ params }) {
                   </div>
                 </ContentSection>
               )}
+
+              {/* 14) Our Fees Button */}
+              {service.feesLink && <FeesCTA href={service.feesLink} />}
 
               {/* Related Pages */}
               {service.related.length > 0 && (
