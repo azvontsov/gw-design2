@@ -349,41 +349,47 @@ function FAQItem({ q, a, isOpen, onToggle }) {
 }
 
 function WeekCalendar({ schedule }) {
-  const days = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'];
+  const days = [
+    { full: 'Monday', short: 'MON' },
+    { full: 'Tuesday', short: 'TUE' },
+    { full: 'Wednesday', short: 'WED' },
+    { full: 'Thursday', short: 'THU' },
+    { full: 'Friday', short: 'FRI' }
+  ];
 
   return (
-    <div className="bg-white p-6 md:p-8 border border-slate-200 overflow-x-auto shadow-sm my-6">
-      <div className="min-w-[700px]">
-        <div className="grid grid-cols-5 gap-4 mb-2">
-          {days.map(day => (
-            <div key={day} className="text-center font-bold text-xs text-slate-400 uppercase tracking-[0.2em] px-2 py-3 border-b border-slate-100 font-sans">
-              {day}
+    <div className="bg-white p-3 md:p-6 border border-slate-200 shadow-sm my-6 overflow-hidden">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-2 md:gap-3">
+        {days.map(dayObj => {
+          const daySessions = schedule.filter(s => s.day === dayObj.full);
+          return (
+            <div key={dayObj.full} className="flex flex-col min-w-0">
+              <div className="text-center font-bold text-[10px] text-slate-400 uppercase tracking-[0.2em] py-2 border-b border-slate-100 font-sans mb-2">
+                <span className="hidden sm:inline lg:hidden xl:inline">{dayObj.full}</span>
+                <span className="sm:hidden lg:inline xl:hidden">{dayObj.short}</span>
+              </div>
+              <div className={`min-h-[80px] sm:min-h-[120px] bg-slate-50/50 border border-slate-100 p-2 flex flex-col gap-2 rounded-lg ${daySessions.length === 0 ? 'hidden sm:flex opacity-20' : 'flex'}`}>
+                {daySessions.map((item, i) => (
+                  <div key={i} className={`p-3 md:p-4 border ${item.color || 'bg-white border-slate-200'} transition-all hover:-translate-y-0.5 shadow-sm rounded-md`}>
+                    <p className="font-bold text-[11px] md:text-[12px] mb-1.5 text-black leading-tight truncate-2-lines">{item.group}</p>
+                    <p className="text-[9px] md:text-[10px] font-semibold opacity-90 flex items-center gap-1 tracking-wide text-slate-700">
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={3} stroke="currentColor" className="w-3 h-3 shrink-0">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      {item.time.replace(' ', '')}
+                    </p>
+                  </div>
+                ))}
+              </div>
             </div>
-          ))}
-        </div>
-        <div className="grid grid-cols-5 gap-4">
-          {days.map(day => (
-            <div key={day} className="min-h-[140px] bg-slate-50 border border-slate-100 p-3 flex flex-col gap-3">
-              {schedule.filter(s => s.day === day).map((item, i) => (
-                <div key={i} className={`p-4 border ${item.color || 'bg-white border-slate-200'} transition-all hover:-translate-y-0.5 shadow-sm`}>
-                  <p className="font-bold text-[13px] mb-1.5 text-black">{item.group}</p>
-                  <p className="text-[11px] font-semibold opacity-90 flex items-center gap-1.5 tracking-wide text-slate-700">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-3.5 h-3.5">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                    {item.time}
-                  </p>
-                </div>
-              ))}
-            </div>
-          ))}
-        </div>
+          );
+        })}
       </div>
-      <div className="mt-6 flex flex-col md:flex-row items-center justify-between gap-4 border-t border-slate-100 pt-6">
-          <p className="text-sm font-semibold text-slate-500">
-              Cost: <span className="text-[var(--gw-primary)]">$100 /month membership</span> (cancel any time)
+      <div className="mt-6 flex flex-col sm:flex-row items-center justify-between gap-4 border-t border-slate-100 pt-6">
+          <p className="text-xs sm:text-sm font-semibold text-slate-500 text-center sm:text-left">
+              Cost: <span className="text-[var(--gw-primary)]">$100 /month membership</span>
           </p>
-          <a href="mailto:info@gwcim.com" className="bg-[var(--gw-primary)] hover:bg-[var(--gw-blue)] text-white px-6 py-2.5 text-xs font-bold uppercase tracking-widest transition-colors">
+          <a href="mailto:info@gwcim.com" className="w-full sm:w-auto bg-[var(--gw-primary)] hover:bg-[var(--gw-blue)] text-white px-6 py-3 text-[10px] font-bold uppercase tracking-widest transition-colors shadow-sm text-center">
               Register via Email
           </a>
       </div>
