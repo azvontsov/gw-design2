@@ -61,7 +61,7 @@ export default function FAQ() {
   const currentFaqs = faqData[activeCategory];
 
   return (
-    <section className="bg-[var(--gw-secondary-light)] min-h-screen pb-32">
+    <section id="faq" className="bg-[var(--gw-secondary-light)] min-h-screen pb-32">
       {/* Top Banner */}
       <div className="w-full bg-[var(--gw-primary)] py-8 mb-16 relative overflow-hidden flex items-center justify-center shadow-inner">
         {/* Subtle decorative background layers */}

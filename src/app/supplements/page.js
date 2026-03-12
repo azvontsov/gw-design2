@@ -180,7 +180,7 @@ export default function SupplementsPage() {
                  <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-4">Patient Links</p>
                  <ul className="space-y-3">
                      <li>
-                         <a href="/charm-patient-portal" className="flex items-start gap-3 group">
+                         <a href="/patient-portal" className="flex items-start gap-3 group">
                              <span className="shrink-0 mt-0.5 w-6 h-6 flex items-center justify-center bg-slate-50 border border-slate-100 group-hover:border-[var(--gw-blue)] transition-colors">
                                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.8} stroke="currentColor" className="w-3.5 h-3.5 text-[var(--gw-primary)]">
                                      <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" />

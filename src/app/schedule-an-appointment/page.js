@@ -231,7 +231,7 @@ export default function ScheduleAppointmentPage() {
                   desc: "Set up your ChARM account and submit all required forms. All future communication will be handled exclusively through the Portal.",
                   link: {
                     label: "Access Patient Portal →",
-                    href: "/charm-patient-portal",
+                    href: "/patient-portal",
                   },
                 },
                 {

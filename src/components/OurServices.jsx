@@ -4,36 +4,36 @@ export default function OurServices() {
 
   const servicesData = {
     "Consultations": [
-      { id: 1, icon: "/images/doodles/icon-1.png", title: "Integrative Geriatrics", slug: "integrative-geriatrics" },
-      { id: 2, icon: "/images/doodles/icon-2.png", title: "Naturopathic Medicine", slug: "naturopathic-medicine" },
-      { id: 3, icon: "/images/doodles/icon-3.png", title: "Functional Medicine", slug: "functional-medicine" },
-      { id: 4, icon: "/images/doodles/icon-4.png", title: "Integrative Mental Health", slug: "integrative-mental-health" },
-      { id: 5, icon: "/images/doodles/icon-5.png", title: "Sarno/Mind-Body Method", slug: "sarno-mind-body-method" },
-      { id: 6, icon: "/images/doodles/icon-6.png", title: "Pediatric and Adolescent Integrative Medicine", slug: "pediatric-adolescent-integrative-medicine" },
-      { id: 7, icon: "/images/doodles/icon-7.png", title: "Medical Cannabis", slug: "medical-cannabis" },
-      { id: 8, icon: "/images/doodles/icon-8.png", title: "Nutritional Counseling", slug: "nutritional-counseling" }
+      { id: 1, icon: "/images/doodles/Consultations/int-geriatrics-tree.png", title: "Integrative Geriatrics", slug: "integrative-geriatrics" },
+      { id: 2, icon: "/images/doodles/Consultations/naturopathic-scale.png", title: "Naturopathic Medicine", slug: "naturopathic-medicine" },
+      { id: 3, icon: "/images/doodles/Consultations/functional-three-gears.png", title: "Functional Medicine", slug: "functional-medicine" },
+      { id: 4, icon: "/images/doodles/Consultations/int-mental-lotus.png", title: "Integrative Mental Health", slug: "integrative-mental-health" },
+      { id: 5, icon: "/images/doodles/Consultations/sarno-vertebrae-spinal-column.png", title: "Sarno/Mind-Body Method", slug: "sarno-mind-body-method" },
+      { id: 6, icon: "/images/doodles/Consultations/pediatrics-two-people.png", title: "Pediatric and Adolescent Integrative Medicine", slug: "pediatric-adolescent-integrative-medicine" },
+      { id: 7, icon: "/images/doodles/Consultations/med-cannabis-leaf.png", title: "Medical Cannabis", slug: "medical-cannabis" },
+      { id: 8, icon: "/images/doodles/Consultations/nutritional-apple.png", title: "Nutritional Counseling", slug: "nutritional-counseling" }
     ],
     "Treatments": [
-      { id: 11, icon: "/images/doodles/icon-11.png", title: "Intravenous Therapy", slug: "intravenous-therapy" },
+      { id: 11, icon: "/images/doodles/Treatments/IVs-IV-bag.png", title: "Intravenous Therapy", slug: "intravenous-therapy" },
       { id: 12, icon: "/images/doodles/icon-12.png", title: "Mistletoe Injection Therapy for Cancer", slug: "mistletoe-injection-therapy" },
-      { id: 13, icon: "/images/doodles/icon-13.png", title: "Acupuncture and Chinese Medicine", slug: "acupuncture-chinese-medicine" },
-      { id: 14, icon: "/images/doodles/icon-14.png", title: "Microneedling and Facial Acupuncture", slug: "microneedling-facial-acupuncture" },
-      { id: 15, icon: "/images/doodles/icon-15.png", title: "Reiki", slug: "reiki" },
-      { id: 16, icon: "/images/doodles/icon-16.png", title: "Somatic Experiencing", slug: "somatic-experiencing" },
-      { id: 17, icon: "/images/doodles/icon-17.png", title: "KAP Assisted Psychotherapy", slug: "kap-assisted-psychotherapy" }
+      { id: 13, icon: "/images/doodles/Treatments/acupuncture-needles.png", title: "Acupuncture and Chinese Medicine", slug: "acupuncture-chinese-medicine" },
+      { id: 14, icon: "/images/doodles/Treatments/micro-and-facial-ear.png", title: "Microneedling and Facial Acupuncture", slug: "microneedling-facial-acupuncture" },
+      { id: 15, icon: "/images/doodles/Treatments/reiki-wyo-hands-spread.png", title: "Reiki", slug: "reiki" },
+      { id: 16, icon: "/images/doodles/Treatments/somatic-exp-body-with-dots.png", title: "Somatic Experiencing", slug: "somatic-experiencing" },
+      { id: 17, icon: "/images/doodles/Treatments/KAP-therapy-molecule.png", title: "KAP Assisted Psychotherapy", slug: "kap-assisted-psychotherapy" }
     ],
     "Programs": [
-      { id: 21, icon: "/images/doodles/icon-21.png", title: "Concierge Integrative Medicine Care", slug: "concierge-integrative-medicine" },
-      { id: 22, icon: "/images/doodles/icon-22.png", title: "Reversal of Cognitive Decline ReCODE", slug: "reversal-cognitive-decline-recode" },
-      { id: 23, icon: "/images/doodles/icon-23.png", title: "Long Covid", slug: "long-covid" },
-      { id: 24, icon: "/images/doodles/icon-24.png", title: "Shoemaker Protocol for CIRS and Mold Toxicity", slug: "shoemaker-protocol-cirs-mold" },
-      { id: 25, icon: "/images/doodles/icon-25.png", title: "Mindfulness Based Stress Reduction MBSR", slug: "mindfulness-based-stress-reduction" },
-      { id: 26, icon: "/images/doodles/icon-26.png", title: "Weight/Body Composition", slug: "weight-body-composition" },
-      { id: 27, icon: "/images/doodles/icon-27.png", title: "Executive Coaching", slug: "executive-coaching" }
+      { id: 21, icon: "/images/doodles/Consultations/int-geriatrics-tree.png", title: "Concierge Integrative Medicine Care", slug: "concierge-integrative-medicine" },
+      { id: 22, icon: "/images/doodles/Programs/ReCODE-tm-neural-cell.png", title: "Reversal of Cognitive Decline ReCODE", slug: "reversal-cognitive-decline-recode" },
+      { id: 23, icon: "/images/doodles/Programs/long-covid-virus.png", title: "Long Covid", slug: "long-covid" },
+      { id: 24, icon: "/images/doodles/Programs/shoemaker-CIRS-DNA.png", title: "Shoemaker Protocol for CIRS and Mold Toxicity", slug: "shoemaker-protocol-cirs-mold" },
+      { id: 25, icon: "/images/doodles/Treatments/yoga-and-mindfulness.png", title: "Mindfulness Based Stress Reduction MBSR", slug: "mindfulness-based-stress-reduction" },
+      { id: 26, icon: "/images/doodles/Consultations/naturopathic-scale.png", title: "Weight/Body Composition", slug: "weight-body-composition" },
+      { id: 27, icon: "/images/doodles/Programs/ex-coach-people.png", title: "Executive Coaching", slug: "executive-coaching" }
     ],
     "Ongoing Groups": [
-      { id: 31, icon: "/images/doodles/icon-31.png", title: "Long COVID Medical Online Groups", slug: "long-covid-online-groups" },
-      { id: 32, icon: "/images/doodles/icon-32.png", title: "ReCODE Support Group", slug: "recode-support-group" }
+      { id: 31, icon: "/images/doodles/Groups/long-covid-people.png", title: "Long COVID Medical Online Groups", slug: "long-covid-online-groups" },
+      { id: 32, icon: "/images/doodles/Groups/reCODE-support.png", title: "ReCODE Support Group", slug: "recode-support-group" }
     ]
   };
 

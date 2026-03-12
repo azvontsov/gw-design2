@@ -81,7 +81,7 @@ const menuItems = [
     title: "Resources",
     href: "#",
     submenu: [
-      { title: "Patient Portal", href: "https://accounts.charmtracker.com/signin?hide_signup-true&hide_secure=true&hide_gsignup-true&servicename-charmhealth&serviceurl=https://phr.charmtracker.com/main.do", target: "_blank" },
+      { title: "Patient Portal", href: "/patient-portal" },
       { title: "News & Events", href: "/news-and-events" },
       { title: "Full Script Supplements Store", href: "/supplements" },
     ]

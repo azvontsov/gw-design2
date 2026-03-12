@@ -3,12 +3,12 @@
 import Link from 'next/link';
 
 const resources = [
-  { title: "Patient Portal", href: "#" },
-  { title: "Pay a Bill", href: "#" },
-  { title: "New Patient Forms", href: "#" },
-  { title: "Full Script Supplements Store", href: "#" },
-  { title: "Insurance Info", href: "#" },
-  { title: "FAQs", href: "#" },
+  { title: "Patient Portal", href: "/patient-portal"},
+  { title: "Pay a Bill", href: "https://phr.charmtracker.com/main.do", target: "_blank" },
+  { title: "New Patient Forms", href: "/schedule-an-appointment" },
+  { title: "Full Script Supplements Store", href: "/supplements" },
+  { title: "Insurance Info", href: "/fees-and-insurance" },
+  { title: "FAQs", href: "/#faq" },
 ];
 
 export default function ResourcesQuickLinks() {
@@ -33,7 +33,7 @@ export default function ResourcesQuickLinks() {
               {resources.map((item, idx) => (
                 <Link
                   key={idx}
-                  href={item.href}
+                  {...item}
                   className="group flex items-center justify-center bg-[#586b86ff] text-white px-4 py-2.5 rounded-xl font-bold text-[11px] tracking-widest uppercase hover:bg-[var(--gw-terracotta)] transition-all duration-300 shadow-sm hover:shadow-lg transform hover:-translate-y-0.5 whitespace-nowrap"
                 >
                   <span>{item.title}</span>

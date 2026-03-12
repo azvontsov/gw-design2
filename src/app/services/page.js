@@ -16,36 +16,36 @@ function ServicesContent() {
 
   const servicesData = {
     "Consultations": [
-      { id: 1, icon: "/images/doodles/icon-1.png", title: "Integrative Geriatrics", slug: "integrative-geriatrics", description: "Comprehensive health span care and age management." },
-      { id: 2, icon: "/images/doodles/icon-2.png", title: "Naturopathic Medicine", slug: "naturopathic-medicine", description: "Whole-person naturopathic therapies and natural remedies." },
-      { id: 3, icon: "/images/doodles/icon-3.png", title: "Functional Medicine", slug: "functional-medicine", description: "Root-cause approach to chronic illness and optimal health." },
-      { id: 4, icon: "/images/doodles/icon-4.png", title: "Integrative Mental Health", slug: "integrative-mental-health", description: "Holistic strategies for mental and emotional wellbeing." },
-      { id: 5, icon: "/images/doodles/icon-5.png", title: "Sarno/Mind-Body Method", slug: "sarno-mind-body-method", description: "Treatment of chronic pain through mind-body connection." },
-      { id: 6, icon: "/images/doodles/icon-6.png", title: "Pediatric and Adolescent Integrative Medicine", slug: "pediatric-adolescent-integrative-medicine", description: "Specialized, gentle care for children and teens." },
-      { id: 7, icon: "/images/doodles/icon-7.png", title: "Medical Cannabis", slug: "medical-cannabis", description: "Expert guidance on medical cannabis therapies." },
-      { id: 8, icon: "/images/doodles/icon-8.png", title: "Nutritional Counseling", slug: "nutritional-counseling", description: "Personalized diet and nutrition plans for healing." }
+      { id: 1, icon: "/images/doodles/Consultations/int-geriatrics-tree.png", title: "Integrative Geriatrics", slug: "integrative-geriatrics", description: "Comprehensive health span care and age management." },
+      { id: 2, icon: "/images/doodles/Consultations/naturopathic-scale.png", title: "Naturopathic Medicine", slug: "naturopathic-medicine", description: "Whole-person naturopathic therapies and natural remedies." },
+      { id: 3, icon: "/images/doodles/Consultations/functional-three-gears.png", title: "Functional Medicine", slug: "functional-medicine", description: "Root-cause approach to chronic illness and optimal health." },
+      { id: 4, icon: "/images/doodles/Consultations/int-mental-lotus.png", title: "Integrative Mental Health", slug: "integrative-mental-health", description: "Holistic strategies for mental and emotional wellbeing." },
+      { id: 5, icon: "/images/doodles/Consultations/sarno-vertebrae-spinal-column.png", title: "Sarno/Mind-Body Method", slug: "sarno-mind-body-method", description: "Treatment of chronic pain through mind-body connection." },
+      { id: 6, icon: "/images/doodles/Consultations/pediatrics-two-people.png", title: "Pediatric and Adolescent Integrative Medicine", slug: "pediatric-adolescent-integrative-medicine", description: "Specialized, gentle care for children and teens." },
+      { id: 7, icon: "/images/doodles/Consultations/med-cannabis-leaf.png", title: "Medical Cannabis", slug: "medical-cannabis", description: "Expert guidance on medical cannabis therapies." },
+      { id: 8, icon: "/images/doodles/Consultations/nutritional-apple.png", title: "Nutritional Counseling", slug: "nutritional-counseling", description: "Personalized diet and nutrition plans for healing." }
     ],
     "Treatments": [
-      { id: 11, icon: "/images/doodles/icon-11.png", title: "Intravenous Therapy", slug: "intravenous-therapy", description: "Direct delivery of essential nutrients and hydration." },
+      { id: 11, icon: "/images/doodles/Treatments/IVs-IV-bag.png", title: "Intravenous Therapy", slug: "intravenous-therapy", description: "Direct delivery of essential nutrients and hydration." },
       { id: 12, icon: "/images/doodles/icon-12.png", title: "Mistletoe Injection Therapy for Cancer", slug: "mistletoe-injection-therapy", description: "Supportive integrative oncology therapies." },
-      { id: 13, icon: "/images/doodles/icon-13.png", title: "Acupuncture and Chinese Medicine", slug: "acupuncture-chinese-medicine", description: "Traditional practices to balance the body's energy." },
-      { id: 14, icon: "/images/doodles/icon-14.png", title: "Microneedling and Facial Acupuncture", slug: "microneedling-facial-acupuncture", description: "Natural rejuvenation and facial aesthetics." },
-      { id: 15, icon: "/images/doodles/icon-15.png", title: "Reiki", slug: "reiki", description: "Energy healing to promote relaxation and stress reduction." },
-      { id: 16, icon: "/images/doodles/icon-16.png", title: "Somatic Experiencing", slug: "somatic-experiencing", description: "Body-oriented approach to healing trauma and stress." },
-      { id: 17, icon: "/images/doodles/icon-17.png", title: "KAP Assisted Psychotherapy", slug: "kap-assisted-psychotherapy", description: "Ketamine-assisted therapeutic sessions." }
+      { id: 13, icon: "/images/doodles/Treatments/acupuncture-needles.png", title: "Acupuncture and Chinese Medicine", slug: "acupuncture-chinese-medicine", description: "Traditional practices to balance the body's energy." },
+      { id: 14, icon: "/images/doodles/Treatments/micro-and-facial-ear.png", title: "Microneedling and Facial Acupuncture", slug: "microneedling-facial-acupuncture", description: "Natural rejuvenation and facial aesthetics." },
+      { id: 15, icon: "/images/doodles/Treatments/reiki-wyo-hands-spread.png", title: "Reiki", slug: "reiki", description: "Energy healing to promote relaxation and stress reduction." },
+      { id: 16, icon: "/images/doodles/Treatments/somatic-exp-body-with-dots.png", title: "Somatic Experiencing", slug: "somatic-experiencing", description: "Body-oriented approach to healing trauma and stress." },
+      { id: 17, icon: "/images/doodles/Treatments/KAP-therapy-molecule.png", title: "KAP Assisted Psychotherapy", slug: "kap-assisted-psychotherapy", description: "Ketamine-assisted therapeutic sessions." }
     ],
     "Programs": [
-      { id: 21, icon: "/images/doodles/icon-21.png", title: "Concierge Integrative Medicine Care", slug: "concierge-integrative-medicine", description: "Premium, highly personalized access to our practitioners." },
-      { id: 22, icon: "/images/doodles/icon-22.png", title: "Reversal of Cognitive Decline ReCODE", slug: "reversal-cognitive-decline-recode", description: "Protocol for preventing and reversing cognitive decline." },
-      { id: 23, icon: "/images/doodles/icon-23.png", title: "Long Covid", slug: "long-covid", description: "Comprehensive management and recovery from Long Covid." },
-      { id: 24, icon: "/images/doodles/icon-24.png", title: "Shoemaker Protocol for CIRS and Mold Toxicity", slug: "shoemaker-protocol-cirs-mold", description: "Targeted treatment for chronic inflammatory response." },
-      { id: 25, icon: "/images/doodles/icon-25.png", title: "Mindfulness Based Stress Reduction MBSR", slug: "mindfulness-based-stress-reduction", description: "Evidence-based program for stress management." },
-      { id: 26, icon: "/images/doodles/icon-26.png", title: "Weight/Body Composition", slug: "weight-body-composition", description: "Holistic strategies for healthy weight management." },
-      { id: 27, icon: "/images/doodles/icon-27.png", title: "Executive Coaching", slug: "executive-coaching", description: "Performance and wellness coaching for professionals." }
+      { id: 21, icon: "/images/doodles/Consultations/int-geriatrics-tree.png", title: "Concierge Integrative Medicine Care", slug: "concierge-integrative-medicine", description: "Premium, highly personalized access to our practitioners." },
+      { id: 22, icon: "/images/doodles/Programs/ReCODE-tm-neural-cell.png", title: "Reversal of Cognitive Decline ReCODE", slug: "reversal-cognitive-decline-recode", description: "Protocol for preventing and reversing cognitive decline." },
+      { id: 23, icon: "/images/doodles/Programs/long-covid-virus.png", title: "Long Covid", slug: "long-covid", description: "Comprehensive management and recovery from Long Covid." },
+      { id: 24, icon: "/images/doodles/Programs/shoemaker-CIRS-DNA.png", title: "Shoemaker Protocol for CIRS and Mold Toxicity", slug: "shoemaker-protocol-cirs-mold", description: "Targeted treatment for chronic inflammatory response." },
+      { id: 25, icon: "/images/doodles/Treatments/yoga-and-mindfulness.png", title: "Mindfulness Based Stress Reduction MBSR", slug: "mindfulness-based-stress-reduction", description: "Evidence-based program for stress management." },
+      { id: 26, icon: "/images/doodles/Consultations/naturopathic-scale.png", title: "Weight/Body Composition", slug: "weight-body-composition", description: "Holistic strategies for healthy weight management." },
+      { id: 27, icon: "/images/doodles/Programs/ex-coach-people.png", title: "Executive Coaching", slug: "executive-coaching", description: "Performance and wellness coaching for professionals." }
     ],
     "Ongoing Groups": [
-      { id: 31, icon: "/images/doodles/icon-31.png", title: "Long COVID Medical Online Groups", slug: "long-covid-online-groups", description: "Supportive community and medical guidance for Long Covid." },
-      { id: 32, icon: "/images/doodles/icon-32.png", title: "ReCODE Support Group", slug: "recode-support-group", description: "Community support for the ReCODE cognitive protocol." }
+      { id: 31, icon: "/images/doodles/Groups/long-covid-people.png", title: "Long COVID Medical Online Groups", slug: "long-covid-online-groups", description: "Supportive community and medical guidance for Long Covid." },
+      { id: 32, icon: "/images/doodles/Groups/reCODE-support.png", title: "ReCODE Support Group", slug: "recode-support-group", description: "Community support for the ReCODE cognitive protocol." }
     ]
   };
 
@@ -201,7 +201,7 @@ function ServicesContent() {
             {/* Intro Text Section */}
             <div className="flex flex-col lg:flex-row lg:items-center gap-12 lg:gap-20 mb-20 pt-8 text-[var(--gw-text-main)] w-full">
               {/* Left Column (Main Intro) */}
-              <div className="flex-1 lg:max-w-[65%]">
+              <div className="flex-[1.5] min-w-0">
                 <h2 className="text-[28px] md:text-[32px] font-medium mb-6 text-[var(--gw-primary)]" style={{ fontFamily: 'var(--font-ginto), Helvetica, sans-serif' }}>
                   Personalized integrative health care at GWCIM
                 </h2>
@@ -214,7 +214,7 @@ function ServicesContent() {
               </div>
 
               {/* Right Column — Contact CTA */}
-              <div className="flex-1 lg:max-w-[30%] flex flex-col justify-center gap-5">
+              <div className="flex-1 md:max-w-md lg:max-w-none lg:min-w-[380px] flex flex-col justify-center gap-5">
                 {/* Contact links */}
                 <div className="flex flex-col gap-2 pt-1">
                   <p className="text-xl font-bold uppercase tracking-[0.2em] text-[var(--gw-text-primary)] mb-1">Contact Us Now!</p>
@@ -233,7 +233,7 @@ function ServicesContent() {
                 </div>
 
                 {/* Buttons */}
-                <div className="w-fit flex flex-col gap-3">
+                <div className="w-full flex flex-col gap-3">
                 <Link
                   href="/schedule-an-appointment"
                   className="w-full inline-flex items-center gap-3 hover:bg-[var(--gw-primary)] text-white text-[12px] font-bold uppercase tracking-widest px-6 py-4 bg-[var(--gw-blue)] transition-all duration-300 shadow-md"
@@ -244,7 +244,7 @@ function ServicesContent() {
                   New Patient Inquiry Form
                 </Link>
                 {/* Newsletter Signup Form */}
-                <div className="w-full lg:w-[400px]">
+                <div className="w-full">
                   <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-[var(--gw-text-primary)] mb-3">Subscribe to our newsletter</p>
                   <form 
                     action="YOUR_BREVO_FORM_ACTION_URL"
