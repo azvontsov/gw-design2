@@ -37,6 +37,55 @@ function ContentSection({ id, label, heading, children }) {
   );
 }
 
+function ProviderAvatar({ name, credentials, image, slug, subtitle }) {
+  return (
+    <Link 
+      href={`/people/${slug || '#'}`}
+      className="flex items-center gap-5 p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-[var(--gw-accent)] transition-all group min-h-[110px]"
+    >
+      <div className="w-16 h-16 rounded-full shrink-0 overflow-hidden border border-gray-100 bg-gray-50 flex items-center justify-center shadow-sm">
+        {image ? (
+          <img src={image} alt={name} className="w-full h-full object-cover" />
+        ) : (
+          <div className="w-full h-full bg-[var(--gw-primary)] flex items-center justify-center text-white font-bold text-lg uppercase">
+             {name.split(' ').pop().charAt(0)}
+          </div>
+        )}
+      </div>
+      <div className="flex flex-col gap-1.5 min-w-0">
+        <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[15px] leading-[1.3] break-words">
+          {name}{credentials ? `, ${credentials}` : ''}
+        </h4>
+        {subtitle && (
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-90 leading-relaxed">
+            {subtitle}
+          </p>
+        )}
+      </div>
+    </Link>
+  );
+}
+
+function SharedFeesTable({ fees, note }) {
+  return (
+    <div className="bg-white border border-gray-200 p-6 md:p-8 shadow-sm flex-grow rounded-sm">
+      <ul className="space-y-1">
+        {fees.map((f, i) => (
+          <li key={i} className="text-[14px] text-gray-600 font-light flex justify-between items-center px-2 py-2.5 border-b border-gray-50 last:border-0 hover:bg-slate-50 transition-colors">
+            <span className="tracking-tight pr-4">{f.label}</span>
+            <span className="font-bold text-[var(--gw-primary)] shrink-0">{f.price}</span>
+          </li>
+        ))}
+      </ul>
+      {note && (
+        <div className="mt-6 pt-6 border-t border-slate-100">
+           <p className="text-[11px] text-slate-500 italic leading-relaxed">{note}</p>
+        </div>
+      )}
+    </div>
+  );
+}
+
 function ProviderFeeCard({ name, credentials, image, slug, fees, note, subtitle }) {
   return (
     <Link 
@@ -211,7 +260,7 @@ export default function FeesAndInsurancePage() {
               </ContentSection>
 
                <ContentSection id="consultations" label="Services" heading="Consultations">
-                  <div className="space-y-16">
+                  <div className="space-y-24 md:space-y-32">
                     
                     {/* MD Section */}
                     <div>
@@ -323,27 +372,72 @@ export default function FeesAndInsurancePage() {
                         <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
                         Naturopathic Medicine
                       </h3>
-                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <ProviderFeeCard 
-                          name="Naturopathic Team"
-                          credentials="ND"
-                          image="/images/providers/dierdre.jpg"
-                          slug="deirdre-orceyre-nd-lac"
-                          subtitle="Dr. Orceyre, Dr. Ledenac, Dr. Sadrolsadot"
-                          fees={[
-                            { label: "Initial (90-120 min)", price: "$720-960" },
-                            { label: "Initial (75 min)", price: "$600" },
-                            { label: "Follow-up (90 min)", price: "$625" },
-                            { label: "Follow-up (60 min)", price: "$435" },
-                            { label: "Follow-up (45 min)", price: "$345" }
-                          ]}
-                          note="Initial and follow-up visits preferred in person"
-                        />
-                        <div className="p-8 bg-slate-50 border border-slate-100 flex flex-col justify-center">
-                           <p className="text-[14px] text-slate-600 font-light leading-relaxed">
-                             For most patients, initial and follow-up visits will need to be in person. DC residents are eligible for telemedicine visits. <br/><br/>
-                             <strong>Medical records review:</strong> fee is based on provider time.
-                           </p>
+                      <div className="flex flex-col lg:flex-row gap-10">
+                        <div className="lg:w-[45%] xl:w-[40%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 h-fit">
+                          <ProviderAvatar 
+                            name="Dr. Deirdre Orceyre"
+                            credentials="ND, MSOM, L.Ac."
+                            image="/images/providers/dierdre.jpg"
+                            slug="deirdre-orceyre-nd-lac"
+                            subtitle="Naturopathic Medical Director"
+                          />
+                          <ProviderAvatar 
+                            name="Dr. Marianna Ledenac"
+                            credentials="ND"
+                            image="/images/providers/marianna.jpeg"
+                            slug="marianna-ledenac-nd"
+                            subtitle="Naturopathic Physician"
+                          />
+                          <ProviderAvatar 
+                            name="Paymon Sadrolsadot"
+                            credentials="ND"
+                            image={null}
+                            slug="#"
+                            subtitle="Naturopathic Physician"
+                          />
+                        </div>
+                        <div className="lg:w-[55%] xl:w-[60%] flex flex-col">
+                           <SharedFeesTable 
+                             fees={[
+                               { label: "Initial (90-120 min)", price: "$720-960" },
+                               { label: "Initial (75 min)", price: "$600" },
+                               { label: "Follow-up (90 min)", price: "$625" },
+                               { label: "Follow-up (60 min)", price: "$435" },
+                               { label: "Follow-up (45 min)", price: "$345" }
+                             ]}
+                             note="Initial and follow-up visits preferred in person. DC residents are eligible for telemedicine."
+                           />
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Acupuncture Medicine */}
+                    <div>
+                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
+                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
+                        Acupuncture Medicine
+                      </h3>
+                      <div className="flex flex-col lg:flex-row gap-10">
+                        <div className="lg:w-[45%] xl:w-[40%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 h-fit">
+                          <ProviderAvatar 
+                            name="Angela Gabriel"
+                            credentials="MSOM, LAc, SEP"
+                            image="/images/providers/angela.png"
+                            slug="angela-n-gabriel-acupuncture-se"
+                            subtitle="Licensed Acupuncturist & SEP"
+                          />
+                        </div>
+                        <div className="lg:w-[55%] xl:w-[60%] flex flex-col">
+                           <SharedFeesTable 
+                             fees={[
+                               { label: "Initial (90-120 min)", price: "$720-960" },
+                               { label: "Initial (75 min)", price: "$600" },
+                               { label: "Follow-up (90 min)", price: "$625" },
+                               { label: "Follow-up (60 min)", price: "$435" },
+                               { label: "Follow-up (45 min)", price: "$345" }
+                             ]}
+                             note="Specializing in complex chronic illness and nervous system regulation."
+                           />
                         </div>
                       </div>
                     </div>

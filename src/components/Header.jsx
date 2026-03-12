@@ -218,13 +218,21 @@ export default function Header() {
                     isScrolled ? 'h-14 opacity-100 shadow-inner' : 'h-0 opacity-0'
                 }`}
             >
-                <div className="container mx-auto px-8 h-full flex items-center justify-center gap-12">
+                <div className="container mx-auto px-8 h-full flex items-center justify-center gap-8 xl:gap-12">
                      {/* Contact Link (moved from Main Row) */}
                      <Link 
                         href={menuItems[6].href} 
-                        className="text-[12px] font-bold uppercase tracking-[0.15em] text-white hover:text-[var(--gw-accent)] transition-colors h-full flex items-center px-2"
+                        className="text-[12px] font-bold uppercase tracking-[0.15em] text-white hover:text-[var(--gw-accent)] transition-colors h-full flex items-center px-1"
                      >
                         {menuItems[6].title}
+                     </Link>
+
+                     {/* Patient Portal Link */}
+                     <Link 
+                        href="/patient-portal" 
+                        className="text-[12px] font-bold uppercase tracking-[0.15em] text-white hover:text-[var(--gw-accent)] transition-colors h-full flex items-center px-1"
+                     >
+                        Patient Portal
                      </Link>
 
                      {/* CTA Button (Scrolled State) */}
