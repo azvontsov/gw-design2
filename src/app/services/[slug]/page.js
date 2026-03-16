@@ -89,7 +89,7 @@ const servicesDb = {
         description: 'Dr. Deirdre Orceyre explores the foundations of naturopathic and integrative medicine.',
       }
     ],
-    feesLink: '/fees-and-insurance#consultations'
+    feesLink: '/fees-and-insurance#services'
   },
   'long-covid-online-groups': {
     title: 'Long COVID Medical Group Meets',
@@ -294,13 +294,15 @@ function OptionsGrid({ options }) {
 
 function FeesCTA({ href }) {
   return (
-    <div className="mt-16 pt-12 border-t border-slate-200">
-      <div className="bg-white border border-slate-200 p-8 md:p-12 text-center max-w-2xl mx-auto">
-        <h3 className="text-2xl font-serif text-[var(--gw-primary)] mb-4">Transparent Pricing</h3>
-        <p className="text-slate-600 font-light mb-8">View our complete fee schedule for consultations, treatments, and ongoing groups.</p>
+    <div className="py-12 border-b border-gray-200">
+      <div className="bg-white border border-slate-100 shadow-sm p-8 md:p-10 max-w-4xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8 rounded-sm">
+        <div className="text-center md:text-left flex-1 md:pr-8">
+          <h3 className="text-2xl font-serif text-[var(--gw-primary)] mb-2">Transparent Pricing</h3>
+          <p className="text-slate-600 font-light text-[15px]">View our complete fee schedule for consultations, treatments, and ongoing groups.</p>
+        </div>
         <Link 
-          href={href || '/fees-and-insurance'} 
-          className="inline-flex items-center gap-2 bg-[var(--gw-primary)] text-white text-[12px] font-bold uppercase tracking-widest px-8 py-4 hover:bg-[var(--gw-blue)] transition-colors"
+          href={href || '/fees-and-insurance#services'} 
+          className="inline-flex shrink-0 items-center justify-center gap-2 bg-[var(--gw-primary)] text-white text-[12px] font-bold uppercase tracking-widest px-8 py-4 hover:bg-[var(--gw-blue)] transition-colors w-full md:w-auto"
         >
           View Our Fees
           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4">
@@ -692,6 +694,9 @@ export default function ServiceDetailPage({ params }) {
                 </ContentSection>
               )}
 
+              {/* 14) Our Fees Button */}
+              {service.feesLink && <FeesCTA href={service.feesLink} />}
+
               {/* 10) What to expect */}
               <ContentSection id="how" label="Expectations" heading="During Your Visit">
                 <div className="space-y-6">
@@ -764,9 +769,6 @@ export default function ServiceDetailPage({ params }) {
                   </div>
                 </ContentSection>
               )}
-
-              {/* 14) Our Fees Button */}
-              {service.feesLink && <FeesCTA href={service.feesLink} />}
 
               {/* Related Pages */}
               {service.related.length > 0 && (
