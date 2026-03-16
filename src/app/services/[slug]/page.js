@@ -577,15 +577,17 @@ export default function ServiceDetailPage({ params }) {
               </ContentSection>
 
               {/* 3) Who are licensed Naturopathic Doctors (ND)? */}
-              <ContentSection id="who" label="Qualifications" heading={`Who are licensed Naturopathic Doctors (ND)?`}>
-                <div className="space-y-5 text-[var(--gw-text-main)]">
-                  {service.who.split('\n\n').map((para, i) => (
-                    <p key={i} className="text-[17px] leading-relaxed font-light text-slate-700">
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </ContentSection>
+              {service.who && (
+                <ContentSection id="who" label="Qualifications" heading={`Who are licensed Naturopathic Doctors (ND)?`}>
+                  <div className="space-y-5 text-[var(--gw-text-main)]">
+                    {service.who.split('\n\n').map((para, i) => (
+                      <p key={i} className="text-[17px] leading-relaxed font-light text-slate-700">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                </ContentSection>
+              )}
 
               {/* 4) Options */}
               {service.options && (
