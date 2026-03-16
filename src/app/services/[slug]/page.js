@@ -117,7 +117,7 @@ $100 /month membership (cancel any time)
 Registration:
 Please call 202-833-5055 or email info@gwcim.com to register.`,
     providers: [
-      { name: 'Ashley Drapeau', credentials: 'PA-C, MAC, LAc', role: 'Facilitator', specialty: 'Acupuncture & Integrative Medicine', slug: 'ashley-drapeau-pa-c-mac-lac', image: '/images/providers/ashley.jpeg' },
+      { name: 'Ashley Drapeau', credentials: 'PA-C, MAC, LAc', role: 'Facilitator', specialty: 'Acupuncture & Integrative Medicine', slug: 'ashley-drapeau-pa-c-l-ac-mpas-mac', image: '/images/providers/ashley.jpeg' },
       { name: 'Mikhail Kogan', credentials: 'MD', role: 'Facilitator', specialty: 'Integrative Medicine', slug: 'mikhail-kogan-md', image: '/images/providers/misha.jpg' }
     ],
     moreAbout: `Learn more about the GWCIM Long COVID program. We are actively involved in ongoing research and comprehensive care protocols for post-viral syndromes.`,

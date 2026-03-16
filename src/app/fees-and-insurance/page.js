@@ -79,7 +79,7 @@ function SharedFeesTable({ fees, note }) {
       </ul>
       {note && (
         <div className="mt-6 pt-6 border-t border-slate-100">
-           <p className="text-[11px] text-slate-500 italic leading-relaxed">{note}</p>
+           <div className="text-[11px] text-slate-500 italic leading-relaxed">{note}</div>
         </div>
       )}
     </div>
@@ -420,23 +420,48 @@ export default function FeesAndInsurancePage() {
                       <div className="flex flex-col lg:flex-row gap-10">
                         <div className="lg:w-[45%] xl:w-[40%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 h-fit">
                           <ProviderAvatar 
-                            name="Angela Gabriel"
+                            name="Dr. Tiffany Hoyt"
+                            credentials="DAc, LAc, Dipl Ac"
+                            image={null}
+                            slug="#"
+                            subtitle="Licensed Acupuncturist"
+                          />
+                          <ProviderAvatar 
+                            name="Dr. Deirdre Orceyre"
+                            credentials="ND, MSOM, L.Ac."
+                            image="/images/providers/dierdre.jpg"
+                            slug="deirdre-orceyre-nd-lac"
+                            subtitle="Naturopathic Doctor & Acupuncturist"
+                          />
+                          <ProviderAvatar 
+                            name="Dr. Angela Gabriel"
                             credentials="MSOM, LAc, SEP"
                             image="/images/providers/angela.png"
                             slug="angela-n-gabriel-acupuncture-se"
                             subtitle="Licensed Acupuncturist & SEP"
                           />
+                          <ProviderAvatar 
+                            name="Dr. Ashley Drapeau"
+                            credentials="PA-C, MAC, LAc"
+                            image="/images/providers/ashley.jpeg"
+                            slug="/ashley-drapeau-pa-c-l-ac-mpas-mac"
+                            subtitle="Physician Assistant & Acupuncturist"
+                          />
                         </div>
                         <div className="lg:w-[55%] xl:w-[60%] flex flex-col">
                            <SharedFeesTable 
                              fees={[
-                               { label: "Initial (90-120 min)", price: "$720-960" },
-                               { label: "Initial (75 min)", price: "$600" },
-                               { label: "Follow-up (90 min)", price: "$625" },
-                               { label: "Follow-up (60 min)", price: "$435" },
-                               { label: "Follow-up (45 min)", price: "$345" }
+                               { label: "Initial (90 min)", price: "$250" },
+                               { label: "Follow-up (90 min)", price: "$225" },
+                               { label: "Follow-up (60 min)", price: "$150" },
+                               { label: "Pediatric or Pregnancy (30 min)", price: "$75" }
                              ]}
-                             note="Specializing in complex chronic illness and nervous system regulation."
+                             note={
+                               <>
+                                 <p className="mb-2 text-slate-700 italic">60 min on schedule means up to 50 min of treatment time.</p>
+                                 <p className="text-[var(--gw-accent)] font-medium">✨ 5 follow-up sessions packages: 10% off</p>
+                               </>
+                             }
                            />
                         </div>
                       </div>
