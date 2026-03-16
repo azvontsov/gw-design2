@@ -125,13 +125,52 @@ function ProviderFeeCard({ name, credentials, image, slug, fees, note, subtitle 
   );
 }
 
+function ExpandableServiceCard({ title, children }) {
+  const [isExpanded, setIsExpanded] = useState(false);
+
+  return (
+    <div 
+      className={`border bg-white shadow-sm transition-all duration-300 ease-out flex flex-col mb-4 overflow-hidden ${isExpanded ? 'shadow-lg border-[var(--gw-accent)]' : 'border-gray-200 hover:shadow-md hover:border-gray-300'}`}
+    >
+      <div 
+        className="group p-6 md:p-8 flex items-center justify-between cursor-pointer bg-white relative z-10 w-full text-left" 
+        role="button" 
+        aria-expanded={isExpanded} 
+        tabIndex={0}
+        onClick={() => setIsExpanded(!isExpanded)}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            setIsExpanded(!isExpanded);
+          }
+        }}
+      >
+        <h3 className={`text-lg md:text-xl font-medium transition-colors ${isExpanded ? 'text-[var(--gw-blue)]' : 'text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)]'}`} style={{ fontFamily: 'var(--font-gt-super)' }}>
+          {title}
+        </h3>
+        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0 ml-4 ${isExpanded ? 'bg-[var(--gw-accent)] text-white border-[var(--gw-accent)]' : 'border-gray-200 text-gray-400 group-hover:bg-[var(--gw-accent)] group-hover:text-white group-hover:border-[var(--gw-accent)]'}`}>
+           <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={`w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`}>
+             <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+           </svg>
+        </div>
+      </div>
+      <div className={`grid transition-[grid-template-rows] duration-500 ease-in-out ${isExpanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'}`}>
+        <div className="overflow-hidden min-h-0">
+          <div className="p-6 md:p-8 pt-6 border-t border-gray-100 bg-gray-50/50">
+             {children}
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export default function FeesAndInsurancePage() {
   const tocItems = [
     { id: 'insurance-and-billing', label: 'Insurance & Billing' },
     { id: 'policies', label: 'Office Policies' },
     { id: 'fee-schedule', label: 'Fee Schedule 2025' },
-    { id: 'consultations', label: 'Consultations' },
-    { id: 'treatments', label: 'Treatments' },
+    { id: 'services', label: 'Services' },
     { id: 'groups-courses', label: 'Groups & Courses' },
   ];
 
@@ -259,15 +298,11 @@ export default function FeesAndInsurancePage() {
                  </div>
               </ContentSection>
 
-               <ContentSection id="consultations" label="Services" heading="Consultations">
-                  <div className="space-y-24 md:space-y-32">
+                              <ContentSection id="services" label="Services" heading="Services">
+                  <div className="space-y-4">
                     
                     {/* MD Section */}
-                    <div>
-                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                        Integrative Medicine (MD)
-                      </h3>
+                    <ExpandableServiceCard title="Integrative Medicine (MD)">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ProviderFeeCard 
                           name="Dr. Mikhail Kogan"
@@ -323,15 +358,9 @@ export default function FeesAndInsurancePage() {
                           note="Dr. Sarno approach"
                         />
                       </div>
-                    </div>
+                    </ExpandableServiceCard>
 
-                    {/* Psychiatry & PA */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                      <div>
-                        <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                          <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                          Integrative Psychiatry
-                        </h3>
+                    <ExpandableServiceCard title="Integrative Psychiatry">
                         <ProviderFeeCard 
                           name="Dr. Misty Embrey"
                           credentials="MD"
@@ -345,12 +374,9 @@ export default function FeesAndInsurancePage() {
                             { label: "30 Min Follow-up", price: "$200" }
                           ]}
                         />
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                          <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                          Integrative Medicine (PA)
-                        </h3>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Integrative Medicine (PA)">
                         <ProviderFeeCard 
                           name="Ashley Drapeau"
                           credentials="PA-C, LAc"
@@ -363,17 +389,11 @@ export default function FeesAndInsurancePage() {
                             { label: "30 minute follow-up", price: "$200" }
                           ]}
                         />
-                      </div>
-                    </div>
+                    </ExpandableServiceCard>
 
-                    {/* Naturopathic Medicine */}
-                    <div>
-                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                        Naturopathic Medicine
-                      </h3>
+                    <ExpandableServiceCard title="Naturopathic Medicine">
                       <div className="flex flex-col lg:flex-row gap-10">
-                        <div className="lg:w-[45%] xl:w-[40%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 h-fit">
+                        <div className="lg:w-[45%] xl:w-[40%] grid grid-cols-1 lg:grid-cols-1 gap-4 h-fit">
                           <ProviderAvatar 
                             name="Dr. Deirdre Orceyre"
                             credentials="ND, MSOM, L.Ac."
@@ -409,14 +429,9 @@ export default function FeesAndInsurancePage() {
                            />
                         </div>
                       </div>
-                    </div>
+                    </ExpandableServiceCard>
 
-                    {/* Acupuncture Medicine */}
-                    <div>
-                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                        Acupuncture Medicine
-                      </h3>
+                    <ExpandableServiceCard title="Acupuncture Medicine">
                       <div className="flex flex-col lg:flex-row gap-10">
                         <div className="lg:w-[45%] xl:w-[40%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 h-fit">
                           <ProviderAvatar 
@@ -465,15 +480,9 @@ export default function FeesAndInsurancePage() {
                            />
                         </div>
                       </div>
-                    </div>
+                    </ExpandableServiceCard>
 
-                    {/* Psychotherapy & Environmental */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-                      <div>
-                        <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                          <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                          Psychotherapy
-                        </h3>
+                    <ExpandableServiceCard title="Psychotherapy">
                         <ProviderFeeCard 
                           name="Dr. Sally Novak"
                           credentials="LICSW"
@@ -485,12 +494,9 @@ export default function FeesAndInsurancePage() {
                             { label: "60 min Virtual follow-up", price: "$250" }
                           ]}
                         />
-                      </div>
-                      <div>
-                        <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                          <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                          Environmental/Mold/CIRS
-                        </h3>
+                    </ExpandableServiceCard>
+                    
+                    <ExpandableServiceCard title="Environmental/Mold/CIRS">
                         <ProviderFeeCard 
                           name="Dr. Jonah Yakel"
                           credentials="DC"
@@ -502,15 +508,9 @@ export default function FeesAndInsurancePage() {
                           ]}
                           note="Contact at www.drjonahyakel.com"
                         />
-                      </div>
-                    </div>
+                    </ExpandableServiceCard>
 
-                    {/* Cannabis */}
-                    <div>
-                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                        Medical Cannabis Consultations
-                      </h3>
+                    <ExpandableServiceCard title="Medical Cannabis Consultations">
                       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <ProviderFeeCard 
                           name="Dr. Mikhail Kogan"
@@ -545,14 +545,9 @@ export default function FeesAndInsurancePage() {
                           ]}
                         />
                       </div>
-                    </div>
+                    </ExpandableServiceCard>
 
-                    {/* Other Coaching & Consultations */}
-                    <div>
-                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-8 flex items-center gap-4">
-                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                        Other Coaching & Consultations
-                      </h3>
+                    <ExpandableServiceCard title="Other Coaching & Consultations">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ProviderFeeCard 
                           name="Mara Benner"
@@ -578,115 +573,88 @@ export default function FeesAndInsurancePage() {
                           ]}
                         />
                       </div>
-                    </div>
+                    </ExpandableServiceCard>
 
-                    {/* Administrative */}
-                    <div className="p-8 bg-slate-50 border border-slate-100">
-                      <h3 className="text-sm font-bold text-[var(--gw-blue)] uppercase tracking-[0.2em] mb-6 flex items-center gap-4">
-                        <span className="w-8 h-px bg-[var(--gw-blue)]/30"></span>
-                        Administrative
-                      </h3>
-                      <div className="flex justify-between items-center bg-white p-4 border border-slate-100 shadow-sm">
+                    <ExpandableServiceCard title="Administrative">
+                      <div className="flex justify-between items-center bg-white p-4 shadow-sm rounded-sm">
                         <span className="font-medium text-slate-700">Sleep Study Referrals Administrative Fee</span>
                         <span className="font-bold text-[var(--gw-primary)]">$100.00</span>
                       </div>
-                    </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="IV and Infusion Therapy">
+                     <div>
+                       <p className="text-sm text-gray-600 italic mb-4">Due to a significant increase in the cost of medical supplies from our vendors, we will adjust our infusion Base fees (set-up fees) starting June 1st. Infusion medication prices will remain the same at this time.</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-2">
+                         <li>Base fee for IV – $190</li>
+                         <li>Base fee for IV with ports – $215</li>
+                         <li>Mistletoe training – $150</li>
+                         <li>Lab Administrative fee (processing and ordering of all kits) – $100</li>
+                         <li><strong>Infusion medications cost vary. Call 202-833-5055 for cost information.</strong></li>
+                       </ul>
+                     </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Chinese Medicine Herbal Consultations">
+                      <div>
+                       <p className="text-sm text-slate-500 italic mb-2">with Dr. Tiffany Hoyt</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
+                         <li>Initial 60 min – $150</li>
+                         <li>Follow-up 30 min – $100</li>
+                       </ul>
+                      </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Somatic Experiencing">
+                     <div>
+                       <p className="text-sm text-slate-500 italic mb-2">with Dr. Angela Gabriel, SEP, L.Ac.<br/> (with or without acupuncture co-treatment during SE sessions)</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
+                         <li>Initial 60 min – $100 (administrative fee only)</li>
+                         <li>Follow-up 60 min – $200</li>
+                       </ul>
+                       <p className="mt-3 text-[var(--gw-accent)] font-medium">5 follow-up 60 min sessions packages: 10% off</p>
+                     </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Ketamine Assisted Psychotherapy (KAP)">
+                     <div>
+                       <p className="text-sm text-slate-500 italic mb-2">Dr. Kogan and various qualified support providers: Yael Flusberg, Angela Gabriel, Sally Novak</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
+                         <li>One session with one follow-up call (up to 3 hours total time) – $600</li>
+                       </ul>
+                     </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="ReCODE Program">
+                     <div>
+                       <p className="text-gray-600 font-light">
+                         Please visit our <Link href="/services/reversal-cognitive-decline-recode" className="text-[var(--gw-blue)] underline">ReCODE program page</Link> for all information.
+                       </p>
+                     </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Mindfulness, EFT, MBSR coaching">
+                     <div>
+                       <p className="text-sm text-slate-500 italic mb-2">with Nina Paul (virtual)</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
+                         <li>60 min – $150</li>
+                         </ul>
+                     </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Reiki and Biofeedback">
+                     <div>
+                       <p className="text-sm text-slate-500 italic mb-2">Yael Flusberg, Mara Benner, Catherine Miller</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-2">
+                         <li>Initial Reiki/biofeedback with Yael Flusberg – $250 (in-person)</li>
+                         <li>Follow-up Reiki/biofeedback with Yael Flusberg – $160 (in-person)</li>
+                         <li><strong>For virtual and home Reiki visits and Reiki training with Mara Benner and Catherine Miller:</strong> contact Affiliated Provider Four Direction Wellness Center</li>
+                       </ul>
+                     </div>
+                    </ExpandableServiceCard>
 
                   </div>
                </ContentSection>
-
-              <ContentSection id="treatments" label="Services" heading="Treatments">
-                 <div className="space-y-10">
-                   
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">IV and Infusion Therapy</h3>
-                     <p className="text-sm text-gray-600 italic mb-4">Due to a significant increase in the cost of medical supplies from our vendors, we will adjust our infusion Base fees (set-up fees) starting June 1st. Infusion medication prices will remain the same at this time.</p>
-                     <ul className="list-disc pl-5 text-gray-600 font-light space-y-2">
-                       <li>Base fee for IV – $190</li>
-                       <li>Base fee for IV with ports – $215</li>
-                       <li>Mistletoe training – $150</li>
-                       <li>Lab Administrative fee (processing and ordering of all kits) – $100</li>
-                       <li><strong>Infusion medications cost vary. Call 202-833-5055 for cost information.</strong></li>
-                     </ul>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Acupuncture</h3>
-                     <p className="text-sm text-slate-500 italic mb-2">Dr. Tiffany Hoyt, Dr. Deirdre Orceyre, Dr. Angela Gabriel, Dr. Ashley Drapeau. <br/>60 min on schedule means up to 50 min of treatment time.</p>
-                     
-                     <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
-                        <div>
-                           <p className="font-medium text-gray-800 mb-1">Initial:</p>
-                           <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                             <li>90 min – $250</li>
-                           </ul>
-                        </div>
-                        <div>
-                           <p className="font-medium text-gray-800 mb-1">Follow-up sessions:</p>
-                           <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                             <li>90 min – $225</li>
-                             <li>60 min – $150</li>
-                             <li>30 min Pediatric or Pregnancy – $75</li>
-                           </ul>
-                        </div>
-                     </div>
-                     <p className="mt-3 text-[var(--gw-accent)] font-medium">5 follow-up sessions packages: 10% off</p>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Chinese Medicine Herbal Consultations</h3>
-                     <p className="text-sm text-slate-500 italic mb-2">with Dr. Tiffany Hoyt</p>
-                     <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                       <li>Initial 60 min – $150</li>
-                       <li>Follow-up 30 min – $100</li>
-                     </ul>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Somatic Experiencing</h3>
-                     <p className="text-sm text-slate-500 italic mb-2">with Dr. Angela Gabriel, SEP, L.Ac.<br/> (with or without acupuncture co-treatment during SE sessions)</p>
-                     <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                       <li>Initial 60 min – $100 (administrative fee only)</li>
-                       <li>Follow-up 60 min – $200</li>
-                     </ul>
-                     <p className="mt-3 text-[var(--gw-accent)] font-medium">5 follow-up 60 min sessions packages: 10% off</p>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Ketamine Assisted Psychotherapy (KAP)</h3>
-                     <p className="text-sm text-slate-500 italic mb-2">Dr. Kogan and various qualified support providers: Yael Flusberg, Angela Gabriel, Sally Novak</p>
-                     <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                       <li>One session with one follow-up call (up to 3 hours total time) – $600</li>
-                     </ul>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">ReCODE Program</h3>
-                     <p className="text-gray-600 font-light">
-                       Please visit our <Link href="/services/reversal-cognitive-decline-recode" className="text-[var(--gw-blue)] underline">ReCODE program page</Link> for all information.
-                     </p>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Mindfulness, EFT, MBSR coaching</h3>
-                     <p className="text-sm text-slate-500 italic mb-2">with Nina Paul (virtual)</p>
-                     <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                       <li>60 min – $150</li>
-                       </ul>
-                   </div>
-
-                   <div>
-                     <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Reiki and Biofeedback</h3>
-                     <p className="text-sm text-slate-500 italic mb-2">Yael Flusberg, Mara Benner, Catherine Miller</p>
-                     <ul className="list-disc pl-5 text-gray-600 font-light space-y-2">
-                       <li>Initial Reiki/biofeedback with Yael Flusberg – $250 (in-person)</li>
-                       <li>Follow-up Reiki/biofeedback with Yael Flusberg – $160 (in-person)</li>
-                       <li><strong>For virtual and home Reiki visits and Reiki training with Mara Benner and Catherine Miller:</strong> contact Affiliated Provider Four Direction Wellness Center</li>
-                     </ul>
-                   </div>
-
-                 </div>
-              </ContentSection>
 
               <ContentSection id="groups-courses" label="Community" heading="Groups, Classes & Courses">
                  <div className="space-y-6 text-gray-600 font-light">
