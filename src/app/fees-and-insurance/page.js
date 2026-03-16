@@ -41,7 +41,7 @@ function ProviderAvatar({ name, credentials, image, slug, subtitle }) {
   return (
     <Link 
       href={`/people/${slug || '#'}`}
-      className="flex items-center gap-5 p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-[var(--gw-accent)] transition-all group min-h-[110px]"
+      className="flex items-center gap-5 p-5 bg-white border border-gray-100 shadow-sm hover:shadow-md hover:border-[var(--gw-accent)] transition-all group min-h-[110px] w-full min-w-0 overflow-hidden"
     >
       <div className="w-16 h-16 rounded-full shrink-0 overflow-hidden border border-gray-100 bg-gray-50 flex items-center justify-center shadow-sm">
         {image ? (
@@ -52,12 +52,12 @@ function ProviderAvatar({ name, credentials, image, slug, subtitle }) {
           </div>
         )}
       </div>
-      <div className="flex flex-col gap-1.5 min-w-0">
+      <div className="flex flex-col gap-1 min-w-0 flex-1">
         <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[15px] leading-[1.3] break-words">
           {name}{credentials ? `, ${credentials}` : ''}
         </h4>
         {subtitle && (
-          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-90 leading-relaxed">
+          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-90 leading-relaxed break-words pr-2">
             {subtitle}
           </p>
         )}
@@ -300,8 +300,101 @@ export default function FeesAndInsurancePage() {
 
                               <ContentSection id="services" label="Services" heading="Services">
                   <div className="space-y-4">
-                    
-                    {/* MD Section */}
+                    <ExpandableServiceCard title="Acupuncture Medicine">
+                      <div className="flex flex-col lg:flex-row gap-10">
+                        <div className="lg:w-[45%] xl:w-[40%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 h-fit">
+                          <ProviderAvatar 
+                            name="Dr. Tiffany Hoyt"
+                            credentials="DAc, LAc, Dipl Ac"
+                            image={null}
+                            slug="#"
+                            subtitle="Licensed Acupuncturist"
+                          />
+                          <ProviderAvatar 
+                            name="Dr. Deirdre Orceyre"
+                            credentials="ND, MSOM, L.Ac."
+                            image="/images/providers/dierdre.jpg"
+                            slug="deirdre-orceyre-nd-lac"
+                            subtitle="Naturopathic Doctor & Acupuncturist"
+                          />
+                          <ProviderAvatar 
+                            name="Dr. Angela Gabriel"
+                            credentials="MSOM, LAc, SEP"
+                            image="/images/providers/angela.png"
+                            slug="angela-n-gabriel-acupuncture-se"
+                            subtitle="Licensed Acupuncturist & SEP"
+                          />
+                          <ProviderAvatar 
+                            name="Dr. Ashley Drapeau"
+                            credentials="PA-C, MAC, LAc"
+                            image="/images/providers/ashley.jpeg"
+                            slug="/ashley-drapeau-pa-c-l-ac-mpas-mac"
+                            subtitle="Physician Assistant & Acupuncturist"
+                          />
+                        </div>
+                        <div className="lg:w-[55%] xl:w-[60%] flex flex-col">
+                           <SharedFeesTable 
+                             fees={[
+                               { label: "Initial (90 min)", price: "$250" },
+                               { label: "Follow-up (90 min)", price: "$225" },
+                               { label: "Follow-up (60 min)", price: "$150" },
+                               { label: "Pediatric or Pregnancy (30 min)", price: "$75" }
+                             ]}
+                             note={
+                               <>
+                                 <p className="mb-2 text-slate-700 italic">60 min on schedule means up to 50 min of treatment time.</p>
+                                 <p className="text-[var(--gw-accent)] font-medium">✨ 5 follow-up sessions packages: 10% off</p>
+                               </>
+                             }
+                           />
+                        </div>
+                      </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Administrative">
+                      <div className="flex justify-between items-center bg-white p-4 shadow-sm rounded-sm">
+                        <span className="font-medium text-slate-700">Sleep Study Referrals Administrative Fee</span>
+                        <span className="font-bold text-[var(--gw-primary)]">$100.00</span>
+                      </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Chinese Medicine Herbal Consultations">
+                      <div>
+                       <p className="text-sm text-slate-500 italic mb-2">with Dr. Tiffany Hoyt</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
+                         <li>Initial 60 min – $150</li>
+                         <li>Follow-up 30 min – $100</li>
+                       </ul>
+                      </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Environmental/Mold/CIRS">
+                        <ProviderFeeCard 
+                          name="Dr. Jonah Yakel"
+                          credentials="DC"
+                          image={null}
+                          slug="#"
+                          subtitle="Virtual Only"
+                          fees={[
+                            { label: "Consultation Info", price: "Visit Website" }
+                          ]}
+                          note="Contact at www.drjonahyakel.com"
+                        />
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="IV and Infusion Therapy">
+                     <div>
+                       <p className="text-sm text-gray-600 italic mb-4">Due to a significant increase in the cost of medical supplies from our vendors, we will adjust our infusion Base fees (set-up fees) starting June 1st. Infusion medication prices will remain the same at this time.</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-2">
+                         <li>Base fee for IV – $190</li>
+                         <li>Base fee for IV with ports – $215</li>
+                         <li>Mistletoe training – $150</li>
+                         <li>Lab Administrative fee (processing and ordering of all kits) – $100</li>
+                         <li><strong>Infusion medications cost vary. Call 202-833-5055 for cost information.</strong></li>
+                       </ul>
+                     </div>
+                    </ExpandableServiceCard>
+
                     <ExpandableServiceCard title="Integrative Medicine (MD)">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ProviderFeeCard 
@@ -360,6 +453,21 @@ export default function FeesAndInsurancePage() {
                       </div>
                     </ExpandableServiceCard>
 
+                    <ExpandableServiceCard title="Integrative Medicine (PA)">
+                        <ProviderFeeCard 
+                          name="Ashley Drapeau"
+                          credentials="PA-C, LAc"
+                          image="/images/providers/ashley.jpeg"
+                          slug="ashley-drapeau-pa-c-l-ac-mpas-mac"
+                          subtitle="Physician Assistant"
+                          fees={[
+                            { label: "90 minute initial", price: "$450" },
+                            { label: "60 minute follow-up", price: "$250" },
+                            { label: "30 minute follow-up", price: "$200" }
+                          ]}
+                        />
+                    </ExpandableServiceCard>
+
                     <ExpandableServiceCard title="Integrative Psychiatry">
                         <ProviderFeeCard 
                           name="Dr. Misty Embrey"
@@ -376,19 +484,59 @@ export default function FeesAndInsurancePage() {
                         />
                     </ExpandableServiceCard>
 
-                    <ExpandableServiceCard title="Integrative Medicine (PA)">
+                    <ExpandableServiceCard title="Ketamine Assisted Psychotherapy (KAP)">
+                     <div>
+                       <p className="text-sm text-slate-500 italic mb-2">Dr. Kogan and various qualified support providers: Yael Flusberg, Angela Gabriel, Sally Novak</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
+                         <li>One session with one follow-up call (up to 3 hours total time) – $600</li>
+                       </ul>
+                     </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Medical Cannabis Consultations">
+                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                         <ProviderFeeCard 
-                          name="Ashley Drapeau"
-                          credentials="PA-C, LAc"
-                          image="/images/providers/ashley.jpeg"
-                          slug="ashley-drapeau-pa-c-l-ac-mpas-mac"
-                          subtitle="Physician Assistant"
+                          name="Dr. Mikhail Kogan"
+                          credentials="MD"
+                          image="/images/providers/misha.jpg"
+                          slug="mikhail-kogan-md"
+                          subtitle="Initial/Follow-up"
                           fees={[
-                            { label: "90 minute initial", price: "$450" },
-                            { label: "60 minute follow-up", price: "$250" },
-                            { label: "30 minute follow-up", price: "$200" }
+                            { label: "30 min / 60 min", price: "$350 / $600" }
                           ]}
                         />
+                        <ProviderFeeCard 
+                          name="Dr. Abraham Benavides"
+                          credentials="MD"
+                          image={null}
+                          slug="#"
+                          subtitle="Virtual Only"
+                          fees={[
+                            { label: "60 min Visit", price: "$250" },
+                            { label: "30 min Follow-up", price: "$150" },
+                            { label: "Cards New/Renewal", price: "$100 fee" }
+                          ]}
+                        />
+                        <ProviderFeeCard 
+                          name="Joelle Rabion"
+                          credentials="Cannabis Coach"
+                          image={null}
+                          slug="#"
+                          fees={[
+                            { label: "60 min", price: "$100" },
+                            { label: "30 min", price: "$60" }
+                          ]}
+                        />
+                      </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Mindfulness, EFT, MBSR coaching">
+                     <div>
+                       <p className="text-sm text-slate-500 italic mb-2">with Nina Paul (virtual)</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
+                         <li>60 min – $150</li>
+                         </ul>
+                     </div>
                     </ExpandableServiceCard>
 
                     <ExpandableServiceCard title="Naturopathic Medicine">
@@ -431,122 +579,6 @@ export default function FeesAndInsurancePage() {
                       </div>
                     </ExpandableServiceCard>
 
-                    <ExpandableServiceCard title="Acupuncture Medicine">
-                      <div className="flex flex-col lg:flex-row gap-10">
-                        <div className="lg:w-[45%] xl:w-[40%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-4 h-fit">
-                          <ProviderAvatar 
-                            name="Dr. Tiffany Hoyt"
-                            credentials="DAc, LAc, Dipl Ac"
-                            image={null}
-                            slug="#"
-                            subtitle="Licensed Acupuncturist"
-                          />
-                          <ProviderAvatar 
-                            name="Dr. Deirdre Orceyre"
-                            credentials="ND, MSOM, L.Ac."
-                            image="/images/providers/dierdre.jpg"
-                            slug="deirdre-orceyre-nd-lac"
-                            subtitle="Naturopathic Doctor & Acupuncturist"
-                          />
-                          <ProviderAvatar 
-                            name="Dr. Angela Gabriel"
-                            credentials="MSOM, LAc, SEP"
-                            image="/images/providers/angela.png"
-                            slug="angela-n-gabriel-acupuncture-se"
-                            subtitle="Licensed Acupuncturist & SEP"
-                          />
-                          <ProviderAvatar 
-                            name="Dr. Ashley Drapeau"
-                            credentials="PA-C, MAC, LAc"
-                            image="/images/providers/ashley.jpeg"
-                            slug="/ashley-drapeau-pa-c-l-ac-mpas-mac"
-                            subtitle="Physician Assistant & Acupuncturist"
-                          />
-                        </div>
-                        <div className="lg:w-[55%] xl:w-[60%] flex flex-col">
-                           <SharedFeesTable 
-                             fees={[
-                               { label: "Initial (90 min)", price: "$250" },
-                               { label: "Follow-up (90 min)", price: "$225" },
-                               { label: "Follow-up (60 min)", price: "$150" },
-                               { label: "Pediatric or Pregnancy (30 min)", price: "$75" }
-                             ]}
-                             note={
-                               <>
-                                 <p className="mb-2 text-slate-700 italic">60 min on schedule means up to 50 min of treatment time.</p>
-                                 <p className="text-[var(--gw-accent)] font-medium">✨ 5 follow-up sessions packages: 10% off</p>
-                               </>
-                             }
-                           />
-                        </div>
-                      </div>
-                    </ExpandableServiceCard>
-
-                    <ExpandableServiceCard title="Psychotherapy">
-                        <ProviderFeeCard 
-                          name="Dr. Sally Novak"
-                          credentials="LICSW"
-                          image={null}
-                          slug="sally-novak"
-                          subtitle="Virtual Only"
-                          fees={[
-                            { label: "90 min Virtual Initial", price: "$325" },
-                            { label: "60 min Virtual follow-up", price: "$250" }
-                          ]}
-                        />
-                    </ExpandableServiceCard>
-                    
-                    <ExpandableServiceCard title="Environmental/Mold/CIRS">
-                        <ProviderFeeCard 
-                          name="Dr. Jonah Yakel"
-                          credentials="DC"
-                          image={null}
-                          slug="#"
-                          subtitle="Virtual Only"
-                          fees={[
-                            { label: "Consultation Info", price: "Visit Website" }
-                          ]}
-                          note="Contact at www.drjonahyakel.com"
-                        />
-                    </ExpandableServiceCard>
-
-                    <ExpandableServiceCard title="Medical Cannabis Consultations">
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                        <ProviderFeeCard 
-                          name="Dr. Mikhail Kogan"
-                          credentials="MD"
-                          image="/images/providers/misha.jpg"
-                          slug="mikhail-kogan-md"
-                          subtitle="Initial/Follow-up"
-                          fees={[
-                            { label: "30 min / 60 min", price: "$350 / $600" }
-                          ]}
-                        />
-                        <ProviderFeeCard 
-                          name="Dr. Abraham Benavides"
-                          credentials="MD"
-                          image={null}
-                          slug="#"
-                          subtitle="Virtual Only"
-                          fees={[
-                            { label: "60 min Visit", price: "$250" },
-                            { label: "30 min Follow-up", price: "$150" },
-                            { label: "Cards New/Renewal", price: "$100 fee" }
-                          ]}
-                        />
-                        <ProviderFeeCard 
-                          name="Joelle Rabion"
-                          credentials="Cannabis Coach"
-                          image={null}
-                          slug="#"
-                          fees={[
-                            { label: "60 min", price: "$100" },
-                            { label: "30 min", price: "$60" }
-                          ]}
-                        />
-                      </div>
-                    </ExpandableServiceCard>
-
                     <ExpandableServiceCard title="Other Coaching & Consultations">
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <ProviderFeeCard 
@@ -575,54 +607,18 @@ export default function FeesAndInsurancePage() {
                       </div>
                     </ExpandableServiceCard>
 
-                    <ExpandableServiceCard title="Administrative">
-                      <div className="flex justify-between items-center bg-white p-4 shadow-sm rounded-sm">
-                        <span className="font-medium text-slate-700">Sleep Study Referrals Administrative Fee</span>
-                        <span className="font-bold text-[var(--gw-primary)]">$100.00</span>
-                      </div>
-                    </ExpandableServiceCard>
-
-                    <ExpandableServiceCard title="IV and Infusion Therapy">
-                     <div>
-                       <p className="text-sm text-gray-600 italic mb-4">Due to a significant increase in the cost of medical supplies from our vendors, we will adjust our infusion Base fees (set-up fees) starting June 1st. Infusion medication prices will remain the same at this time.</p>
-                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-2">
-                         <li>Base fee for IV – $190</li>
-                         <li>Base fee for IV with ports – $215</li>
-                         <li>Mistletoe training – $150</li>
-                         <li>Lab Administrative fee (processing and ordering of all kits) – $100</li>
-                         <li><strong>Infusion medications cost vary. Call 202-833-5055 for cost information.</strong></li>
-                       </ul>
-                     </div>
-                    </ExpandableServiceCard>
-
-                    <ExpandableServiceCard title="Chinese Medicine Herbal Consultations">
-                      <div>
-                       <p className="text-sm text-slate-500 italic mb-2">with Dr. Tiffany Hoyt</p>
-                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                         <li>Initial 60 min – $150</li>
-                         <li>Follow-up 30 min – $100</li>
-                       </ul>
-                      </div>
-                    </ExpandableServiceCard>
-
-                    <ExpandableServiceCard title="Somatic Experiencing">
-                     <div>
-                       <p className="text-sm text-slate-500 italic mb-2">with Dr. Angela Gabriel, SEP, L.Ac.<br/> (with or without acupuncture co-treatment during SE sessions)</p>
-                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                         <li>Initial 60 min – $100 (administrative fee only)</li>
-                         <li>Follow-up 60 min – $200</li>
-                       </ul>
-                       <p className="mt-3 text-[var(--gw-accent)] font-medium">5 follow-up 60 min sessions packages: 10% off</p>
-                     </div>
-                    </ExpandableServiceCard>
-
-                    <ExpandableServiceCard title="Ketamine Assisted Psychotherapy (KAP)">
-                     <div>
-                       <p className="text-sm text-slate-500 italic mb-2">Dr. Kogan and various qualified support providers: Yael Flusberg, Angela Gabriel, Sally Novak</p>
-                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                         <li>One session with one follow-up call (up to 3 hours total time) – $600</li>
-                       </ul>
-                     </div>
+                    <ExpandableServiceCard title="Psychotherapy">
+                        <ProviderFeeCard 
+                          name="Dr. Sally Novak"
+                          credentials="LICSW"
+                          image={null}
+                          slug="sally-novak"
+                          subtitle="Virtual Only"
+                          fees={[
+                            { label: "90 min Virtual Initial", price: "$325" },
+                            { label: "60 min Virtual follow-up", price: "$250" }
+                          ]}
+                        />
                     </ExpandableServiceCard>
 
                     <ExpandableServiceCard title="ReCODE Program">
@@ -630,15 +626,6 @@ export default function FeesAndInsurancePage() {
                        <p className="text-gray-600 font-light">
                          Please visit our <Link href="/services/reversal-cognitive-decline-recode" className="text-[var(--gw-blue)] underline">ReCODE program page</Link> for all information.
                        </p>
-                     </div>
-                    </ExpandableServiceCard>
-
-                    <ExpandableServiceCard title="Mindfulness, EFT, MBSR coaching">
-                     <div>
-                       <p className="text-sm text-slate-500 italic mb-2">with Nina Paul (virtual)</p>
-                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
-                         <li>60 min – $150</li>
-                         </ul>
                      </div>
                     </ExpandableServiceCard>
 
@@ -650,6 +637,17 @@ export default function FeesAndInsurancePage() {
                          <li>Follow-up Reiki/biofeedback with Yael Flusberg – $160 (in-person)</li>
                          <li><strong>For virtual and home Reiki visits and Reiki training with Mara Benner and Catherine Miller:</strong> contact Affiliated Provider Four Direction Wellness Center</li>
                        </ul>
+                     </div>
+                    </ExpandableServiceCard>
+
+                    <ExpandableServiceCard title="Somatic Experiencing">
+                     <div>
+                       <p className="text-sm text-slate-500 italic mb-2">with Dr. Angela Gabriel, SEP, L.Ac.<br/> (with or without acupuncture co-treatment during SE sessions)</p>
+                       <ul className="list-disc pl-5 text-gray-600 font-light space-y-1">
+                         <li>Initial 60 min – $100 (administrative fee only)</li>
+                         <li>Follow-up 60 min – $200</li>
+                       </ul>
+                       <p className="mt-3 text-[var(--gw-accent)] font-medium">5 follow-up 60 min sessions packages: 10% off</p>
                      </div>
                     </ExpandableServiceCard>
 
