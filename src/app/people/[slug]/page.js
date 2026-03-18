@@ -58,8 +58,10 @@ export async function generateMetadata({ params }) {
   return { title: 'GW Center for Integrative Medicine' };
 }
 
-export default async function ProviderProfilePage({ params }) {
+export default async function ProviderProfilePage({ params, searchParams }) {
   const { slug } = await params;
+  const resolvedSearchParams = await searchParams || {};
+  const isLeadership = resolvedSearchParams.role === 'leadership';
 
   // We only have Ashley's data for now
   
@@ -285,7 +287,7 @@ export default async function ProviderProfilePage({ params }) {
   }
 
 
-  if (slug === 'mikhail-kogan-md') {
+    if (slug === 'mikhail-kogan-md') {
     return (
       <div className="flex min-h-screen flex-col bg-[var(--gw-background)] font-sans antialiased">
         <Header />
@@ -293,7 +295,7 @@ export default async function ProviderProfilePage({ params }) {
         
         {/* Breadcrumbs */}
         <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
-          <Breadcrumbs items={[{ label: 'Our Team', href: '/people' }, { label: 'Mikhail Kogan' }]} />
+          <Breadcrumbs items={[{ label: 'Our Team', href: '/people' }, { label: 'Mikhail Kogan, MD' }]} />
         </div>
         
         {/* Hero Section */}
@@ -310,161 +312,222 @@ export default async function ProviderProfilePage({ params }) {
             {/* Main info side */}
             <div className="flex-grow z-10 relative text-center md:text-left pt-2 md:pt-4">
               <h1 className="text-4xl lg:text-[54px] font-serif text-[var(--gw-primary)] mb-4 leading-tight">Mikhail Kogan</h1>
-              <h2 className="text-xl lg:text-[22px] text-[var(--gw-secondary)] font-bold mb-4">MD, ABIOM, RCSTmisha</h2>
+              <h2 className="text-xl lg:text-[22px] text-[var(--gw-secondary)] font-bold mb-4">MD, ABIOM, RCST</h2>
               
               <p className="text-[13px] md:text-[14px] text-[var(--gw-primary)] font-bold mb-6 tracking-wide uppercase">
                   Chief Medical Officer<br/>
                   <span className="text-slate-500 font-medium normal-case tracking-normal block mt-1">Integrative Medicine | Integrative Geriatrics | Functional Medicine</span>
               </p>
 
-              <div className="text-[15px] md:text-[16px] text-[#42526D] leading-relaxed font-normal space-y-4 max-w-3xl">
-                <p>
-                  Dr. Kogan, MD, is the heart and driving force behind the GW Center for Integrative Medicine (GWCIM). His vision for the medical center is inspired by the legacy of GWCIM founder Dr. John Pan and shaped by his own life experiences. He is committed to creating a medical home for both providers from diverse medical traditions and the patients and families they serve.
-                </p>
+              {/* Specialties / Services Buttons */}
+              <div className="flex flex-wrap gap-2 justify-center md:justify-start mt-6 mb-4">
+                 <Link href="/services/integrative-medicine-md" className="px-4 py-2 bg-white border border-gray-200 text-[var(--gw-primary)] hover:border-[var(--gw-accent)] hover:text-[var(--gw-accent)] text-xs font-bold uppercase tracking-widest rounded-lg transition-all shadow-sm">
+                   Integrative Medicine
+                 </Link>
+                 <Link href="/services/naturopathic-medicine" className="px-4 py-2 bg-white border border-gray-200 text-[var(--gw-primary)] hover:border-[var(--gw-accent)] hover:text-[var(--gw-accent)] text-xs font-bold uppercase tracking-widest rounded-lg transition-all shadow-sm">
+                   Functional Medicine
+                 </Link>
+                 <Link href="/services/medical-cannabis" className="px-4 py-2 bg-white border border-gray-200 text-[var(--gw-primary)] hover:border-[var(--gw-accent)] hover:text-[var(--gw-accent)] text-xs font-bold uppercase tracking-widest rounded-lg transition-all shadow-sm">
+                   Medical Cannabis
+                 </Link>
+                 <Link href="/services/reversal-cognitive-decline-recode" className="px-4 py-2 bg-white border border-gray-200 text-[var(--gw-primary)] hover:border-[var(--gw-accent)] hover:text-[var(--gw-accent)] text-xs font-bold uppercase tracking-widest rounded-lg transition-all shadow-sm">
+                   ReCODE (Alzheimer's)
+                 </Link>
+                 <Link href="/services/somatic-experiencing" className="px-4 py-2 bg-white border border-gray-200 text-[var(--gw-primary)] hover:border-[var(--gw-accent)] hover:text-[var(--gw-accent)] text-xs font-bold uppercase tracking-widest rounded-lg transition-all shadow-sm">
+                   Craniosacral Therapy
+                 </Link>
               </div>
+
             </div>
-            
           </div>
         </section>
 
         <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-10">
           
           {/* Left Column */}
-          <div className="lg:col-span-2 pr-0 lg:pr-10">
+          <div className="lg:col-span-2 pr-0 lg:pr-10 space-y-12">
             
-            <div className="py-10 border-b border-gray-200">
+            {/* Leadership and Administrative Role */}
+            {isLeadership && (
+            <div className="border-b border-gray-200 pb-12">
+               <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
+                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
+                 Leadership
+               </p>
+               <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
+                 Leadership and Administrative Role
+               </h2>
+               <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
+                <p>
+                  Dr. Kogan currently serves as Chief Medical Officer (CMO) of the GW Center for Integrative Medicine and Associate Director of the Geriatrics Fellowship Program at George Washington University. He is the heart and driving force behind GWCIM, continuing the vision of founder Dr. John Pan. Under his leadership, the center has grown into a world-class multidisciplinary clinic and a medical home for patients and families facing complex health challenges.
+                </p>
+              </div>
+            </div>
+            )}
+
+            {/* About (summary) */}
+            <div className="border-b border-gray-200 pb-12">
                <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
                  Overview
                </p>
                <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 Meet Dr. Mikhail (Misha) Kogan
+                 About Dr. Kogan
                </h2>
                <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
                 <p>
-                  Dr. Kogan has extensive training and expertise in internal medicine, geriatrics, palliative care, social and primary care medicine, integrative medicine, herbal medicine, and craniosacral therapy. He specializes in diagnosing and developing treatment plans for the most complex health challenges, offering hope to even the most desperate patients.
+                  Dr. Kogan has extensive training and expertise in internal medicine, geriatrics, palliative care, social and primary care medicine, integrative medicine, herbal medicine, and craniosacral therapy. He specializes in diagnosing and developing treatment plans for the most complex health challenges, offering hope to even the most desperate patients. He provides geriatric primary care to GWU MFA patients and specialty consultative care at GWCIM.
                 </p>
                 <p>
-                  Dr. Kogan leads a world-class team of integrative medicine providers, each bringing unique expertise across multiple disciplines. Together, they demonstrate what patient-centered teamwork looks like—an inspired crew working side by side to meet each patient’s needs.
+                  Dr. Kogan is a leader in the newly established field of Integrative Geriatrics. He is the chief editor of the first definitive textbook of the field entitled "Integrative Geriatric Medicine," published by Oxford University Press. He is also the author of the highly acclaimed book, "Medical Marijuana: Dr. Kogan’s Evidence-Based Guide to the Health Benefits of Cannabis and CBD."
                 </p>
               </div>
             </div>
 
-            <div className="py-12 border-b border-gray-200">
+            {/* Personal Journey to Integrative Medicine */}
+            <div className="border-b border-gray-200 pb-12">
                <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
-                 Academic & Clinical Roles
+                 Background
                </p>
                <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 At GWCIM and GWU MFA
+                 Personal Journey to Integrative Medicine
                </h2>
                <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
                 <p>
-                  Dr. Kogan is the leading Integrative and Functional medicine physician at GWCIM and a physician at the Department of Geriatrics and Palliative Care at GWU Medical Faculty Associates. He is an Associate Professor at the George Washington University School of Medicine.
+                  Dr. Mikhail Kogan’s journey in medicine, much like his life, has been a rich voyage spanning diverse cultures and experiences. Born in Moscow, in the former Soviet Union, Dr. Kogan emigrated with his family during his teenage years, first to Israel and later to the United States. His professional and personal endeavors have shaped him into a compassionate, inquisitive, and open-minded practitioner.
                 </p>
                 <p>
-                  Dr. Kogan currently serves as CMO of the GWCIM and Associate Director of the Geriatrics Fellowship Program at GWU. Also, he is a part-time faculty member of the George Washington Institute for Spirituality and Health and the GW Center for Aging, Health and Humanities.
+                  Beyond his formal training in conventional Western medicine, Dr. Kogan has pursued numerous complementary healing modalities. He is a graduate of a two-year training program in Biodynamic Cranio-Sacral Therapy, an osteopathic practice effective for conditions such as headaches, back pain, and fatigue. Additionally, he completed a four-year program at the Suluk Academy, a teaching center rooted in the principles of Sufism, which helped him integrate meditation, mindfulness, and spiritual practices into his life and medical practice. These diverse experiences define his commitment to all aspects—physical, emotional, and spiritual—of his patients’ well-being.
                 </p>
               </div>
             </div>
 
-            <div className="py-12 border-b border-gray-200">
+            {/* At GWCIM */}
+            <div className="border-b border-gray-200 pb-12">
                <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
-                 Specialty
+                 Clinical Practice
                </p>
                <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 Integrative Geriatric Medicine
+                 At GWCIM
                </h2>
                <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
                 <p>
-                  Dr. Mikhail Kogan is a leader in the newly established field of Integrative Geriatrics. He is the chief editor of the first definitive textbook of the field entitled “Integrative Geriatric Medicine”, published by Oxford University Press as part of the Andrew Weil Integrative Medicine Library series. He is a frequent speaker at a variety of international conferences on the topics of Integrative Medicine and Geriatrics, longevity, healthy aging, and the neurodegenerative diseases.
+                  As the leading Integrative and Functional medicine physician at GWCIM, Dr. Kogan offers consultations for patients of all ages. His areas of expertise encompass neurodegenerative diseases, chronic illness, chronic pain, cancer, autoimmune diseases, mold toxicity illness, genetic consultation, and more. 
                 </p>
                 <p>
-                  He provides geriatric primary care to GWU MFA patients and specialty care at GWCIM.
+                  Dr. Kogan is especially dedicated to assisting patients with Alzheimer’s disease. By identifying and addressing underlying metabolic drivers, drawing extensively on Dr. Dale Bredesen’s research and the ReCODE program, he has successfully treated many hundreds of patients. Together with his colleagues, he also provides rigorous, evidence-based medical cannabis care, utilizing cannabis as a powerful solution to reduce polypharmacy in the geriatric patient population.
                 </p>
-                <p>
-                  Dr. Kogan is especially dedicated to assisting patients with Alzheimer’s disease. By identifying and addressing underlying metabolic drivers, drawing extensively on Dr. Dale Bredesen’s research and the newly developed ReCODE program, he successfully treated many hundreds of patients.
-                </p>
-              </div>
+               </div>
             </div>
 
-            <div className="py-12 border-b border-gray-200">
+            {/* Publication and Research (list) */}
+            <div className="border-b border-gray-200 pb-12">
                <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
                  <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
-                 Focus Area
+                 Academic Contributions
                </p>
                <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 Medical Cannabis
+                 Publication and Research
                </h2>
                <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
-                <p>
-                  Dr. Kogan is the author of a highly acclaimed book, “Medical Marijuana: Dr. Kogan’s Evidence-Based Guide to the Health Benefits of Cannabis and CBD,” published by Random House in 2021. Together with Dr. Abraham Benavides, MD, and Joelle Rabion, Dr. Kogan provides rigorous, evidence-based medical cannabis care for GWCIM patients. His specific area of interest is utilizing cannabis as a solution to reduce polypharmacy in the geriatric patient population. He is a renowned international speaker in the field of medical cannabis.
-                </p>
-              </div>
+                <ul className="list-disc pl-5 space-y-2 text-slate-700">
+                  <li><strong>Integrative Geriatric Medicine</strong> (Oxford University Press) - Chief Editor</li>
+                  <li><strong>Medical Marijuana: Dr. Kogan’s Evidence-Based Guide</strong> - Author</li>
+                  <li>Various peer-reviewed articles on integrative medicine, polypharmacy reduction, and alternative pain management interventions. <em>(To be updated with full bibliography)</em></li>
+                </ul>
+               </div>
             </div>
 
-            <div className="py-12 border-b border-gray-200">
+            {/* Awards and Acknowledgments (list) */}
+            <div className="border-b border-gray-200 pb-12">
+               <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
+                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
+                 Recognition
+               </p>
                <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 Other Medical Interests
+                 Awards and Acknowledgments
                </h2>
                <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
-                <p>
-                  Dr. Kogan offers Integrative and Functional Medicine consultations for patients of all ages. His other areas of expertise include neurodegenerative diseases, chronic illness, chronic pain, cancer, autoimmune diseases, mold toxicity illness, genetic consultation, and more.
-                </p>
-              </div>
+                <ul className="list-disc pl-5 space-y-2 text-slate-700">
+                  <li>Recognized consistently as a Top Doctor in Washington, D.C.</li>
+                  <li>Fellowship honors in Geriatrics, George Washington University.</li>
+                  <li><em>(To be updated with full list of awards)</em></li>
+                </ul>
+               </div>
             </div>
 
-            <div className="py-12 border-b border-gray-200">
+            {/* Beyond work (personal life highlights) */}
+            <div className="border-b border-gray-200 pb-12">
+               <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
+                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
+                 Personal Life
+               </p>
                <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 Leadership and Advocacy in Integrative Medicine
+                 Beyond Work
                </h2>
                <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
                 <p>
-                  Dr. Kogan actively serves on several national boards and organizations, including the American Board of Integrative Medicine under the American Board of Physician Specialties (ABPS), PlantMed, and others. Additionally, he is the founder and chair of the board for AIM Health Institute, a 501(c)(3) non-profit organization in the Washington, D.C., metropolitan area. AIM Health Institute is dedicated to providing integrative medicine services to low-income and terminally ill patients.
+                  Outside of the clinic, Dr. Kogan and his wife, Angela Gabriel (a practitioner at GWCIM), are busy raising their teenage sons, Peter and Sebastian. True to his calling as an integrative practitioner, his leisure time is replete with healthy lifestyle activities that nourish both body and spirit. He enjoys vigorous exercise, long-distance cross-country skiing, downhill skiing, and frequent nature walks with his family and dogs. 
                 </p>
-              </div>
+                <p>
+                  He incorporates mind-body practices such as weekly meditation, yoga, QiGong, and mindfulness classes into his routine, along with beekeeping and gardening. His favorite board games are chess and Wingspan. Dr. Kogan loves to travel and has visited many countries, including Colombia, Peru, Uganda, Ethiopia, China, and across Europe, with many more on his bucket list.
+                </p>
+               </div>
             </div>
 
-            <div className="py-12 border-b border-gray-200">
-               <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 Personal Journey
+            {/* Videos */}
+            <div className="pt-2">
+              <YouTubeGallery 
+                title="Videos & Media" 
+                subtitle="Watch & Learn"
+                videos={[
+                  {
+                    videoId: "A0lJ-r__K5E",
+                    title: "Dr. Misha Kogan’s YouTube Channel",
+                    description: "Features a variety of educational presentations, interviews, discussions, and announcements related to Integrative and Functional Medicine."
+                  }
+                ]} 
+              />
+            </div>
+
+            {/* What patients say (Testimonials) */}
+            <div className="pb-8">
+               <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
+                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
+                 From Our Patients
+               </p>
+               <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-10 font-serif">
+                 What Patients Say
                </h2>
-               <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
-                <p>
-                  Dr. Mikhail Kogan’s journey in medicine, much like his life, has been a rich voyage spanning diverse cultures and experiences, each contributing to his unique perspective and expertise. Born in Moscow, in the former Soviet Union, Dr. Kogan emigrated with his family during his teenage years, first to Israel and later to the United States. His professional and personal endeavors have shaped him into a compassionate, inquisitive, and open-minded practitioner in the field of Integrative Medicine.
-                </p>
-                <p>
-                  Beyond his formal training in conventional Western medicine, Dr. Kogan has pursued numerous complementary healing modalities that have enriched his approach to patient care. He is a graduate of a two-year training program in Biodynamic Cranio-Sacral Therapy. This osteopathic practice is effective for conditions such as headaches, back pain, and fatigue. Additionally, he completed a four-year program at the Suluk Academy, a teaching center rooted in the principles of Sufism. These trainings helped him integrate meditation, mindfulness, and spiritual practices into his life and medical practice.
-                </p>
-                <p>
-                  These diverse experiences defined his commitment to all aspects – physical, emotional, and spiritual -of his patients’ well-being.
-                </p>
-              </div>
+               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                 {/* Testimonial Placeholder 1 */}
+                 <div className="bg-white p-8 rounded-tr-3xl rounded-bl-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                   <div>
+                     <svg className="w-8 h-8 text-[var(--gw-gold)] mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+                     <p className="text-[15px] text-gray-600 italic leading-relaxed">
+                       "Dr. Kogan is a brilliant, caring physician who takes the time to unravel complex medical puzzles. He gave me my life back when conventional medicine had no answers."
+                     </p>
+                   </div>
+                   <div className="mt-6">
+                     <p className="text-[12px] font-bold uppercase tracking-widest text-[var(--gw-primary)]">— Patient Review</p>
+                   </div>
+                 </div>
+                 {/* Testimonial Placeholder 2 */}
+                 <div className="bg-white p-8 rounded-tr-3xl rounded-bl-3xl shadow-sm border border-gray-100 flex flex-col justify-between">
+                   <div>
+                     <svg className="w-8 h-8 text-[var(--gw-gold)] mb-4 opacity-50" fill="currentColor" viewBox="0 0 24 24"><path d="M14.017 21v-7.391c0-5.704 3.731-9.57 8.983-10.609l.995 2.151c-2.432.917-3.995 3.638-3.995 5.849h4v10h-9.983zm-14.017 0v-7.391c0-5.704 3.748-9.57 9-10.609l.996 2.151c-2.433.917-3.996 3.638-3.996 5.849h3.983v10h-9.983z" /></svg>
+                     <p className="text-[15px] text-gray-600 italic leading-relaxed">
+                       "His approach to the ReCODE program for Alzheimer's is comprehensive. I've seen remarkable changes thanks to his guidance and the team at GWCIM."
+                     </p>
+                   </div>
+                   <div className="mt-6">
+                     <p className="text-[12px] font-bold uppercase tracking-widest text-[var(--gw-primary)]">— Patient Review</p>
+                   </div>
+                 </div>
+               </div>
             </div>
-
-            <div className="py-12">
-               <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 Beyond Clinic and University
-               </h2>
-               <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
-                <p>
-                  Outside of the clinic, Dr. Kogan and his wife, Angela Gabriel, a practitioner at GWCIM, are staying busy raising teenage sons Peter and Sebastian. True to his calling as an integrative practitioner, his leisure time is replete with healthy lifestyle activities that nourish both body and spirit: he enjoys vigorous exercise, long-distance cross-country skiing, downhill skiing, frequent nature walks with his family and dogs, mind body practices such as weekly meditation, yoga, QiGong, and mindfulness classes, beekeeping, and gardening. His favorite board games are chess and Wingspan. Dr. Kogan traveled to many countries including Columbia, Peru, Uganda, Ephiopia, China, Europe, and there are more on his bucket list.
-                </p>
-              </div>
-            </div>
-
-            <YouTubeGallery 
-              title="Dr. Misha Kogan’s YouTube Channel" 
-              subtitle="Watch & Learn"
-              videos={[
-                {
-                  videoId: "A0lJ-r__K5E",
-                  title: "Educational presentations and discussions",
-                  description: "Features a variety of educational presentations, interviews, discussions, and announcements related to Integrative and Functional Medicine."
-                }
-              ]} 
-            />
 
           </div>
 
@@ -507,7 +570,8 @@ export default async function ProviderProfilePage({ params }) {
               </div>
             </div>
 
-            <div className="bg-white border border-gray-100 shadow-sm p-6">
+            {/* Education (list, sidebar) */}
+            <div className="bg-white border border-[var(--gw-primary)]/10 shadow-sm p-6">
                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-4 flex items-center gap-2">
                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-[var(--gw-accent)]"><path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" /></svg>
                  Education
@@ -521,31 +585,21 @@ export default async function ProviderProfilePage({ params }) {
                </ul>
             </div>
 
-            {/* Related Content */}
-            <div className="bg-white border border-gray-100 shadow-sm p-6">
+            {/* Affiliations (list, sidebar) */}
+            <div className="bg-white border border-[var(--gw-primary)]/10 shadow-sm p-6">
                <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-4 flex items-center gap-2">
                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-[var(--gw-accent)]">
-                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 21v-8.25M15.75 21v-8.25M8.25 21v-8.25M3 9l9-6 9 6m-1.5 12V10.332A48.36 48.36 0 0012 9.75c-2.551 0-5.056.2-7.5.582V21M3 21h18M12 6.75h.008v.008H12V6.75z" />
                  </svg>
-                 Related Content
+                 Affiliations
                </p>
-               <div className="space-y-4">
-                 <Link href="#" className="block group">
-                   <h4 className="text-[14px] font-semibold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors leading-snug">Dr. Mikhail Kogan, Top Doctor in Washington, D.C.</h4>
-                 </Link>
-                 <div className="w-full h-px bg-gray-100" />
-                 <Link href="#" className="block group">
-                   <h4 className="text-[14px] font-semibold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors leading-snug">Medical Marijuana Book - Soft Cover Edition</h4>
-                 </Link>
-                 <div className="w-full h-px bg-gray-100" />
-                 <Link href="#" className="block group">
-                   <h4 className="text-[14px] font-semibold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors leading-snug">GWCIM announces new Medical Director: Ashley Drapeau</h4>
-                 </Link>
-                 <div className="w-full h-px bg-gray-100" />
-                 <Link href="#" className="block group">
-                   <h4 className="text-[14px] font-semibold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors leading-snug">What Are Anti-Depressants? Dr. Kogan’s Interview On OTC Meds</h4>
-                 </Link>
-               </div>
+               <ul className="text-[13px] text-slate-700 space-y-3 list-inside list-disc">
+                 <li>Associate Professor, GWU School of Medicine</li>
+                 <li>GW Institute for Spirituality and Health</li>
+                 <li>GW Center for Aging, Health and Humanities</li>
+                 <li>American Board of Integrative Medicine (ABPS)</li>
+                 <li>AIM Health Institute (Founder & Chair)</li>
+               </ul>
             </div>
 
           </div>
@@ -557,9 +611,6 @@ export default async function ProviderProfilePage({ params }) {
       </div>
     );
   }
-
-
-  
   if (slug === 'marianna-ledenac-nd') {
     return (
       <div className="flex min-h-screen flex-col bg-[var(--gw-background)] font-sans antialiased">

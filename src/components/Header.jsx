@@ -74,6 +74,7 @@ const menuItems = [
     href: "/people",
     submenu: [
       { title: "Providers",   href: "/people" },
+      { title: "Leadership and Support Staff", href: "/people#leadership-and-support" },
       { title: "Partners & Affiliations",  href: "/partners" },
     ]
   },

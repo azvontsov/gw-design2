@@ -124,7 +124,7 @@ export default function ProvidersAndStaffPage() {
   });
 
   const filteredDoctors = filteredProviders.filter(p => p.credentials !== "Clinic Manager");
-  const filteredStaff = filteredProviders.filter(p => p.credentials === "Clinic Manager");
+  const filteredStaff = filteredProviders.filter(p => p.credentials === "Clinic Manager" || p.slug === "mikhail-kogan-md");
 
 
   const resetFilters = () => {
@@ -327,12 +327,12 @@ export default function ProvidersAndStaffPage() {
 
         {filteredStaff.length > 0 && (
           <div className="mb-20">
-            <h2 className="text-3xl md:text-4xl font-serif text-[var(--gw-primary)] mb-12 text-center">
+            <h2 id="leadership-and-support" className="text-3xl md:text-4xl font-serif text-[var(--gw-primary)] mb-12 text-center">
               Our Leadership and Clinic Support Staff
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-16 gap-x-8">
               {filteredStaff.map((provider) => (
-                  <Link href={`/people/${provider.slug}`} key={provider.id} className="flex flex-col items-center group cursor-pointer text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
+                  <Link href={`/people/${provider.slug}?role=leadership`} key={provider.id} className="flex flex-col items-center group cursor-pointer text-center animate-in fade-in slide-in-from-bottom-4 duration-500">
                       
                       {/* Avatar Circle with Border */}
                       <div className="w-[180px] h-[180px] border border-gray-100 rounded-full overflow-hidden mb-5 bg-[#f4f6f8] flex items-center justify-center transition-all duration-500 group-hover:scale-105 group-hover:shadow-md group-hover:border-[var(--gw-accent)]">
