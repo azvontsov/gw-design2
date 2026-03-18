@@ -257,11 +257,11 @@ export default function Header() {
                                 {idx === 3 && (
                                     <div 
                                         className={`flex justify-center transition-all duration-500 ease-in-out overflow-hidden ${
-                                            isScrolled ? 'max-w-[350px] opacity-100 mx-2' : 'max-w-0 opacity-0 -mx-4'
+                                            isScrolled ? 'max-w-[500px] opacity-100 mx-2' : 'max-w-0 opacity-0 -mx-4'
                                         }`}
                                     >
                                         <Link href="/" className="flex items-center hover:opacity-80 shrink-0 list-none">
-                                            <img src="/icons/logo.svg" alt="GW Center" className="h-8 xl:h-10 w-auto object-contain" />
+                                            <img src="/icons/logo.svg" alt="GW Center" className="h-8 xl:h-10 w-auto object-contain shrink-0" />
                                         </Link>
                                     </div>
                                 )}
