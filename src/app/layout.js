@@ -69,6 +69,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body
         className={`${gtSuper.variable} ${ginto.variable} ${belleza.variable} antialiased`}
+        suppressHydrationWarning
       >
         {children}
       </body>

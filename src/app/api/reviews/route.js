@@ -32,7 +32,7 @@ export async function GET() {
 
     // 2. Fetch the reviews using the Google Business Profile API
     // The Location name looks like: locations/1234567890
-    const reviewsRes = await fetch(`https://mybusiness.googleapis.com/v4/accounts/${ACCOUNT_LOCATION_NAME}/reviews`, {
+    const reviewsRes = await fetch(`https://mybusiness.googleapis.com/v4/${ACCOUNT_LOCATION_NAME}/reviews`, {
       method: 'GET',
       headers: {
         'Authorization': `Bearer ${access_token}`,
