@@ -183,10 +183,10 @@ export default function Header() {
             
 
             {/* Center: Logo */}
-            <div className="flex-1 flex justify-center">
-                <Link href="/" className="relative h-16 w-auto block">
+            <div className="flex-1 flex justify-center min-w-0 px-2 lg:px-0">
+                <Link href="/" className="relative h-12 md:h-14 lg:h-16 w-full max-w-[60vw] md:max-w-none flex items-center justify-center">
                     {/* Placeholder for Logo - In a real scenario use the Image component */}
-                    <img src="/icons/logo.svg" alt="GW Center" className="h-full w-auto object-contain" />
+                    <img src="/icons/logo.svg" alt="GW Center" className="max-h-full max-w-full object-contain" />
                 </Link>
             </div>
 
@@ -199,7 +199,7 @@ export default function Header() {
 
             {/* Mobile Menu Toggle */}
             <button 
-                className="lg:hidden p-2 text-[var(--gw-primary)]"
+                className="lg:hidden p-2 text-[var(--gw-primary)] shrink-0 ml-2"
                 onClick={() => setIsMenuOpen(true)}
             >
                 <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" /></svg>

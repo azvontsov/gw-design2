@@ -148,7 +148,7 @@ export default function Footer() {
               Designed by DCDev
             </a>
 
-            <div className="flex gap-8 items-center">
+            <div className="flex flex-wrap gap-4 md:gap-8 justify-center items-center">
                 <Link href="#" className="hover:text-white transition-colors">Disclaimer</Link>
                 <Link href="#" className="hover:text-white transition-colors">Privacy Policy</Link>
                 <Link href="#" className="hover:text-white transition-colors">Careers</Link>

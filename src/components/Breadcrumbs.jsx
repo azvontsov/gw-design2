@@ -8,10 +8,10 @@ export default function Breadcrumbs({ items, variant = 'default' }) {
   const separatorClasses = isWhite ? "text-white/30" : "text-slate-300";
 
   return (
-    <nav className={`flex mb-8 text-[11px] font-bold uppercase tracking-[0.2em] ${baseClasses}`} aria-label="Breadcrumb">
-      <ol className="inline-flex items-center space-x-1 md:space-x-3">
-        <li className="inline-flex items-center">
-          <Link href="/" className={`${hoverClasses} transition-colors`}>
+    <nav className={`flex flex-wrap mb-8 text-[11px] font-bold uppercase tracking-[0.2em] ${baseClasses}`} aria-label="Breadcrumb">
+      <ol className="flex flex-wrap items-center gap-y-2 gap-x-1 md:gap-x-3">
+        <li className="flex items-center">
+          <Link href="/" className={`${hoverClasses} transition-colors whitespace-nowrap`}>
             Home
           </Link>
         </li>

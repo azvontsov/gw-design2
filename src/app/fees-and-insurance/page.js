@@ -53,7 +53,7 @@ function ProviderAvatar({ name, credentials, image, slug, subtitle }) {
         )}
       </div>
       <div className="flex flex-col gap-1 min-w-0 flex-1">
-        <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[18px] md:text-[20px] leading-[1.3] break-words">
+        <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[18px] md:text-[20px] leading-[1.3] break-words hyphens-auto">
           {name}{credentials ? `, ${credentials}` : ''}
         </h4>
         {subtitle && (
@@ -68,11 +68,11 @@ function ProviderAvatar({ name, credentials, image, slug, subtitle }) {
 
 function SharedFeesTable({ fees, note }) {
   return (
-    <div className="bg-white border border-gray-200 p-6 md:p-8 shadow-sm flex-grow rounded-sm">
+    <div className="bg-white border border-gray-200 p-5 md:p-8 shadow-sm flex-grow rounded-sm">
       <ul className="space-y-3">
         {fees.map((f, i) => (
-          <li key={i} className="text-[17px] md:text-[19px] text-gray-600 font-light flex justify-between items-center px-2 py-3 border-b border-gray-50 last:border-0 hover:bg-slate-50 transition-colors">
-            <span className="tracking-tight pr-4">{f.label}</span>
+          <li key={i} className="text-[17px] md:text-[19px] text-gray-600 font-light flex flex-col sm:flex-row justify-between items-start sm:items-center px-1 sm:px-2 py-3 border-b border-gray-50 last:border-0 hover:bg-slate-50 transition-colors">
+            <span className="tracking-tight pr-0 sm:pr-4 mb-1 sm:mb-0 break-words w-full sm:w-auto">{f.label}</span>
             <span className="font-bold text-[var(--gw-primary)] shrink-0">{f.price}</span>
           </li>
         ))}
@@ -114,9 +114,9 @@ function ProviderFeeCard({ name, credentials, image, slug, fees, note, subtitle 
       <div className="w-full flex-grow">
         <ul className="space-y-3">
            {fees.map((f, i) => (
-             <li key={i} className="text-[16px] md:text-[18px] text-gray-600 font-light flex justify-between items-center px-2 py-2 rounded-sm group-hover:bg-slate-50 transition-colors">
-               <span className="tracking-tight">{f.label}</span>
-               <span className="font-bold text-[var(--gw-primary)] shrink-0 ml-3">{f.price}</span>
+             <li key={i} className="text-[16px] md:text-[18px] text-gray-600 font-light flex flex-col sm:flex-row justify-between items-start sm:items-center px-1 sm:px-2 py-2 rounded-sm group-hover:bg-slate-50 transition-colors">
+               <span className="tracking-tight mb-1 sm:mb-0 break-words w-full sm:w-auto">{f.label}</span>
+               <span className="font-bold text-[var(--gw-primary)] shrink-0 sm:ml-3">{f.price}</span>
              </li>
            ))}
         </ul>
@@ -133,7 +133,7 @@ function ExpandableServiceCard({ title, children }) {
       className={`border bg-white shadow-sm transition-all duration-300 ease-out flex flex-col mb-4 overflow-hidden ${isExpanded ? 'shadow-lg border-[var(--gw-accent)]' : 'border-gray-200 hover:shadow-md hover:border-gray-300'}`}
     >
       <div 
-        className="group p-6 md:p-8 flex items-center justify-between cursor-pointer bg-white relative z-10 w-full text-left" 
+        className="group p-5 md:p-8 flex items-center justify-between cursor-pointer bg-white relative z-10 w-full text-left gap-4" 
         role="button" 
         aria-expanded={isExpanded} 
         tabIndex={0}
@@ -145,10 +145,10 @@ function ExpandableServiceCard({ title, children }) {
           }
         }}
       >
-        <h3 className={`text-2xl md:text-[28px] font-medium transition-colors ${isExpanded ? 'text-[var(--gw-blue)]' : 'text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)]'}`} style={{ fontFamily: 'var(--font-gt-super)' }}>
+        <h3 className={`text-2xl md:text-[28px] font-medium transition-colors break-words min-w-0 flex-1 ${isExpanded ? 'text-[var(--gw-blue)]' : 'text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)]'}`} style={{ fontFamily: 'var(--font-gt-super)' }}>
           {title}
         </h3>
-        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0 ml-4 ${isExpanded ? 'bg-[var(--gw-accent)] text-white border-[var(--gw-accent)]' : 'border-gray-200 text-gray-400 group-hover:bg-[var(--gw-accent)] group-hover:text-white group-hover:border-[var(--gw-accent)]'}`}>
+        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0 ${isExpanded ? 'bg-[var(--gw-accent)] text-white border-[var(--gw-accent)]' : 'border-gray-200 text-gray-400 group-hover:bg-[var(--gw-accent)] group-hover:text-white group-hover:border-[var(--gw-accent)]'}`}>
            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={`w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`}>
              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
            </svg>
@@ -207,7 +207,7 @@ export default function FeesAndInsurancePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--gw-secondary-light)]">
+    <div className="flex flex-col min-h-screen bg-[var(--gw-secondary-light)] overflow-x-hidden">
       <Header />
 
       {/* Hero */}
@@ -362,9 +362,9 @@ export default function FeesAndInsurancePage() {
                     </ExpandableServiceCard>
 
                     <ExpandableServiceCard title="Administrative">
-                      <div className="flex justify-between items-center bg-white p-4 shadow-sm rounded-sm">
-                        <span className="font-medium text-slate-700">Sleep Study Referrals Administrative Fee</span>
-                        <span className="font-bold text-[var(--gw-primary)]">$100.00</span>
+                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 shadow-sm rounded-sm gap-2">
+                        <span className="font-medium text-slate-700 break-words w-full sm:w-auto">Sleep Study Referrals Administrative Fee</span>
+                        <span className="font-bold text-[var(--gw-primary)] shrink-0">$100.00</span>
                       </div>
                     </ExpandableServiceCard>
 
@@ -723,11 +723,12 @@ export default function FeesAndInsurancePage() {
                         Our integrative team is currently accepting new patients with complex chronic conditions. 
                     </p>
                     <Link 
-                        href="/schedule-an-appointment"
-                        className="flex w-full items-center justify-center gap-2 bg-[var(--gw-accent)] text-[var(--gw-primary)] text-[12px] font-bold uppercase tracking-widest px-6 py-4 rounded-2xl group-hover:bg-white transition-all transform hover:-translate-y-1 shadow-xl"
-                    >
-                        Make an Appointment
-                    </Link>
+                      href="/schedule-an-appointment"
+                      className="flex w-full items-center text-center justify-center whitespace-normal gap-1 sm:gap-2 bg-[var(--gw-accent)] text-[var(--gw-primary)] text-[11px] sm:text-[12px] font-bold uppercase tracking-widest px-2 sm:px-6 py-4 rounded-xl sm:rounded-2xl group-hover:bg-white transition-all transform hover:-translate-y-1 shadow-xl"
+                  >
+                        MAKE AN APPOINTMENT
+                        <svg className="w-4 h-4 shrink-0 transition-transform transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
+                  </Link>
                 </div>
               </div>
 
