@@ -246,11 +246,11 @@ export default function FeesAndInsurancePage() {
                  <div className="space-y-5 text-lg md:text-xl text-gray-600 font-light leading-relaxed">
                    <p><strong>GWCIM is a team of independent out‑of‑network providers and does not accept any insurance plans, including Medicare.</strong></p>
                    <ul className="list-disc pl-5 space-y-3">
+                     <li>All services are <strong>fee-for-service</strong> due to limited coverage for our comprehensive treatments. Actual charges depend on the visit length.</li>
+                     <li><strong>FSA/HSA</strong> are accepted for all services, including medically recommended vitamins and supplements.</li>
+                     <li>We recommend that you verify with your insurer the <strong>reimbursement details</strong>, including integrative medicine coverage and any out-of-network benefits, prior to starting services at GWCIM.</li>
                      <li><strong>Medicare Policy:</strong> Dr. Kogan will not provide Medicare billable CPT codes.</li>
-                     <li>All services are fee-for-service due to limited coverage for our comprehensive treatments. Actual charges depend on the visit length.</li>
-                     <li>FSA/HSA are accepted for all services, including medically recommended vitamins and supplements.</li>
-                     <li>We recommend that you verify with your insurer the reimbursement details, including integrative medicine coverage and any out-of-network benefits, prior to starting services at GWCIM.</li>
-                     <li>We can provide documentation for you to submit a reimbursement claim; however, we can not guarantee reimbursements.</li>
+                     <li>We can provide documentation for you to submit a <strong>reimbursement claim</strong>; however, we can not guarantee reimbursements.</li>
                    </ul>
                  </div>
               </ContentSection>
