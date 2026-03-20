@@ -9,7 +9,7 @@ import NewsletterSidebarWidget from '@/components/NewsletterSidebarWidget';
 
 function SectionLabel({ children }) {
   return (
-    <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
+    <p className="inline-flex items-center gap-2 text-[14px] md:text-[15px] font-bold uppercase tracking-[0.15em] text-[var(--gw-blue)] mb-3">
       <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
       {children}
     </p>
@@ -53,11 +53,11 @@ function ProviderAvatar({ name, credentials, image, slug, subtitle }) {
         )}
       </div>
       <div className="flex flex-col gap-1 min-w-0 flex-1">
-        <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[15px] leading-[1.3] break-words">
+        <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[18px] md:text-[20px] leading-[1.3] break-words">
           {name}{credentials ? `, ${credentials}` : ''}
         </h4>
         {subtitle && (
-          <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-90 leading-relaxed break-words pr-2">
+          <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-90 leading-relaxed break-words pr-2">
             {subtitle}
           </p>
         )}
@@ -69,9 +69,9 @@ function ProviderAvatar({ name, credentials, image, slug, subtitle }) {
 function SharedFeesTable({ fees, note }) {
   return (
     <div className="bg-white border border-gray-200 p-6 md:p-8 shadow-sm flex-grow rounded-sm">
-      <ul className="space-y-1">
+      <ul className="space-y-3">
         {fees.map((f, i) => (
-          <li key={i} className="text-[14px] text-gray-600 font-light flex justify-between items-center px-2 py-2.5 border-b border-gray-50 last:border-0 hover:bg-slate-50 transition-colors">
+          <li key={i} className="text-[17px] md:text-[19px] text-gray-600 font-light flex justify-between items-center px-2 py-3 border-b border-gray-50 last:border-0 hover:bg-slate-50 transition-colors">
             <span className="tracking-tight pr-4">{f.label}</span>
             <span className="font-bold text-[var(--gw-primary)] shrink-0">{f.price}</span>
           </li>
@@ -79,7 +79,7 @@ function SharedFeesTable({ fees, note }) {
       </ul>
       {note && (
         <div className="mt-6 pt-6 border-t border-slate-100">
-           <div className="text-[11px] text-slate-500 italic leading-relaxed">{note}</div>
+           <div className="text-[15px] md:text-[17px] text-slate-500 italic leading-relaxed">{note}</div>
         </div>
       )}
     </div>
@@ -103,18 +103,18 @@ function ProviderFeeCard({ name, credentials, image, slug, fees, note, subtitle 
           )}
         </div>
         <div>
-          <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[16px] leading-tight mb-1">
+          <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[18px] md:text-[20px] leading-tight mb-2">
             {name}{credentials ? `, ${credentials}` : ''}
           </h4>
-          {subtitle && <p className="text-[10px] font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-80">{subtitle}</p>}
-          {note && <p className="text-[11px] text-slate-500 mt-1 italic leading-tight">{note}</p>}
+          {subtitle && <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-80 mb-1">{subtitle}</p>}
+          {note && <p className="text-[14px] md:text-[15px] text-slate-500 mt-2 italic leading-relaxed">{note}</p>}
         </div>
       </div>
       
       <div className="w-full flex-grow">
-        <ul className="space-y-2">
+        <ul className="space-y-3">
            {fees.map((f, i) => (
-             <li key={i} className="text-[13px] text-gray-600 font-light flex justify-between items-center px-2 py-1.5 rounded-sm group-hover:bg-slate-50 transition-colors">
+             <li key={i} className="text-[16px] md:text-[18px] text-gray-600 font-light flex justify-between items-center px-2 py-2 rounded-sm group-hover:bg-slate-50 transition-colors">
                <span className="tracking-tight">{f.label}</span>
                <span className="font-bold text-[var(--gw-primary)] shrink-0 ml-3">{f.price}</span>
              </li>
@@ -145,7 +145,7 @@ function ExpandableServiceCard({ title, children }) {
           }
         }}
       >
-        <h3 className={`text-lg md:text-xl font-medium transition-colors ${isExpanded ? 'text-[var(--gw-blue)]' : 'text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)]'}`} style={{ fontFamily: 'var(--font-gt-super)' }}>
+        <h3 className={`text-2xl md:text-[28px] font-medium transition-colors ${isExpanded ? 'text-[var(--gw-blue)]' : 'text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)]'}`} style={{ fontFamily: 'var(--font-gt-super)' }}>
           {title}
         </h3>
         <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0 ml-4 ${isExpanded ? 'bg-[var(--gw-accent)] text-white border-[var(--gw-accent)]' : 'border-gray-200 text-gray-400 group-hover:bg-[var(--gw-accent)] group-hover:text-white group-hover:border-[var(--gw-accent)]'}`}>
@@ -212,7 +212,7 @@ export default function FeesAndInsurancePage() {
 
       {/* Hero */}
       <section className="relative min-h-[40vh] flex items-end overflow-hidden pt-40 pb-16 bg-[var(--gw-background)]">
-        <div className="relative z-10 w-full container mx-auto px-6 lg:px-12">
+        <div className="relative z-10 w-full max-w-[1440px] mx-auto px-6 lg:px-10 xl:px-16">
           <div className="mb-4">
             <Breadcrumbs 
               items={[
@@ -236,16 +236,16 @@ export default function FeesAndInsurancePage() {
 
       {/* Body */}
       <main className="flex-1 bg-white">
-        <div className="container mx-auto px-6 lg:px-12 py-16">
-          <div className="flex flex-col lg:flex-row gap-12 xl:gap-20 items-start">
+        <div className="max-w-[1440px] w-full mx-auto px-6 lg:px-10 xl:px-16 py-16">
+          <div className="flex flex-col lg:flex-row gap-12 xl:gap-16 2xl:gap-24 items-start">
 
             {/* LEFT COLUMN */}
             <div className="flex-1 min-w-0">
               
               <ContentSection id="insurance-and-billing" label="Patient Information" heading="Insurance & Billing">
-                 <div className="space-y-4 text-gray-600 font-light leading-relaxed">
+                 <div className="space-y-5 text-lg md:text-xl text-gray-600 font-light leading-relaxed">
                    <p><strong>GWCIM is a team of independent out‑of‑network providers and does not accept any insurance plans, including Medicare.</strong></p>
-                   <ul className="list-disc pl-5 space-y-2">
+                   <ul className="list-disc pl-5 space-y-3">
                      <li><strong>Medicare Policy:</strong> Dr. Kogan will not provide Medicare billable CPT codes.</li>
                      <li>All services are fee-for-service due to limited coverage for our comprehensive treatments. Actual charges depend on the visit length.</li>
                      <li>FSA/HSA are accepted for all services, including medically recommended vitamins and supplements.</li>
@@ -256,34 +256,34 @@ export default function FeesAndInsurancePage() {
               </ContentSection>
 
               <ContentSection id="policies" label="Guidelines" heading="Office Policies">
-                <div className="space-y-8">
+                <div className="space-y-10">
                   <div>
-                    <h3 className="text-xl font-medium text-[var(--gw-primary)] mb-3">Cancellation Policy</h3>
-                    <div className="text-gray-600 font-light space-y-2 leading-relaxed">
+                    <h3 className="text-2xl font-medium text-[var(--gw-primary)] mb-4">Cancellation Policy</h3>
+                    <div className="text-lg md:text-xl text-gray-600 font-light space-y-3 leading-relaxed">
                       <p>Cancel or reschedule 48 business hours in advance to avoid a late fee. We’re closed Saturdays.</p>
                       <p>Late cancellations (under two business days) and no‑shows are charged 100% of the provider’s fee.</p>
                       <p><em>Example: to change a Monday appointment, you must contact us no later than the prior Thursday.</em></p>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium text-[var(--gw-primary)] mb-3">Late Payment Policy</h3>
-                    <div className="text-gray-600 font-light space-y-2 leading-relaxed">
+                    <h3 className="text-2xl font-medium text-[var(--gw-primary)] mb-4">Late Payment Policy</h3>
+                    <div className="text-lg md:text-xl text-gray-600 font-light space-y-3 leading-relaxed">
                       <p>Payment is due upon receipt of the invoice.</p>
-                      <ul className="list-disc pl-5">
+                      <ul className="list-disc pl-5 space-y-2">
                        <li>A $50 late fee will be applied to any invoice not paid within 7 days of the invoice date.</li>
                        <li>An additional $100 late fee will be applied if the invoice remains unpaid after 14 days.</li>
                       </ul>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium text-[var(--gw-primary)] mb-3">Prescription Medications Policy</h3>
-                    <div className="text-gray-600 font-light space-y-2 leading-relaxed">
+                    <h3 className="text-2xl font-medium text-[var(--gw-primary)] mb-4">Prescription Medications Policy</h3>
+                    <div className="text-lg md:text-xl text-gray-600 font-light space-y-3 leading-relaxed">
                       <p>Patients receiving medical prescriptions must see their GWCIM prescribing provider annually to maintain their prescription account, per DC regulations.</p>
                     </div>
                   </div>
                   <div>
-                    <h3 className="text-xl font-medium text-[var(--gw-primary)] mb-3">Communication Policy</h3>
-                    <div className="text-gray-600 font-light space-y-2 leading-relaxed">
+                    <h3 className="text-2xl font-medium text-[var(--gw-primary)] mb-4">Communication Policy</h3>
+                    <div className="text-lg md:text-xl text-gray-600 font-light space-y-3 leading-relaxed">
                       <p>All communication between patients, providers and administrators occurs via the secure Charm EHR Patient Portal for HIPAA compliance and record‑keeping. We do not respond to clinical or administrative emails. Use the portal for all GWCIM communications.</p>
                     </div>
                   </div>
@@ -291,8 +291,8 @@ export default function FeesAndInsurancePage() {
               </ContentSection>
 
               <ContentSection id="fee-schedule" label="Pricing" heading="Fee Schedule 2025">
-                 <div className="bg-slate-50 p-6 border-l-4 border-[var(--gw-accent)]">
-                    <p className="text-gray-700 font-light leading-relaxed">
+                 <div className="bg-slate-50 p-6 md:p-8 border-l-4 border-[var(--gw-accent)]">
+                    <p className="text-lg md:text-xl text-gray-700 font-light leading-relaxed">
                        Fees below are time-based; actual charges depend on the visit length. Additional charges may apply for follow-up and administrative times, including messaging and letters for insurance.
                     </p>
                  </div>
@@ -655,7 +655,7 @@ export default function FeesAndInsurancePage() {
                </ContentSection>
 
               <ContentSection id="groups-courses" label="Community" heading="Groups, Classes & Courses">
-                 <div className="space-y-6 text-gray-600 font-light">
+                 <div className="space-y-6 text-lg md:text-xl text-gray-600 font-light leading-relaxed">
                     <ul className="list-disc pl-5 space-y-4">
                       <li><strong>Long COVID Groups:</strong> ongoing weekly virtual with Dr. Kogan and Ashly Drapeau - $100/month</li>
                       <li><strong>ReCODE: Renewing Mind & Body Support Group</strong> with Sally Novak and others: ongoing weekly virtual – $100/month</li>
@@ -665,9 +665,9 @@ export default function FeesAndInsurancePage() {
                     </ul>
                     
                     <div className="mt-8">
-                       <h3 className="text-xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Supplements Prepared at GWCIM</h3>
-                       <p className="mb-2 italic">individual formulations</p>
-                       <ul className="list-disc pl-5 space-y-1">
+                       <h3 className="text-2xl font-bold text-[var(--gw-primary)] border-b border-gray-200 pb-2 mb-4">Supplements Prepared at GWCIM</h3>
+                       <p className="mb-3 text-lg md:text-xl italic text-slate-500">individual formulations</p>
+                       <ul className="list-disc pl-5 space-y-2">
                           <li>Tinctures $.50 per mL</li>
                           <li>Homeopathic Remedy: 15mL $23.00, 30mL $36.00, 60mL $55.00</li>
                        </ul>
@@ -675,8 +675,8 @@ export default function FeesAndInsurancePage() {
                  </div>
               </ContentSection>
 
-              <div className="mt-16 bg-[#1A365D] text-white p-6 rounded text-center">
-                 <p className="text-lg font-medium tracking-wide">
+              <div className="mt-16 bg-[var(--gw-secondary)] text-white p-8 md:p-10 rounded text-center">
+                 <p className="text-xl md:text-2xl font-medium tracking-wide">
                    Current GWU students and GWU staff receive <span className="text-[var(--gw-accent)]">20% discount</span> for all services (ID is required).
                  </p>
               </div>
