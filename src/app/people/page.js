@@ -139,24 +139,45 @@ export default function ProvidersAndStaffPage() {
   return (
     <div className="flex min-h-screen flex-col bg-[var(--gw-background)] font-sans antialiased">
       <Header />
-      <main className="bg-white flex-1 w-full pt-40 pb-24">
-      
-      {/* Breadcrumbs */}
-      <div className="max-w-6xl mx-auto px-6 mb-8 mt-4">
-        <Breadcrumbs items={[{ label: 'Our Team' }]} />
-      </div>
+      <main className="bg-white flex-1 w-full">
 
-      {/* Header Section */}
-      <section className="max-w-4xl mx-auto px-6 text-center mb-16">
-        <h1 className="text-4xl md:text-5xl lg:text-[62px] font-serif text-[var(--gw-primary)] mb-8 leading-[1.1]">
-          Meet your providers
-        </h1>
+      {/* ── HERO ── */}
+      <section className="relative w-full overflow-hidden bg-[#3E5166] pt-36 pb-20 md:pt-44 md:pb-28">
+        {/* Floating doodle icons (same style as Our Services hero) */}
+        <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
+          <img src="/images/doodles/Consultations/med-cannabis-leaf.png"        alt="" className="absolute top-[12%]  left-[4%]   w-14 md:w-20 opacity-20 rotate-[-15deg]" />
+          <img src="/images/doodles/Consultations/int-mental-lotus.png"          alt="" className="absolute top-[8%]   left-[22%]  w-12 md:w-16 opacity-20 rotate-[10deg]" />
+          <img src="/images/doodles/Consultations/naturopathic-scale.png"        alt="" className="absolute top-[55%]  left-[8%]   w-14 md:w-20 opacity-20 rotate-[5deg]" />
+          <img src="/images/doodles/Programs/ReCODE-tm-neural-cell.png"          alt="" className="absolute top-[75%]  left-[30%]  w-10 md:w-14 opacity-20 rotate-[-8deg]" />
+          <img src="/images/doodles/Treatments/acupuncture-needles.png"          alt="" className="absolute top-[20%]  right-[5%]  w-12 md:w-18 opacity-20 rotate-[12deg]" />
+          <img src="/images/doodles/Consultations/functional-three-gears.png"    alt="" className="absolute top-[60%]  right-[12%] w-14 md:w-20 opacity-20 rotate-[-10deg]" />
+          <img src="/images/doodles/Consultations/int-geriatrics-tree.png"       alt="" className="absolute top-[40%]  right-[3%]  w-10 md:w-14 opacity-20" />
+          <img src="/images/doodles/Treatments/somatic-exp-body-with-dots.png"  alt="" className="absolute top-[80%]  right-[28%] w-12 md:w-16 opacity-20 rotate-[6deg]" />
+          <img src="/images/doodles/Programs/long-covid-virus.png"               alt="" className="absolute top-[30%]  left-[48%]  w-10 md:w-14 opacity-20 rotate-[-5deg]" />
+        </div>
 
+        {/* Content */}
+        <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
+          {/* Breadcrumbs */}
+          <div className="mb-8">
+            <Breadcrumbs items={[{ label: 'Our Team' }]} variant="white" />
+          </div>
+
+          <h1 className="text-5xl md:text-6xl lg:text-[72px] font-medium uppercase text-white mb-6 leading-[1.1] tracking-wide"
+            style={{ fontFamily: 'var(--font-gt-super)' }}
+          >
+            Meet Your Providers
+          </h1>
+          <p className="text-[18px] text-[var(--gw-gold)] leading-relaxed max-w-2xl mx-auto font-light">
+            Our multidisciplinary team of integrative physicians, naturopathic doctors, and specialized practitioners work collaboratively to provide you with comprehensive, personalized care.
+          </p>
+        </div>
+      </section>
+
+      {/* Provider Selection Tool / Filters */}
+      <section className="max-w-4xl mx-auto px-6 text-center mb-16 pt-16">
         {!isToolExpanded ? (
           <div className="flex flex-col items-center animate-in fade-in duration-500">
-            <p className="text-[18px] text-[var(--gw-text-muted)] leading-relaxed max-w-2xl mx-auto font-light mb-8">
-              Our multidisciplinary team of integrative physicians, naturopathic doctors, and specialized practitioners work collaboratively to provide you with comprehensive, personalized care.
-            </p>
             <button 
               onClick={() => setIsToolExpanded(true)}
               className="inline-flex items-center gap-3 bg-[var(--gw-primary)] text-white text-[13px] font-bold uppercase tracking-widest px-8 py-5 rounded-2xl hover:bg-[var(--gw-blue)] transition-all duration-300 shadow-md group"
