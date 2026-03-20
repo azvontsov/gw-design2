@@ -208,7 +208,7 @@ export default function Header() {
 
       {/* Bottom Row: Navigation (Desktop) - Sticky */}
       <div 
-        className={`sticky top-0 z-40 w-full bg-[var(--gw-secondary-light)] border-t border-b border-[rgba(0,0,0,0.05)] hidden lg:flex flex-col shadow-sm transition-all duration-300 ${
+        className={`sticky top-0 z-40 w-full bg-[var(--gw-secondary-light)] border-[rgba(0,0,0,0.05)] hidden lg:flex flex-col shadow-sm transition-all duration-300 ${
             isScrolled ? 'border-b-0' : ''
         }`}
       >
