@@ -53,7 +53,7 @@ function ProviderAvatar({ name, credentials, image, slug, subtitle }) {
         )}
       </div>
       <div className="flex flex-col gap-1 min-w-0 flex-1">
-        <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[18px] md:text-[20px] leading-[1.3] break-words hyphens-auto">
+        <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[18px] md:text-[20px] leading-[1.3] break-words">
           {name}{credentials ? `, ${credentials}` : ''}
         </h4>
         {subtitle && (
@@ -68,12 +68,12 @@ function ProviderAvatar({ name, credentials, image, slug, subtitle }) {
 
 function SharedFeesTable({ fees, note }) {
   return (
-    <div className="bg-white border border-gray-200 p-5 md:p-8 shadow-sm flex-grow rounded-sm">
+    <div className="bg-white border border-gray-200 p-6 md:p-8 shadow-sm flex-grow rounded-sm">
       <ul className="space-y-3">
         {fees.map((f, i) => (
-          <li key={i} className="text-[17px] md:text-[19px] text-gray-600 font-light flex flex-col sm:flex-row justify-between items-start sm:items-center px-1 sm:px-2 py-3 border-b border-gray-50 last:border-0 hover:bg-slate-50 transition-colors">
-            <span className="tracking-tight pr-0 sm:pr-4 mb-1 sm:mb-0 break-words w-full sm:w-auto">{f.label}</span>
-            <span className="font-bold text-[var(--gw-primary)] shrink-0">{f.price}</span>
+          <li key={i} className="text-[17px] md:text-[19px] text-gray-600 font-light grid grid-cols-[1fr_auto] gap-x-4 gap-y-1 items-start px-3 py-3 border-b border-gray-50 last:border-0 hover:bg-slate-50 transition-colors w-full">
+            <span className="tracking-tight leading-snug break-words">{f.label}</span>
+            <span className="font-bold text-[var(--gw-primary)] text-right whitespace-nowrap pt-px">{f.price}</span>
           </li>
         ))}
       </ul>
@@ -90,33 +90,33 @@ function ProviderFeeCard({ name, credentials, image, slug, fees, note, subtitle 
   return (
     <Link 
       href={`/people/${slug || '#'}`}
-      className="flex flex-col h-full p-6 bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-[var(--gw-accent)] transition-all group rounded-none"
+      className="flex flex-col h-full p-6 bg-white border border-gray-100 shadow-sm hover:shadow-xl hover:border-[var(--gw-accent)] transition-all group rounded-none min-w-0"
     >
-      <div className="flex items-center gap-4 w-full border-b border-gray-50 pb-5 mb-5 min-h-[80px]">
-        <div className="w-16 h-16 rounded-full shrink-0 overflow-hidden border border-gray-100 shadow-sm bg-gray-50 flex items-center justify-center">
+      <div className="flex flex-col items-center text-center gap-3 w-full border-b border-gray-50 pb-5 mb-5 md:min-h-[140px]">
+        <div className="w-20 h-20 md:w-24 md:h-24 rounded-full shrink-0 overflow-hidden border border-gray-100 shadow-sm bg-gray-50 flex items-center justify-center mb-1">
           {image ? (
             <img src={image} alt={name} className="w-full h-full object-cover" />
           ) : (
-            <div className="w-full h-full bg-[var(--gw-primary)] flex items-center justify-center text-white font-bold text-xl uppercase">
+            <div className="w-full h-full bg-[var(--gw-primary)] flex items-center justify-center text-white font-bold text-2xl uppercase">
                {name.split(' ').pop().charAt(0)}
             </div>
           )}
         </div>
-        <div>
-          <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[18px] md:text-[20px] leading-tight mb-2">
+        <div className="flex flex-col gap-1.5 w-full min-w-0">
+          <h4 className="font-bold text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)] transition-colors text-[18px] md:text-[20px] leading-tight">
             {name}{credentials ? `, ${credentials}` : ''}
           </h4>
-          {subtitle && <p className="text-xs md:text-sm font-bold uppercase tracking-widest text-[var(--gw-accent)] opacity-80 mb-1">{subtitle}</p>}
-          {note && <p className="text-[14px] md:text-[15px] text-slate-500 mt-2 italic leading-relaxed">{note}</p>}
+          {subtitle && <p className="text-[11px] md:text-xs font-bold uppercase tracking-wider text-[var(--gw-accent)] opacity-90 leading-snug break-words">{subtitle.replace('/', ' / ')}</p>}
+          {note && <p className="text-[13px] md:text-[14px] text-slate-500 mt-2 italic leading-relaxed">{note}</p>}
         </div>
       </div>
       
       <div className="w-full flex-grow">
         <ul className="space-y-3">
            {fees.map((f, i) => (
-             <li key={i} className="text-[16px] md:text-[18px] text-gray-600 font-light flex flex-col sm:flex-row justify-between items-start sm:items-center px-1 sm:px-2 py-2 rounded-sm group-hover:bg-slate-50 transition-colors">
-               <span className="tracking-tight mb-1 sm:mb-0 break-words w-full sm:w-auto">{f.label}</span>
-               <span className="font-bold text-[var(--gw-primary)] shrink-0 sm:ml-3">{f.price}</span>
+             <li key={i} className="text-[15px] md:text-[16px] text-gray-600 font-light grid grid-cols-[1fr_auto] gap-x-3 gap-y-1 items-start px-3 py-2 rounded-sm group-hover:bg-slate-50 transition-colors w-full">
+               <span className="tracking-tight leading-snug break-words">{f.label}</span>
+               <span className="font-bold text-[var(--gw-primary)] text-right whitespace-nowrap pt-px">{f.price}</span>
              </li>
            ))}
         </ul>
@@ -130,10 +130,10 @@ function ExpandableServiceCard({ title, children }) {
 
   return (
     <div 
-      className={`border bg-white shadow-sm transition-all duration-300 ease-out flex flex-col mb-4 overflow-hidden ${isExpanded ? 'shadow-lg border-[var(--gw-accent)]' : 'border-gray-200 hover:shadow-md hover:border-gray-300'}`}
+      className={`border shadow-sm transition-all duration-300 ease-out flex flex-col mb-4 overflow-hidden bg-[#7A8775]/10 ${isExpanded ? 'shadow-lg border-[var(--gw-accent)]' : 'border-gray-300 hover:shadow-md hover:border-[#99A7B8]/40'}`}
     >
       <div 
-        className="group p-5 md:p-8 flex items-center justify-between cursor-pointer bg-white relative z-10 w-full text-left gap-4" 
+        className="group p-6 md:p-8 flex items-center justify-between cursor-pointer relative z-10 w-full text-left" 
         role="button" 
         aria-expanded={isExpanded} 
         tabIndex={0}
@@ -145,10 +145,10 @@ function ExpandableServiceCard({ title, children }) {
           }
         }}
       >
-        <h3 className={`text-2xl md:text-[28px] font-medium transition-colors break-words min-w-0 flex-1 ${isExpanded ? 'text-[var(--gw-blue)]' : 'text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)]'}`} style={{ fontFamily: 'var(--font-gt-super)' }}>
+        <h3 className={`text-2xl md:text-[28px] font-medium transition-colors ${isExpanded ? 'text-[var(--gw-blue)]' : 'text-[var(--gw-primary)] group-hover:text-[var(--gw-blue)]'}`} style={{ fontFamily: 'var(--font-gt-super)' }}>
           {title}
         </h3>
-        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0 ${isExpanded ? 'bg-[var(--gw-accent)] text-white border-[var(--gw-accent)]' : 'border-gray-200 text-gray-400 group-hover:bg-[var(--gw-accent)] group-hover:text-white group-hover:border-[var(--gw-accent)]'}`}>
+        <div className={`w-8 h-8 md:w-10 md:h-10 rounded-full border flex items-center justify-center transition-all duration-300 shrink-0 ml-4 ${isExpanded ? 'bg-[var(--gw-accent)] text-white border-[var(--gw-accent)]' : 'border-gray-400 text-gray-400 group-hover:bg-[var(--gw-accent)] group-hover:text-white group-hover:border-[var(--gw-accent)]'}`}>
            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className={`w-4 h-4 md:w-5 md:h-5 transition-transform duration-500 ${isExpanded ? 'rotate-180' : ''}`}>
              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
            </svg>
@@ -258,31 +258,21 @@ export default function FeesAndInsurancePage() {
               <ContentSection id="policies" label="Guidelines" heading="Office Policies">
                 <div className="bg-[#B9C1B3]/10 border border-[#B9C1B3]/30 px-6 sm:px-10 py-10 rounded-2xl shadow-sm space-y-12">
                   <div>
-                    <h3 className="text-2xl font-medium text-[var(--gw-primary)] mb-4">Cancellation Policy</h3>
+                    <h3 className="text-2xl font-medium text-red-800 mb-4">Cancellation Policy</h3>
                     <div className="text-lg md:text-xl text-gray-600 font-light space-y-3 leading-relaxed">
                       <p>Cancel or reschedule 48 business hours in advance to avoid a late fee. We’re closed Saturdays.</p>
                       <p>Late cancellations (under two business days) and no‑shows are charged 100% of the provider’s fee.</p>
                       <p><em>Example: to change a Monday appointment, you must contact us no later than the prior Thursday.</em></p>
                     </div>
                   </div>
-                  <div className="bg-red-50 border border-red-100 p-6 md:p-8 relative overflow-hidden my-12 shadow-sm">
-                    <div className="absolute top-0 left-0 w-1.5 h-full bg-red-400"></div>
-                    <div className="flex items-start gap-5">
-                      <div className="text-red-400 shrink-0 mt-1">
-                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
-                        </svg>
-                      </div>
-                      <div>
-                        <h3 className="text-2xl font-medium text-red-800 mb-3">Late Payment Policy</h3>
-                        <div className="text-lg md:text-xl text-red-900/80 font-light space-y-3 leading-relaxed">
-                          <p className="font-medium">Payment is strictly due upon receipt of the invoice.</p>
-                          <ul className="list-disc pl-5 space-y-2 mt-4 marker:text-red-400">
-                           <li>A <strong className="font-bold text-red-800">$50 late fee</strong> will be automatically applied to any invoice not paid within 7 days of the invoice date.</li>
-                           <li>An additional <strong className="font-bold text-red-800">$100 late fee</strong> will be applied if the invoice remains unpaid after 14 days.</li>
-                          </ul>
-                        </div>
-                      </div>
+                  <div>
+                    <h3 className="text-2xl font-medium text-red-800 mb-4">Late Payment Policy</h3>
+                    <div className="text-lg md:text-xl text-gray-600 font-light space-y-3 leading-relaxed">
+                      <p>Payment is due upon receipt of the invoice.</p>
+                      <ul className="list-disc pl-5 space-y-2">
+                       <li>A $50 late fee will be applied to any invoice not paid within 7 days of the invoice date.</li>
+                       <li>An additional $100 late fee will be applied if the invoice remains unpaid after 14 days.</li>
+                      </ul>
                     </div>
                   </div>
                   <div>
@@ -362,9 +352,9 @@ export default function FeesAndInsurancePage() {
                     </ExpandableServiceCard>
 
                     <ExpandableServiceCard title="Administrative">
-                      <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center bg-white p-4 shadow-sm rounded-sm gap-2">
-                        <span className="font-medium text-slate-700 break-words w-full sm:w-auto">Sleep Study Referrals Administrative Fee</span>
-                        <span className="font-bold text-[var(--gw-primary)] shrink-0">$100.00</span>
+                      <div className="grid grid-cols-[1fr_auto] gap-x-4 items-center bg-white p-4 shadow-sm rounded-sm w-full">
+                        <span className="font-medium text-slate-700 leading-snug break-words">Sleep Study Referrals Administrative Fee</span>
+                        <span className="font-bold text-[var(--gw-primary)] text-right whitespace-nowrap">$100.00</span>
                       </div>
                     </ExpandableServiceCard>
 
@@ -504,7 +494,7 @@ export default function FeesAndInsurancePage() {
                     </ExpandableServiceCard>
 
                     <ExpandableServiceCard title="Medical Cannabis Consultations">
-                      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
                         <ProviderFeeCard 
                           name="Dr. Mikhail Kogan"
                           credentials="MD"
@@ -723,12 +713,11 @@ export default function FeesAndInsurancePage() {
                         Our integrative team is currently accepting new patients with complex chronic conditions. 
                     </p>
                     <Link 
-                      href="/schedule-an-appointment"
-                      className="flex w-full items-center text-center justify-center whitespace-normal gap-1 sm:gap-2 bg-[var(--gw-accent)] text-[var(--gw-primary)] text-[11px] sm:text-[12px] font-bold uppercase tracking-widest px-2 sm:px-6 py-4 rounded-xl sm:rounded-2xl group-hover:bg-white transition-all transform hover:-translate-y-1 shadow-xl"
-                  >
-                        MAKE AN APPOINTMENT
-                        <svg className="w-4 h-4 shrink-0 transition-transform transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" /></svg>
-                  </Link>
+                        href="/schedule-an-appointment"
+                        className="flex w-full items-center justify-center gap-2 bg-[var(--gw-accent)] text-[var(--gw-primary)] text-[12px] font-bold uppercase tracking-widest px-6 py-4 rounded-2xl group-hover:bg-white transition-all transform hover:-translate-y-1 shadow-xl"
+                    >
+                        Make an Appointment
+                    </Link>
                 </div>
               </div>
 

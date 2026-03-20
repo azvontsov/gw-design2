@@ -422,41 +422,7 @@ export default async function ProviderProfilePage({ params, searchParams }) {
                </div>
             </div>
 
-            {/* Publication and Research (list) */}
-            <div className="border-b border-gray-200 pb-12">
-               <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
-                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
-                 Academic Contributions
-               </p>
-               <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 Publication and Research
-               </h2>
-               <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
-                <ul className="list-disc pl-5 space-y-2 text-slate-700">
-                  <li><strong>Integrative Geriatric Medicine</strong> (Oxford University Press) - Chief Editor</li>
-                  <li><strong>Medical Marijuana: Dr. Kogan’s Evidence-Based Guide</strong> - Author</li>
-                  <li>Various peer-reviewed articles on integrative medicine, polypharmacy reduction, and alternative pain management interventions. <em>(To be updated with full bibliography)</em></li>
-                </ul>
-               </div>
-            </div>
 
-            {/* Awards and Acknowledgments (list) */}
-            <div className="border-b border-gray-200 pb-12">
-               <p className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-3">
-                 <span className="w-1.5 h-1.5 rounded-full bg-[var(--gw-blue)] inline-block" />
-                 Recognition
-               </p>
-               <h2 className="text-[28px] md:text-[34px] font-medium text-[var(--gw-primary)] leading-snug mb-6 font-serif">
-                 Awards and Acknowledgments
-               </h2>
-               <div className="text-[16px] text-[var(--gw-text-main)] leading-relaxed space-y-4">
-                <ul className="list-disc pl-5 space-y-2 text-slate-700">
-                  <li>Recognized consistently as a Top Doctor in Washington, D.C.</li>
-                  <li>Fellowship honors in Geriatrics, George Washington University.</li>
-                  <li><em>(To be updated with full list of awards)</em></li>
-                </ul>
-               </div>
-            </div>
 
             {/* Beyond work (personal life highlights) */}
             <div className="border-b border-gray-200 pb-12">
@@ -599,6 +565,35 @@ export default async function ProviderProfilePage({ params, searchParams }) {
                  <li>GW Center for Aging, Health and Humanities</li>
                  <li>American Board of Integrative Medicine (ABPS)</li>
                  <li>AIM Health Institute (Founder & Chair)</li>
+               </ul>
+            </div>
+
+            {/* Publications (sidebar) */}
+            <div className="bg-white border border-[var(--gw-primary)]/10 shadow-sm p-6">
+               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-4 flex items-center gap-2">
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-[var(--gw-accent)]">
+                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                 </svg>
+                 Publications
+               </p>
+               <ul className="text-[13px] text-slate-700 space-y-3 list-inside list-disc">
+                 <li><strong>Integrative Geriatric Medicine</strong> (Oxford University Press) - Chief Editor</li>
+                 <li><strong>Medical Marijuana: Dr. Kogan’s Guide</strong> - Author</li>
+                 <li>Various peer-reviewed articles on integrative medicine and pain management.</li>
+               </ul>
+            </div>
+
+            {/* Awards (sidebar) */}
+            <div className="bg-white border border-[var(--gw-primary)]/10 shadow-sm p-6">
+               <p className="text-[11px] font-bold uppercase tracking-[0.2em] text-[var(--gw-blue)] mb-4 flex items-center gap-2">
+                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-4 h-4 text-[var(--gw-accent)]">
+                   <path strokeLinecap="round" strokeLinejoin="round" d="M11.48 3.499a.562.562 0 011.04 0l2.125 5.111a.563.563 0 00.475.345l5.518.442c.499.04.701.663.321.988l-4.204 3.602a.563.563 0 00-.182.557l1.285 5.385a.562.562 0 01-.84.61l-4.725-2.885a.563.563 0 00-.586 0L6.982 20.54a.562.562 0 01-.84-.61l1.285-5.386a.562.562 0 00-.182-.557l-4.204-3.602a.563.563 0 01.321-.988l5.518-.442a.563.563 0 00.475-.345L11.48 3.5z" />
+                 </svg>
+                 Awards & Recognition
+               </p>
+               <ul className="text-[13px] text-slate-700 space-y-3 list-inside list-disc">
+                 <li>Recognized consistently as a Top Doctor in Washington, D.C.</li>
+                 <li>Fellowship honors in Geriatrics, George Washington University.</li>
                </ul>
             </div>
 
