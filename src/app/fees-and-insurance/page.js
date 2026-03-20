@@ -207,7 +207,7 @@ export default function FeesAndInsurancePage() {
   };
 
   return (
-    <div className="flex flex-col min-h-screen bg-[var(--gw-secondary-light)] overflow-x-hidden">
+    <div className="flex flex-col min-h-screen bg-[var(--gw-secondary-light)]">
       <Header />
 
       {/* Hero */}
