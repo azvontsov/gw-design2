@@ -256,7 +256,7 @@ export default function FeesAndInsurancePage() {
               </ContentSection>
 
               <ContentSection id="policies" label="Guidelines" heading="Office Policies">
-                <div className="space-y-10">
+                <div className="bg-[#B9C1B3]/10 border border-[#B9C1B3]/30 px-6 sm:px-10 py-10 rounded-2xl shadow-sm space-y-12">
                   <div>
                     <h3 className="text-2xl font-medium text-[var(--gw-primary)] mb-4">Cancellation Policy</h3>
                     <div className="text-lg md:text-xl text-gray-600 font-light space-y-3 leading-relaxed">
