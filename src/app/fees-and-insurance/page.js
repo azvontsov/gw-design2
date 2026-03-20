@@ -265,14 +265,24 @@ export default function FeesAndInsurancePage() {
                       <p><em>Example: to change a Monday appointment, you must contact us no later than the prior Thursday.</em></p>
                     </div>
                   </div>
-                  <div>
-                    <h3 className="text-2xl font-medium text-[var(--gw-primary)] mb-4">Late Payment Policy</h3>
-                    <div className="text-lg md:text-xl text-gray-600 font-light space-y-3 leading-relaxed">
-                      <p>Payment is due upon receipt of the invoice.</p>
-                      <ul className="list-disc pl-5 space-y-2">
-                       <li>A $50 late fee will be applied to any invoice not paid within 7 days of the invoice date.</li>
-                       <li>An additional $100 late fee will be applied if the invoice remains unpaid after 14 days.</li>
-                      </ul>
+                  <div className="bg-red-50 border border-red-100 p-6 md:p-8 relative overflow-hidden my-12 shadow-sm">
+                    <div className="absolute top-0 left-0 w-1.5 h-full bg-red-400"></div>
+                    <div className="flex items-start gap-5">
+                      <div className="text-red-400 shrink-0 mt-1">
+                        <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h3 className="text-2xl font-medium text-red-800 mb-3">Late Payment Policy</h3>
+                        <div className="text-lg md:text-xl text-red-900/80 font-light space-y-3 leading-relaxed">
+                          <p className="font-medium">Payment is strictly due upon receipt of the invoice.</p>
+                          <ul className="list-disc pl-5 space-y-2 mt-4 marker:text-red-400">
+                           <li>A <strong className="font-bold text-red-800">$50 late fee</strong> will be automatically applied to any invoice not paid within 7 days of the invoice date.</li>
+                           <li>An additional <strong className="font-bold text-red-800">$100 late fee</strong> will be applied if the invoice remains unpaid after 14 days.</li>
+                          </ul>
+                        </div>
+                      </div>
                     </div>
                   </div>
                   <div>
