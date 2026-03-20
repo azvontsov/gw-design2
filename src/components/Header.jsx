@@ -183,10 +183,9 @@ export default function Header() {
             
 
             {/* Center: Logo */}
-            <div className="flex-1 flex justify-center min-w-0 px-2 lg:px-0">
-                <Link href="/" className="relative h-12 md:h-14 lg:h-16 w-full max-w-[60vw] md:max-w-none flex items-center justify-center">
-                    {/* Placeholder for Logo - In a real scenario use the Image component */}
-                    <img src="/icons/logo.svg" alt="GW Center" className="max-h-full max-w-full object-contain" />
+            <div className="flex-1 flex justify-center min-w-0 px-2 lg:px-4">
+                <Link href="/" className="flex items-center justify-center h-10 md:h-12 lg:h-16 w-full max-w-[180px] md:max-w-[220px] lg:max-w-none">
+                    <img src="/icons/logo.svg" alt="GW Center" className="h-full w-auto max-w-full object-contain" />
                 </Link>
             </div>
 
@@ -261,8 +260,8 @@ export default function Header() {
                                             isScrolled ? 'max-w-[500px] opacity-100 mx-2' : 'max-w-0 opacity-0 -mx-4'
                                         }`}
                                     >
-                                        <Link href="/" className="flex items-center hover:opacity-80 shrink-0 list-none">
-                                            <img src="/icons/logo.svg" alt="GW Center" className="h-8 xl:h-10 w-auto object-contain shrink-0" />
+                                        <Link href="/" className="flex items-center hover:opacity-80 shrink-0">
+                                            <img src="/icons/logo.svg" alt="GW Center" className="h-7 xl:h-9 w-auto max-w-[160px] xl:max-w-[200px] object-contain" />
                                         </Link>
                                     </div>
                                 )}
